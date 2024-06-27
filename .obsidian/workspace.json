@@ -95,9 +95,11 @@
             "id": "16c10d0869d4d060",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md"
+                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -168,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md",
+                "file": "Blog/AWS/VPC 통제 3요소.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -185,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md",
+                "file": "Blog/AWS/VPC 통제 3요소.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -208,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md"
+                "file": "Blog/AWS/VPC 통제 3요소.md"
               }
             }
           }
@@ -234,8 +236,8 @@
   },
   "active": "16c10d0869d4d060",
   "lastOpenFiles": [
+    "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
-    "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md",
     "Blog/AWS/Excalidraw/SG 패킷 허용 원리.md",
     "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
