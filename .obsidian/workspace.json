@@ -78,9 +78,31 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "88b61a3d752e2337",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "16c10d0869d4d060",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md"
+              }
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -146,7 +168,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -163,7 +185,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +208,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md"
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md"
               }
             }
           }
@@ -210,11 +232,14 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "8d29d3d570e8c646",
+  "active": "16c10d0869d4d060",
   "lastOpenFiles": [
+    "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
+    "Blog/AWS/Excalidraw/Drawing 2024-06-28 04.08.14.excalidraw.md",
+    "Blog/AWS/Excalidraw/SG 패킷 허용 원리.md",
+    "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
-    "Blog/AWS/VPC 통제 3요소.md",
     "Untitled.md",
     "Blog/AWS/Excalidraw/Whitelist based 규칙 순서에 따른 결과.md",
     "Blog/AWS/Excalidraw/RDS 인스턴스를 서브넷 그룹 변경을 위한 예.md",

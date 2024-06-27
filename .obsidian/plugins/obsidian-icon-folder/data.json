@@ -6,6 +6,7 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "👮",
       "RiDatabase2Line",
       "RiIdCardFill",
       "RiMarkPenLine",
@@ -34,5 +35,6 @@
   "Blog/AWS": "RiAmazonFill",
   "Blog/AWS/Excalidraw": "RiMarkPenLine",
   "Blog/AWS/ENI IP 에 대해서.md": "RiIdCardFill",
-  "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md": "RiDatabase2Line"
+  "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md": "RiDatabase2Line",
+  "Blog/AWS/VPC 통제 3요소.md": "👮"
 }
