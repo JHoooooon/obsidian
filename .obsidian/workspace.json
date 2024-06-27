@@ -1,0 +1,163 @@
+{
+  "main": {
+    "id": "a3a8491c134ce07c",
+    "type": "split",
+    "children": [
+      {
+        "id": "206a388fef5f5af2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "893fbb3153f40d18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3901a0ef406ec6c5",
+    "type": "split",
+    "children": [
+      {
+        "id": "de49c6328380f6ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93aca785895e07c9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "00bc274f9b7a9361",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a6c3e9d5468263c6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "197648690abfb0fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "005858378c8fe322",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f2f3cedc8acfa3c0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
+                "collapseAll": true,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b2e7dbd65772e41f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3ee451e1e44b892e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "95fc7c2f3a5de216",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "893fbb3153f40d18",
+  "lastOpenFiles": [
+    "Excalidraw/Drawing 2024-06-27 18.55.52.excalidraw.md",
+    "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
+    "Blog/AWS/ENI IP 에 대해서.md",
+    "Excalidraw/Drawing 2024-06-27 18.35.35.excalidraw.md",
+    "Excalidraw",
+    "Blog/AWS/Excalidraw/네트워킹 작업에 따른에 따른 퍼블릭 IP 변화 과정 2.md",
+    "Template/Untitled.md",
+    "Template",
+    "Planner/Welcome.md",
+    "Blog/AWS/Excalidraw/네트워킹 작업에 따른 퍼블릭 IP 변화 과정.md"
+  ]
+}
