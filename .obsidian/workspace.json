@@ -8,103 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "893fbb3153f40d18",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7e26425e1bdb6479",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d2d9c4984f7916ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e220466227ea87ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2d0f4e6750b4bd7b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8d29d3d570e8c646",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "88b61a3d752e2337",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "16c10d0869d4d060",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "file": "Blog/AWS/Excalidraw/경로 제어 라우팅 테이블.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 7
+        ]
       }
     ],
     "direction": "vertical"
@@ -170,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "file": "Blog/AWS/Excalidraw/경로 제어 라우팅 테이블.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -187,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md",
+                "file": "Blog/AWS/Excalidraw/경로 제어 라우팅 테이블.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소.md"
+                "file": "Blog/AWS/Excalidraw/경로 제어 라우팅 테이블.md"
               }
             }
           }
@@ -236,10 +151,11 @@
   },
   "active": "16c10d0869d4d060",
   "lastOpenFiles": [
+    "Blog/AWS/VPC 통제 3요소.md",
+    "Blog/AWS/Excalidraw/경로 제어 라우팅 테이블.md",
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/SG 패킷 허용 원리.md",
-    "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
     "Untitled.md",
