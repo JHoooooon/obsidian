@@ -47,8 +47,19 @@
                 "file": "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md"
               }
             }
+          },
+          {
+            "id": "2de2c6fbdafb49f7",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -180,17 +191,18 @@
   },
   "active": "8135fddf88a682ff",
   "lastOpenFiles": [
-    "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md",
-    "Blog/AWS/Excalidraw/VPC 환경 구성과 라우팅 테이블.md",
+    "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
     "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+    "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md",
+    "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
+    "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
+    "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
+    "Blog/AWS/Excalidraw/VPC 환경 구성과 라우팅 테이블.md",
     "Blog/AWS/AWS VPC 의 라우팅 개념.md",
     "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
-    "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
     "Blog/AWS/온프래미스의 라우팅 개념.md",
-    "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
-    "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/SG 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
@@ -207,7 +219,6 @@
     "plugin_libs/aws-architecture-icons.excalidrawlib",
     "plugin_libs",
     "Excalidraw/Drawing 2024-06-27 18.55.52.excalidraw.md",
-    "Excalidraw/Drawing 2024-06-27 18.35.35.excalidraw.md",
     "Excalidraw",
     "Template"
   ]
