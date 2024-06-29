@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
+                "file": "Blog/AWS/AWS VPC 의 라우팅 개념.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
+                "file": "Blog/AWS/AWS VPC 의 라우팅 개념.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
+                "file": "Blog/AWS/AWS VPC 의 라우팅 개념.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md"
+                "file": "Blog/AWS/AWS VPC 의 라우팅 개념.md"
               }
             }
           }
@@ -167,8 +167,9 @@
   },
   "active": "bd227000e9c072b0",
   "lastOpenFiles": [
+    "Blog/AWS/온프래미스의 라우팅 개념.md",
+    "Blog/AWS/AWS VPC 의 라우팅 개념.md",
     "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
-    "Blog/AWS/경로 제어 라우팅 테이블.md",
     "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
