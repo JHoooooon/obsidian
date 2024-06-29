@@ -8,16 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "16c10d0869d4d060",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md"
-              }
-            }
-          },
-          {
             "id": "bd227000e9c072b0",
             "type": "leaf",
             "state": {
@@ -26,6 +16,22 @@
                 "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "912405a4e9a5c3ff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "16c10d0869d4d060",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md"
               }
             }
           }
@@ -95,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
+                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -112,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
+                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md"
+                "file": "Blog/AWS/경로 제어 라우팅 테이블.md"
               }
             }
           }
@@ -159,10 +165,10 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "16c10d0869d4d060",
+  "active": "bd227000e9c072b0",
   "lastOpenFiles": [
-    "Blog/AWS/경로 제어 라우팅 테이블.md",
     "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
+    "Blog/AWS/경로 제어 라우팅 테이블.md",
     "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
