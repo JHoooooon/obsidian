@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "🌏",
       "RiAmazonFill",
       "RiRouteFill",
       "👮",
-      "RiDatabase2Line",
-      "RiIdCardFill"
+      "RiDatabase2Line"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -38,5 +38,6 @@
   "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md": "RiDatabase2Line",
   "Blog/AWS/VPC 통제 3요소.md": "👮",
   "Blog/AWS/온프래미스의 라우팅 개념.md": "RiRouteFill",
-  "Blog/AWS/AWS VPC 의 라우팅 개념.md": "RiRouteFill"
+  "Blog/AWS/AWS VPC 의 라우팅 개념.md": "RiRouteFill",
+  "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏"
 }
