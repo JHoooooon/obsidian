@@ -11,21 +11,21 @@
             "id": "16c10d0869d4d060",
             "type": "leaf",
             "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md"
+              }
+            }
+          },
+          {
+            "id": "bd227000e9c072b0",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "ec58561e31efabf9",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md"
               }
             }
           }
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 284.5,
-    "collapsed": true
+    "width": 284.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -96,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
+                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -113,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md",
+                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/경로 제어 라우팅 테이블.md"
+                "file": "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md"
               }
             }
           }
@@ -162,8 +161,9 @@
   },
   "active": "16c10d0869d4d060",
   "lastOpenFiles": [
-    "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/경로 제어 라우팅 테이블.md",
+    "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
+    "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/VPC 통제 3요소.md",
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
