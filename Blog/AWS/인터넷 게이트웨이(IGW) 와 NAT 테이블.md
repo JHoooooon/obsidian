@@ -128,8 +128,7 @@ NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
 2.  NAT-* 을 가진 Public Subnet 의 **NAT gateway 이는 해당 트래픽의 Dest 를 확인후 122.245.192.71/32 인것을 확인한후 IGW-* 으로 트래픽을 전송**하는것을 확인할수 있다.
 
 실제 NAT Gateway 의 주소변환 프로세스는 다음과 같다
-
-![[NAT Gateway 변환 Process.png]]
+![[NAT Gateway 변환 프로세스.png]]
 
 **NAT Gateway 는 위처럼 Target 을 변경하여 처리해준다.**
 
@@ -141,14 +140,16 @@ NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
 >>**Public Subnet IP:** 92.75.100.0/24
 >>>**NAT Gateway IP:** 92.75.100.244
 >>>**EIP:** 3.5.135.95
+>
+>**Destination IP:** 122.248.192.71
 
+---
 1. **Private Subnet 의 92.75.20.100 에서 122.248.192.71/32 에 Traffic 을 보낸다**
 
-**Traffic 의 Source / Dest**
-
-| Source       | Dest           |
-| :----------- | :------------- |
-| 92.75.20.100 | 122.248.192.71 |
+>[!info]
+>>**Private Subnet IP**: 92.75.20.0/24
+>>>**Private Subnet Instance IP**: 92.75.20.100
+> **Destination IP:** 122.248.192.71
 
 **Route Table**
 
@@ -156,20 +157,43 @@ NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
 | :---------------- | :----- |
 | 92.75.0.0/16      | Local  |
 | 122.248.192.71/32 | NAT-*  |
+
+**Traffic 의 Source / Dest**
+
+| Source       | Dest           |
+| :----------- | :------------- |
+| 92.75.20.100 | 122.248.192.71 |
+
+---
 
 2.  **Route Table 에 따라 122.248.192.71/32 의 범위의 IP 는 Public Subnet 의 Nat Gateway(Nat-\*) 으로  트래픽이 전송된다**
 
-3. NAT Gateway 는 받은 트래픽을 자신의 Private IP 로 변경해서 IGW 로 전송한다
+---
 
-**Traffic 의 Source / Dest**
+3. **NAT Gateway 는 받은 트래픽을 자신의 Private IP 로 변경해서 IGW 로 전송한다**
+	NAT Gateway 에 EIP 가 연결되어 있으므로 IGW 의 NAT Table 은 NAT Gateway 의 Private IP 와 EIP 를 매핑한 테이블을 가지고 있다.
 
-| Source       | Dest           |
-| :----------- | :------------- |
-| 92.75.20.100 | 122.248.192.71 |
+>[!info]
+>>**Public Subnet IP:** 92.75.100.0/24
+>>>**NAT Gateway IP:** 92.75.100.244
+>>>**EIP:** 3.5.135.95
 
 **Route Table**
 
 | Dest              | Target |
 | :---------------- | :----- |
 | 92.75.0.0/16      | Local  |
-| 122.248.192.71/32 | NAT-*  |
+| 122.248.192.71/32 | IGW-*  |
+
+**Traffic 의 Source / Dest**
+
+| Source        | Dest           |
+| :------------ | :------------- |
+| 92.75.100.244 | 122.248.192.71 |
+
+---
+
+4. **IGW 는 받은 Traffic 의 Source 를 NAT Table 에 기입된 Private IP 주소와 매핑된 Public IP 로 변경후 Traffic 을 Internet 으로 보낸다** 
+
+>[!info] 자세한 내용은 [[인터넷 게이트웨이(IGW) 와 NAT 테이블#Internet Gateway 와 NAT 테이블]] 을 참고하면 된다.
+
