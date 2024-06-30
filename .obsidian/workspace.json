@@ -8,17 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c713f1f22a2ce0f8",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md"
-              }
-            }
-          },
-          {
-            "id": "cd07155c41bf988f",
+            "id": "a544a08cf50e5b6b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -28,9 +18,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "fd7713be01c6dadc",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-30 22.44.08.excalidraw.md"
+              }
+            }
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "94161c6a62a68cfb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c713f1f22a2ce0f8",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md"
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-30 22.44.08.excalidraw.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -113,7 +129,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-30 22.44.08.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +152,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md"
+                "file": "Blog/AWS/Excalidraw/Drawing 2024-06-30 22.44.08.excalidraw.md"
               }
             }
           }
@@ -160,13 +176,16 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "cd07155c41bf988f",
+  "active": "fd7713be01c6dadc",
   "lastOpenFiles": [
-    "Untitled 1.md",
-    "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
-    "Blog/AWS/AWS VPC 의 라우팅 개념.md",
-    "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
+    "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
+    "Blog/AWS/Excalidraw/Drawing 2024-06-30 22.44.08.excalidraw.md",
     "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
+    "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
+    "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "Blog/AWS/AWS VPC 의 라우팅 개념.md",
     "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
@@ -179,15 +198,12 @@
     "Blog/AWS/Excalidraw/SG 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
     "Blog/AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
-    "Untitled.md",
     "Blog/AWS/Excalidraw/Whitelist based 규칙 순서에 따른 결과.md",
     "Blog/AWS/Excalidraw/RDS 인스턴스를 서브넷 그룹 변경을 위한 예.md",
     "Blog/AWS/Excalidraw/Hybrid 방식 접근제어.md",
     "Blog/AWS/Excalidraw/MYSql Instance 변화 과정.md",
     "Blog/AWS/Excalidraw/Aurora 의 변화과정.md",
     "Blog/AWS/Excalidraw/네트워킹 작업에 따른 퍼블릭 IP 변화 과정.md",
-    "Blog/AWS/Excalidraw/VPC 와 가용영역에 생성된 서브넷 그룹.md",
-    "Blog/AWS/ENI IP 에 대해서.md",
     "plugin_libs/aws-architecture-icons.excalidrawlib",
     "plugin_libs",
     "Excalidraw",

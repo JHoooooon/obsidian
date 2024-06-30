@@ -84,10 +84,53 @@ Private Subnet 은 DB 에 대한 직접적인 접근, 혹은 인증이 필요한
 이는 122.245.192.71 는 인터넷 게이트웨이를 통해 outbound 하라는 것이다.
 **반면 Private Subnet 은 Target 이 Local 밖에 없다**
 
-**이는** Private Subnet 은 Local 통신만 가능하다는 이야기이다
+**이는 Private Subnet 은 Local 통신만 가능하다는 이야기이다**
 
 >[!warning] AWS 에서는 On-Link 를 Local 이라 한다. 
 >[[AWS VPC 의 라우팅 개념]] 과 [[온프래미스의 라우팅 개념]] 에서 내용확인 가능하다
 
- **그럼 프라이빗 Subnet 은 Internet 을 사용할수 없는가?**
+ 그럼 프라이빗 Subnet 은 Internet 을 사용할수 없는가?
+**NAT Gateway 를 사용하면 가능하다**
+
+### NAT Gateway
+
+NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
+이는 다음과 같은 특성이 있다
+
+1. **NAT 게이트웨이는 Source IP 변환이 주목적이다.**
+	Public 유형과 Private 유형이 있다
+	
+2. **Public 유형은 Private IP 만 소유한 서비스가 인터넷 접속이 필요할때 사용하고, Private 유형은 인터넷 접속과 관계없이 소스 주소 변환 목적으로만 사용된다**
+
+3. **NAT 게이트웨이의 패런트는 Subnet 이다.**
+
+4. NAT 게이트웨이는 ***Routing ENI*** 를 사용하는 서비스이다.**
+
+5. Routing ENI 는 SG 를 사용하지 않으며, **소스/대상 확인** **(source/dest check)** 옵션이 **disabled** 되어있다. 이는 **source/dest** 확인 없이 단순 트래픽을 포워딩 한다는것이다.
+
+6. **NAT 게이트웨이의 ENI 는 요청자 관리형이다.** 그러므로 ENI 화면에서 **옵션 변경이 불가**하다
+
+7. **퍼블릭 유형의 NAT 게이트웨이를 생성하려면 인터넷 접속에 필요한 EIP 를 연결해야 한다.**
+	연결할 시점에 리전에 할당된 탄력적 IP 가 없으면 NAT 게이트웨이 생성 단계에서 EIP 할당과 동시에 연결할수도 있다.
+
+8. **NAT 게이트웨이를 라우팅 타깃으로 설정하면 라우팅 대상의 모든 트래픽은 NAT 게이트웨이로 전달된다.**
+
+9. **Public 유형의 NAT 게이트웨이로 진입한 트래픽은 EIP 로써 인터넷에 전송된다.**
+
+다음은 NAT 게이트웨이의 동작 토폴로지이다.
+
+![[프라이빗 서브넷의 NAT 게이트웨이 연동]]
+
+해당 토폴로지를 보면 
+
+1. **122.245.192.71/32 요청시 NAT-* 으로 Target 으로 트래픽을 전송** 한다.
+
+2.  NAT-* 을 가진 Public Subnet 의 **NAT gateway 이는 해당 트래픽의 Dest 를 확인후 122.245.192.71/32 인것을 확인한후 IGW-* 으로 트래픽을 전송**하는것을 확인할수 있다.
+
+실제 NAT Gateway 의 주소변환 프로세스는 다음과 같다
+
+
+
+**NAT Gateway 는 위처럼 Target 을 변경하여 처리해준다.**
+
 
