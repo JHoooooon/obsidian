@@ -129,8 +129,19 @@ NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
 
 실제 NAT Gateway 의 주소변환 프로세스는 다음과 같다
 
-
+![[NAT Gateway 변환 프로세스.png]]
 
 **NAT Gateway 는 위처럼 Target 을 변경하여 처리해준다.**
 
+1. Private Subnet 의 92.75.100.128 에서 122.248.192.71/32 에 Traffic 을 보낸다
 
+**Traffic 의 Source / Dest**
+
+| Source        | Dest           |
+| :------------ | :------------- |
+| 92.75.100.128 | 122.248.192.71 |
+
+**Traffic 의 Source / Dest**
+
+| Source        | Dest           |
+| :------------ | :------------- |
