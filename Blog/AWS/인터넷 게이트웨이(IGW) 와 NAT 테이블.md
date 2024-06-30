@@ -129,19 +129,47 @@ NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
 
 실제 NAT Gateway 의 주소변환 프로세스는 다음과 같다
 
-![[NAT Gateway 변환 프로세스.png]]
+![[NAT Gateway 변환 Process.png]]
 
 **NAT Gateway 는 위처럼 Target 을 변경하여 처리해준다.**
 
-1. Private Subnet 의 92.75.100.128 에서 122.248.192.71/32 에 Traffic 을 보낸다
+>[!info] IP 정리
+>**VPC IP**: 92.75.0.0/16
+>>**Private Subnet IP**: 92.75.20.0/24
+>>>**Private Subnet Instance IP**: 92.75.20.100
+>
+>>**Public Subnet IP:** 92.75.100.0/24
+>>>**NAT Gateway IP:** 92.75.100.244
+>>>**EIP:** 3.5.135.95
+
+1. **Private Subnet 의 92.75.20.100 에서 122.248.192.71/32 에 Traffic 을 보낸다**
 
 **Traffic 의 Source / Dest**
 
-| Source        | Dest           |
-| :------------ | :------------- |
-| 92.75.100.128 | 122.248.192.71 |
+| Source       | Dest           |
+| :----------- | :------------- |
+| 92.75.20.100 | 122.248.192.71 |
+
+**Route Table**
+
+| Dest              | Target |
+| :---------------- | :----- |
+| 92.75.0.0/16      | Local  |
+| 122.248.192.71/32 | NAT-*  |
+
+2.  **Route Table 에 따라 122.248.192.71/32 의 범위의 IP 는 Public Subnet 의 Nat Gateway(Nat-\*) 으로  트래픽이 전송된다**
+
+3. NAT Gateway 는 받은 트래픽을 자신의 Private IP 로 변경해서 IGW 로 전송한다
 
 **Traffic 의 Source / Dest**
 
-| Source        | Dest           |
-| :------------ | :------------- |
+| Source       | Dest           |
+| :----------- | :------------- |
+| 92.75.20.100 | 122.248.192.71 |
+
+**Route Table**
+
+| Dest              | Target |
+| :---------------- | :----- |
+| 92.75.0.0/16      | Local  |
+| 122.248.192.71/32 | NAT-*  |
