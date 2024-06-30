@@ -36,4 +36,7 @@ IGW 를 통과한 트래픽은 인터넷으로 전송된다
  
 이를 통해 IGW  가 Public Subnet 이어야 하는 이유와 Instance 에 EIP 및 Public IP 를 사용하여 통신해야 하는 이유를 알게 되었다.
 
-
+>[!warning] 그럼 프라이빗 Subnet 은 Internet 을 사용할수 없는가?
+>
+**결론적으로 말하면 사용할수도 있다.** 하지만 Private Subnet 만으로는 힘들다
+이를 사용하기 위해서는 NAT Gateway 가 필요하다
