@@ -11,8 +11,12 @@
             "id": "c713f1f22a2ce0f8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md"
+              }
             }
           }
         ]
