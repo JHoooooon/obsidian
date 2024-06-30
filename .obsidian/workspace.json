@@ -11,6 +11,16 @@
             "id": "c713f1f22a2ce0f8",
             "type": "leaf",
             "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md"
+              }
+            }
+          },
+          {
+            "id": "cd07155c41bf988f",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
@@ -19,7 +29,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -149,16 +160,18 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "c713f1f22a2ce0f8",
+  "active": "cd07155c41bf988f",
   "lastOpenFiles": [
-    "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
+    "Untitled 1.md",
     "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+    "Blog/AWS/AWS VPC 의 라우팅 개념.md",
+    "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
+    "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
     "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
     "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/Excalidraw/VPC 환경 구성과 라우팅 테이블.md",
-    "Blog/AWS/AWS VPC 의 라우팅 개념.md",
     "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
     "Blog/AWS/온프래미스의 라우팅 개념.md",
     "Blog/AWS/VPC 통제 3요소.md",
@@ -175,10 +188,8 @@
     "Blog/AWS/Excalidraw/네트워킹 작업에 따른 퍼블릭 IP 변화 과정.md",
     "Blog/AWS/Excalidraw/VPC 와 가용영역에 생성된 서브넷 그룹.md",
     "Blog/AWS/ENI IP 에 대해서.md",
-    "서브넷 그룹에 속한 RDS 서비스.md",
     "plugin_libs/aws-architecture-icons.excalidrawlib",
     "plugin_libs",
-    "Excalidraw/Drawing 2024-06-27 18.55.52.excalidraw.md",
     "Excalidraw",
     "Template"
   ]
