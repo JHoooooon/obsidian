@@ -8,31 +8,16 @@
         "type": "tabs",
         "children": [
           {
-            "id": "20f175a986eb2370",
+            "id": "2fa3421514996e19",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f40d0bcdbf47b236",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
-                "mode": "source",
-                "source": false
+                "file": "Blog/AWS/Images/엣지에 연결된 라우팅 테이블 1.png"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 284.5
+    "width": 377.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -98,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+                "file": "Blog/AWS/Images/엣지에 연결된 라우팅 테이블 1.png",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -115,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+                "file": "Blog/AWS/Images/엣지에 연결된 라우팅 테이블 1.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md"
+                "file": "Blog/AWS/Images/엣지에 연결된 라우팅 테이블 1.png"
               }
             }
           }
@@ -162,44 +147,44 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "f40d0bcdbf47b236",
+  "active": "2fa3421514996e19",
   "lastOpenFiles": [
-    "Pasted image 20240702065104.png",
-    "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
-    "Blog/AWS/Excalidraw/중첩된 CIDR.md",
-    "Blog/AWS/Excalidraw/East-West 트래픽 검사.md",
-    "Blog/AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
-    "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
-    "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
-    "Blog/AWS/East-West 트래픽 검사.md",
-    "Blog/AWS/Images/East-West 검사.png",
-    "Blog/AWS/Images/East-West 검사.png",
+    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
+    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블 1.png",
+    "Blog/AWS/Images/NAT Gateway 변환 프로세스.png",
+    "Blog/AWS/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
+    "Blog/AWS/Excalidraw/Public IP 자동 할당 옵션에 따른 순서도.md",
+    "Blog/AWS/Excalidraw/네트워킹 작업에 따른 퍼블릭 IP 변화 과정.md",
+    "Blog/AWS/Excalidraw/네트워킹 작업에 따른에 따른 퍼블릭 IP 변화 과정 2.md",
+    "Blog/AWS/Excalidraw/인스턴스 유형별 ENI.md",
+    "Blog/AWS/Excalidraw/추가 ENI 를 연결한 상태의 인스턴스 중지.md",
+    "Blog/AWS/Excalidraw/탄력적 IP 연결 해제 및 ENI 연결 분리 프로세스.md",
+    "Blog/AWS/Excalidraw/프라이빗 인스턴스와 잠재적 퍼블릭 인스턴스.md",
+    "Blog/AWS/Excalidraw/RDS 인스턴스를 서브넷 그룹 변경을 위한 예.md",
+    "Blog/AWS/Excalidraw/MYSql Instance 변화 과정.md",
     "Blog/AWS/Excalidraw/Aurora 의 변화과정.md",
     "Blog/AWS/Excalidraw/Hybrid 방식 접근제어.md",
-    "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
+    "Blog/AWS/Excalidraw/Whitelist based 규칙 순서에 따른 결과.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/Excalidraw/VPC 환경 구성과 라우팅 테이블.md",
     "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md",
+    "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
     "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
-    "Untitled 1.md",
-    "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
+    "Blog/AWS/Excalidraw/East-West 트래픽 검사.md",
+    "Blog/AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
+    "Blog/AWS/Excalidraw/중첩된 CIDR.md",
+    "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
+    "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
+    "Blog/AWS/Images/East-West 검사.png",
+    "Blog/AWS/Images/East-West 검사.png",
     "Blog/AWS/Images/Routing Longest Prefix Match 기법.png",
     "Blog/AWS/Images/중첩된 CIDR.png",
-    "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
-    "Blog/AWS/Images/NAT Gateway 변환 프로세스.png",
     "Blog/AWS/Images/NAT Gateway 변환 Process.png",
-    "Blog/AWS/Excalidraw/NAT Gateway 변환 프로세스.md",
     "Pasted image 20240701034809.png",
-    "Untitled.md",
     "Blog/AWS/Images/NatGateway 변환 프로세스.png",
     "Blog/AWS/Images",
-    "Pasted image 20240701004426.png",
-    "Blog/AWS/AWS VPC 의 라우팅 개념.md",
-    "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
-    "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md",
-    "Blog/AWS/온프래미스의 라우팅 개념.md",
     "plugin_libs/aws-architecture-icons.excalidrawlib",
     "plugin_libs",
     "Excalidraw",
