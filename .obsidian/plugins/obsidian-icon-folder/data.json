@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "🚦",
+      "RiSortDesc",
       "🌏",
       "RiAmazonFill",
-      "RiRouteFill",
-      "👮",
-      "RiDatabase2Line"
+      "RiRouteFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -39,5 +39,7 @@
   "Blog/AWS/VPC 통제 3요소.md": "👮",
   "Blog/AWS/온프래미스의 라우팅 개념.md": "RiRouteFill",
   "Blog/AWS/AWS VPC 의 라우팅 개념.md": "RiRouteFill",
-  "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏"
+  "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏",
+  "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md": "RiSortDesc",
+  "Blog/AWS/East-West 트래픽 검사.md": "🚦"
 }
