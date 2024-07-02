@@ -13,13 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+                "file": "Blog/AWS/기본게이트웨이와 그 위험성.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "ca597f791216a4b1",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20240702210932.png"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+                "file": "Pasted image 20240702210932.png",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+                "file": "Pasted image 20240702210932.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md"
+                "file": "Pasted image 20240702210932.png"
               }
             }
           },
@@ -158,24 +169,27 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "fe6bc1ad4d87d368",
+  "active": "ca597f791216a4b1",
   "lastOpenFiles": [
-    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
+    "Blog/AWS/기본게이트웨이와 그 위험성.md",
+    "Pasted image 20240702210932.png",
+    "Blog/AWS/Excalidraw/Drawing 2024-07-02 20.51.40.excalidraw.md",
+    "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
+    "Blog/AWS/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
+    "Blog/AWS/Excalidraw/중첩된 CIDR.md",
+    "Blog/AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
+    "Blog/AWS/Excalidraw/East-West 트래픽 검사.md",
+    "Blog/AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
     "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
     "Blog/LearnSQL",
     "Test.c.ts",
     "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
     "Blog/AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
-    "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",
-    "Blog/AWS/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
-    "Blog/AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
     "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
     "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
     "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
-    "Blog/AWS/Excalidraw/중첩된 CIDR.md",
-    "Blog/AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
-    "Blog/AWS/Excalidraw/East-West 트래픽 검사.md",
     "Untitled.md",
     "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
     "Blog/AWS/East-West 트래픽 검사.md",
@@ -188,8 +202,6 @@
     "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
     "Blog/AWS/Excalidraw/SG 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
-    "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
-    "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/Images/NAT Gateway 변환 프로세스.png",
     "Blog/AWS/Images/East-West 검사.png",
     "Blog/AWS/Images/East-West 검사.png",
