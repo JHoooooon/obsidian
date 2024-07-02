@@ -13,23 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/ENI IP 에 대해서.md",
+                "file": "AWS/온프래미스의 라우팅 개념.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "7aaf915ad756aa49",
+            "id": "5f788f87984fe7ac",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "AWS/Excalidraw/네트워킹 작업에 따른에 따른 퍼블릭 IP 변화 과정 2.md"
+                "file": "데이터베이스 생성.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -79,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 374.5
+    "width": 374.5,
+    "collapsed": true
   },
   "right": {
     "id": "6c475af076e2364e",
@@ -95,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/ENI IP 에 대해서.md",
+                "file": "데이터베이스 생성.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AWS/ENI IP 에 대해서.md",
+                "file": "데이터베이스 생성.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AWS/ENI IP 에 대해서.md"
+                "file": "데이터베이스 생성.md"
               }
             }
           }
@@ -158,26 +162,47 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "73fe2b601793da63",
+  "active": "5f788f87984fe7ac",
   "lastOpenFiles": [
-    "AWS/Excalidraw/네트워킹 작업에 따른에 따른 퍼블릭 IP 변화 과정 2.md",
-    "AWS/Excalidraw/네트워킹 작업에 따른 퍼블릭 IP 변화 과정.md",
-    "AWS/Excalidraw/Public IP 자동 할당 옵션에 따른 순서도.md",
-    "AWS/Excalidraw/추가 ENI 를 연결한 상태의 인스턴스 중지.md",
+    "AWS/온프래미스의 라우팅 개념.md",
+    "데이터베이스 생성.md",
+    "SQL",
+    "AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
+    "AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
     "AWS/ENI IP 에 대해서.md",
-    "AWS/Excalidraw/t2.medium 인스턴스 할당한 ENI.md",
-    "AWS/Excalidraw/인스턴스 유형별 ENI.md",
-    "AWS/Excalidraw/탄력적 IP 연결 해제 및 ENI 연결 분리 프로세스.md",
+    "AWS/VPC 통제 3요소.md",
+    "AWS/VPC 를 사용하는 데이터베이스 종류.md",
+    "AWS/Images/중첩된 CIDR.png",
+    "AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",
+    "AWS/Images/엣지에 연결된 라우팅 테이블.png",
+    "AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
+    "AWS/Images/Routing Longest Prefix Match 기법.png",
+    "AWS/Images/NAT Gateway 변환 프로세스.png",
+    "AWS/Images/East-West 검사.png",
+    "AWS/Images",
+    "AWS/Excalidraw/효율적인 접근 제어 사례.md",
+    "AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
+    "AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
+    "AWS/Excalidraw/트래픽 라우팅 경로.md",
+    "AWS/Excalidraw/중첩된 CIDR.md",
+    "AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
+    "AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
+    "AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
+    "AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
+    "AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
+    "AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
+    "AWS/Excalidraw/Whitelist based 규칙 순서에 따른 결과.md",
+    "AWS/Excalidraw/VPC 환경 구성과 라우팅 테이블.md",
+    "AWS/Excalidraw/VPC 인터넷 통신 요건.md",
+    "AWS/Excalidraw/VPC 와 가용영역에 생성된 서브넷 그룹.md",
+    "AWS/Excalidraw/SG 패킷 허용 원리.md",
+    "AWS/Excalidraw/RDS 인스턴스를 서브넷 그룹 변경을 위한 예.md",
+    "AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "AWS/Excalidraw/Untitled.canvas",
-    "AWS/Excalidraw/프라이빗 인스턴스와 잠재적 퍼블릭 인스턴스.md",
-    "인스턴스.md",
-    "Untitled.md",
     "AWS/Excalidraw",
     "Untitled.canvas",
     "Untitled Diagram.svg",
-    "AWS",
-    "Home.md",
-    "Welcom.md",
-    "Welcome.md"
+    "AWS"
   ]
 }
