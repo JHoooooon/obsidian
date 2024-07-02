@@ -4,28 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "0b7577eab888edc6",
+        "id": "1e1215fca84ad106",
         "type": "tabs",
         "children": [
           {
-            "id": "fe6bc1ad4d87d368",
+            "id": "23214c52e8b37ab9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
+                "file": "Blog/네트워크/프로토콜/Untitled.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "21f79833efb6a964",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md"
               }
             }
           }
@@ -95,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
+                "file": "Blog/네트워크/프로토콜/Untitled.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -112,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
+                "file": "Blog/네트워크/프로토콜/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md"
+                "file": "Blog/네트워크/프로토콜/Untitled.md"
               }
             }
           },
@@ -168,15 +158,28 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "fe6bc1ad4d87d368",
+  "active": "23214c52e8b37ab9",
   "lastOpenFiles": [
-    "Blog/네트워크/assets/images/OSI 참조모델 예.png",
+    "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md",
+    "Blog/네트워크/프로토콜/Untitled.md",
+    "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md",
+    "Blog/네트워크/assets/images/OSI Transport 계층 프로세스.png",
+    "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
+    "Blog/네트워크/assets/Excalidraw/OSI Session 계층.md",
     "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
-    "Blog/네트워크/assets/Excalidraw/OSI 참조모델 예시.md",
-    "Blog/네트워크/assets/images/OSI 참조 모델.png",
+    "Blog/네트워크/프로토콜/프레젠테이션 층 프로세스.md",
     "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
-    "Blog/네트워크/assets/Excalidraw/OSI 참조 모델.md",
+    "Blog/네트워크/assets/images/OSI Session 계층 프로세스.png",
+    "Blog/네트워크/assets/Excalidraw/OSI Presetation 층.md",
+    "Blog/네트워크/assets/images/OSI Presentation 층 프로세스.png",
+    "Blog/네트워크/프로토콜/어플리케이션 처리 프로세스.md",
     "Blog/네트워크/프로토콜/프로토콜이란?.md",
+    "Blog/네트워크/assets/images/OSI Application 계층 프로세스.png",
+    "Blog/네트워크/assets/Excalidraw/OSI Application 층.md",
+    "Blog/네트워크/assets/Excalidraw/OSI 참조모델 예시.md",
+    "Blog/네트워크/assets/images/OSI 참조모델 예.png",
+    "Blog/네트워크/assets/images/OSI 참조 모델.png",
+    "Blog/네트워크/assets/Excalidraw/OSI 참조 모델.md",
     "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
@@ -201,19 +204,7 @@
     "Blog/AWS/VPC 통제 3요소 관련/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
     "Blog/AWS/assets/Images/인터넷 접속 대상 서버 확장.png",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "Blog/AWS/assets/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
-    "Blog/AWS/assets/Excalidraw/중첩된 CIDR.md",
-    "Blog/AWS/assets/Excalidraw/라우팅 Longest Prefix Match 기법.md",
-    "Blog/AWS/assets/Excalidraw/East-West 트래픽 검사.md",
-    "Blog/AWS/assets/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
-    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
     "Blog/LearnSQL",
-    "Blog/AWS/assets/Images/엣지에 연결된 라우팅 테이블.png",
-    "Blog/AWS/assets/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
-    "Blog/AWS/assets/Images/엣지연결이 가능한 라우팅 테이블 예.png",
-    "Blog/AWS/assets/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
-    "Blog/AWS/assets/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
-    "Blog/AWS/assets/Images/NAT Gateway 변환 프로세스.png",
-    "Blog/AWS/assets/Images/East-West 검사.png"
+    "Blog/AWS/assets/Images/엣지에 연결된 라우팅 테이블.png"
   ]
 }
