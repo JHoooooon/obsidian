@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "⚠",
       "RiExpandHeightLine",
       "🚦",
       "RiSortDesc",
-      "🌏",
-      "RiAmazonFill"
+      "🌏"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -42,5 +42,6 @@
   "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏",
   "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md": "RiSortDesc",
   "Blog/AWS/East-West 트래픽 검사.md": "🚦",
-  "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md": "RiExpandHeightLine"
+  "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md": "RiExpandHeightLine",
+  "Blog/AWS/기본게이트웨이와 그 위험성.md": "⚠"
 }
