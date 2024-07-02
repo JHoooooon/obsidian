@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "35d19d803e37b359",
+        "id": "0b7577eab888edc6",
         "type": "tabs",
         "children": [
           {
-            "id": "d79182a5fb712c96",
+            "id": "fe6bc1ad4d87d368",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -16,33 +16,6 @@
                 "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "f05a12087bf847a0",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-07-02 08.52.20.excalidraw.md"
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "e2aaed63b27f61c2",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "fef353fcbabdcc20",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png"
               }
             }
           }
@@ -112,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-07-02 08.52.20.excalidraw.md",
+                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -129,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-07-02 08.52.20.excalidraw.md",
+                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/Excalidraw/Drawing 2024-07-02 08.52.20.excalidraw.md"
+                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md"
               }
             }
           }
@@ -176,21 +149,21 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "f05a12087bf847a0",
+  "active": "fe6bc1ad4d87d368",
   "lastOpenFiles": [
+    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
+    "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
+    "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
+    "Blog/AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",
+    "Blog/AWS/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
+    "Blog/AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
     "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
     "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
     "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
     "Blog/AWS/Excalidraw/중첩된 CIDR.md",
     "Blog/AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
     "Blog/AWS/Excalidraw/East-West 트래픽 검사.md",
-    "Blog/AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
-    "Blog/AWS/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
-    "Blog/AWS/Excalidraw/Drawing 2024-07-02 08.52.20.excalidraw.md",
-    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
-    "Blog/AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
-    "Blog/AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",
-    "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
     "Untitled.md",
     "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
     "Blog/AWS/East-West 트래픽 검사.md",
@@ -206,7 +179,6 @@
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
     "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
     "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
-    "Blog/AWS/Excalidraw/VPC 인터넷 통신 요건.md",
     "Blog/AWS/Images/NAT Gateway 변환 프로세스.png",
     "Blog/AWS/Images/East-West 검사.png",
     "Blog/AWS/Images/East-West 검사.png",
