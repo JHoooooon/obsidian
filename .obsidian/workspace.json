@@ -13,9 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md",
+                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "21f79833efb6a964",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md"
               }
             }
           }
@@ -85,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md",
+                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md",
+                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md"
+                "file": "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md"
               }
             }
           },
@@ -160,8 +170,16 @@
   },
   "active": "fe6bc1ad4d87d368",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
+    "Blog/네트워크/assets/images/OSI 참조모델 예.png",
+    "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
+    "Blog/네트워크/assets/Excalidraw/OSI 참조모델 예시.md",
+    "Blog/네트워크/assets/images/OSI 참조 모델.png",
+    "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
+    "Blog/네트워크/assets/Excalidraw/OSI 참조 모델.md",
     "Blog/네트워크/프로토콜/프로토콜이란?.md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+    "Blog/네트워크/프로토콜/Untitled",
+    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
     "Blog/네트워크/assets",
@@ -171,10 +189,8 @@
     "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
     "Blog/네트워크",
     "Blog/AWS/assets/Images/온프레미스의 SLB.png",
-    "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
     "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
     "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
-    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
     "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
     "Blog/AWS/assets",
     "Blog/AWS/분산제어",
@@ -192,19 +208,12 @@
     "Blog/AWS/assets/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
     "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
     "Blog/LearnSQL",
-    "Test.c.ts",
     "Blog/AWS/assets/Images/엣지에 연결된 라우팅 테이블.png",
     "Blog/AWS/assets/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
     "Blog/AWS/assets/Images/엣지연결이 가능한 라우팅 테이블 예.png",
     "Blog/AWS/assets/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
     "Blog/AWS/assets/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
-    "Blog/AWS/assets/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
-    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
-    "Blog/AWS/VPC 통제 3요소 관련/East-West 트래픽 검사.md",
-    "Blog/AWS/assets/Excalidraw/프라이빗 인스턴스와 잠재적 퍼블릭 인스턴스.md",
     "Blog/AWS/assets/Images/NAT Gateway 변환 프로세스.png",
-    "Blog/AWS/assets/Images/East-West 검사.png",
-    "Blog/AWS/assets/Images/East-West 검사.png",
-    "Blog/AWS/assets/Images/Routing Longest Prefix Match 기법.png"
+    "Blog/AWS/assets/Images/East-West 검사.png"
   ]
 }

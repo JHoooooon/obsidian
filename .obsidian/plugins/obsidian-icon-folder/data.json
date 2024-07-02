@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiLayers",
+      "RiQuestionMark",
+      "LiAntenna",
       "LiNetwork",
-      "LiArrowDown01",
-      "⚖",
-      "RiRouteLine",
-      "⚠"
+      "LiArrowDown01"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -47,5 +47,8 @@
   "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md": "⚖",
   "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md": "LiArrowDown01",
   "Blog/AWS/assets/Excalidraw": "RiMarkPenLine",
-  "Blog/네트워크": "LiNetwork"
+  "Blog/네트워크": "LiNetwork",
+  "Blog/네트워크/프로토콜": "LiAntenna",
+  "Blog/네트워크/프로토콜/프로토콜이란?.md": "RiQuestionMark",
+  "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md": "LiLayers"
 }
