@@ -158,10 +158,12 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "fa6dbe3fe19f4514",
+  "active": "fe6bc1ad4d87d368",
   "lastOpenFiles": [
-    "Test.c.ts",
+    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
     "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/LearnSQL",
+    "Test.c.ts",
     "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
     "Blog/AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
     "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
@@ -188,7 +190,6 @@
     "Blog/AWS/Excalidraw/NACL 패킷 허용 원리.md",
     "Blog/AWS/Excalidraw/효율적인 접근 제어 사례.md",
     "Blog/AWS/Excalidraw/트래픽 라우팅 경로.md",
-    "Blog/AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
     "Blog/AWS/Images/NAT Gateway 변환 프로세스.png",
     "Blog/AWS/Images/East-West 검사.png",
     "Blog/AWS/Images/East-West 검사.png",
