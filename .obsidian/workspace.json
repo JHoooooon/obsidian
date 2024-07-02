@@ -11,26 +11,15 @@
             "id": "fe6bc1ad4d87d368",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/Excalidraw/인터넷 접속 대상 서버 확장.md"
-              }
-            }
-          },
-          {
-            "id": "6824aee802c41bb0",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -80,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377.5,
-    "collapsed": true
+    "width": 377.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -97,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/라우팅 테이블의 표면적 특징과 다중 연결성.md"
+                "file": "Blog/네트워크/프로토콜/프로토콜이란?.md"
               }
             }
           },
@@ -170,50 +158,53 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "6824aee802c41bb0",
+  "active": "fe6bc1ad4d87d368",
   "lastOpenFiles": [
-    "Blog/AWS/VPC 통제 3요소.md",
-    "Blog/AWS/라우팅 테이블의 표면적 특징과 다중 연결성.md",
-    "Blog/AWS/기본게이트웨이와 그 위험성.md",
-    "Blog/AWS/Images/기본게이트웨이 라우팅 사용.png",
-    "Blog/AWS/Excalidraw/기본 게이트웨이 라우팅 사용.md",
-    "Blog/AWS/Excalidraw/인터넷 접속 대상 서버 확장.md",
-    "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
-    "Blog/AWS/Images/인터넷 접속 대상 서버 확장.png",
-    "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "Blog/AWS/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
-    "Blog/AWS/Excalidraw/중첩된 CIDR.md",
-    "Blog/AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
-    "Blog/AWS/Excalidraw/East-West 트래픽 검사.md",
-    "Blog/AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
+    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
+    "Blog/네트워크/프로토콜/프로토콜이란?.md",
+    "Blog/네트워크/assets/Excalidraw",
+    "Blog/네트워크/assets/images",
+    "Blog/네트워크/assets",
+    "Blog/네트워크/프로토콜",
+    "Blog/네트워크/컴퓨터 발전의 7단계.md",
+    "Blog/네트워크/Untitled 1.md",
+    "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
+    "Blog/네트워크",
+    "Blog/AWS/assets/Images/온프레미스의 SLB.png",
+    "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
+    "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
+    "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+    "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
+    "Blog/AWS/assets",
+    "Blog/AWS/분산제어",
+    "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
+    "Blog/AWS/VPC 통제 3요소 관련",
+    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
+    "Blog/AWS/assets/Images/기본게이트웨이 라우팅 사용.png",
+    "Blog/AWS/VPC 통제 3요소 관련/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/AWS/assets/Images/인터넷 접속 대상 서버 확장.png",
+    "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
+    "Blog/AWS/assets/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
+    "Blog/AWS/assets/Excalidraw/중첩된 CIDR.md",
+    "Blog/AWS/assets/Excalidraw/라우팅 Longest Prefix Match 기법.md",
+    "Blog/AWS/assets/Excalidraw/East-West 트래픽 검사.md",
+    "Blog/AWS/assets/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
     "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
     "Blog/LearnSQL",
     "Test.c.ts",
-    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
-    "Blog/AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
-    "Blog/AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",
-    "Blog/AWS/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
-    "Blog/AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
-    "Blog/AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
-    "Untitled.md",
-    "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
-    "Blog/AWS/East-West 트래픽 검사.md",
-    "Blog/AWS/Excalidraw/프라이빗 인스턴스와 잠재적 퍼블릭 인스턴스.md",
-    "Blog/AWS/Excalidraw/추가 ENI 를 연결한 상태의 인스턴스 중지.md",
-    "Blog/AWS/Excalidraw/VPC 와 가용영역에 생성된 서브넷 그룹.md",
-    "Blog/AWS/Excalidraw/MYSql Instance 변화 과정.md",
-    "Blog/AWS/Excalidraw/Whitelist based 규칙 순서에 따른 결과.md",
-    "Blog/AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
-    "Blog/AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
-    "Blog/AWS/Images/NAT Gateway 변환 프로세스.png",
-    "Blog/AWS/Images/East-West 검사.png",
-    "Blog/AWS/Images/East-West 검사.png",
-    "Blog/AWS/Images/Routing Longest Prefix Match 기법.png",
-    "Blog/AWS/Images/중첩된 CIDR.png",
-    "Blog/AWS/Images",
-    "plugin_libs/aws-architecture-icons.excalidrawlib",
-    "plugin_libs",
-    "Excalidraw",
-    "Template"
+    "Blog/AWS/assets/Images/엣지에 연결된 라우팅 테이블.png",
+    "Blog/AWS/assets/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
+    "Blog/AWS/assets/Images/엣지연결이 가능한 라우팅 테이블 예.png",
+    "Blog/AWS/assets/Excalidraw/IGW 의 NAT 테이블 변환 원리.md",
+    "Blog/AWS/assets/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
+    "Blog/AWS/assets/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
+    "Blog/AWS/VPC 통제 3요소 관련/East-West 트래픽 검사.md",
+    "Blog/AWS/assets/Excalidraw/프라이빗 인스턴스와 잠재적 퍼블릭 인스턴스.md",
+    "Blog/AWS/assets/Images/NAT Gateway 변환 프로세스.png",
+    "Blog/AWS/assets/Images/East-West 검사.png",
+    "Blog/AWS/assets/Images/East-West 검사.png",
+    "Blog/AWS/assets/Images/Routing Longest Prefix Match 기법.png"
   ]
 }

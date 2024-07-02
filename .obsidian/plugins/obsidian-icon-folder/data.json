@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "⚠",
-      "RiExpandHeightLine",
-      "🚦",
-      "RiSortDesc",
-      "🌏"
+      "LiNetwork",
+      "LiArrowDown01",
+      "⚖",
+      "RiRouteLine",
+      "⚠"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -33,15 +33,19 @@
     "debugMode": false
   },
   "Blog/AWS": "RiAmazonFill",
-  "Blog/AWS/Excalidraw": "RiMarkPenLine",
-  "Blog/AWS/ENI IP 에 대해서.md": "RiIdCardFill",
-  "Blog/AWS/VPC 를 사용하는 데이터베이스 종류.md": "RiDatabase2Line",
-  "Blog/AWS/VPC 통제 3요소.md": "👮",
-  "Blog/AWS/온프래미스의 라우팅 개념.md": "RiRouteFill",
-  "Blog/AWS/AWS VPC 의 라우팅 개념.md": "RiRouteFill",
-  "Blog/AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏",
-  "Blog/AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md": "RiSortDesc",
-  "Blog/AWS/East-West 트래픽 검사.md": "🚦",
-  "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md": "RiExpandHeightLine",
-  "Blog/AWS/기본게이트웨이와 그 위험성.md": "⚠"
+  "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md": "RiDatabase2Line",
+  "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md": "RiIdCardFill",
+  "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md": "👮",
+  "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md": "RiRouteFill",
+  "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md": "RiRouteFill",
+  "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏",
+  "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md": "RiSortDesc",
+  "Blog/AWS/VPC 통제 3요소 관련/East-West 트래픽 검사.md": "🚦",
+  "Blog/AWS/VPC 통제 3요소 관련/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md": "RiExpandHeightLine",
+  "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md": "⚠",
+  "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md": "RiRouteLine",
+  "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md": "⚖",
+  "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md": "LiArrowDown01",
+  "Blog/AWS/assets/Excalidraw": "RiMarkPenLine",
+  "Blog/네트워크": "LiNetwork"
 }
