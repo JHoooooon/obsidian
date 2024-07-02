@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
+                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
+                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
+                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md"
+                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md"
               }
             }
           },
@@ -160,8 +160,14 @@
   },
   "active": "201c256750c251d1",
   "lastOpenFiles": [
-    "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
+    "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
+    "Blog/AWS/분산제어/L4 스위치의 특징.md",
+    "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
+    "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md",
+    "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
     "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
+    "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
     "Blog/네트워크/assets/Excalidraw/OSI Network 계층.md",
     "Blog/네트워크/assets/images/Data Link 계층 과 Pysical 계층 처리프로세스.png",
     "Blog/네트워크/assets/Excalidraw/OSI Data Link 계층 과 Pysical 계층.md",
@@ -169,11 +175,9 @@
     "Blog/네트워크/assets/images/OSI Data Link 와 Network Layer 역할 분담 예시.png",
     "Blog/네트워크/assets/images/OSI Network 계층 프로세스.png",
     "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
-    "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md",
     "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md",
     "Blog/네트워크/assets/images/OSI Transport 계층 프로세스.png",
     "Blog/네트워크/assets/Excalidraw/OSI Session 계층.md",
-    "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
     "Blog/네트워크/프로토콜/프레젠테이션 층 프로세스.md",
     "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
     "Blog/네트워크/assets/images/OSI Session 계층 프로세스.png",
@@ -187,7 +191,6 @@
     "Blog/네트워크/assets/images/OSI 참조모델 예.png",
     "Blog/네트워크/assets/images/OSI 참조 모델.png",
     "Blog/네트워크/assets/Excalidraw/OSI 참조 모델.md",
-    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
     "Blog/네트워크/assets/Excalidraw",
@@ -196,11 +199,9 @@
     "Blog/네트워크/프로토콜",
     "Blog/네트워크/컴퓨터 발전의 7단계.md",
     "Blog/네트워크/Untitled 1.md",
-    "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
     "Blog/네트워크",
     "Blog/AWS/assets/Images/온프레미스의 SLB.png",
     "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
-    "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
     "Blog/AWS/assets",
     "Blog/AWS/분산제어",
     "Blog/AWS/VPC 통제 3요소 관련",

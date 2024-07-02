@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiLink",
       "LiNetwork",
       "RiCaravanFill",
       "LiActivity",
-      "LiPresentation",
-      "🈸"
+      "LiPresentation"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -55,5 +55,6 @@
   "Blog/네트워크/프로토콜/프레젠테이션 층 프로세스.md": "LiPresentation",
   "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md": "LiActivity",
   "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md": "RiCaravanFill",
-  "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md": "LiNetwork"
+  "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md": "LiNetwork",
+  "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md": "LiLink"
 }
