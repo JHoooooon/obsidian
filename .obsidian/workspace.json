@@ -109,6 +109,16 @@
             }
           },
           {
+            "id": "95fc7c2f3a5de216",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md"
+              }
+            }
+          },
+          {
             "id": "3ee451e1e44b892e",
             "type": "leaf",
             "state": {
@@ -120,20 +130,19 @@
             }
           },
           {
-            "id": "95fc7c2f3a5de216",
+            "id": "fa6dbe3fe19f4514",
             "type": "leaf",
             "state": {
-              "type": "outline",
-              "state": {
-                "file": "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md"
-              }
+              "type": "code-execute-manage-executors",
+              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 451.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -149,10 +158,11 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "fe6bc1ad4d87d368",
+  "active": "fa6dbe3fe19f4514",
   "lastOpenFiles": [
-    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
+    "Test.c.ts",
     "Blog/AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/AWS/Images/엣지에 연결된 라우팅 테이블.png",
     "Blog/AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
     "Blog/AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",

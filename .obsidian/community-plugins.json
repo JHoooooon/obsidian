@@ -2,8 +2,8 @@
   "obsidian-excalidraw-plugin",
   "obsidian-plantuml",
   "obsidian-icon-folder",
-  "execute-code",
   "table-editor-obsidian",
   "vscode-editor",
-  "obsidian-git"
+  "obsidian-git",
+  "execute-code"
 ]
