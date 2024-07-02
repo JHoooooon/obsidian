@@ -13,9 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Untitled.md",
+                "file": "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "e59e063a1ed2f2d1",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Blog/네트워크/assets/images/OSI Data Link 와 Network Layer 역할 분담 예시.png"
               }
             }
           }
@@ -85,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Untitled.md",
+                "file": "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Untitled.md",
+                "file": "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +124,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/네트워크/프로토콜/Untitled.md"
+                "file": "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md"
               }
             }
           },
@@ -160,11 +170,15 @@
   },
   "active": "23214c52e8b37ab9",
   "lastOpenFiles": [
+    "Blog/네트워크/assets/images/OSI Data Link 와 Network Layer 역할 분담 예시.png",
+    "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
+    "Blog/네트워크/assets/Excalidraw/네트워크 계층과 데이터 링크층의 역할 분담.md",
+    "Blog/네트워크/assets/images/OSI Network 계층 프로세스.png",
+    "Blog/네트워크/assets/Excalidraw/OSI Network 계층.md",
+    "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
     "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md",
-    "Blog/네트워크/프로토콜/Untitled.md",
     "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md",
     "Blog/네트워크/assets/images/OSI Transport 계층 프로세스.png",
-    "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
     "Blog/네트워크/assets/Excalidraw/OSI Session 계층.md",
     "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
     "Blog/네트워크/프로토콜/프레젠테이션 층 프로세스.md",
@@ -199,12 +213,7 @@
     "Blog/AWS/분산제어",
     "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
     "Blog/AWS/VPC 통제 3요소 관련",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
     "Blog/AWS/assets/Images/기본게이트웨이 라우팅 사용.png",
-    "Blog/AWS/VPC 통제 3요소 관련/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
-    "Blog/AWS/assets/Images/인터넷 접속 대상 서버 확장.png",
-    "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "Blog/LearnSQL",
-    "Blog/AWS/assets/Images/엣지에 연결된 라우팅 테이블.png"
+    "Blog/LearnSQL"
   ]
 }
