@@ -13,13 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md",
+                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "cd415d930b56d87b",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md",
+                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md",
+                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/L4 스위치의 특징.md"
+                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md"
               }
             }
           },
@@ -158,15 +169,21 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "201c256750c251d1",
+  "active": "cd415d930b56d87b",
   "lastOpenFiles": [
-    "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
-    "Blog/AWS/분산제어/L4 스위치의 특징.md",
-    "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
-    "Blog/AWS/assets/Images/L4 스위치 SLB 예.png",
-    "Blog/AWS/assets/Excalidraw/L4 스위치 SLB 예시.md",
+    "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
+    "Blog/AWS/assets/Images/ALB 프로세스.png",
+    "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
     "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
+    "Blog/AWS/assets/Excalidraw/L4 스위치 SLB 예시.md",
+    "Blog/AWS/assets/Excalidraw/L4 스위치와 ELB 의 비교.md",
+    "Blog/AWS/분산제어/L4 스위치의 특징.md",
+    "Blog/AWS/assets/Images/L4 스위치와 ELB 의 비교.png",
+    "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
+    "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
+    "Blog/AWS/assets/Images/L4 스위치 SLB 예.png",
     "Blog/네트워크/assets/Excalidraw/네트워크 계층과 데이터 링크층의 역할 분담.md",
     "Blog/네트워크/assets/images/Data Link 계층 과 Pysical 계층 처리프로세스.png",
     "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
@@ -188,15 +205,8 @@
     "Blog/네트워크/assets/Excalidraw/OSI Presetation 층.md",
     "Blog/네트워크/assets/images/OSI Presentation 층 프로세스.png",
     "Blog/네트워크/프로토콜/어플리케이션 처리 프로세스.md",
-    "Blog/네트워크/프로토콜/프로토콜이란?.md",
     "Blog/네트워크/assets/images/OSI Application 계층 프로세스.png",
-    "Blog/네트워크/assets/Excalidraw/OSI Application 층.md",
-    "Blog/네트워크/assets/Excalidraw/OSI 참조모델 예시.md",
-    "Blog/네트워크/assets/images/OSI 참조모델 예.png",
-    "Blog/네트워크/assets/images/OSI 참조 모델.png",
-    "Blog/네트워크/assets/Excalidraw/OSI 참조 모델.md",
     "Blog/네트워크/프로토콜/Untitled",
-    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
     "Blog/네트워크/assets",

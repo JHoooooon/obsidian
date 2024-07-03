@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiRouter",
+      "LiRoute",
       "LiLink",
       "LiNetwork",
-      "RiCaravanFill",
-      "LiActivity",
-      "LiPresentation"
+      "RiCaravanFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -56,5 +56,7 @@
   "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md": "LiActivity",
   "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md": "RiCaravanFill",
   "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md": "LiNetwork",
-  "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md": "LiLink"
+  "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md": "LiLink",
+  "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md": "LiRoute",
+  "Blog/AWS/분산제어/L4 스위치의 특징.md": "LiRouter"
 }
