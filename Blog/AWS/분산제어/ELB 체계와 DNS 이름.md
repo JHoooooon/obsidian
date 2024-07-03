@@ -1,4 +1,5 @@
 
+>[!info]  [[NLB  대상 그룹과 ALB 연결]] 와 이어지는 내용이다.
 ---
 
 >[!info] 클라이언트 요청을 수신하는 `ELB` 수신부를 본다
@@ -34,4 +35,20 @@
 5. `ALB` 는 받은 `IP` 를 수신하고, 대상 그룹으로 `Load Balancing` 한다.
 
 
+다음은 `Internal 체계`  의 경우이다.
 
+![[Internal 체계 ALB 의 DNS 이름 호출.png]]
+
+보면 `IGW` 를 통한 `Public IP` 에서 `Original IP` 로 변환하는 과정이 없다.
+`Internal` 에서는 `Private IP` 로만 통신하기에, `DNS Server` 에서는 `Private IP` 로 `DNS` 가 매핑된다.
+
+기본적인 프로세스는 동일하다. `Public IP` 로 접속하느냐, 아니냐의 차이라고 봐도 될듯하다.
+
+> [!info] [[NLB  대상 그룹과 ALB 연결]]] 에서 말한것처럼 [[가변 노드를 장착한 ELB (ALB, CLB)]]] 로 인해 `ALB`, `CLB` 는 `EIP` 가 아닌 `Public IP` 가 할당된다.<br><br>`NLB` 는 `고정Node` 를 사용하므로 `EIP` 사용이 가능하다
+
+이는 다음의 테이블로 요약가능하다
+
+| 특징            | ALB | NLB | CLB | GWLB |
+| :------------ | :-- | :-- | --- | ---- |
+| 인터넷 체계 사용 가능  | O   | O   | O   | X    |
+| 노드에 EIP 연결 가능 | X   | O   | X   | X    |
