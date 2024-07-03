@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
+                "file": "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
                 "mode": "source",
                 "source": false
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
+                "file": "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -166,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
+                "file": "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -178,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md"
+                "file": "Blog/AWS/분산제어/교차영역 로드밸런싱.md"
               }
             }
           },
@@ -224,8 +224,9 @@
   },
   "active": "a9e111622b541b24",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Images/가용영역 전체를 관할하는 ELB 노드.png",
     "Blog/AWS/분산제어/로드밸런싱 처리부.md",
+    "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
+    "Blog/AWS/assets/Images/가용영역 전체를 관할하는 ELB 노드.png",
     "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
     "Blog/AWS/분산제어/AWS 의 ELB.md",
     "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
