@@ -18,8 +18,55 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "d3c54232fa8a7a80",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/CLB 프로세스.md"
+              }
+            }
           }
         ]
+      },
+      {
+        "id": "3695ced4d6deab3b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a46c6191e061d7e6",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md"
+              }
+            }
+          },
+          {
+            "id": "4d741c5e0a390392",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md"
+              }
+            }
+          },
+          {
+            "id": "6d612c6df3c29ce0",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/NLB 프로세스.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -160,15 +207,23 @@
   },
   "active": "cd415d930b56d87b",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
-    "Blog/AWS/assets/Images/ALB 프로세스.png",
-    "Blog/AWS/assets/Images/ALB 프로세스.png",
+    "Blog/AWS/assets/Images/GWLB 프로세스.png",
     "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
+    "Pasted Image 20240703224901_557.png",
+    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
+    "Blog/AWS/assets/Images/CLB 프로세스.png",
+    "Blog/AWS/assets/Images/NLB 프로세스.png",
+    "Blog/AWS/assets/Images/NLB 프로세스 1.png",
+    "Blog/AWS/assets/Excalidraw/L4 스위치와 ELB 의 비교.md",
+    "Blog/AWS/assets/Images/ALB 프로세스.png",
+    "Blog/AWS/assets/Images/ALB 프로세스.png",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
     "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
     "Blog/AWS/assets/Excalidraw/L4 스위치 SLB 예시.md",
-    "Blog/AWS/assets/Excalidraw/L4 스위치와 ELB 의 비교.md",
     "Blog/AWS/분산제어/L4 스위치의 특징.md",
     "Blog/AWS/assets/Images/L4 스위치와 ELB 의 비교.png",
     "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
@@ -184,17 +239,9 @@
     "Blog/네트워크/프로토콜/Network 계층 처리 프로세스.md",
     "Blog/네트워크/assets/Excalidraw/OSI Network 계층.md",
     "Blog/네트워크/assets/Excalidraw/OSI Data Link 계층 과 Pysical 계층.md",
-    "Blog/네트워크/assets/images/OSI Data Link 와 Network Layer 역할 분담 예시.png",
-    "Blog/네트워크/assets/images/OSI Network 계층 프로세스.png",
     "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
     "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md",
-    "Blog/네트워크/assets/images/OSI Transport 계층 프로세스.png",
     "Blog/네트워크/assets/Excalidraw/OSI Session 계층.md",
-    "Blog/네트워크/프로토콜/프레젠테이션 층 프로세스.md",
-    "Blog/네트워크/assets/images/OSI Session 계층 프로세스.png",
-    "Blog/네트워크/assets/Excalidraw/OSI Presetation 층.md",
-    "Blog/네트워크/assets/images/OSI Presentation 층 프로세스.png",
-    "Blog/네트워크/프로토콜/어플리케이션 처리 프로세스.md",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
