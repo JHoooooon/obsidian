@@ -6,7 +6,7 @@
       {
         "id": "1e1215fca84ad106",
         "type": "tabs",
-        "dimension": 70.16806722689076,
+        "dimension": 57.98319327731093,
         "children": [
           {
             "id": "cd415d930b56d87b",
@@ -24,9 +24,11 @@
             "id": "a9e111622b541b24",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md"
+                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
+                "mode": "source",
+                "source": false
               }
             }
           },
@@ -46,7 +48,7 @@
       {
         "id": "3695ced4d6deab3b",
         "type": "tabs",
-        "dimension": 29.831932773109244,
+        "dimension": 42.016806722689076,
         "children": [
           {
             "id": "a46c6191e061d7e6",
@@ -147,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
+                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -164,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
+                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -176,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md"
+                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md"
               }
             }
           },
@@ -222,6 +224,7 @@
   },
   "active": "a9e111622b541b24",
   "lastOpenFiles": [
+    "Blog/AWS/assets/Images/가용영역 전체를 관할하는 ELB 노드.png",
     "Blog/AWS/분산제어/로드밸런싱 처리부.md",
     "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
     "Blog/AWS/분산제어/AWS 의 ELB.md",
@@ -247,7 +250,6 @@
     "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
     "Blog/AWS/assets/Images/L4 스위치 SLB 예.png",
     "Blog/네트워크/assets/Excalidraw/네트워크 계층과 데이터 링크층의 역할 분담.md",
-    "Blog/네트워크/assets/images/Data Link 계층 과 Pysical 계층 처리프로세스.png",
     "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
     "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md",
     "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
@@ -257,7 +259,6 @@
     "Blog/네트워크/assets/Excalidraw/OSI Network 계층.md",
     "Blog/네트워크/assets/Excalidraw/OSI Data Link 계층 과 Pysical 계층.md",
     "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
-    "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
