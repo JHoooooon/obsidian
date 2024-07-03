@@ -6,6 +6,7 @@
       {
         "id": "1e1215fca84ad106",
         "type": "tabs",
+        "dimension": 70.16806722689076,
         "children": [
           {
             "id": "cd415d930b56d87b",
@@ -13,9 +14,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
+                "file": "Blog/AWS/분산제어/로드밸런싱 처리부.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "a9e111622b541b24",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md"
               }
             }
           },
@@ -29,11 +40,13 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "3695ced4d6deab3b",
         "type": "tabs",
+        "dimension": 29.831932773109244,
         "children": [
           {
             "id": "a46c6191e061d7e6",
@@ -49,9 +62,11 @@
             "id": "4d741c5e0a390392",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md"
+                "file": "Blog/AWS/분산제어/AWS 의 ELB.md",
+                "mode": "source",
+                "source": false
               }
             }
           },
@@ -132,7 +147,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
+                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -149,7 +164,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
+                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md"
+                "file": "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md"
               }
             }
           },
@@ -205,13 +220,15 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "cd415d930b56d87b",
+  "active": "a9e111622b541b24",
   "lastOpenFiles": [
+    "Blog/AWS/분산제어/로드밸런싱 처리부.md",
+    "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
+    "Blog/AWS/분산제어/AWS 의 ELB.md",
+    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
     "Blog/AWS/assets/Images/GWLB 프로세스.png",
-    "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
     "Pasted Image 20240703224901_557.png",
     "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
     "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
     "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
     "Blog/AWS/assets/Images/CLB 프로세스.png",
@@ -241,7 +258,6 @@
     "Blog/네트워크/assets/Excalidraw/OSI Data Link 계층 과 Pysical 계층.md",
     "Blog/네트워크/assets/Excalidraw/OSI Transport 계층.md",
     "Blog/네트워크/프로토콜/Session 계층 처리 프로세스.md",
-    "Blog/네트워크/assets/Excalidraw/OSI Session 계층.md",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
