@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "201c256750c251d1",
+            "id": "cd415d930b56d87b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "cd415d930b56d87b",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
+                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -113,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
+                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/ALB 프로세스.md"
+                "file": "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md"
               }
             }
           },
@@ -171,9 +160,10 @@
   },
   "active": "cd415d930b56d87b",
   "lastOpenFiles": [
-    "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
-    "Blog/AWS/assets/Images/ALB 프로세스.png",
     "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
+    "Blog/AWS/assets/Images/ALB 프로세스.png",
+    "Blog/AWS/assets/Images/ALB 프로세스.png",
+    "Blog/AWS/분산제어/AWS 의 SLB 제어를 위한 ELB.md",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
     "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
@@ -205,7 +195,6 @@
     "Blog/네트워크/assets/Excalidraw/OSI Presetation 층.md",
     "Blog/네트워크/assets/images/OSI Presentation 층 프로세스.png",
     "Blog/네트워크/프로토콜/어플리케이션 처리 프로세스.md",
-    "Blog/네트워크/assets/images/OSI Application 계층 프로세스.png",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",

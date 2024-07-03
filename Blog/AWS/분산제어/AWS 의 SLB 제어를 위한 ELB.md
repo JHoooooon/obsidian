@@ -28,6 +28,10 @@
 
 **aws 는 4개의 ELB 유형**을 제공한다
 
-`Application Load Balancing`(`ALB`) 
+##### `Application Load Balancing`(`ALB`) 
 
+| 보안그룹 사용 | 대상 그룹 사용 | 대상 (그룹) 유형             | 계층  | 리스너 프로토콜    |
+| :------ | -------- | ---------------------- | --- | ----------- |
+| O       | O        | `인스턴스`, `IP`, `Lambda` | L7  | HTTP, HTTPS |
 ![[ALB 프로세스.png]]
+
