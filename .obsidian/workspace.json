@@ -6,7 +6,7 @@
       {
         "id": "1e1215fca84ad106",
         "type": "tabs",
-        "dimension": 72.89915966386555,
+        "dimension": 55.04201680672269,
         "children": [
           {
             "id": "cd415d930b56d87b",
@@ -38,7 +38,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md",
+                "file": "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +60,7 @@
       {
         "id": "3695ced4d6deab3b",
         "type": "tabs",
-        "dimension": 27.100840336134453,
+        "dimension": 44.957983193277315,
         "children": [
           {
             "id": "6d612c6df3c29ce0",
@@ -68,7 +68,7 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/NLB 프로세스.md"
+                "file": "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md"
               }
             }
           }
@@ -138,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md",
+                "file": "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -155,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md",
+                "file": "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md"
+                "file": "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md"
               }
             }
           },
@@ -213,19 +213,29 @@
   },
   "active": "30f2301d4147a286",
   "lastOpenFiles": [
-    "Blog/AWS/분산제어/가변 노드를 장착한 ELB (ALB, CLB).md",
+    "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md",
+    "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
+    "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md",
+    "Blog/AWS/assets/Images/인터넷 체계 ALB 의 DNS 이름 호출.png",
+    "Blog/AWS/assets/Excalidraw/ALB 유형 대상 그룹.md",
+    "Blog/AWS/assets/Excalidraw/L4 스위치 SLB 예시.md",
+    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
+    "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
+    "Blog/AWS/assets/Excalidraw/L4 스위치와 ELB 의 비교.md",
+    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
     "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md",
-    "Blog/AWS/분산제어/대상 그룹과 대상.md",
-    "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
-    "Blog/AWS/분산제어/로드밸런싱 처리부.md",
-    "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
+    "Blog/AWS/분산제어/Untitled",
+    "Blog/AWS/assets/Images/ALB 유형 대상 그룹.png",
+    "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
     "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
+    "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
+    "Blog/AWS/분산제어/대상 그룹과 대상.md",
+    "Blog/AWS/분산제어/가변 노드를 장착한 ELB (ALB, CLB).md",
+    "Blog/AWS/분산제어/로드밸런싱 처리부.md",
     "Blog/AWS/assets/Images/교차영역 로드밸런싱 활성화 및 비활성화.png",
     "Blog/AWS/분산제어/AWS 의 ELB.md",
-    "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
     "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
     "Blog/AWS/분산제어/L4 스위치의 특징.md",
     "Blog/AWS/분산제어/온프레미스의 SLB 제어 - L4 스위치.md",
     "Blog/AWS/assets/Images/가용영역 전체를 관할하는 ELB 노드.png",
@@ -234,21 +244,11 @@
     "Blog/AWS/assets/Images/CLB 프로세스.png",
     "Blog/AWS/assets/Images/NLB 프로세스.png",
     "Blog/AWS/assets/Images/NLB 프로세스 1.png",
-    "Blog/AWS/assets/Excalidraw/L4 스위치와 ELB 의 비교.md",
-    "Blog/AWS/assets/Images/ALB 프로세스.png",
     "Blog/AWS/assets/Images/ALB 프로세스.png",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
-    "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
-    "Blog/AWS/assets/Excalidraw/L4 스위치 SLB 예시.md",
-    "Blog/AWS/assets/Images/L4 스위치와 ELB 의 비교.png",
     "Blog/AWS/분산제어/서버 로드밸런싱 이란?.md",
     "Blog/네트워크/assets/Excalidraw/네트워크 계층과 데이터 링크층의 역할 분담.md",
-    "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
-    "Blog/네트워크/프로토콜/Transport 계층 처리 프로세스.md",
-    "Blog/네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
-    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
-    "Blog/네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
@@ -257,7 +257,6 @@
     "Blog/네트워크",
     "Blog/AWS/assets",
     "Blog/AWS/분산제어",
-    "Blog/AWS/VPC 통제 3요소 관련",
-    "Blog/LearnSQL"
+    "Blog/AWS/VPC 통제 3요소 관련"
   ]
 }

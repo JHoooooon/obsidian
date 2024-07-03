@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "📛",
+      "LiGroup",
       "LiVariable",
       "LiTarget",
-      "LiLogIn",
-      "LiCrop",
-      "LiRouter"
+      "LiLogIn"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -62,5 +62,7 @@
   "Blog/AWS/분산제어/교차영역 로드밸런싱.md": "LiCrop",
   "Blog/AWS/분산제어/로드밸런싱 처리부.md": "LiLogIn",
   "Blog/AWS/분산제어/대상 그룹과 대상.md": "LiTarget",
-  "Blog/AWS/분산제어/가변 노드를 장착한 ELB (ALB, CLB).md": "LiVariable"
+  "Blog/AWS/분산제어/가변 노드를 장착한 ELB (ALB, CLB).md": "LiVariable",
+  "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md": "LiGroup",
+  "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md": "📛"
 }
