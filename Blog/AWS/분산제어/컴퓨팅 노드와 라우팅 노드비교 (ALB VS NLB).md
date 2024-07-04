@@ -15,4 +15,29 @@
 
 ![[ALB 의 SG 프로세스.png]]
 
+`ELB` 에 연결된 `SG` 는 다음 접근만 허용해야 한다
 
+- `Inbound`: `Client IP` 와 `ELB Listener` 의 `Protocol` 
+- `Outbound`: `ELB` 가 로드밸런싱할 대상 `IP` 와 `Protocol`
+
+>[!info] `VPC` 내부의 `SG` 로 통신하니, 직접 `Private IP` 를 사용하기 보다는 `SG-2*` 이나 `SG-1*` 으로 `Inbound` 및 `Oubound` 를 지정해주는것이 좋다.
+
+다음은 `NLB` 의 사용 프로세스다
+
+![[NLB 의 SG 사용 프로세스.png]]
+
+`NLB` 는 `SG` 를 직접 연결해서 사용하지 않는다
+이는 `Target Group` 의 `Target Instance` 에서 접근을 제어해야 한다
+
+>[!warning] `SG` 를 사용하지 않는 `NLB` 같은 유형은, `Target Instance` 에서 직접 접근을 제어해야 하므로 특히 더 유의해서 설정해주어야 한다.
+
+`source/dest check` 를 하지 않는 `NLB` 는 `유입 트래픽` 의 `데이터 조작 없이` 즉시 로드밸런싱하지만, `ALB` 는 별도 `데이터 처리 과정을 거친뒤` 로드밸런싱한다.
+
+`ALB`, `NLB` 에서는 `라우팅 방법` 이 존재하는데, `ELB` 생성 이후 `편집` 기능으로 변경 가능하다.
+`전달 대상` 옵션만 선택가능한 `NLB` 와는 달리 `ALB` 는 다음 4가지 옵션이 있다
+
+- `전달대상`: 일반적은 로드밸런싱이다.
+
+- `리다이렉션`: `Client` 에게 다른 `Routing` 을 제시한다<br>`http://92.75.200.3` 요쳥을 `https://92.75.200.33` 으로 변경 처리한다`
+
+- `고정 응답 반환`: `Client` 요청 데이터와 관계없이 단 하나의 응답만 제공한다.<br>
