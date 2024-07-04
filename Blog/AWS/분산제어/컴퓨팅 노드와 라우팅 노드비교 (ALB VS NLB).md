@@ -50,3 +50,23 @@
 
 `L7` 에서 작업을 수행하는 `ALB` `Session 형태` 역시 `NLB` `Session 형태` 와 다르다
 
+![[ALB 라우팅 세션.png]]
+
+> [!warning] 여기서 궁금한것이 왜 `108.128.15.25` 의 `Local` 에서 `Foreign` 으로 연결되는 `Port` 를 다르게 처리해야 하는지가 궁금하다<br><br>`Local Port` 를 사용해서 `TCP` 통신을 하는데, 각 `ALB` 와 연결을 왜 해주어야 하지?<br><br>내가 이해하기로는, `ALB` 가 하나의 `DNS` 로 요청을 받으면, 연결된 `Node` 를 통해 `Target Group` 의 `Instance` 로 전달되는것으로 알고 있다...<br><br>어차피 `Client` 라고 함은 하나의 컴퓨터에서 보내는 요청이 아닌가? <br><br> 그리고 `DNS` 를 통해 `IP` 주소를 받을것이고, `Local DNS` 는 `AWS DNS` 와 통신해서 `update` 된 `IP` 를 전달받을것이다.<br><br> 내가 잘못 알고 있는건지 어떤의도인지 잘 이해가 안간다... 일단 넘어간다. 
+
+다음은 `NLB 라우팅 세션` 이다.
+
+![[NLB 라우팅 세션.png]]
+
+`Client` 세션은 `ALB` 와 같지만, `Target Instance` 에서 확인한 `Session` 은 다르다
+`92.75.10.113` `Instance` 는 `ELB` 노드의 `Private IP` 가 아닌 `Client IP` 와 연결되어 있다.
+
+`NLB` 는 `Client IP 보존`(`Preserve Client IP Address`) 설정으로 이를 조절한다
+위의 예시는 `Client IP 보존` 을 `Enable` 한것이다.
+
+`NLB` 는 이 처럼 `2가지 세션` 형태를 사용할수 있다.
+
+> [!warning] 단, `SG`,`NACL` 에 대한 접근 제어는 `Instance` 와 `Session` 을 맺을 대상 `IP` 에 맞게 설정해야 한다.
+
+`Client IP 보존` 은 `NLB` 에 연결된 `Target Group` 을 선택해서 변경하면 된다.
+

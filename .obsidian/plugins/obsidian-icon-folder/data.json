@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiGitCompare",
       "LiCheck",
       "LiEar",
       "📛",
-      "LiGroup",
-      "LiVariable"
+      "LiGroup"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -66,5 +66,6 @@
   "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md": "📛",
   "Blog/AWS/분산제어/Listener.md": "LiEar",
   "Blog/AWS/분산제어/리스너와 대상그룹과 상태검사 결과.md": "LiCheck",
-  "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md": "🌏"
+  "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md": "🌏",
+  "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md": "LiGitCompare"
 }
