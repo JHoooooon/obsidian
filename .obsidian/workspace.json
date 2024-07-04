@@ -6,27 +6,17 @@
       {
         "id": "1e1215fca84ad106",
         "type": "tabs",
-        "dimension": 55.04201680672269,
+        "dimension": 66.73669467787114,
         "children": [
-          {
-            "id": "cd415d930b56d87b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/분산제어/요청 수신부터 로드밸런싱 까지.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
           {
             "id": "d3c54232fa8a7a80",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/CLB 프로세스.md"
+                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -35,19 +25,32 @@
       {
         "id": "3695ced4d6deab3b",
         "type": "tabs",
-        "dimension": 44.957983193277315,
+        "dimension": 33.26330532212885,
         "children": [
           {
             "id": "6d612c6df3c29ce0",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md"
+                "file": "Blog/AWS/분산제어/AWS 의 ELB.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6005a8c14d077e0f",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Blog/AWS/assets/Images/CLB 대상의 상태검사.png"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -113,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/요청 수신부터 로드밸런싱 까지.md",
+                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -130,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/요청 수신부터 로드밸런싱 까지.md",
+                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/요청 수신부터 로드밸런싱 까지.md"
+                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md"
               }
             }
           },
@@ -186,45 +189,45 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "cd415d930b56d87b",
+  "active": "d3c54232fa8a7a80",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md",
-    "Blog/AWS/분산제어/요청 수신부터 로드밸런싱 까지.md",
-    "Blog/AWS/분산제어/Listener.md",
-    "Blog/AWS/분산제어/로드밸런싱 처리부.md",
-    "Blog/AWS/assets/Images/ALB 리스너 라우팅.png",
+    "Blog/AWS/분산제어/리스너와 대상그룹과 상태검사 결과.md",
+    "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+    "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md",
+    "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
+    "Blog/AWS/VPC 통제 3요소 관련/East-West 트래픽 검사.md",
+    "Blog/AWS/VPC 통제 3요소 관련/기본게이트웨이와 그 위험성.md",
+    "Blog/AWS/assets/Images/CLB 대상의 상태검사.png",
+    "Blog/AWS/assets/Excalidraw/CLB 대상의 상태검사.md",
+    "Blog/AWS/assets/Excalidraw/ALB 유형 대상 그룹.md",
+    "Blog/AWS/assets/Excalidraw/Internal 체계 ALB 의 DNS 이름 호출.md",
     "Blog/AWS/assets/Excalidraw/ALB 리스너 라우팅.md",
-    "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md",
+    "Blog/AWS/assets/Images/대상 그룹 상태 검사(ALB, NLB).png",
+    "Blog/AWS/분산제어/AWS 의 ELB.md",
+    "Blog/AWS/assets/Images/ALB 리스너 라우팅.png",
+    "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md",
+    "Blog/AWS/VPC 통제 3요소 관련/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
+    "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/대상 그룹 상태 검사(ALB, NLB).md",
+    "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
+    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
+    "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md",
+    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
+    "Blog/AWS/분산제어/로드밸런싱 처리부.md",
     "Blog/AWS/분산제어/교차영역 로드밸런싱.md",
     "Blog/AWS/분산제어/대상 그룹과 대상.md",
     "Blog/AWS/분산제어/가변 노드를 장착한 ELB (ALB, CLB).md",
-    "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md",
-    "Blog/AWS/assets/Excalidraw/East-West 트래픽 검사.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
     "Blog/AWS/assets/Images/Internal 체계 ALB 의 DNS 이름 호출.png",
-    "Blog/AWS/assets/Excalidraw/Internal 체계 ALB 의 DNS 이름 호출.md",
-    "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
     "Blog/AWS/assets/Images/인터넷 체계 ALB 의 DNS 이름 호출.png",
-    "Blog/AWS/assets/Excalidraw/ALB 유형 대상 그룹.md",
-    "Blog/AWS/assets/Excalidraw/L4 스위치 SLB 예시.md",
-    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
-    "Blog/AWS/assets/Excalidraw/온프레미스의 SLB.md",
-    "Blog/AWS/assets/Excalidraw/L4 스위치와 ELB 의 비교.md",
-    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
     "Blog/AWS/분산제어/Untitled",
     "Blog/AWS/assets/Images/ALB 유형 대상 그룹.png",
-    "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
-    "Blog/AWS/assets/Excalidraw/ALB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
     "Blog/AWS/assets/Images/교차영역 로드밸런싱 활성화 및 비활성화.png",
-    "Blog/AWS/분산제어/AWS 의 ELB.md",
-    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
-    "Blog/AWS/분산제어/L4 스위치의 특징.md",
     "Blog/AWS/assets/Images/가용영역 전체를 관할하는 ELB 노드.png",
     "Blog/AWS/assets/Images/GWLB 프로세스.png",
     "Pasted Image 20240703224901_557.png",
-    "Blog/AWS/assets/Images/CLB 프로세스.png",
-    "Blog/AWS/assets/Images/NLB 프로세스.png",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",

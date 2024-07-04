@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiCheck",
       "LiEar",
       "📛",
       "LiGroup",
-      "LiVariable",
-      "LiTarget"
+      "LiVariable"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -65,5 +65,6 @@
   "Blog/AWS/분산제어/가변 노드를 장착한 ELB (ALB, CLB).md": "LiVariable",
   "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md": "LiGroup",
   "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md": "📛",
-  "Blog/AWS/분산제어/Listener.md": "LiEar"
+  "Blog/AWS/분산제어/Listener.md": "LiEar",
+  "Blog/AWS/분산제어/리스너와 대상그룹과 상태검사 결과.md": "LiCheck"
 }
