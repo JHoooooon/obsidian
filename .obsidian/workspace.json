@@ -6,7 +6,7 @@
       {
         "id": "1e1215fca84ad106",
         "type": "tabs",
-        "dimension": 62.39495798319328,
+        "dimension": 14.005602240896359,
         "children": [
           {
             "id": "d3c54232fa8a7a80",
@@ -19,13 +19,24 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8597d0f493adc2b3",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/ALB 의 SG 프로세스.md"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "3695ced4d6deab3b",
         "type": "tabs",
-        "dimension": 37.60504201680672,
+        "dimension": 85.99439775910365,
         "children": [
           {
             "id": "6d612c6df3c29ce0",
@@ -56,9 +67,19 @@
                 "file": "Blog/AWS/assets/Excalidraw/ALB 의 SG 프로세스.md"
               }
             }
+          },
+          {
+            "id": "d8a367354cbe1557",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-04 19.03.29.excalidraw.md"
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -124,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
+                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-04 19.03.29.excalidraw.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -141,7 +162,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
+                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-04 19.03.29.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md"
+                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-04 19.03.29.excalidraw.md"
               }
             }
           },
@@ -197,11 +218,12 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d3c54232fa8a7a80",
+  "active": "d8a367354cbe1557",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/NLB 의 SG 사용 프로세스.md",
-    "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
     "Blog/AWS/assets/Excalidraw/ALB 의 SG 프로세스.md",
+    "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
+    "Blog/AWS/assets/Excalidraw/Drawing 2024-07-04 19.03.29.excalidraw.md",
+    "Blog/AWS/assets/Excalidraw/NLB 의 SG 사용 프로세스.md",
     "Blog/AWS/assets/Images/NLB 의 SG 사용 프로세스.png",
     "Blog/AWS/분산제어/AWS 의 ELB.md",
     "Blog/AWS/assets/Images/ALB 의 SG 프로세스.png",
