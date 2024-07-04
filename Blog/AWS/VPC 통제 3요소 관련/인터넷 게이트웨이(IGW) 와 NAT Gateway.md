@@ -195,5 +195,5 @@ NAT Gateway  는 IP Address 를 변환해주는 Gateway 이다.
 
 4. **IGW 는 받은 Traffic 의 Source 를 NAT Table 에 기입된 Private IP 주소와 매핑된 Public IP 로 변경후 Traffic 을 Internet 으로 보낸다** 
 
->[!info] 자세한 내용은 [[인터넷 게이트웨이(IGW) 와 NAT 테이블#Internet Gateway 와 NAT 테이블]] 을 참고하면 된다.
+>[!info] 자세한 내용은 [[인터넷 게이트웨이(IGW) 와 NAT Gateway#Internet Gateway 와 NAT 테이블]] 을 참고하면 된다.
 

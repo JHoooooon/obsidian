@@ -38,7 +38,6 @@
   "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md": "👮",
   "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md": "RiRouteFill",
   "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md": "RiRouteFill",
-  "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT 테이블.md": "🌏",
   "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md": "RiSortDesc",
   "Blog/AWS/VPC 통제 3요소 관련/East-West 트래픽 검사.md": "🚦",
   "Blog/AWS/VPC 통제 3요소 관련/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md": "RiExpandHeightLine",
@@ -66,5 +65,6 @@
   "Blog/AWS/분산제어/NLB  대상 그룹과 ALB 연결.md": "LiGroup",
   "Blog/AWS/분산제어/ELB 체계와 DNS 이름.md": "📛",
   "Blog/AWS/분산제어/Listener.md": "LiEar",
-  "Blog/AWS/분산제어/리스너와 대상그룹과 상태검사 결과.md": "LiCheck"
+  "Blog/AWS/분산제어/리스너와 대상그룹과 상태검사 결과.md": "LiCheck",
+  "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md": "🌏"
 }

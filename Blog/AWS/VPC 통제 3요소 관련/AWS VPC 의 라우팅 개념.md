@@ -50,12 +50,12 @@ VPC 토폴로지에서 Router 는 가상 라우팅 장치이며, 라우팅 테�
 
 | VPC 게이트웨이                                                                        | 비고                  |
 | :------------------------------------------------------------------------------- | ------------------- |
-| Carrier Gateway [[인터넷 게이트웨이(IGW) 와 NAT 테이블]]                                     | Wavelength Zone 연결용 |
+| Carrier Gateway [[인터넷 게이트웨이(IGW) 와 NAT Gateway]]                                     | Wavelength Zone 연결용 |
 | Egress Only Internet Gateway (외부 전용 인터넷 게이트웨이)                                   | IPv6 전용 인터넷 게이트웨이   |
 | Gateway Load Balancer Endpoint (게이트웨이 로드밸런서 엔드포인트)                               | 로드벨런서 전용 엔트포인트      |
 | Instance(인스턴스)                                                                   |                     |
 | Local(로컬)                                                                        | VPC 전용 On-link 라우팅  |
-| NAT Gateway(Natwork Address Transformation Gateway) [[인터넷 게이트웨이(IGW) 와 NAT 테이블]] | 인터넷 주소 변환 게이트웨이     |
+| NAT Gateway(Natwork Address Transformation Gateway) [[인터넷 게이트웨이(IGW) 와 NAT Gateway]] | 인터넷 주소 변환 게이트웨이     |
 | Network Interface (네트워크 인터페이스)                                                   | 네트워크 인터페이스          |
 | Outpost Local Gateway (Outpost 로컬 게이트웨이)                                         | Outposts 연결용        |
 | Peering Connection (피어링 연결)                                                      |                     |
