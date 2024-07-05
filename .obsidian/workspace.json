@@ -4,26 +4,8 @@
     "type": "split",
     "children": [
       {
-        "id": "1e1215fca84ad106",
-        "type": "tabs",
-        "dimension": 34.87394957983193,
-        "children": [
-          {
-            "id": "83b478ce2e5adb6f",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md"
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "456372c6b2630003",
         "type": "tabs",
-        "dimension": 65.12605042016807,
         "children": [
           {
             "id": "914dc0875934f1f4",
@@ -31,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+                "file": "Blog/LearnSQL/테이블 생성.md",
                 "mode": "source",
                 "source": false
               }
@@ -103,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+                "file": "Blog/LearnSQL/테이블 생성.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -120,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+                "file": "Blog/LearnSQL/테이블 생성.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md"
+                "file": "Blog/LearnSQL/테이블 생성.md"
               }
             }
           },
@@ -178,8 +160,10 @@
   },
   "active": "914dc0875934f1f4",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
+    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
+    "Blog/LearnSQL/테이블 생성.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+    "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
@@ -206,8 +190,6 @@
     "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
     "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
     "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
-    "Blog/AWS/assets/Excalidraw/ALB 유형 대상 그룹.md",
-    "Blog/AWS/assets/Excalidraw/전이적 라우팅 시도.md",
     "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
