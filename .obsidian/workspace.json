@@ -31,7 +31,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
                 "mode": "source",
                 "source": false
               }
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md"
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md"
               }
             }
           },
@@ -178,8 +178,10 @@
   },
   "active": "914dc0875934f1f4",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
+    "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Excalidraw/AWS Direct Connect.md",
     "Blog/AWS/assets/Excalidraw/PCX 주체간 통신.md",
@@ -206,7 +208,6 @@
     "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
     "Blog/AWS/assets/Excalidraw/ALB 유형 대상 그룹.md",
     "Blog/AWS/assets/Excalidraw/전이적 라우팅 시도.md",
-    "Blog/AWS/assets/Excalidraw/Internal 체계 ALB 의 DNS 이름 호출.md",
     "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",

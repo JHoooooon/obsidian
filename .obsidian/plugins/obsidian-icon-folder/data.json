@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "RiAncientGateLine",
       "RiDirectionFill",
       "RiSecurePaymentFill",
       "LiSquareAsterisk",
-      "RiPlugLine",
-      "LiCombine"
+      "RiPlugLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -73,5 +73,6 @@
   "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md": "RiDashboardHorizontalFill",
   "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/IPSec 이란?.md": "RiSecurePaymentFill",
   "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md": "LiSquareAsterisk",
-  "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md": "RiDirectionFill"
+  "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md": "RiDirectionFill",
+  "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md": "RiAncientGateLine"
 }
