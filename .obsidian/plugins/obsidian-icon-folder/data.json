@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "RiGitCommitLine",
       "RiAncientGateLine",
       "LiGitCompare",
       "LiCheck",
-      "LiEar",
-      "📛"
+      "LiEar"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -68,5 +68,6 @@
   "Blog/AWS/분산제어/리스너와 대상그룹과 상태검사 결과.md": "LiCheck",
   "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md": "🌏",
   "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md": "LiGitCompare",
-  "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md": "RiAncientGateLine"
+  "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md": "RiAncientGateLine",
+  "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md": "RiGitCommitLine"
 }

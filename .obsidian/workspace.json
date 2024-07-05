@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f735c6da030b3e4f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md"
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md"
               }
             }
           },
@@ -160,9 +172,17 @@
   },
   "active": "38eeed37a7485ed5",
   "lastOpenFiles": [
+    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
+    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
+    "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md",
+    "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md",
+    "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md",
+    "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+    "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md",
+    "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)",
     "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png",
-    "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md",
     "Blog/AWS/assets/Excalidraw/CLB 대상의 상태검사.md",
     "Blog/AWS/assets/Excalidraw/GWLB 로드밸런싱 프로세스.md",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
@@ -181,13 +201,6 @@
     "Blog/AWS/assets/Images/NLB 라우팅 세션.png",
     "Blog/AWS/분산제어/컴퓨팅 노드와 라우팅 노드비교 (ALB VS NLB).md",
     "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
-    "Blog/AWS/assets/Excalidraw/ALB 라우팅 세션.md",
-    "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md",
-    "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md",
-    "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md",
-    "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
     "Pasted image 20240704191830.png",
     "Blog/AWS/assets/Images/ALB 라우팅 세션.png",
     "Blog/AWS/assets/Images/NLB 의 SG 사용 프로세스.png",
@@ -202,7 +215,6 @@
     "Blog/네트워크/프로토콜",
     "Blog/네트워크",
     "Blog/AWS/assets",
-    "Blog/AWS/분산제어",
-    "Blog/AWS/VPC 통제 3요소 관련"
+    "Blog/AWS/분산제어"
   ]
 }
