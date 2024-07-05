@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,46 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "f735c6da030b3e4f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1ef1d6b98abddb11",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-05 15.04.42.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "fe6ce2c53c693690",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/AWS/assets/Excalidraw/PCX 토폴로지.md"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -130,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-05 15.04.42.excalidraw.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -147,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-05 15.04.42.excalidraw.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -159,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/assets/Excalidraw/Drawing 2024-07-05 15.04.42.excalidraw.md"
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md"
               }
             }
           },
@@ -203,12 +170,18 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "1ef1d6b98abddb11",
+  "active": "38eeed37a7485ed5",
   "lastOpenFiles": [
-    "Blog/AWS/assets/Excalidraw/PCX 토폴로지.md",
-    "Blog/AWS/assets/Excalidraw/Drawing 2024-07-05 15.04.42.excalidraw.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
+    "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 On-Premise 연결 (VPN, DX).md",
+    "Blog/AWS/assets/Excalidraw/PCX 주체간 통신.md",
+    "Blog/AWS/assets/Images/PCX 주체간 통신.png",
+    "Blog/AWS/assets/Excalidraw/전이적 라우팅 시도.md",
+    "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
+    "Blog/AWS/assets/Excalidraw/PCX 토폴로지.md",
     "Blog/AWS/assets/Images/PCX 토폴로지.png",
     "Blog/AWS/assets/Excalidraw/GWLB 로드밸런싱 프로세스.md",
     "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md",
@@ -222,7 +195,6 @@
     "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
     "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
     "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
-    "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md",
     "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md",
     "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md",
     "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
@@ -231,16 +203,12 @@
     "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png",
     "Blog/AWS/assets/Excalidraw/CLB 대상의 상태검사.md",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "Blog/AWS/assets/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
-    "Blog/AWS/assets/Excalidraw/인터넷 접속 대상 서버 확장.md",
-    "Blog/AWS/assets/Excalidraw/기본 게이트웨이 라우팅 사용.md",
     "Blog/AWS/assets/Images/NLB 라우팅 세션.png",
     "Pasted image 20240704191830.png",
     "Blog/AWS/assets/Images/ALB 라우팅 세션.png",
     "Blog/AWS/assets/Images/NLB 의 SG 사용 프로세스.png",
     "Blog/AWS/assets/Images/ALB 의 SG 프로세스.png",
     "Blog/AWS/assets/Images/CLB 대상의 상태검사.png",
-    "Blog/AWS/assets/Images/대상 그룹 상태 검사(ALB, NLB).png",
     "Blog/AWS/분산제어/Untitled",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",

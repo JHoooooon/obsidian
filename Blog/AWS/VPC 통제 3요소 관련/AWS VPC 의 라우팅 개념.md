@@ -48,17 +48,17 @@ VPC 토폴로지에서 Router 는 가상 라우팅 장치이며, 라우팅 테�
 라우팅 편집에서 대상설정시 나오는 VPC 게이트웨이 종류는 다음과 같다
 #### VPC 게이트웨이 종류
 
-| VPC 게이트웨이                                                                        | 비고                  |
-| :------------------------------------------------------------------------------- | ------------------- |
-| Carrier Gateway [[인터넷 게이트웨이(IGW) 와 NAT Gateway]]                                     | Wavelength Zone 연결용 |
-| Egress Only Internet Gateway (외부 전용 인터넷 게이트웨이)                                   | IPv6 전용 인터넷 게이트웨이   |
-| Gateway Load Balancer Endpoint (게이트웨이 로드밸런서 엔드포인트)                               | 로드벨런서 전용 엔트포인트      |
-| Instance(인스턴스)                                                                   |                     |
-| Local(로컬)                                                                        | VPC 전용 On-link 라우팅  |
-| NAT Gateway(Natwork Address Transformation Gateway) [[인터넷 게이트웨이(IGW) 와 NAT Gateway]] | 인터넷 주소 변환 게이트웨이     |
-| Network Interface (네트워크 인터페이스)                                                   | 네트워크 인터페이스          |
-| Outpost Local Gateway (Outpost 로컬 게이트웨이)                                         | Outposts 연결용        |
-| Peering Connection (피어링 연결)                                                      |                     |
-| Transit Gateway                                                                  |                     |
-| Virtual Private Gateway                                                          |                     |
+| VPC 게이트웨이                                                                            | 비고                                                                                                                                             |
+| :----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Carrier Gateway [[인터넷 게이트웨이(IGW) 와 NAT Gateway]]                                     | Wavelength Zone 연결용                                                                                                                            |
+| Egress Only Internet Gateway (외부 전용 인터넷 게이트웨이)                                       | IPv6 전용 인터넷 게이트웨이                                                                                                                              |
+| Gateway Load Balancer Endpoint (게이트웨이 로드밸런서 엔드포인트)                                   | 로드벨런서 전용 엔트포인트                                                                                                                                 |
+| Instance(인스턴스)                                                                       |                                                                                                                                                |
+| Local(로컬)                                                                            | VPC 전용 On-link 라우팅                                                                                                                             |
+| NAT Gateway(Natwork Address Transformation Gateway) [[인터넷 게이트웨이(IGW) 와 NAT Gateway]] | 인터넷 주소 변환 게이트웨이                                                                                                                                |
+| Network Interface (네트워크 인터페이스)                                                       | 네트워크 인터페이스                                                                                                                                     |
+| Outpost Local Gateway (Outpost 로컬 게이트웨이)                                             | Outposts 연결용                                                                                                                                   |
+| Peering Connection (피어링 연결) [[VPC 와 VPC 의 연결 PCX]]                                   | VPC Peering 연결 <br><br>(Full-mesh 연결 가능하지만, 기하급수적으로 늘어나는 PCX 로 인해, VPC 연결시 Transit Gateway 사용)<br><br>`VPC를 N이라 할때`<br>`PCX = N(N-1)/2 개` <br> |
+| Transit Gateway                                                                      | VPC Full-mesh 연결<br><br> (PCX 보다 간단한 Full-mesh 연결 가능)<br>`VPC 1개당 TGW 1개 생성 가능`                                                                |
+| Virtual Private Gateway                                                              |                                                                                                                                                |
 
