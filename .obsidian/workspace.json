@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "38eeed37a7485ed5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "83b478ce2e5adb6f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md"
+                "file": "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md"
               }
             }
           },
@@ -170,53 +158,53 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "38eeed37a7485ed5",
+  "active": "83b478ce2e5adb6f",
   "lastOpenFiles": [
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/IPSec 이란?.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
-    "Blog/AWS/VPC 통제 3요소 관련/AWS VPC 의 라우팅 개념.md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 On-Premise 연결 (VPN, DX).md",
-    "Blog/AWS/assets/Excalidraw/PCX 주체간 통신.md",
-    "Blog/AWS/assets/Images/PCX 주체간 통신.png",
-    "Blog/AWS/assets/Excalidraw/전이적 라우팅 시도.md",
-    "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
-    "Blog/AWS/assets/Excalidraw/PCX 토폴로지.md",
-    "Blog/AWS/assets/Images/PCX 토폴로지.png",
+    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Untitled",
+    "Blog/AWS/assets/Images/VPN 연결 3요소.png",
+    "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
+    "Blog/AWS/assets/Images/사이트간 VPN 연결.png",
+    "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
     "Blog/AWS/assets/Excalidraw/GWLB 로드밸런싱 프로세스.md",
-    "Blog/AWS/VPC 통제 3요소 관련/인터넷 게이트웨이(IGW) 와 NAT Gateway.md",
+    "Blog/AWS/assets/Excalidraw/중첩된 CIDR.md",
+    "Blog/AWS/assets/Excalidraw/East-West 트래픽 검사.md",
     "Blog/AWS/assets/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
-    "Blog/AWS/assets/Excalidraw/NLB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
+    "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
+    "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md",
     "Blog/AWS/assets/Excalidraw/ALB 리스너 라우팅.md",
     "Blog/AWS/assets/Excalidraw/ALB 의 SG 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
-    "Blog/AWS/VPC 통제 3요소 관련/라우팅 테이블의 표면적 특징과 다중 연결성.md",
-    "Blog/AWS/VPC 통제 3요소 관련/온프래미스의 라우팅 개념.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md",
-    "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
-    "Blog/AWS/분산제어/게이트웨이 로드밸런서(GWLB).md",
+    "Blog/AWS/assets/Excalidraw/NLB 의 SG 사용 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/ALB 라우팅 세션.md",
+    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/가용역역 전체를 관찰하는 ELB 노드.md",
+    "Blog/AWS/assets/Excalidraw/GWLB 프로세스.md",
+    "Blog/AWS/assets/Excalidraw/교차영역 로드밸런싱 활성화 및 비활성화.md",
+    "Blog/AWS/assets/Excalidraw/ALB 유형 대상 그룹.md",
+    "Blog/AWS/assets/Excalidraw/전이적 라우팅 시도.md",
+    "Blog/AWS/assets/Excalidraw/PCX 주체간 통신.md",
+    "Blog/AWS/assets/Excalidraw/Internal 체계 ALB 의 DNS 이름 호출.md",
+    "Blog/AWS/assets/Excalidraw/CLB 대상의 상태검사.md",
+    "Blog/AWS/assets/Excalidraw/PCX 토폴로지.md",
+    "Blog/AWS/assets/Excalidraw/Untitled",
+    "Blog/AWS/assets/Images/PCX 주체간 통신.png",
+    "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
+    "Blog/AWS/assets/Images/PCX 토폴로지.png",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)",
     "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png",
-    "Blog/AWS/assets/Excalidraw/CLB 대상의 상태검사.md",
     "Blog/AWS/assets/Images/NLB 라우팅 세션.png",
     "Pasted image 20240704191830.png",
     "Blog/AWS/assets/Images/ALB 라우팅 세션.png",
     "Blog/AWS/assets/Images/NLB 의 SG 사용 프로세스.png",
-    "Blog/AWS/assets/Images/ALB 의 SG 프로세스.png",
-    "Blog/AWS/assets/Images/CLB 대상의 상태검사.png",
     "Blog/AWS/분산제어/Untitled",
     "Blog/네트워크/프로토콜/Untitled",
     "Blog/네트워크/assets/Excalidraw",
     "Blog/네트워크/assets/images",
     "Blog/네트워크/assets",
     "Blog/네트워크/프로토콜",
-    "Blog/네트워크",
-    "Blog/AWS/assets",
-    "Blog/AWS/분산제어"
+    "Blog/네트워크"
   ]
 }

@@ -1,4 +1,6 @@
 
+>[!info] [[연결 서비스]] 에서 이어지는 챕터이다.
+
 ---
 [IPSec 이란 무엇인가요?](https://aws.amazon.com/ko/what-is/ipsec/) 에서의 내용을 정리하면 다음과 같다 
 
