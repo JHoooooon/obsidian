@@ -15,5 +15,5 @@
 
 `사이트간`(Site-to-Site) `VPN` 연결은 `IPSec 터널링` 으로 종단간 데이터를 암호화해 `On-Premise` 와 `VPC` 간 암호화된 `Network` 를 형성한다.
 
-[IPSec 이란 무엇인가요?](https://aws.amazon.com/ko/what-is/ipsec/) 에서의 내용을 정리하면 다음과 같다 
+>[!info] [[IPSec 이란?]] 에서 `IPSec` 이란 무엇인지 볼수 있다.
 
