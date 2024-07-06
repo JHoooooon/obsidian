@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Empty Commit.md",
+                "file": "Blog/GIT 교과서/Commit/커밋 아이디.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Empty Commit.md",
+                "file": "Blog/GIT 교과서/Commit/커밋 아이디.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Empty Commit.md",
+                "file": "Blog/GIT 교과서/Commit/커밋 아이디.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Empty Commit.md"
+                "file": "Blog/GIT 교과서/Commit/커밋 아이디.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "ea58dbfeca3d9c45",
   "lastOpenFiles": [
+    "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md",
+    "Blog/GIT 교과서/Commit/커밋 아이디.md",
     "Blog/GIT 교과서/Commit/File status.md",
-    "Blog/GIT 교과서/Commit/Empty Commit.md",
     "Blog/GIT 교과서/Commit/HEAD.md",
     "Blog/GIT 교과서/Commit/Snapshot.md",
     "Blog/GIT 교과서/Commit/core.editor.md",
@@ -198,7 +199,6 @@
     "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/IPSec 이란?.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png",

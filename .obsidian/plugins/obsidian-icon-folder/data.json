@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiRedo",
       "LiImage",
       "LiPen",
       "🧺",
-      "LiFolderGit2",
-      "RiBloggerFill"
+      "LiFolderGit2"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -108,5 +108,6 @@
   "Blog/GIT 교과서": "LiFolderGit2",
   "Blog/네트워크/assets": "🧺",
   "Blog/네트워크/assets/Excalidraw": "LiPen",
-  "Blog/네트워크/assets/images": "LiImage"
+  "Blog/네트워크/assets/images": "LiImage",
+  "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md": "LiRedo"
 }
