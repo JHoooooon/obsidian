@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiFolderTree",
+      "LiTextSelect",
+      "RiQuestionMark",
       "RiTableFill",
-      "LiTable2",
-      "LiType",
-      "RiAncientGateLine",
-      "RiDirectionFill"
+      "LiTable2"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -75,7 +75,11 @@
   "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md": "LiSquareAsterisk",
   "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md": "RiDirectionFill",
   "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md": "RiAncientGateLine",
-  "Blog/LearnSQL/데이터베이스 생성 및 자료형.md": "LiType",
-  "Blog/LearnSQL/테이블 생성.md": "LiTable2",
-  "Blog/LearnSQL/테이블 수정.md": "RiTableFill"
+  "Blog/LearnSQL/쿼리 모음/쿼리 역학.md": "RiQuestionMark",
+  "Blog/LearnSQL/쿼리 모음/Select.md": "LiTextSelect",
+  "Blog/LearnSQL/쿼리 모음": "LiFolderTree",
+  "Blog/LearnSQL/테이블 모음": "LiTable2",
+  "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md": "LiType",
+  "Blog/LearnSQL/테이블 모음/테이블 생성.md": "LiTable2",
+  "Blog/LearnSQL/테이블 모음/테이블 수정.md": "RiTableFill"
 }
