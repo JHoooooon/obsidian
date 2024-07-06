@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "456372c6b2630003",
+        "id": "d7792fd8fe66273e",
         "type": "tabs",
         "children": [
           {
-            "id": "914dc0875934f1f4",
+            "id": "ce538f44b4a93d09",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/테이블 모음/테이블 생성.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ecd51b7580766a2e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Order by.md",
+                "file": "Blog/LearnSQL/필터링/조건유형.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377.5,
-    "collapsed": true
+    "width": 377.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -99,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Order by.md",
+                "file": "Blog/LearnSQL/필터링/조건유형.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -116,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Order by.md",
+                "file": "Blog/LearnSQL/필터링/조건유형.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Order by.md"
+                "file": "Blog/LearnSQL/필터링/조건유형.md"
               }
             }
           },
@@ -172,11 +158,18 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "ecd51b7580766a2e",
+  "active": "ce538f44b4a93d09",
   "lastOpenFiles": [
-    "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
+    "Blog/LearnSQL/필터링/조건 작성.md",
+    "Blog/LearnSQL/필터링/조건유형.md",
+    "Blog/LearnSQL/필터링/Untitled",
+    "Blog/LearnSQL/필터링/조건 평가.md",
+    "Blog/LearnSQL/필터링/필터링.md",
     "Blog/LearnSQL/쿼리 모음/Order by.md",
+    "Blog/LearnSQL/필터링/필터링",
+    "Blog/LearnSQL/필터링",
     "Blog/LearnSQL/쿼리 모음/From.md",
+    "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
     "Blog/LearnSQL/쿼리 모음/Select.md",
     "Blog/LearnSQL/테이블 모음",
     "Blog/LearnSQL/쿼리 모음/쿼리 역학.md",
@@ -202,10 +195,6 @@
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png",
     "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
     "Blog/AWS/assets/Excalidraw/GWLB 로드밸런싱 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/중첩된 CIDR.md",
-    "Blog/AWS/assets/Excalidraw/East-West 트래픽 검사.md",
-    "Blog/AWS/assets/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
-    "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
     "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
@@ -216,9 +205,6 @@
     "Pasted image 20240704191830.png",
     "Blog/AWS/assets/Images/ALB 라우팅 세션.png",
     "Blog/AWS/분산제어/Untitled",
-    "Blog/네트워크/프로토콜/Untitled",
-    "Blog/네트워크/assets/Excalidraw",
-    "Blog/네트워크/assets/images",
-    "Blog/네트워크/assets"
+    "Blog/네트워크/프로토콜/Untitled"
   ]
 }

@@ -101,4 +101,18 @@ order by time(r.rental_date) desc;
 
 ### 순서를 통한 정렬
 
-`order by` 사용시 `select`
+`order by` 사용시 `select`  절의 열 참조 대신, 열 나열 순서를 기준으로 참조해서 정렬도 가능하다
+
+```mysql
+select c.first_name, c.last_name, time(r.rental_date) rental_time
+from customer c
+	inner join rental r
+	on c.customer_id = r.customer_id
+where date(r.rental_date) = '2005-06-14'
+order by 3 desc;
+```
+
+위는 `3` 인`time(r.rental_date)` 를 기준으로 `내림차순` 정렬한다.
+
+>[!warning] 이는 가독성이 좋지 않으며, 열 추가시 순서변경 우려가 있으므로 자제해서 사용하는것이 좋다고 한다.<br><br>책의 저자는 `Temporary table`  작성시 `위치 참조` 를 사용하지만, 코드 작성시 항상 이름으로 열을 참조한다고 말한다.
+

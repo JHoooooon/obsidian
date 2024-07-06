@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiGroup",
-      "LiArrowUpFromDot",
-      "LiFolderTree",
-      "LiTextSelect",
-      "RiQuestionMark"
+      "RiStickyNoteAddLine",
+      "RiCheckDoubleLine",
+      "LiBadgeCheck",
+      "LiEdit",
+      "RiFilter2Fill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -83,5 +83,11 @@
   "Blog/LearnSQL/테이블 모음/테이블 생성.md": "LiTable2",
   "Blog/LearnSQL/테이블 모음/테이블 수정.md": "RiTableFill",
   "Blog/LearnSQL/쿼리 모음/From.md": "LiArrowUpFromDot",
-  "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md": "LiGroup"
+  "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md": "LiGroup",
+  "Blog/LearnSQL/쿼리 모음/Order by.md": "RiListOrdered2",
+  "Blog/LearnSQL": "❓",
+  "Blog/LearnSQL/필터링": "RiCheckDoubleLine",
+  "Blog/LearnSQL/필터링/필터링.md": "RiFilter2Fill",
+  "Blog/LearnSQL/필터링/조건 평가.md": "RiCheckDoubleLine",
+  "Blog/LearnSQL/필터링/조건 작성.md": "RiStickyNoteAddLine"
 }
