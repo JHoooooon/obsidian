@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/GIT 교과서/HEAD.md",
+                "file": "Blog/GIT 교과서/Commit/HEAD.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,14 +25,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/GIT 교과서/HEAD.md",
+                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4644e8fb598c4b22",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ea58dbfeca3d9c45",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/GIT 교과서/HEAD.md",
+                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -115,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/GIT 교과서/HEAD.md",
+                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/GIT 교과서/HEAD.md"
+                "file": "Blog/GIT 교과서/Commit/Snapshot.md"
               }
             }
           },
@@ -171,13 +195,21 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "73783d0ac4fd487f",
+  "active": "4644e8fb598c4b22",
   "lastOpenFiles": [
+    "Blog/GIT 교과서/Commit/core.editor.md",
+    "Blog/GIT 교과서/Commit/Snapshot.md",
+    "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
+    "Blog/GIT 교과서/Assets/Drawing/Snapshot 요약.md",
+    "Blog/GIT 교과서/Assets/Drawing/Snapshot Process.md",
+    "Blog/GIT 교과서/Commit/File status.md",
+    "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
+    "Blog/GIT 교과서/Assets/Drawing/HEAD Pointer.md",
+    "Blog/GIT 교과서/Commit/HEAD.md",
+    "Blog/GIT 교과서/Commit",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
-    "Blog/GIT 교과서/HEAD.md",
     "Blog/GIT 교과서/Assets",
     "Blog/GIT 교과서/Assets/Image",
-    "Blog/GIT 교과서/Assets/Drawing/HEAD Pointer.md",
     "Blog/GIT 교과서/Assets/Drawing",
     "Blog/LearnSQL/필터링/NULL.md",
     "Blog/GIT 교과서",
@@ -204,19 +236,12 @@
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/IPSec 이란?.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
-    "Blog/LearnSQL/테이블 모음/테이블 생성.md",
-    "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Untitled",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
     "Blog/AWS/assets/Images/PCX 토폴로지.png",
-    "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png",
-    "Blog/AWS/assets/Images/NLB 라우팅 세션.png",
-    "Pasted image 20240704191830.png"
+    "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png"
   ]
 }
