@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/필터링/NULL.md",
+                "file": "Blog/GIT 교과서/HEAD.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "73783d0ac4fd487f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/GIT 교과서/HEAD.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/필터링/NULL.md",
+                "file": "Blog/GIT 교과서/HEAD.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/필터링/NULL.md",
+                "file": "Blog/GIT 교과서/HEAD.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/필터링/NULL.md"
+                "file": "Blog/GIT 교과서/HEAD.md"
               }
             }
           },
@@ -158,10 +171,17 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "ce538f44b4a93d09",
+  "active": "73783d0ac4fd487f",
   "lastOpenFiles": [
-    "Blog/LearnSQL/필터링/조건유형.md",
+    "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
+    "Blog/GIT 교과서/HEAD.md",
+    "Blog/GIT 교과서/Assets",
+    "Blog/GIT 교과서/Assets/Image",
+    "Blog/GIT 교과서/Assets/Drawing/HEAD Pointer.md",
+    "Blog/GIT 교과서/Assets/Drawing",
     "Blog/LearnSQL/필터링/NULL.md",
+    "Blog/GIT 교과서",
+    "Blog/LearnSQL/필터링/조건유형.md",
     "Blog/LearnSQL/필터링/조건 작성.md",
     "Blog/LearnSQL/필터링/Untitled",
     "Blog/LearnSQL/필터링/조건 평가.md",
@@ -189,22 +209,14 @@
     "Blog/LearnSQL/테이블 모음/테이블 생성.md",
     "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
-    "Blog/AWS/assets/Excalidraw/AWS Direct Connect.md",
-    "Blog/AWS/assets/Excalidraw/PCX 주체간 통신.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Untitled",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png",
-    "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
-    "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
     "Blog/AWS/assets/Images/PCX 토폴로지.png",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)",
     "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png",
     "Blog/AWS/assets/Images/NLB 라우팅 세션.png",
-    "Pasted image 20240704191830.png",
-    "Blog/AWS/assets/Images/ALB 라우팅 세션.png",
-    "Blog/AWS/분산제어/Untitled",
-    "Blog/네트워크/프로토콜/Untitled"
+    "Pasted image 20240704191830.png"
   ]
 }
