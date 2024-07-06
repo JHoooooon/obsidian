@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/필터링/조건유형.md",
+                "file": "Blog/LearnSQL/필터링/NULL.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/필터링/조건유형.md",
+                "file": "Blog/LearnSQL/필터링/NULL.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/필터링/조건유형.md",
+                "file": "Blog/LearnSQL/필터링/NULL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/필터링/조건유형.md"
+                "file": "Blog/LearnSQL/필터링/NULL.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "ce538f44b4a93d09",
   "lastOpenFiles": [
-    "Blog/LearnSQL/필터링/조건 작성.md",
     "Blog/LearnSQL/필터링/조건유형.md",
+    "Blog/LearnSQL/필터링/NULL.md",
+    "Blog/LearnSQL/필터링/조건 작성.md",
     "Blog/LearnSQL/필터링/Untitled",
     "Blog/LearnSQL/필터링/조건 평가.md",
     "Blog/LearnSQL/필터링/필터링.md",
@@ -194,7 +195,6 @@
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png",
     "Blog/AWS/assets/Excalidraw/NLB 라우팅 세션.md",
-    "Blog/AWS/assets/Excalidraw/GWLB 로드밸런싱 프로세스.md",
     "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
