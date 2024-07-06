@@ -8,55 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ce538f44b4a93d09",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/GIT 교과서/Commit/HEAD.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "73783d0ac4fd487f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4644e8fb598c4b22",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "ea58dbfeca3d9c45",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
+                "file": "Blog/GIT 교과서/Commit/Empty Commit.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -122,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
+                "file": "Blog/GIT 교과서/Commit/Empty Commit.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -139,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Snapshot.md",
+                "file": "Blog/GIT 교과서/Commit/Empty Commit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/GIT 교과서/Commit/Snapshot.md"
+                "file": "Blog/GIT 교과서/Commit/Empty Commit.md"
               }
             }
           },
@@ -195,17 +158,18 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "4644e8fb598c4b22",
+  "active": "ea58dbfeca3d9c45",
   "lastOpenFiles": [
-    "Blog/GIT 교과서/Commit/core.editor.md",
+    "Blog/GIT 교과서/Commit/File status.md",
+    "Blog/GIT 교과서/Commit/Empty Commit.md",
+    "Blog/GIT 교과서/Commit/HEAD.md",
     "Blog/GIT 교과서/Commit/Snapshot.md",
+    "Blog/GIT 교과서/Commit/core.editor.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Drawing/Snapshot 요약.md",
     "Blog/GIT 교과서/Assets/Drawing/Snapshot Process.md",
-    "Blog/GIT 교과서/Commit/File status.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Drawing/HEAD Pointer.md",
-    "Blog/GIT 교과서/Commit/HEAD.md",
     "Blog/GIT 교과서/Commit",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
     "Blog/GIT 교과서/Assets",
@@ -235,7 +199,6 @@
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/Direct Connect(DX).md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/IPSec 이란?.md",
-    "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png",

@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "🪹",
-      "LiBookType",
-      "RiStickyNoteAddLine",
-      "RiCheckDoubleLine",
-      "LiBadgeCheck"
+      "LiImage",
+      "LiPen",
+      "🧺",
+      "LiFolderGit2",
+      "RiBloggerFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -91,5 +91,22 @@
   "Blog/LearnSQL/필터링/조건 평가.md": "RiCheckDoubleLine",
   "Blog/LearnSQL/필터링/조건 작성.md": "RiStickyNoteAddLine",
   "Blog/LearnSQL/필터링/조건유형.md": "LiBookType",
-  "Blog/LearnSQL/필터링/NULL.md": "🪹"
+  "Blog/LearnSQL/필터링/NULL.md": "🪹",
+  "Blog/GIT 교과서/Commit": "RiGitRepositoryCommitsFill",
+  "Blog/GIT 교과서/Commit/HEAD.md": "LiHeading",
+  "Blog/GIT 교과서/Commit/Snapshot.md": "RiCameraLensFill",
+  "Blog/GIT 교과서/Commit/File status.md": "🗽",
+  "Blog/GIT 교과서/Assets": "🧺",
+  "Blog/GIT 교과서/Assets/Drawing": "LiPen",
+  "Blog/GIT 교과서/Assets/Image": "LiImage",
+  "Blog/AWS/분산제어": "LiArrowsUpFromLine",
+  "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)": "LiGitMerge",
+  "Blog/AWS/assets": "🧺",
+  "Blog/AWS/VPC 통제 3요소 관련": "3️⃣",
+  "Blog/AWS/assets/Images": "LiImage",
+  "Blog": "RiBloggerFill",
+  "Blog/GIT 교과서": "LiFolderGit2",
+  "Blog/네트워크/assets": "🧺",
+  "Blog/네트워크/assets/Excalidraw": "LiPen",
+  "Blog/네트워크/assets/images": "LiImage"
 }
