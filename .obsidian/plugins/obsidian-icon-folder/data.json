@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiArrowUpFromDot",
       "LiFolderTree",
       "LiTextSelect",
       "RiQuestionMark",
-      "RiTableFill",
-      "LiTable2"
+      "RiTableFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -81,5 +81,6 @@
   "Blog/LearnSQL/테이블 모음": "LiTable2",
   "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md": "LiType",
   "Blog/LearnSQL/테이블 모음/테이블 생성.md": "LiTable2",
-  "Blog/LearnSQL/테이블 모음/테이블 수정.md": "RiTableFill"
+  "Blog/LearnSQL/테이블 모음/테이블 수정.md": "RiTableFill",
+  "Blog/LearnSQL/쿼리 모음/From.md": "LiArrowUpFromDot"
 }
