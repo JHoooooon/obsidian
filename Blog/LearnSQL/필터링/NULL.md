@@ -50,4 +50,9 @@ from rental
 where return_date IS NULL or return_date not between '2005-05-01' and '2005-09-01';
 ```
 
+여기서 주의할점은 `return_date is null` 을 포함해야 한다는것이다.
+
+`is null`  인 값도 `5월 에서 8월` 사이에 반납되지 않은 대여정보이기 때문이다.
+
+이러한 함정을 잘 알고 처리할줄 알아야 한다.
 

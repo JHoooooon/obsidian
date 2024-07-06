@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "🪹",
       "LiBookType",
       "RiStickyNoteAddLine",
       "RiCheckDoubleLine",
-      "LiBadgeCheck",
-      "LiEdit"
+      "LiBadgeCheck"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -90,5 +90,6 @@
   "Blog/LearnSQL/필터링/필터링.md": "RiFilter2Fill",
   "Blog/LearnSQL/필터링/조건 평가.md": "RiCheckDoubleLine",
   "Blog/LearnSQL/필터링/조건 작성.md": "RiStickyNoteAddLine",
-  "Blog/LearnSQL/필터링/조건유형.md": "LiBookType"
+  "Blog/LearnSQL/필터링/조건유형.md": "LiBookType",
+  "Blog/LearnSQL/필터링/NULL.md": "🪹"
 }
