@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
+                "file": "Blog/LearnSQL/쿼리 역학.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
+                "file": "Blog/LearnSQL/쿼리 역학.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
+                "file": "Blog/LearnSQL/쿼리 역학.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md"
+                "file": "Blog/LearnSQL/쿼리 역학.md"
               }
             }
           },
@@ -173,6 +173,10 @@
   },
   "active": "ecd51b7580766a2e",
   "lastOpenFiles": [
+    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
+    "Blog/LearnSQL/쿼리 역학.md",
+    "Blog/LearnSQL/테이블 수정.md",
+    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
     "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md",
     "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 온프레미스의 라우터 TGW.md",
@@ -181,9 +185,7 @@
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/가상 프라이빗 네트워크 VPN.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/VPC 와 VPC 의 연결 PCX.md",
     "Blog/AWS/연결 서비스 - 공간과 공간 연결(양방향)/연결 서비스.md",
-    "Blog/LearnSQL/테이블 수정.md",
     "Blog/LearnSQL/테이블 생성.md",
-    "Blog/LearnSQL/데이터베이스 생성 및 자료형.md",
     "Blog/AWS/assets/Excalidraw/사이트간 VPN 연결.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Excalidraw/AWS Direct Connect.md",
@@ -201,8 +203,6 @@
     "Blog/AWS/assets/Excalidraw/ALB 리스너 라우팅.md",
     "Blog/AWS/assets/Excalidraw/ALB 의 SG 프로세스.md",
     "Blog/AWS/assets/Excalidraw/NLB 의 SG 사용 프로세스.md",
-    "Blog/AWS/assets/Excalidraw/ALB 라우팅 세션.md",
-    "Blog/AWS/assets/Excalidraw/CLB 프로세스.md",
     "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
