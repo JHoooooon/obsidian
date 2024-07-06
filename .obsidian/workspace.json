@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
+                "file": "Blog/LearnSQL/쿼리 모음/Order by.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
+                "file": "Blog/LearnSQL/쿼리 모음/Order by.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
+                "file": "Blog/LearnSQL/쿼리 모음/Order by.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md"
+                "file": "Blog/LearnSQL/쿼리 모음/Order by.md"
               }
             }
           },
@@ -174,8 +174,9 @@
   },
   "active": "ecd51b7580766a2e",
   "lastOpenFiles": [
-    "Blog/LearnSQL/쿼리 모음/From.md",
     "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
+    "Blog/LearnSQL/쿼리 모음/Order by.md",
+    "Blog/LearnSQL/쿼리 모음/From.md",
     "Blog/LearnSQL/쿼리 모음/Select.md",
     "Blog/LearnSQL/테이블 모음",
     "Blog/LearnSQL/쿼리 모음/쿼리 역학.md",
@@ -205,7 +206,6 @@
     "Blog/AWS/assets/Excalidraw/East-West 트래픽 검사.md",
     "Blog/AWS/assets/Excalidraw/IGW Edge Routing 테이블을 경우하는 Inbound Traffic.md",
     "Blog/AWS/assets/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "Blog/AWS/assets/Excalidraw/인터넷 체계 ALB 의 DNS 이름 호출.md",
     "Blog/AWS/assets/Excalidraw/Untitled",
     "Blog/AWS/assets/Images/PCX 주체간 통신.png",
     "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
