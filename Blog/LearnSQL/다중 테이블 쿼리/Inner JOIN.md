@@ -70,6 +70,125 @@ FROM customer c, address a
 WHERE c.address_id = a.address_id ;
 ```
 
+이는 모든 `SQL` 서버들은 위의 방식으로 `JOIN` 가능하다
+이는 `on` 절이 아닌 `where` 절을 사용하고, `join`  은 `from` 절로 여러 테이블을 참조한다.
+
+`ANSI` 조인 문법은 다음과 같은 이점이 있다고 한다.
+
+1. **조인 조건과 필터 조건은 이해하기 쉽게 두개의 각각 절로 구분된다**
+2. **각 테이블 쌍에 대한 조인 조건이 `on` 절에 포함되어 있으므로, 조인 조건의 일부가 실수로 누락될 가능성이 낮다**
+3. **표준화 되어 있어 데이터베이스 서버 이식이 가능하다.**
+
+>[!info] 웬만하면 `on` 절을 사용하여 `join` 하도록 추천하고 있다.<br><br>반면 `from` `where` 절을 통한 `join` 을 사용하면, `JOIN` 문인지 아닌지 구분이 바로 되지는 않는다<br><br>하지만, 표준 이전에 있던 문법으로 알아두어야 한다.<br><br>`SQL 쿡북` 에서도 `form` `where` 절을 사용해서 처리하는 방법을 같이 보여주었던 것으로 기억한다.
+
+### 세 개 이상 테이블 조인
+
+```mysql
+SELECT
+	c.first_name,
+	c.last_name ,
+	ct.city 
+FROM customer c
+	INNER JOIN address a
+	ON c.address_id = a.address_id
+	INNER JOIN city ct
+	ON a.city_id = ct.city_id;
+
+SELECT
+	c.first_name,
+	c.last_name ,
+	ct.city
+FROM city ct
+	INNER JOIN address a
+	ON a.city_id = ct.city_id
+	INNER JOIN customer c
+	ON c.address_id = a.address_id;
+
+SELECT
+	c.first_name,
+	c.last_name ,
+	ct.city
+FROM address a
+	INNER JOIN city ct
+	ON a.city_id = ct.city_id
+	INNER JOIN customer c
+	ON c.address_id = a.address_id;
+```
+
+이는 동일한 결과를 반환한다.
+
+`SQL` 은 비절차적 언어이다.
+
+데이터베이스는 수집된 통계를 이용해서 서버는 셋중 하나의 테이블을 시작점으로 선택한 다음 나머지 테이블을 조인할 순서를 결정한다. 
+
+>[!info] 선택된 테이블을 `드라이빙 테이블`(`driveing table`) 이라한다.<br><br>이렇게 조인할 순서를 알아서 선택하기에 테이블 나열하는 순서는 중요하지 않다.
+
+>[!note] 테이블을 원하는 순서로 조인하려면, 테이블을 원하는 순서로 배치한 다음 `MYSQL` 에서는 `straight_join` 키워드를 사용하거나, `SQL Server` 에서는 `force order` 옵션을, `oracle` 에서는 `leading` 힌트를 사용한다.
+
+```mysql
+SELECT STRAIGHT_JOIN 
+	c.first_name, 
+	c.last_name,
+	ct.city
+FROM city ct
+	INNER JOIN address a
+	ON a.city_id = ct.city_id
+	INNER JOIN customer c
+	ON c.address_id = a.address_id;
+```
+
+### 서브쿼리 사용
+
+다음은 `customer` 테이블의 `address` 및 `city` 테이블에 대한 서브쿼리를 이용해 조인하는 예이다.
+
+```mysql
+SELECT
+	c.first_name,
+	c.last_name,
+	addr.city
+FROM customer c
+INNER JOIN (
+	SELECT
+		a.address_id,
+		a.address,
+		ct.city
+	FROM address a
+		INNER JOIN city ct
+		ON a.city_id = ct.city_id
+	WHERE a.district = 'California'
+) addr
+ON c.address_id = addr.address_id;
+```
+
+`California` 에 거주하는 `customer` 의 `이름`, `성`, `주소 및 도시` 를 반환한다.
+
+>[!note] 서브쿼리를 사용하지 않고 단순히 세 개의 테이블을 조인해서 작성할 수도 있지만, 하나 이상의 서브쿼리를 사용하는 편이 성능 및 가독성 측면에서 유리할 수 있다.
+
+>[!info] 서브 쿼리에 대해서는 추후 설명한다고 한다.<br><br>서브 쿼리에 대한 동작방식을 이해해야 성능관련 부분에 대한 이해도가 쌓일수 있을것 같다.
+
+### 테이블 재사용
+
+여러 테이블을 조인할 경우 같은 테이블을 두번 이상 조인해야 할수도 있다
+
+다음은 `film_actor` 테이블에 있는 영화와 관련있다.
+두면의 특정 배우가 출연한 영화 제목을 찾으려면 다음과 같이 쿼리를 작성해야 한다
+
+```mysql
+SELECT
+	f.title
+FROM film f
+	INNER JOIN film_actor fa
+	ON f.film_id = fa.film_id
+	INNER JOIN actor a
+	ON fa.actor_id = a.actor_id
+WHERE
+	(a.first_name = 'CATE' AND a.last_name = 'MCQUEEN')
+	OR (a.first_name = 'CUBA' AND a.last_name = 'BIRCH');
+```
+
+
+
+
 
 
 
