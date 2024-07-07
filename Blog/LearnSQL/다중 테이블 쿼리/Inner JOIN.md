@@ -26,6 +26,50 @@ from
 
 >[!info] 만약, `존재하지 않는 address_id` 를 포함해서 결과셋을 얻고 싶다면, `outer join` 및, `cross join` 을 통해서 가능하다.
 
+다음은 위의 코드와 같다
+
+```mysql
+select 
+	c.first_name,
+	c.last_name,
+	a.address
+from
+	customer c
+	join address a 
+	on c.address_id = a.address_id;
+```
+
+>[!info] `inner` 의 명시적 정의 가 없다면, `default` 로 `inner join`  으로 처리된다.
+
+다음은 `on` 하위 절 대신, 같은 `field` 명이라면 `using` 절을 사용해도 된다.
+
+```mysql
+select 
+	c.first_name,
+	c.last_name,
+	a.address
+from
+	customer c
+	join address a 
+	using(address_id);
+```
+
+>[!warning] 이는 `using` 을 사용할수 있는 간단한 표기법이므로, 혼돈을 피하려면 `on` 하위절을 사용하라한다.
+
+### ANSI 조인 문법
+
+책에서 테이블 조인에 사용된 표기법은 `ANSI SQL` 표준의 `SQL92` 버전에 준하여 소개한다.
+`SQL92` 스펙이 출시되기 전부터 사용되었던 조인 문법은 다음과 같다
+
+```mysql
+SELECT
+	c.first_name,
+	c.last_name,
+	a.address
+FROM customer c, address a
+WHERE c.address_id = a.address_id ;
+```
+
 
 
 

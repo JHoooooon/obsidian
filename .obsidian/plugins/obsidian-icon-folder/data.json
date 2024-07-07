@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "RiInstallLine",
+      "RiExchange2Line",
       "RiCheckboxMultipleLine",
       "✖",
-      "RiIdCardLine",
-      "LiRedo",
-      "LiImage"
+      "RiIdCardLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -111,5 +111,7 @@
   "Blog/네트워크/assets/images": "LiImage",
   "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md": "LiRedo",
   "Blog/GIT 교과서/Commit/커밋 아이디.md": "RiIdCardLine",
-  "Blog/LearnSQL/다중 테이블 쿼리": "RiCheckboxMultipleLine"
+  "Blog/LearnSQL/다중 테이블 쿼리": "RiCheckboxMultipleLine",
+  "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md": "RiExchange2Line",
+  "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md": "RiInstallLine"
 }
