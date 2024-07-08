@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "RiInstallLine",
-      "RiExchange2Line",
-      "RiCheckboxMultipleLine",
-      "✖",
-      "RiIdCardLine"
+      "LiQuestionMarkGlyph",
+      "LiBook",
+      "LiImage",
+      "LiPen",
+      "🧺"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -113,5 +113,11 @@
   "Blog/GIT 교과서/Commit/커밋 아이디.md": "RiIdCardLine",
   "Blog/LearnSQL/다중 테이블 쿼리": "RiCheckboxMultipleLine",
   "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md": "RiExchange2Line",
-  "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md": "RiInstallLine"
+  "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md": "RiInstallLine",
+  "Blog/LearnSQL/집합 연산자": "RiCheckboxBlankCircleFill",
+  "Blog/LearnSQL/Assets": "🧺",
+  "Blog/LearnSQL/Assets/Drawing": "LiPen",
+  "Blog/LearnSQL/Assets/Images": "LiImage",
+  "Blog/LearnSQL/집합 연산자/집합 이론.md": "LiBook",
+  "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md": "LiQuestionMarkGlyph"
 }

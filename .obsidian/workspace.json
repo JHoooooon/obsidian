@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "d7792fd8fe66273e",
+        "id": "5e87f8162320f9d2",
         "type": "tabs",
         "children": [
           {
-            "id": "ea58dbfeca3d9c45",
+            "id": "d105d3fce5a6c3cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md",
+                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md",
+                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md",
+                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md"
+                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md"
               }
             }
           },
@@ -158,10 +158,23 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "ea58dbfeca3d9c45",
+  "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md",
+    "Blog/LearnSQL/집합 연산자/집합 이론.md",
+    "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
+    "Blog/LearnSQL/Assets/Drawing/Drawing 2024-07-08 09.18.07.excalidraw.md",
+    "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
+    "Blog/LearnSQL/Assets/Images/except.png",
+    "Blog/LearnSQL/Assets/Images/Intersect.png",
+    "Blog/LearnSQL/Assets/Images/Union.png",
+    "Blog/LearnSQL/Assets/Drawing",
+    "Blog/LearnSQL/Assets/Images",
+    "Blog/LearnSQL/Assets",
+    "Blog/LearnSQL/Untitled.md",
     "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md",
+    "Blog/LearnSQL/집합 연산자",
+    "Blog/LearnSQL/다중 테이블 쿼리/Untitled.md",
+    "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md",
     "Blog/LearnSQL/필터링/NULL.md",
     "Blog/LearnSQL/다중 테이블 쿼리/Untitled",
     "Blog/LearnSQL/다중 테이블 쿼리",
@@ -184,27 +197,14 @@
     "Blog/GIT 교과서/Assets",
     "Blog/GIT 교과서/Assets/Image",
     "Blog/GIT 교과서/Assets/Drawing",
-    "Blog/GIT 교과서",
-    "Blog/LearnSQL/필터링/Untitled",
     "Blog/LearnSQL/필터링/필터링.md",
     "Blog/LearnSQL/쿼리 모음/Order by.md",
-    "Blog/LearnSQL/필터링/필터링",
-    "Blog/LearnSQL/필터링",
     "Blog/LearnSQL/쿼리 모음/From.md",
     "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
     "Blog/LearnSQL/쿼리 모음/Select.md",
     "Blog/LearnSQL/쿼리 모음/쿼리 역학.md",
-    "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md",
-    "Blog/LearnSQL/테이블 모음/테이블 수정.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 통제 3요소.md",
-    "Blog/AWS/VPC 통제 3요소 관련/VPC 를 사용하는 데이터베이스 종류.md",
-    "Blog/AWS/VPC 통제 3요소 관련/ENI IP 에 대해서.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
-    "Blog/AWS/assets/Images/사이트간 VPN 연결.png",
-    "Blog/AWS/assets/Images/PCX 주체간 통신.png",
-    "Blog/AWS/assets/Images/전이적 라우팅 시도.png",
-    "Blog/AWS/assets/Images/PCX 토폴로지.png",
-    "Blog/AWS/assets/Images/GWLB 로드밸런싱 프로세스.png"
+    "Blog/AWS/assets/Images/사이트간 VPN 연결.png"
   ]
 }

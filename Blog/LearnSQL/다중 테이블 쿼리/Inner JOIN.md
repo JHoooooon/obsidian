@@ -260,3 +260,4 @@ WHERE f.prequel_film_id IS NOT NULL;
 
 >[!note] 궁금한게, `where` 절을 넣어야 하나?
 >`inner join` 에서 이미 `null` 값이면,  제외되서 `where`  절 사용을 안해도 될것 같은데...<br>일단 넘기도록 하자..
+
