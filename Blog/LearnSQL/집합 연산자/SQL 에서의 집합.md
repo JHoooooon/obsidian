@@ -232,8 +232,13 @@ WHERE c.first_name LIKE 'J%' AND c.last_name LIKE 'D%'
 ```
 
 ```sh
-
+first_name|last_name|
+----------+---------+
+JENNIFER  |DAVIS    |
 ```
+
+이 쿼리에서 `actor` 집합의 `EXCEPT` 를 연산하면 `actor` 집합에만 있는 데이터셋을 가져와야 한다.
+즉, `JENNIFER DAVIS` 을 제외한 나머지 `actor` 집합을 가져와야 한다.
 
 ```postgresql
 SELECT
@@ -252,8 +257,169 @@ WHERE c.first_name LIKE '%J' AND c.last_name LIKE '%J';
 ```sh
 first_name|last_name|
 ----------+---------+
+JUDY      |DEAN     |
+JODIE     |DEGENERES|
+JULIANNE  |DENCH    |
+```
+
+위처럼 출력되며, `MySQL` 에서는 다음처럼 쿼리할 수 있다.
+
+```mysql
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+INNER JOIN customer c
+	ON (a.first_name LIKE 'J%' AND a.last_name LIKE 'D%')
+	AND (c.first_name LIKE 'J%' AND c.last_name LIKE 'D%')
+WHERE c.first_name <> a.first_name AND c.last_name <> a.last_name;
+```
+
+```sh
+first_name|last_name|
+----------+---------+
+JUDY      |DEAN     |
+JODIE     |DEGENERES|
+JULIANNE  |DENCH    |
+```
+
+`inner join` 이후에, `customer` 의 이름을 제외하면, `actor` 에 있는 이름을 출력할수 있다.
+
+>[!info] `DB2` 에서는 `expect all` 을 지원한다고 말한다.<br> 이는 `ANSI` 표준에서 지원하지만, `MySQL` 에서는 지원하지 않는다.<br><br>이처럼 이루어진 `expect all` 연산은 `A` 와 `B` 연산시, 중복되지 않는 `A` 집합의 데이터셋과,  `A` 와 `B` 의 중복되는 `B` 의 데이터셋을 포함한다.  
+
+## 복합 쿼리의 결과 정렬
+
+복합 쿼리의 결과를 정렬하고 싶다면 `order by` 절을 쿼리 마지막에 추가한다.
+`order by` 절에서 필드 명을 참조할때, 첫번째 쿼리의 이름을 선택해야 한다
+
+```mysql
+SELECT
+	a.first_name fname,
+	a.last_name lname
+FROM actor a
+WHERE a.first_name LIKE 'J%' AND a.last_name LIKE 'D%'
+UNION ALL
+SELECT
+	c.first_name,
+	c.last_name
+FROM customer c
+WHERE c.first_name LIKE 'J%' AND c.last_name LIKE 'D%'
+ORDER BY lname, fname; -- <- 첫번째 쿼리의 fname 과 lname 을 참조
+```
+
+```sh
+fname   |lname    |
+--------+---------+
+JENNIFER|DAVIS    |
+JENNIFER|DAVIS    |
+JUDY    |DEAN     |
+JODIE   |DEGENERES|
+JULIANNE|DENCH    |
+```
+
+>[!warning] 두번째 쿼리의 `field` 명을 `order by` 절에서 사용하면, `Error` 가 발생한다.<br><br>가독성있게 하고 싶다면, 첫번째 쿼리와 두번째 쿼리의 `field` 명의 `alias` 를 같은 명칭으로 하는것이 좋다.
+
+## 집합 연산의 순서
+
+**복합 쿼리가 서로 다른 집합 연산자를 사용하는 두개 이상의 쿼리를 포함할 경우 원하는 결과**를 얻으려면 **복합 쿼리문에 쿼리를 배치할 순서를 고려**해야 한다.
+
+```mysql
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+WHERE a.first_name LIKE 'J%' AND a.last_name LIKE 'D%'
+UNION ALL
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+WHERE a.first_name LIKE 'M%' AND a.last_name LIKE 'T%'
+UNION
+SELECT 
+	c.first_name, 
+	c.last_name
+FROM customer c
+WHERE c.first_name LIKE 'J%' AND c.last_name LIKE 'D%';
+```
+
+```sh
+first_name|last_name|
+----------+---------+
+JENNIFER  |DAVIS    |
+JUDY      |DEAN     |
+JODIE     |DEGENERES|
+JULIANNE  |DENCH    |
+MARY      |TANDY    |
+MENA      |TEMPLE   |
+```
+
+다음은 `union` 과 `union all` 연산자의 위치를 변경해본다.
+
+```mysql
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+WHERE a.first_name LIKE 'J%' AND a.last_name LIKE 'D%'
+UNION
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+WHERE a.first_name LIKE 'M%' AND a.last_name LIKE 'T%'
+UNION ALL
+SELECT 
+	c.first_name, 
+	c.last_name
+FROM customer c
+WHERE c.first_name LIKE 'J%' AND c.last_name LIKE 'D%';
+```
+
+```sh
+first_name|last_name|
+----------+---------+
+JENNIFER  |DAVIS    |
+JUDY      |DEAN     |
+JODIE     |DEGENERES|
+JULIANNE  |DENCH    |
+MARY      |TANDY    |
+MENA      |TEMPLE   |
 JENNIFER  |DAVIS    |
 ```
+
+이는 집합 연산자의 위치에 따라 복합 쿼리를 처리하는 방식에 분명한 차이가 있다.
+이는 위에서 아래로 시작되는데, 약간의 예외사항이 있을수 있다.
+
+1. `ANSI SQL` 사항에는 `intersect` 연산자가 다른 집합 연산자보다 우선 순위를 가진다.
+2. 여러 쿼리를 괄호로 묶어 쿼리가 결합되는 순서를 지정할 수 있다.
+
+>[!warning] `MySQL` 에서는 복합 쿼리시 괄호를 허용하지 않는다. 하지만 다른 데이터베이스에서는 복합 쿼리를 괄호로 묶어서 처리 순서를 재정의가능하다.
+
+```postgresql
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+WHERE a.first_name LIKE 'J%' AND a.last_name LIKE 'D%'
+UNION
+SELECT
+	a.first_name,
+	a.last_name
+FROM actor a
+WHERE a.first_name LIKE 'M%' AND a.last_name LIKE 'T%'
+UNION ALL
+(
+SELECT 
+	c.first_name, 
+	c.last_name
+FROM customer c
+WHERE c.first_name LIKE 'J%' AND c.last_name LIKE 'D%'
+);
+```
+
+이는 괄호처리한 `UNION ALL` 먼저 실행한다.
+
 
 
 
