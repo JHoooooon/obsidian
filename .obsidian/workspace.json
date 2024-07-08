@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md"
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md"
               }
             }
           },
@@ -160,8 +160,10 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Untitled.md",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
+    "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
+    "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md",
+    "Untitled.md",
     "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/Untitled",
     "Blog/LearnSQL/데이터 생성, 조작과 변환",
@@ -201,8 +203,6 @@
     "Blog/GIT 교과서/Assets",
     "Blog/LearnSQL/필터링/필터링.md",
     "Blog/LearnSQL/쿼리 모음/Order by.md",
-    "Blog/LearnSQL/쿼리 모음/From.md",
-    "Blog/LearnSQL/쿼리 모음/Group by 절과 having 절.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png"
