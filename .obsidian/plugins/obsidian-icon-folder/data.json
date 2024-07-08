@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiPoundSterling",
       "LiBookType",
       "LiQuestionMarkGlyph",
       "LiBook",
-      "LiImage",
-      "LiPen"
+      "LiImage"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -120,5 +120,6 @@
   "Blog/LearnSQL/Assets/Images": "LiImage",
   "Blog/LearnSQL/집합 연산자/집합 이론.md": "LiBook",
   "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md": "LiQuestionMarkGlyph",
-  "Blog/LearnSQL/데이터 생성, 조작과 변환": "LiBookType"
+  "Blog/LearnSQL/데이터 생성, 조작과 변환": "LiBookType",
+  "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md": "LiPoundSterling"
 }
