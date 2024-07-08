@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md"
+                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md"
               }
             }
           },
@@ -158,11 +158,13 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "93aca785895e07c9",
+  "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
+    "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
+    "Blog/LearnSQL/데이터 생성, 조작과 변환/Untitled",
     "Blog/LearnSQL/데이터 생성, 조작과 변환",
     "Blog/LearnSQL/집합 연산자/집합 이론.md",
-    "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
     "Blog/LearnSQL/Assets/Drawing/Drawing 2024-07-08 09.18.07.excalidraw.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
@@ -196,8 +198,6 @@
     "Blog/GIT 교과서/Commit",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
     "Blog/GIT 교과서/Assets",
-    "Blog/GIT 교과서/Assets/Image",
-    "Blog/GIT 교과서/Assets/Drawing",
     "Blog/LearnSQL/필터링/필터링.md",
     "Blog/LearnSQL/쿼리 모음/Order by.md",
     "Blog/LearnSQL/쿼리 모음/From.md",

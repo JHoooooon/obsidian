@@ -419,9 +419,3 @@ WHERE c.first_name LIKE 'J%' AND c.last_name LIKE 'D%'
 ```
 
 이는 괄호처리한 `UNION ALL` 먼저 실행한다.
-
-
-
-
-
-
