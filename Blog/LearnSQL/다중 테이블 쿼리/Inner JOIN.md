@@ -186,10 +186,77 @@ WHERE
 	OR (a.first_name = 'CUBA' AND a.last_name = 'BIRCH');
 ```
 
+위는 `CATE McQueenN` 또는 `CUBA Birch` 가 출현한 영화를 모두 반환한다.
+만약, 두사람 모두 출연한 영화를 출력한다고 하면, 이를 구분해서 쿼리 해야한다.
 
+```mysql
+SELECT
+	f.title
+FROM film f
+	INNER JOIN film_actor fa1
+	ON f.film_id = fa1.film_id
+	INNER JOIN actor a1
+	ON fa1.actor_id = a1.actor_id
+	INNER JOIN film_actor fa2
+	ON f.film_id = fa2.film_id
+	INNER JOIN actor a2
+	ON fa2.actor_id = a2.actor_id
+WHERE
+	(a1.first_name = 'CATE' AND a1.last_name = 'MCQUEEN')
+	AND (a2.first_name = 'CUBA' AND a2.last_name = 'BIRCH');
+```
 
+```sh
+title           |
+----------------+
+BLOOD ARGONAUTS |
+TOWERS HURRICANE|
+```
 
+### 셀프 조인
 
+쿼리에 동일한 테이블을 한 번 이상 포함할수 있을 뿐만 아니라 테이블을 자기자신과 조인할수 있다
+자기자신과 조인한다고 해서 `Self JOIN` 이라한다.
 
+>[!note] 처음에는 이상해 보일수 있다.<br>`자기 참조 외래 키`(`self-referencing foreign key`) 가 포함되기 때문이다.
 
+>[!warning] 책에서 예시로 `prequel_film_id` 를 추가한것이다,<br> 실제 데이터에는 없는 타입이다.<br> `prequel_film_id` 는 `film_id` 로 자신을 참조하는 `forien key` 로써 사용된다.
+```mysql
+> desc film;
 
+Field               |
+--------------------+
+film_id             |
+title               |
+description         |
+release_year        |
+language_id         |
+original_language_id|
+rental_duration     |
+rental_rate         |
+length              |
+replacement_cost    |
+rating              |
+special_features    |
+last_update         |
+prequel_film_id     |
+```
+
+다음은 `film` 테이블에 해당 영화의 전편(`frequel`) 을 나타내는 `prequel_film_id` 열이 포함되어 있느지 확인하는 쿼리이다.
+
+```mysql
+SELECT
+	f.title,
+	f_prnt.title prequel
+FROM film f
+	INNER JOIN film f_prnt
+	ON f_prnt.file_id = f.prequel_film_id
+WHERE f.prequel_film_id IS NOT NULL;
+```
+
+이는 자기자신을 참조한다.
+
+`prequel_film_id` 외래 키를 사용해서 `film` 테이블을 셀프 조인하는데, 어떤 테이블이 어떤 용도로 사용되는 명확히 하는 위해 테이블 별칭 `f` 와 `f_prnt` 를 정의한다.
+
+>[!note] 궁금한게, `where` 절을 넣어야 하나?
+>`inner join` 에서 이미 `null` 값이면,  제외되서 `where`  절 사용을 안해도 될것 같은데...<br>일단 넘기도록 하자..
