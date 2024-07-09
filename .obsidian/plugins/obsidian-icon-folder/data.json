@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "RiTimeFill",
       "🔢",
       "LiPoundSterling",
       "LiBookType",
-      "LiQuestionMarkGlyph",
-      "LiBook"
+      "LiQuestionMarkGlyph"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -122,5 +122,6 @@
   "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md": "LiQuestionMarkGlyph",
   "Blog/LearnSQL/데이터 생성, 조작과 변환": "LiBookType",
   "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md": "LiPoundSterling",
-  "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md": "🔢"
+  "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md": "🔢",
+  "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md": "RiTimeFill"
 }
