@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md"
+                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md"
               }
             }
           },
@@ -160,8 +160,10 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
+    "집계함수.md",
+    "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
     "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
+    "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
     "Blog/LearnSQL/그룹화와 집계/Untitled",
     "Blog/LearnSQL/그룹화와 집계",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
@@ -199,9 +201,7 @@
     "Blog/GIT 교과서/Commit/core.editor.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Drawing/Snapshot 요약.md",
-    "Blog/GIT 교과서/Assets/Drawing/Snapshot Process.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
-    "Blog/GIT 교과서/Assets/Drawing/HEAD Pointer.md",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
