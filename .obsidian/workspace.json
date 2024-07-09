@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/그룹화와 집계/집계 함수.md"
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md"
               }
             }
           },
@@ -160,11 +160,13 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "집계함수.md",
+    "Blog/LearnSQL/그룹화와 집계/그룹 생성.md",
+    "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md",
     "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
+    "Blog/LearnSQL/그룹화와 집계/Untitled",
+    "집계함수.md",
     "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
-    "Blog/LearnSQL/그룹화와 집계/Untitled",
     "Blog/LearnSQL/그룹화와 집계",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
     "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md",
@@ -198,9 +200,7 @@
     "Blog/GIT 교과서/Commit/File status.md",
     "Blog/GIT 교과서/Commit/HEAD.md",
     "Blog/GIT 교과서/Commit/Snapshot.md",
-    "Blog/GIT 교과서/Commit/core.editor.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
-    "Blog/GIT 교과서/Assets/Drawing/Snapshot 요약.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
