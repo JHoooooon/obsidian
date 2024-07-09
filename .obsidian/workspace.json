@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md"
+                "file": "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md"
               }
             }
           },
@@ -160,10 +160,13 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/시간 데이터 처리.md",
-    "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
+    "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md",
+    "Blog/LearnSQL/그룹화와 집계/Untitled",
+    "Blog/LearnSQL/그룹화와 집계",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
+    "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md",
+    "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
     "Untitled.md",
     "Blog/LearnSQL/집합 연산자/SQL 에서의 집합.md",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/Untitled",
@@ -199,10 +202,7 @@
     "Blog/GIT 교과서/Assets/Drawing/Snapshot Process.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Drawing/HEAD Pointer.md",
-    "Blog/GIT 교과서/Commit",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
-    "Blog/GIT 교과서/Assets",
-    "Blog/LearnSQL/필터링/필터링.md",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
     "Blog/AWS/assets/Images/VPN 연결 3요소.png",
     "Blog/AWS/assets/Images/사이트간 VPN 연결.png"
