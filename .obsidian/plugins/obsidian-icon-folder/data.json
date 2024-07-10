@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiType",
+      "LiQuestionMarkGlyph",
+      "LiSubtitles",
       "LiFilter",
-      "LiCreateGroup",
-      "RiFunctions",
-      "RiGroup2Line",
-      "LiGroup"
+      "LiCreateGroup"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -128,5 +128,8 @@
   "Blog/LearnSQL/그룹화와 집계/그룹화의 개념.md": "RiGroup2Line",
   "Blog/LearnSQL/그룹화와 집계/집계 함수.md": "RiFunctions",
   "Blog/LearnSQL/그룹화와 집계/그룹 생성.md": "LiCreateGroup",
-  "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md": "LiFilter"
+  "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md": "LiFilter",
+  "Blog/LearnSQL/서브쿼리": "LiSubtitles",
+  "Blog/LearnSQL/서브쿼리/서브쿼리.md": "LiQuestionMarkGlyph",
+  "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md": "LiType"
 }
