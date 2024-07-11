@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377.5
+    "width": 377.5,
+    "collapsed": true
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -142,7 +143,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 451.5
+    "width": 451.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -157,7 +159,7 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d105d3fce5a6c3cb",
+  "active": "fa6dbe3fe19f4514",
   "lastOpenFiles": [
     "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md",
     "Blog/GIT 교과서/Commit/커밋 아이디.md",
