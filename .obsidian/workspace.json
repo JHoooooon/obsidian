@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/조건식/CASE 표현식.md",
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/조건식/CASE 표현식.md",
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/조건식/CASE 표현식.md",
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/조건식/CASE 표현식.md"
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md"
               }
             }
           },
@@ -161,8 +161,10 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/다중 테이블 쿼리/자연 조인.md",
     "Blog/LearnSQL/조건식/CASE 표현식.md",
+    "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
+    "Blog/LearnSQL/트랜잭션",
+    "Blog/LearnSQL/다중 테이블 쿼리/자연 조인.md",
     "Blog/LearnSQL/조건식",
     "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md",
     "Blog/LearnSQL/다중 테이블 쿼리/외부 조인.md",
@@ -198,9 +200,7 @@
     "Blog/LearnSQL/Assets",
     "Blog/LearnSQL/Untitled.md",
     "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md",
-    "Blog/LearnSQL/집합 연산자",
     "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md",
-    "Blog/LearnSQL/필터링/NULL.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",

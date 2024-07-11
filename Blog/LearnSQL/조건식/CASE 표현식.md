@@ -336,13 +336,14 @@ ALABAMA DEVIL              |Common           |
 이는 `film` 의 `inventory` 개수가 얼마냐에 따라 그 값이 결정된다.
 `5` 보다 크면 공통적으로 많이 사용되는 `film` 이다. 
 
-`CASE` 문을 사용할때 `0` 으로 값을 나누지 않도록 분기처리하기도 한다.
 
->[!warning] $0$ 
+>[!warning] $0$ 으로 나누면 `NULL` 값을 반환한다.
 
 ```mysql
 SELECT 1 / 0; --- NULL
 ```
+
+`CASE` 문을 사용할때 `0` 으로 값을 나누지 않도록 분기처리하기도 한다.
 
 ```mysql
 SELECT
@@ -373,4 +374,62 @@ ELIZABETH |BROWN     |         144.62|         38|   3.805789|
 ...
 ```
 
+### 조건부 업데이트
 
+테이블 행을 업데이트할 때  열 값을 생성하기 위해 조건식이 필요할때가 가끔 있다.
+
+```mysql
+UPDATE customer c
+SET active = 
+	CASE
+		WHEN 90 <= (
+			SELECT
+				DATEDIFF(now(), MAX(rental_date))
+			FROM rental r
+			WHERE r.customer_id = c.customer_id
+		)
+			THEN 0
+		ELSE 1
+	END
+WHERE active = 1;
+```
+
+이는 `active` 가 $1$  인 모든 고객의 마지막 대여날짜가 90일이 넘으면 계정을 비활성화 하는 쿼리이다.
+
+### NULL 값 처리
+
+열의 값을 알수 없을때는 `NULL` 값을 테이블에 저장하는게 적절해 보이지만, 화면에 결과를 보여줄때 `NULL` 을 표시하는것은 적절하지 않다. 
+
+예를들어 `NULL` 은 공백으로 나타나므로, `UNKNOWN` 이라는 단언로 대체한다.
+
+```mysql
+SELECT
+	c.first_name,
+	c.last_name,
+	CASE
+		WHEN a.address IS NULL
+			THEN 'UNKNOWN'
+		ELSE a.address
+	END address,
+	CASE
+		WHEN ct.city IS NULL
+			THEN 'UNKNOWN'
+		ELSE ct.city
+	END city,
+	CASE
+		WHEN cr.country IS NULL
+			THEN 'UNKNOWN'
+		ELSE cr.country
+	END country
+FROM customer c
+	LEFT OUTER JOIN address a
+		ON c.address_id = a.address_id
+	LEFT OUTER JOIN city ct
+		ON ct.city_id = a.city_id
+	LEFT OUTER JOIN country cr
+		ON ct.country_id = cr.country_id;
+```
+
+`NULL` 로 계산될때, `NULL` 값을 $0$ 또는 $1$ 로 변환해서 계산 결과가 `NULL`  이 아닌 값을 생성하도록 하는것이 좋다.
+
+>[!warning] `NULL` 값과 계산된 값은 `NULL` 이기에 주의해야 한다.
