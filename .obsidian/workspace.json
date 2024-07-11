@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md",
+                "file": "Blog/LearnSQL/조건식/CASE 표현식.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md",
+                "file": "Blog/LearnSQL/조건식/CASE 표현식.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md",
+                "file": "Blog/LearnSQL/조건식/CASE 표현식.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md"
+                "file": "Blog/LearnSQL/조건식/CASE 표현식.md"
               }
             }
           },
@@ -161,8 +161,11 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/다중 테이블 쿼리/외부 조인.md",
+    "Blog/LearnSQL/다중 테이블 쿼리/자연 조인.md",
+    "Blog/LearnSQL/조건식/CASE 표현식.md",
+    "Blog/LearnSQL/조건식",
     "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md",
+    "Blog/LearnSQL/다중 테이블 쿼리/외부 조인.md",
     "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md",
     "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
     "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md",
@@ -198,9 +201,6 @@
     "Blog/LearnSQL/집합 연산자",
     "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md",
     "Blog/LearnSQL/필터링/NULL.md",
-    "Blog/LearnSQL/다중 테이블 쿼리/Untitled",
-    "Blog/LearnSQL/필터링/조건 평가.md",
-    "Blog/LearnSQL/필터링/조건유형.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",

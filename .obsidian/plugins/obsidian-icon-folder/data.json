@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "RiGitBranchFill",
+      "LiRatio",
+      "LiLeaf",
       "RiCrossFill",
-      "LiDoorOpen",
-      "LiType",
-      "LiQuestionMarkGlyph",
-      "LiSubtitles"
+      "LiDoorOpen"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -133,5 +133,7 @@
   "Blog/LearnSQL/서브쿼리/서브쿼리.md": "LiQuestionMarkGlyph",
   "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md": "LiType",
   "Blog/LearnSQL/다중 테이블 쿼리/외부 조인.md": "LiDoorOpen",
-  "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md": "RiCrossFill"
+  "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md": "LiRatio",
+  "Blog/LearnSQL/다중 테이블 쿼리/자연 조인.md": "LiLeaf",
+  "Blog/LearnSQL/조건식": "RiGitBranchFill"
 }
