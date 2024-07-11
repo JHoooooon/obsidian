@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
+                "file": "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
+                "file": "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
+                "file": "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md"
+                "file": "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md"
               }
             }
           },
@@ -159,11 +159,12 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "fa6dbe3fe19f4514",
+  "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
+    "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md",
     "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md",
     "Blog/GIT 교과서/Commit/커밋 아이디.md",
-    "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
     "Blog/LearnSQL/서브쿼리/서브쿼리.md",
     "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md",
     "Blog/LearnSQL/서브쿼리",
@@ -200,7 +201,6 @@
     "Blog/LearnSQL/필터링/조건 평가.md",
     "Blog/LearnSQL/필터링/조건유형.md",
     "Blog/LearnSQL/필터링/조건 작성.md",
-    "Blog/GIT 교과서/Commit/File status.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
