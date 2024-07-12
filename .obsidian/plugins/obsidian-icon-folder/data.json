@@ -141,5 +141,6 @@
   "Blog/LearnSQL/트랜잭션/트랜잭션 시작.md": "LiPartyPopper",
   "Blog/LearnSQL/트랜잭션/트랜잭션 종료.md": "RiCheckboxIndeterminateLine",
   "Blog/LearnSQL/트랜잭션/트랜잭션 세이브포인트.md": "LiSave",
-  "Blog/LearnSQL/인덱스": "🗂"
+  "Blog/LearnSQL/인덱스": "🗂",
+  "Blog/LearnSQL/인덱스/인덱스 개념.md": "LiPartyPopper"
 }
