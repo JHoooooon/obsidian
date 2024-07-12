@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377.5,
-    "collapsed": true
+    "width": 377.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md"
+                "file": "Blog/LearnSQL/트랜잭션/트랜잭션.md"
               }
             }
           },
@@ -161,8 +160,9 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/조건식/CASE 표현식.md",
     "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
+    "Blog/LearnSQL/트랜잭션/트랜잭션.md",
+    "Blog/LearnSQL/조건식/CASE 표현식.md",
     "Blog/LearnSQL/트랜잭션",
     "Blog/LearnSQL/다중 테이블 쿼리/자연 조인.md",
     "Blog/LearnSQL/조건식",
@@ -200,7 +200,6 @@
     "Blog/LearnSQL/Assets",
     "Blog/LearnSQL/Untitled.md",
     "Blog/LearnSQL/다중 테이블 쿼리/Inner JOIN.md",
-    "Blog/LearnSQL/다중 테이블 쿼리/JOIN 이란?.md",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
