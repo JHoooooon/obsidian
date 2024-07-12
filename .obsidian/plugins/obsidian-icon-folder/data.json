@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiType",
-      "🫰",
-      "🗂",
-      "LiSave",
-      "RiCheckboxIndeterminateLine"
+      "LiEye",
+      "RiCodeView",
+      "LiView",
+      "LiConstruction",
+      "LiType"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -144,5 +144,8 @@
   "Blog/LearnSQL/인덱스": "🗂",
   "Blog/LearnSQL/인덱스/인덱스 개념.md": "LiPartyPopper",
   "Blog/LearnSQL/인덱스/인덱스 생성.md": "🫰",
-  "Blog/LearnSQL/인덱스/인덱스 유형.md": "LiType"
+  "Blog/LearnSQL/인덱스/인덱스 유형.md": "LiType",
+  "Blog/LearnSQL/인덱스/제약 조건.md": "LiConstruction",
+  "Blog/LearnSQL/뷰": "LiView",
+  "Blog/LearnSQL/뷰/뷰 개념.md": "LiEye"
 }
