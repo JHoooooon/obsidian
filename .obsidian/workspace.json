@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/인덱스/인덱스 유형.md",
+                "file": "Blog/LearnSQL/인덱스/제약 조건.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377.5
+    "width": 377.5,
+    "collapsed": true
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/인덱스/인덱스 유형.md",
+                "file": "Blog/LearnSQL/인덱스/제약 조건.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/인덱스/인덱스 유형.md",
+                "file": "Blog/LearnSQL/인덱스/제약 조건.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/인덱스/인덱스 유형.md"
+                "file": "Blog/LearnSQL/인덱스/제약 조건.md"
               }
             }
           },
@@ -161,6 +162,7 @@
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
     "Blog/LearnSQL/인덱스/인덱스 생성.md",
+    "Blog/LearnSQL/인덱스/제약 조건.md",
     "Blog/LearnSQL/인덱스/인덱스 유형.md",
     "Blog/LearnSQL/인덱스/인덱스 개념.md",
     "Blog/LearnSQL/트랜잭션/트랜잭션 시작.md",
@@ -191,7 +193,6 @@
     "Blog/LearnSQL/그룹화와 집계",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/숫자 데이터 처리.md",
     "Blog/LearnSQL/테이블 모음/데이터베이스 생성 및 자료형.md",
-    "Blog/LearnSQL/데이터 생성, 조작과 변환/문자열 데이터 처리.md",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/Untitled",
     "Blog/LearnSQL/데이터 생성, 조작과 변환",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
