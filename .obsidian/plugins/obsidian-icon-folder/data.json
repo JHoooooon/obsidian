@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "🫰",
       "🗂",
       "LiSave",
       "RiCheckboxIndeterminateLine",
-      "LiPartyPopper",
-      "RiPictureInPicture2Fill"
+      "LiPartyPopper"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -142,5 +142,6 @@
   "Blog/LearnSQL/트랜잭션/트랜잭션 종료.md": "RiCheckboxIndeterminateLine",
   "Blog/LearnSQL/트랜잭션/트랜잭션 세이브포인트.md": "LiSave",
   "Blog/LearnSQL/인덱스": "🗂",
-  "Blog/LearnSQL/인덱스/인덱스 개념.md": "LiPartyPopper"
+  "Blog/LearnSQL/인덱스/인덱스 개념.md": "LiPartyPopper",
+  "Blog/LearnSQL/인덱스/인덱스 생성.md": "🫰"
 }
