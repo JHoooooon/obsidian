@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
+                "file": "Blog/LearnSQL/분석함수/순위함수들.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
+                "file": "Blog/LearnSQL/분석함수/순위함수들.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
+                "file": "Blog/LearnSQL/분석함수/순위함수들.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/메타데이터/메타데이터로 작업.md"
+                "file": "Blog/LearnSQL/분석함수/순위함수들.md"
               }
             }
           },
@@ -161,8 +161,13 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/메타데이터/정보 스키마.md",
+    "Blog/LearnSQL/분석함수/RANK - 로컬정렬.md",
+    "Blog/LearnSQL/분석함수/순위함수들.md",
+    "Blog/LearnSQL/분석함수/데이터 윈도우.md",
+    "Blog/LearnSQL/분석함수/분석함수.md",
     "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
+    "Blog/LearnSQL/분석함수",
+    "Blog/LearnSQL/메타데이터/정보 스키마.md",
     "Blog/LearnSQL/인덱스/인덱스 생성.md",
     "Blog/LearnSQL/인덱스/인덱스 개념.md",
     "Blog/LearnSQL/인덱스/제약 조건.md",
@@ -188,15 +193,10 @@
     "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
     "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md",
     "Blog/GIT 교과서/Commit/커밋 아이디.md",
-    "Blog/LearnSQL/서브쿼리/서브쿼리.md",
-    "Blog/LearnSQL/그룹화와 집계/그룹 필터조건.md",
     "Blog/LearnSQL/서브쿼리",
-    "Blog/LearnSQL/그룹화와 집계/그룹 생성.md",
-    "Blog/LearnSQL/그룹화와 집계/집계 함수.md",
     "Blog/LearnSQL/그룹화와 집계/Untitled",
     "Blog/LearnSQL/그룹화와 집계",
     "Blog/LearnSQL/데이터 생성, 조작과 변환/Untitled",
-    "Blog/LearnSQL/데이터 생성, 조작과 변환",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
