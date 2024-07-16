@@ -4,28 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "0faad0a8b963016c",
+        "id": "11bdbe7980549f2b",
         "type": "tabs",
         "children": [
           {
-            "id": "73fe2b601793da63",
+            "id": "2ddf5ce5bf5c5756",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS/온프래미스의 라우팅 개념.md",
+                "file": "LearnSQL/분석함수/윈도우 프레임.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "5f788f87984fe7ac",
+            "id": "910afe1c98028bbf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "데이터베이스 생성.md",
+                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "데이터베이스 생성.md",
+                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "데이터베이스 생성.md",
+                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "데이터베이스 생성.md"
+                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md"
               }
             }
           }
@@ -162,47 +162,55 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "5f788f87984fe7ac",
+  "active": "910afe1c98028bbf",
   "lastOpenFiles": [
-    "AWS/온프래미스의 라우팅 개념.md",
-    "데이터베이스 생성.md",
-    "SQL",
-    "AWS/라우팅 테이블의 우선순위를 결정하는 Longest Prefix Match.md",
-    "AWS/엣지 연결과 Ingress Routing, North-South 트래픽 검사.md",
-    "AWS/인터넷 게이트웨이(IGW) 와 NAT 테이블.md",
-    "AWS/ENI IP 에 대해서.md",
-    "AWS/VPC 통제 3요소.md",
-    "AWS/VPC 를 사용하는 데이터베이스 종류.md",
-    "AWS/Images/중첩된 CIDR.png",
-    "AWS/Images/엣지연결이 가능한 라우팅 테이블 예.png",
-    "AWS/Images/엣지에 연결된 라우팅 테이블.png",
-    "AWS/Images/게이트웨이 라우팅 테이블을 경유하는 인바운드 트래픽.png",
-    "AWS/Images/Routing Longest Prefix Match 기법.png",
-    "AWS/Images/NAT Gateway 변환 프로세스.png",
-    "AWS/Images/East-West 검사.png",
-    "AWS/Images",
-    "AWS/Excalidraw/효율적인 접근 제어 사례.md",
-    "AWS/Excalidraw/프라이빗 서브넷의 NAT 게이트웨이 연동.md",
-    "AWS/Excalidraw/퍼블릿 서브넷과 프라이빗 서브넷.md",
-    "AWS/Excalidraw/트래픽 라우팅 경로.md",
-    "AWS/Excalidraw/중첩된 CIDR.md",
-    "AWS/Excalidraw/여러 클라이언트를 Outbound 및 Inbound 를 SG 로 연결.md",
-    "AWS/Excalidraw/여러 클라이언트를 IP 주소로 Inbound 에 연결.md",
-    "AWS/Excalidraw/엣지에 연결된 라우팅 테이블.md",
-    "AWS/Excalidraw/엣지 연결이 가능한 라우팅 테이블 ex.md",
-    "AWS/Excalidraw/라우팅 장치에 연결된 모든 인터페이스.md",
-    "AWS/Excalidraw/라우팅 Longest Prefix Match 기법.md",
-    "AWS/Excalidraw/Whitelist based 규칙 순서에 따른 결과.md",
-    "AWS/Excalidraw/VPC 환경 구성과 라우팅 테이블.md",
-    "AWS/Excalidraw/VPC 인터넷 통신 요건.md",
-    "AWS/Excalidraw/VPC 와 가용영역에 생성된 서브넷 그룹.md",
-    "AWS/Excalidraw/SG 패킷 허용 원리.md",
-    "AWS/Excalidraw/RDS 인스턴스를 서브넷 그룹 변경을 위한 예.md",
-    "AWS/Excalidraw/NACL 패킷 허용 원리.md",
+    "LearnSQL/분석함수/윈도우 프레임.md",
+    "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
+    "LearnSQL/분석함수/데이터 윈도우.md",
+    "LearnSQL/분석함수/리포팅 함수.md",
+    "LearnSQL/분석함수/순위함수들.md",
+    "LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
+    "LearnSQL/분석함수/RANK - 로컬정렬.md",
+    "LearnSQL/분석함수/LAG() 함수와 LEAD() 함수.md",
+    "네트워크/assets/images/OSI 참조모델 예.png",
+    "네트워크/assets/images/OSI 참조 모델.png",
+    "네트워크/assets/images/OSI Transport 계층 프로세스.png",
+    "네트워크/assets/images/OSI Session 계층 프로세스.png",
+    "네트워크/assets/images/OSI Presentation 층 프로세스.png",
+    "네트워크/assets/images/OSI Network 계층 프로세스.png",
+    "네트워크/assets/images/OSI Data Link 와 Network Layer 역할 분담 예시.png",
+    "네트워크/assets/images/OSI Application 계층 프로세스.png",
+    "네트워크/assets/images/Data Link 계층 과 Pysical 계층 처리프로세스.png",
+    "네트워크/assets/Excalidraw/네트워크 계층과 데이터 링크층의 역할 분담.md",
+    "네트워크/assets/Excalidraw/OSI 참조모델 예시.md",
+    "네트워크/assets/Excalidraw/OSI 참조 모델.md",
+    "네트워크/assets/Excalidraw/OSI Transport 계층.md",
+    "네트워크/assets/Excalidraw/OSI Session 계층.md",
+    "네트워크/assets/Excalidraw/OSI Presetation 층.md",
+    "네트워크/assets/Excalidraw/OSI Network 계층.md",
+    "네트워크/assets/Excalidraw/OSI Data Link 계층 과 Pysical 계층.md",
+    "네트워크/assets/Excalidraw/OSI Application 층.md",
+    "네트워크/프로토콜/프로토콜이란?.md",
+    "네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
+    "네트워크/프로토콜/프레젠테이션 층 프로세스.md",
+    "네트워크/프로토콜/어플리케이션 처리 프로세스.md",
+    "네트워크/프로토콜/Transport 계층 처리 프로세스.md",
+    "네트워크/프로토콜/Session 계층 처리 프로세스.md",
+    "네트워크/프로토콜/Network 계층 처리 프로세스.md",
+    "네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
+    "네트워크/assets/images",
+    "네트워크/assets/Excalidraw",
+    "네트워크/프로토콜",
+    "네트워크/assets",
+    "네트워크",
+    "LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
+    "LearnSQL/Assets/Drawing/Drawing 2024-07-08 09.18.07.excalidraw.md",
+    "LearnSQL/Assets/Images",
+    "LearnSQL/Assets/Drawing",
+    "LearnSQL/필터링",
+    "LearnSQL/트랜잭션",
+    "LearnSQL/테이블 모음",
     "AWS/Excalidraw/Untitled.canvas",
-    "AWS/Excalidraw",
-    "Untitled.canvas",
-    "Untitled Diagram.svg",
-    "AWS"
+    "Untitled.canvas"
   ]
 }
