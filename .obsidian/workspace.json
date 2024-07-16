@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/순위함수들.md",
+                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377.5,
-    "collapsed": true
+    "width": 377.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/순위함수들.md",
+                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/순위함수들.md",
+                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/순위함수들.md"
+                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md"
               }
             }
           },
@@ -161,8 +160,9 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/LearnSQL/분석함수/RANK - 로컬정렬.md",
     "Blog/LearnSQL/분석함수/순위함수들.md",
+    "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
+    "Blog/LearnSQL/분석함수/RANK - 로컬정렬.md",
     "Blog/LearnSQL/분석함수/데이터 윈도우.md",
     "Blog/LearnSQL/분석함수/분석함수.md",
     "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
@@ -192,7 +192,6 @@
     "Blog/LearnSQL/서브쿼리/서브쿼리를 사용하는 경우.md",
     "Blog/LearnSQL/서브쿼리/서브쿼리의 유형.md",
     "Blog/GIT 교과서/Commit/Empty Commit 와 amend.md",
-    "Blog/GIT 교과서/Commit/커밋 아이디.md",
     "Blog/LearnSQL/서브쿼리",
     "Blog/LearnSQL/그룹화와 집계/Untitled",
     "Blog/LearnSQL/그룹화와 집계",
