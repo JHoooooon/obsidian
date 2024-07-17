@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
+                "file": "NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "mode": "source",
                 "source": false
               }
@@ -82,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 374.5,
-    "collapsed": true
+    "width": 200.5
   },
   "right": {
     "id": "6c475af076e2364e",
@@ -99,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
+                "file": "NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
+                "file": "NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LearnSQL/분석함수/GROUP_CONCAT() 함수.md"
+                "file": "NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md"
               }
             }
           }
@@ -164,8 +163,19 @@
   },
   "active": "910afe1c98028bbf",
   "lastOpenFiles": [
-    "LearnSQL/분석함수/윈도우 프레임.md",
+    "NEXTJS/렌더링의 이해/브라우저 작동 원리.md",
+    "NEXTJS/렌더링의 이해/병목현상.md",
+    "NEXTJS/렌더링의 이해/리플로우 와 리페인트.md",
+    "NEXTJS/NEXT.JS 렌더링/전통적인 웹 렌더링 방식.md",
+    "NEXTJS/images/HTML Parsing.png",
+    "NEXTJS/images",
+    "NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
+    "NEXTJS/NEXT.JS 렌더링",
+    "NEXTJS/NEST.JS 렌더링.md",
     "LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
+    "NEXTJS/렌더링의 이해",
+    "NEXTJS",
+    "LearnSQL/분석함수/윈도우 프레임.md",
     "LearnSQL/분석함수/데이터 윈도우.md",
     "LearnSQL/분석함수/리포팅 함수.md",
     "LearnSQL/분석함수/순위함수들.md",
@@ -192,24 +202,12 @@
     "네트워크/assets/Excalidraw/OSI Application 층.md",
     "네트워크/프로토콜/프로토콜이란?.md",
     "네트워크/프로토콜/프로토콜의 계층화와 ISO 모델.md",
-    "네트워크/프로토콜/프레젠테이션 층 프로세스.md",
-    "네트워크/프로토콜/어플리케이션 처리 프로세스.md",
-    "네트워크/프로토콜/Transport 계층 처리 프로세스.md",
-    "네트워크/프로토콜/Session 계층 처리 프로세스.md",
-    "네트워크/프로토콜/Network 계층 처리 프로세스.md",
-    "네트워크/프로토콜/Data link 계층 처리 프로세스 과 Pysical 계층.md",
     "네트워크/assets/images",
     "네트워크/assets/Excalidraw",
     "네트워크/프로토콜",
     "네트워크/assets",
     "네트워크",
-    "LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
-    "LearnSQL/Assets/Drawing/Drawing 2024-07-08 09.18.07.excalidraw.md",
     "LearnSQL/Assets/Images",
-    "LearnSQL/Assets/Drawing",
-    "LearnSQL/필터링",
-    "LearnSQL/트랜잭션",
-    "LearnSQL/테이블 모음",
     "AWS/Excalidraw/Untitled.canvas",
     "Untitled.canvas"
   ]
