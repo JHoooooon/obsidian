@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md"
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md"
               }
             }
           },
@@ -160,12 +160,22 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
+    "Blog/NEXTJS/렌더링의 이해/브라우저 작동 원리.md",
+    "Blog/NEXTJS/렌더링의 이해/병목현상.md",
+    "Blog/NEXTJS/렌더링의 이해/리플로우 와 리페인트.md",
+    "Blog/NEXTJS/images/HTML Parsing.png",
+    "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
+    "Blog/NEXTJS/NEXT.JS 렌더링/전통적인 웹 렌더링 방식.md",
+    "Blog/NEXTJS/렌더링의 이해",
+    "Blog/NEXTJS/images",
+    "Blog/NEXTJS/NEXT.JS 렌더링",
+    "Blog/NEXTJS",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
     "Blog/LearnSQL/분석함수/리포팅 함수.md",
     "Blog/LearnSQL/분석함수/LAG() 함수와 LEAD() 함수.md",
     "Blog/LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
     "Blog/LearnSQL/분석함수/순위함수들.md",
-    "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
     "Blog/LearnSQL/분석함수/RANK - 로컬정렬.md",
     "Blog/LearnSQL/분석함수/데이터 윈도우.md",
     "Blog/LearnSQL/분석함수/분석함수.md",
@@ -185,17 +195,8 @@
     "Blog/LearnSQL/트랜잭션/트랜잭션 종료.md",
     "Blog/LearnSQL/트랜잭션/트랜잭션 세이브포인트.md",
     "Blog/LearnSQL/인덱스",
-    "Untitled 1.md",
-    "Blog/LearnSQL/트랜잭션/트랜잭션 개요.md",
-    "Blog/LearnSQL/조건식/CASE 표현식.md",
     "Blog/LearnSQL/트랜잭션",
-    "Blog/LearnSQL/다중 테이블 쿼리/자연 조인.md",
     "Blog/LearnSQL/조건식",
-    "Blog/LearnSQL/다중 테이블 쿼리/교차 조인.md",
-    "Blog/LearnSQL/서브쿼리",
-    "Blog/LearnSQL/그룹화와 집계/Untitled",
-    "Blog/LearnSQL/그룹화와 집계",
-    "Blog/LearnSQL/데이터 생성, 조작과 변환/Untitled",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
@@ -204,7 +205,6 @@
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
     "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
     "Blog/AWS/assets/Images/AWS Direct Connect.png",
-    "Blog/AWS/assets/Images/VPN 연결 3요소.png",
-    "Blog/AWS/assets/Images/사이트간 VPN 연결.png"
+    "Blog/AWS/assets/Images/VPN 연결 3요소.png"
   ]
 }
