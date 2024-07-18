@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
+                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
+                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
+                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md"
+                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md"
               }
             }
           },
@@ -160,12 +160,17 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "city-table.md",
+    "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
+    "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
+    "Blog/REDIS-STACK/Untitled.md",
+    "Blog/REDIS-STACK/Introduce REDIS",
+    "Blog/REDIS-STACK",
     "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
     "Blog/NEXTJS/렌더링의 이해/브라우저 작동 원리.md",
     "Blog/NEXTJS/렌더링의 이해/병목현상.md",
     "Blog/NEXTJS/렌더링의 이해/리플로우 와 리페인트.md",
     "Blog/NEXTJS/images/HTML Parsing.png",
-    "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
     "Blog/NEXTJS/NEXT.JS 렌더링/전통적인 웹 렌더링 방식.md",
     "Blog/NEXTJS/렌더링의 이해",
     "Blog/NEXTJS/images",
@@ -191,12 +196,7 @@
     "Blog/LearnSQL/메타데이터",
     "Blog/LearnSQL/뷰/뷰 개념.md",
     "Blog/LearnSQL/뷰",
-    "Blog/LearnSQL/트랜잭션/트랜잭션 시작.md",
-    "Blog/LearnSQL/트랜잭션/트랜잭션 종료.md",
-    "Blog/LearnSQL/트랜잭션/트랜잭션 세이브포인트.md",
     "Blog/LearnSQL/인덱스",
-    "Blog/LearnSQL/트랜잭션",
-    "Blog/LearnSQL/조건식",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
