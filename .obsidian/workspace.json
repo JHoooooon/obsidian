@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HASH.md",
+                "file": "Blog/Redis Cookbook/Data Type/SET.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HASH.md",
+                "file": "Blog/Redis Cookbook/Data Type/SET.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HASH.md",
+                "file": "Blog/Redis Cookbook/Data Type/SET.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HASH.md"
+                "file": "Blog/Redis Cookbook/Data Type/SET.md"
               }
             }
           },
@@ -160,9 +160,11 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/Redis Cookbook/Data Type/LIST.md",
-    "Blog/Redis Cookbook/Data Type/HASH.md",
+    "Blog/Redis Cookbook/Data Type/SET KEY.md",
     "Blog/Redis Cookbook/Data Type/SET.md",
+    "Blog/Redis Cookbook/Data Type/HASH.md",
+    "Blog/Redis Cookbook/Data Type/Untitled",
+    "Blog/Redis Cookbook/Data Type/LIST.md",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
     "Blog/LearnSQL/필터링/조건 평가.md",
     "Blog/Redis Cookbook/Data Type/LIST",
@@ -192,11 +194,9 @@
     "Blog/LearnSQL/분석함수/데이터 윈도우.md",
     "Blog/LearnSQL/분석함수/분석함수.md",
     "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
-    "Blog/LearnSQL/분석함수",
     "Blog/LearnSQL/메타데이터/정보 스키마.md",
     "Blog/LearnSQL/인덱스/인덱스 생성.md",
     "Blog/LearnSQL/인덱스/인덱스 개념.md",
-    "Blog/LearnSQL/인덱스/제약 조건.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",

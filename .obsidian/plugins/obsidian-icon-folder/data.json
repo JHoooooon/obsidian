@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiCircleDot",
       "LiVariable",
       "LiHash",
       "LiList",
-      "RiInfoI",
-      "RiDashboardHorizontalLine"
+      "RiInfoI"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -154,6 +154,7 @@
   "Blog/LearnSQL/메타데이터/메타데이터로 작업.md": "RiCodeView",
   "Blog/LearnSQL/분석함수": "LiEye",
   "Blog/Redis Cookbook/Data Type/LIST.md": "LiList",
-  "Blog/Redis Cookbook/Data Type/SET.md": "LiVariable",
-  "Blog/Redis Cookbook/Data Type/HASH.md": "LiHash"
+  "Blog/Redis Cookbook/Data Type/HASH.md": "LiHash",
+  "Blog/Redis Cookbook/Data Type/SET KEY.md": "LiVariable",
+  "Blog/Redis Cookbook/Data Type/SET.md": "LiCircleDot"
 }
