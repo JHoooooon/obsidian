@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md"
+                "file": "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md"
               }
             }
           },
@@ -160,8 +160,8 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "city-table.md",
     "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
+    "city-table.md",
     "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
     "Blog/REDIS-STACK/Untitled.md",
     "Blog/REDIS-STACK/Introduce REDIS",
