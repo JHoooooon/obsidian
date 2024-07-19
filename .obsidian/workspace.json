@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/SET.md",
+                "file": "Blog/Redis Cookbook/Data Type/LIST.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/SET.md",
+                "file": "Blog/Redis Cookbook/Data Type/LIST.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/SET.md",
+                "file": "Blog/Redis Cookbook/Data Type/LIST.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/SET.md"
+                "file": "Blog/Redis Cookbook/Data Type/LIST.md"
               }
             }
           },
@@ -158,11 +158,13 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "93aca785895e07c9",
+  "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/Redis Cookbook/Data Type/SET.md",
+    "Blog/Redis Cookbook/Data Type/LIST.md",
+    "Blog/Redis Cookbook/Data Type/LIST",
     "Blog/Redis Cookbook/Data Type",
     "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
-    "Blog/Redis Cookbook/Data Type/SET.md",
     "Blog/Redis Cookbook",
     "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
     "city-table.md",
@@ -195,8 +197,6 @@
     "Blog/LearnSQL/인덱스/제약 조건.md",
     "Blog/LearnSQL/인덱스/인덱스 유형.md",
     "Blog/LearnSQL/메타데이터/메타데이터.md",
-    "Blog/LearnSQL/메타데이터",
-    "Blog/LearnSQL/뷰",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
