@@ -1,0 +1,117 @@
+
+`HASH` 데이터 타입은 `field` 와 `value` 사이의 관계 매핑을 표현한 타입이다
+`programing language` 에서 `dictionaries` 혹은 `maps` 과 같다.
+
+`Redis` 는 `HSET`  과 `HMSET` 과 함께 자동적으로 `HASH` 를 생성한다.
+`Redis` 는 비어있는 `Hash` 가 있다면, 자동적으로 삭제 처리한다.
+
+>[!info] [[LIST]] 에서 자동적으로 `List` 를 생성하는것과 비슷하게 동작한다.
+
+`HASH` 는 최대 $2^{23} - 1$  `field` 의 개수를 삽입할수 있다.
+이렇듯 `HASH` 안의 `field` 의 수가 많은경우, `HGETALL` `command` 를 실행하면,  `Redis` 서버가 차단될수 있다.
+
+>[!info] 너무 많은 값을 전부다 출력한다면, `server` 에 과부하가 될수 있음을 말하는듯하다.
+
+이 경우 `HSCAN` 은 모든 `field`  를 점진적으로 검색할수 있다.
+`HSCAN` 은 `Redis` `SCAN` 명령중 하나이다.
+
+>[!info] `SCAN`, `HSCAN`, `SSCAN`, `ZSCAN` 이 존재한다
+
+이러한 `SCAN` 명령은 점진적으로 반복해서 요소를 찾으므로, `server` 가 `block` 되지 않도록 한다.
+이 명령은 `cursor-based interator` (`cursor` 기반으로된 `interator`) 로 매번 `SCAN` 을 호춣`cursor`  
+
+---
+
+다음은 `HMSET` 을 사용하여, `HASH` 에 여러 `fields` 를 생성한다.
+
+>[!info] HMSET 
+```sh
+127.0.0.1:6379> HMSET "Kyoto Ramen" "address" "801 Mission St, San Jose, CA" "phone" "555-123-6543" "rating" "5.0" 
+OK
+```
+
+이는 `Kyoto Ramen` 이라는 `HASH` 를 생성하고, `address` 와 `phone`,`rating` `fields` 를 생성한다.
+
+`HGET` 은 `property` 의 `key` 값으로 `value` 값을 가져온다.
+
+>[!info] HGET
+```sh
+127.0.0.1:6379> HGET "Kyoto Ramen" "rating" 
+"5.0" 
+```
+
+만약 `HASH` 안에 `field` 가 있는지 확인하려면, `HEXISTS` 를 사용한다.
+`1`  은 존재하는 `field` 이며, `0` 은 존재하지 않는 `field` 이다.
+
+>[!info] HEXISTS
+```sh
+127.0.0.1:6379> HEXISTS "Kyoto Ramen" "phone" 
+(integer) 1 
+127.0.0.1:6379> HEXISTS "Kyoto Ramen" "hours" 
+(integer) 0
+```
+
+다음은, 모든 `field` 를 반환하는 명령어이다
+
+>[!info] HGETALL
+```sh
+127.0.0.1:6379> HGETALL "Kyoto Ramen" 
+1) "address" 
+2) "801 Mission St, San Jose, CA" 
+3) "phone" 
+4) "555-123-6543" 
+5) "rating" 
+6) "5.0" 
+```
+
+`HGETALL` 은 해당 `key` 값을 가진 `HASH` 의 모든 `field` 와 `value` 를 반환한다.
+만약, `field` 의 `value` 값을 변경하거나, 추가한다면, `HSET` 을 사용한다.
+
+>[!info] HSET
+```sh
+127.0.0.1:6379> HSET "Kyoto Ramen" "rating" "4.9" 
+(integer) 0 
+127.0.0.1:6379> HSET "Kyoto Ramen" "status" "open" 
+(integer) 1 
+ 
+127.0.0.1:6379> HMGET "Kyoto Ramen" "rating" "status" 
+1) "4.9" 
+2) "open" 
+```
+
+`field` 를 삭제하려면 `HDEL` 을 사용한다.
+
+>[!info] HDEL
+```sh
+127.0.0.1:6379> HDEL "Kyoto Ramen" "address" "phone" 
+(integer) 2 
+127.0.0.1:6379> HGETALL "Kyoto Ramen" 
+1) "rating" 
+2) "4.9"
+```
+
+`HSET` 및 `HMSET` 은 기존에 있는 `field` 가 존재한다면 새로운 값으로 덮어씌운다
+`HSETNX` 를 사용하면, `field` 가 존재하지 않을때만 `value` 값을 할당한다.
+
+>[!info] HSETNX
+```sh
+127.0.0.1:6379> HMSET "Kyoto Ramen" "address" "801 Mission St, San Jose, CA" "phone" "555-123-6543" "rating" "5.0" 
+OK
+127.0.0.1:6379> HSETNX "Kyoto Ramen" "phone" "555-555-0001" 
+(integer) 0 
+127.0.0.1:6379> HGET "Kyoto Ramen" "phone" 
+"555-123-6543"
+```
+
+만약 `HGET` 혹은 `HMGET` 에서 해당 `field` 가 존재하지 않는다면 `nil` 값을 반환한다.
+
+>[!info] NIL
+```sh
+127.0.0.1:6379> HMGET "Kyoto Ramen" "rating" "hours" 
+1) "4.9" 
+2) (nil) 
+ 
+127.0.0.1:6379> HGET "Little Sheep Mongolian" "address" 
+(nil)
+```
+

@@ -172,22 +172,33 @@ dispatcher> LRANGE job_queue 0 -1
 1) "job3"
 ```
 
-`Redis` 는 `quicklist` `encoding` 을 사용하여 `list` 객체를 저장한다.
-이는 `list` 객체 메모리 저장 공간을 조정하는 `2` 설정 옵션이 있다.
+---
 
-- `list-max-ziplist-size`: `list` 의 내부 표현을 제어하는 설정이다.<br>이 옵션은 리스트가 언제 압축 리스트 인코딩을 사용할지 결정한다.
+### QUICKLIST 자료구조
+
+`Redis` 는 `quicklist` `encoding` 을 사용하여 `list` 객체를 저장한다.
+`quicklist` 는 `ziplist` 와 `linkedlist` 의 혼합형 자료구조이다.
+
+이는 여러개의 `ziplist` 를 `이중 연결 리스트` (`doubly linked list`) 로 연결한 형태이며,  각 노드는 `ziplist` 를 포함한다.
+
+작은 리스트는 단일 `ziplist` 로 저장되며, 리스트가 커지면 여러 `ziplist` 로 분할되어 `quicklist` 구조로 저장되는 방식이다.
+
+이러한 `quicklist` 는 `list` 객체 메모리 저장 공간을 조정하는 `2` 설정 옵션이 있다.
+
+- `list-max-ziplist-size`: `list` 의 내부 표현을 제어하는 설정이다.<br>이 옵션은 리스트가 언제 압축 리스트 인코딩을 사용할지 결정한다.<br><br>이 옵션은 `Redis` 의 메모리 사용을 최적화하는데 중요한 역할을 한다<br><br>**양수값**:  `list` 엔트리의 최대 개수 지정<br>**음수값**: `byte`  단위로 최대 크기를 지정<br><br>**-1**: `4KB`<br>**-2**: `8KB`<br>**-3**: `16KB`<br>**-4**: `32KB`<br>**-5**: `64KB`<br>
 
 >[!info] 리스트가 `5` 개 이하의 엔트리를 가질때 `ziplist` `encoding` 을 사용한다
 ```sh
 list-max-ziplist-size 5
 ```
 
->[!info] 리스트가 `-1` 개 이하의 엔트리를 가질때 `ziplist` `encoding` 을 사용한다
+>[!info] 리스트가 `4KB` 이하일때, `ziplist` `encoding` 을 사용한다
 ```sh
-list-max-ziplist-size 5
+list-max-ziplist-size -1
 ```
 
 
 - `list-compress-depth`: `list` 압축 정책이다.<br>리스트의 양 끝에서 부터 지정된 개수의 노드를 제외하고 나머지를 압축한다.<br>앞축된 부분은 특별한 방식으로 `encoding` 되어 메모리사용을 줄인다.
 
+---
 

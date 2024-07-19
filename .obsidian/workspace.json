@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/LIST.md",
+                "file": "Blog/Redis Cookbook/Data Type/HASH.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/LIST.md",
+                "file": "Blog/Redis Cookbook/Data Type/HASH.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/LIST.md",
+                "file": "Blog/Redis Cookbook/Data Type/HASH.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/LIST.md"
+                "file": "Blog/Redis Cookbook/Data Type/HASH.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/Redis Cookbook/Data Type/SET.md",
     "Blog/Redis Cookbook/Data Type/LIST.md",
+    "Blog/Redis Cookbook/Data Type/HASH.md",
+    "Blog/Redis Cookbook/Data Type/SET.md",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
     "Blog/LearnSQL/필터링/조건 평가.md",
     "Blog/Redis Cookbook/Data Type/LIST",
@@ -196,7 +197,6 @@
     "Blog/LearnSQL/인덱스/인덱스 생성.md",
     "Blog/LearnSQL/인덱스/인덱스 개념.md",
     "Blog/LearnSQL/인덱스/제약 조건.md",
-    "Blog/LearnSQL/인덱스/인덱스 유형.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
