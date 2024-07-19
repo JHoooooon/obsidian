@@ -13,6 +13,38 @@
  (integer) 5
 ```
 
+`ZADD` 명령은 다양한 옵션을 제공한다.
+
+```sh
+ZADD key [NX | XX] [GT | LT] [CH] [INCR] score member [score member
+  ...]
+```
+
+- **XX** : 요소가 이미 존재할때만 스코어를 업데이트한다
+
+- **NX**: 요소가 존재하지 않을때만 삽입 가능하며, 기존의 요소의 스코어가 존재한다면 삽입하지 않는다.
+
+- **LT**: 스코어가 기존 요소의 스코어 보다 작을때에만 업데이트한다.<br>기존 요소가 존재하지 않는다면 새로운 값을 삽입한다.
+
+- **GT**: 스코어가 기존 요소의 스코어 보다 클때에만 업데이트한다.<br>기존 요소가 존재하지 않는다면 새로운 값을 삽입한다.
+
+- **CH**: 변경된 요소 수 반환한다
+
+- **INCR**: 기존 전수에 새 점수를 더한다
+
+>[!note] 보통 `CH` 와 `GT` 및 `INCR` 를 같이 사용한다.<br> 기본적은 `ZADD` 는 새롭게 추가된 요소의 개수를 반환하며, 업데이트 개수를 반환하지 않는다<br><br> 그러므로 `GT` 나 `LT` 를 사용해 업데이트 되더라도 반환값은 `0` 일 것이다.<br><br>이러한 부분을 개선하기 위해 `CH` 값을 같이 사용해서 명령하는것이 좋다.
+
+```sh
+> ZADD myset 10 "a" 20 "b" 30 "c"
+(integer) 3
+
+> ZADD myset GT 15 "a" 25 "b" 35 "c"
+(integer) 0  // 새로 추가된 멤버가 없으므로 0 반환
+
+> ZADD myset GT CH 15 "a" 25 "b" 35 "c"
+(integer) 2  // "b"와 "c"의 점수가 업데이트되어 2 반환
+```
+
 `ranking` 을 검색하기 위해 `ZRANGE` 명령을 실행한다
 
 >[!warning] 책에서는 `ZREVRANGE` 를 사용하는데, `ZREVRANGE` 는 `6.2.0` 버전 이후로 `deprecated` 되었다.<br><br>`ZRANGE` 에서 `REV` 를 사용하면 똑같은 `command` 이므로, 다음처럼 한다
@@ -57,4 +89,59 @@ ZRANGE key start stop [BYSCORE | BYLEX] [REV] [LIMIT offset count]
 127.0.0.1:6379> ZINCRBY ranking:restaurants 1 "Red Lobster"  
 "46"
 ```
+
+`ZREVRANK` 명령을 통해 `RANKING` 의 순위를 알수 있고, `ZSCORE` 는 해당 요소의 `score` 를 알수 있다
+
+>[!info] ZREVRANK, ZSCORE
+```sh
+127.0.0.1:6379> ZREVRANK ranking:restaurants "Olive Garden" 
+(integer) 0 
+ 
+127.0.0.1:6379> ZSCORE ranking:restaurants  "Olive Garden" 
+"100"
+```
+
+>[!info] ZREVRANK 는 높은 점수에서 낮은 점수순으로 정렬된 `member` 의 `rank` 값을 리턴한다.
+
+`ZUNIONSTORE` 명령은 두 순위의 조합이 필요한 경우 사용할수 있는 명령어이다.
+
+```sh
+127.0.0.1:6379> ZADD ranking2:restaurants 50 "Olive Garden" 33 "PF Chang's" 55 "Outback Steakhouse" 190 "Kung Pao House" 
+(integer) 4 
+ 
+127.0.0.1:6379> ZUNIONSTORE totalranking 2 ranking:restaurants ranking2:restaurants WEIGHTS 1 2 
+(integer) 6 
+ 
+ 
+127.0.0.1:6379> ZREVRANGE totalranking 0 -1 WITHSCORES 
+ 1) "Kung Pao House" 
+ 2) "380" 
+ 3) "Olive Garden" 
+ 4) "200" 
+ 5) "Outback Steakhouse" 
+ 6) "144" 
+ 7) "PF Chang's" 
+ 8) "89" 
+ 9) "Longhorn Steakhouse" 
+10) "88" 
+11) "Red Lobster" 
+12) "46" 
+127.0.0.1:6379>
+```
+
+```sh
+ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]
+```
+
+- **destination**: 결과를 저장할 새로운 Sorted Set 의 키 이름
+
+- **numkeys**: 합칠 `Sorted Set` 의 개수
+
+- **key**: 합칠 `Sorted Set` 의 키 이름들
+
+- **WEIGHTS (선택적)**: 각 `Sorted Set` 의 점수를 곱할 가중치
+
+- **AGGREGATE (선택적)**: 중복 맴버의 점수 계산 방식 (SUM | MIN | MAX) - default: SUM
+
+
 
