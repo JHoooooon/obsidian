@@ -103,4 +103,91 @@ OK
 ```
 
 `LPOP` 과 `RPOP` 명령을 `blockking` 하는 명령역시 존재한다.
-`BLPOP` 과 `BRPOP` 으로, 이 두 명령은 `LIST` 데이터 구조에서 사용하는 `blocking` 
+`BLPOP` 과 `BRPOP` 으로, 이 두 명령은 `LIST` 데이터 구조에서 사용하는 `blocking` 연산이다.
+
+`blocking` 하는 연산이 왜 필요한가 했는데 다음의 `3` 가지 이유가 있다.
+
+- **블로킹 연산**: `LIST` 가 비어있을때 즉시 반환하지 않고 대기
+- **타입아웃 설정**: `대기 시간` 을 지정
+- **여러 리스트 모니터링**: 한번에 여러 리스트를 모니터링
+
+여기에서 `blocking` 연산에서 `LIST` 가 비어있을때 즉시 반환하지 않고 대기 하는 것이 중요하다.
+앞에서 이미 말했듯, `LIST` 는 비어있는 `key` 가 있다면 알아서 `remove` 처리한다.
+
+그렇기에, `BLPOP` 혹은 `BRPOP` 같은 경우 `LIST` 가 비어있지 않다면 일반적인 `LPOP` 혹은 `RPOP` 처럼 행동하지만, `마지막 원소` 가 `POP` 되는 순간 지정한 시간 만큼 대기한다.
+
+이 대기하는 순간 `LIST` 에 새로운 값을 추가하여 `LIST` 가 비어있지 않도록 보장하기 위한 방식으로 사용가능하며, 다음처럼 `zero-timeout` 을 지정할수 있다.
+
+>[!info] 대기시간으로 `0` 을 지정할수 있는데 이를 `zero-timeout` 이라 한다.
+
+`0` 은 영원히 기다리는것을 의미하며, 이 기능은 작업자가 새 작업을 할당할때까지 기다리는 작업에 유용하다.
+
+다음을 보자
+
+>[!info] BLPOP
+```sh
+worker-1> BRPOP job_queue 0 
+worker-2> BRPOP job_queue 0
+```
+
+ `redis-cli` 에 `2` 개의 `worker` 를 생성하여 각 `worker` 당 `BRPOP` 명령을 내리며 `zero-timeout` 을 설정한다. 
+
+그럼 `2` 개의 `worker` 는 지속적인 대기 상태가 된다.
+대기 상태에서 `dispatcher` 가 `job_queue` 에 `LPUSH`  한다.
+
+```sh
+dispatcher> LPUSH job_queue job1
+```
+
+그러면 대기중인 `worker-1` 에서 이 `job1` 을 받아 처리하고 대기가 풀린다.
+
+```sh
+worker-1> BRPOP job_queue 0 
+1) "job_queue" 
+2) "job1" 
+
+worker-1>
+```
+
+이번에는 `job2`, `job3` 를 `LPUSH` 한다
+
+```sh
+dispatcher> LPUSH job_queue job2 job3
+```
+
+그럼 대기중인 `worker-2` 에서 `job2` 를 받아 처리하고 대기가 풀린다.
+
+```sh
+worker-2> BRPOP job_queue 0 
+1) "job_queue" 
+2) "job2" 
+
+worker-2>
+```
+
+`job_queue` `List` 에 남아있는 원소를 다음처럼 확인하면 `job3` 만 남아있다.
+
+```sh
+dispatcher> LRANGE job_queue 0 -1 
+1) "job3"
+```
+
+`Redis` 는 `quicklist` `encoding` 을 사용하여 `list` 객체를 저장한다.
+이는 `list` 객체 메모리 저장 공간을 조정하는 `2` 설정 옵션이 있다.
+
+- `list-max-ziplist-size`: `list` 의 내부 표현을 제어하는 설정이다.<br>이 옵션은 리스트가 언제 압축 리스트 인코딩을 사용할지 결정한다.
+
+>[!info] 리스트가 `5` 개 이하의 엔트리를 가질때 `ziplist` `encoding` 을 사용한다
+```sh
+list-max-ziplist-size 5
+```
+
+>[!info] 리스트가 `-1` 개 이하의 엔트리를 가질때 `ziplist` `encoding` 을 사용한다
+```sh
+list-max-ziplist-size 5
+```
+
+
+- `list-compress-depth`: `list` 압축 정책이다.<br>리스트의 양 끝에서 부터 지정된 개수의 노드를 제외하고 나머지를 압축한다.<br>앞축된 부분은 특별한 방식으로 `encoding` 되어 메모리사용을 줄인다.
+
+
