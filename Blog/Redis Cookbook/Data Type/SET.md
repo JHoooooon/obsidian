@@ -1,3 +1,4 @@
+>[!info] `PacktPub Redis Cookbook` 의 내용을 정리한 것이다.
 
 `SET` 은 정렬되지 않은 유일한 객체들에 대한 컬렉션 타입이다   
 

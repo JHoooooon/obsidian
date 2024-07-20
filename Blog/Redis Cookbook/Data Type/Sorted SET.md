@@ -1,4 +1,6 @@
 
+>[!info] `PacktPub Redis Cookbook` 의 내용을 정리한 것이다.
+
 `Sorted` 는 각 요소에 가중치를 가지고 있으며, 정렬가능함을 의미한다.
 항상 정렬이 필요한 경우 이러한 기본적으로 제공해주는 정렬기능을 활용하는것이 좋다
 
@@ -142,6 +144,12 @@ ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGG
 - **WEIGHTS (선택적)**: 각 `Sorted Set` 의 점수를 곱할 가중치
 
 - **AGGREGATE (선택적)**: 중복 맴버의 점수 계산 방식 (SUM | MIN | MAX) - default: SUM
+
+추가적으로 `Redis` 는 `Sorted Set` 객체를 저장하기 위해 내부적으로 `2` 개의 `enconding` 방식을 사용한다.
+
+- `ziplist`: `Sorted Set` 의 길이가 `zset-max-ziplist-entries` (`default`: `128`) 보자 작고, 모든 요소의 사이즈가 구성에서 `zset-max-ziplist-value`(`default`: $64byte$) 보다 작다면, 작은 공간을 저장하기 위해 `ziplist` `encoding` 방식을 사용한다. 
+
+- `skiplist`: 구성별 `ziplist` `encoidng` 을 사용할수 없다면 `default` `encoding` 방식으로 `skiplist` 를 사용한다.
 
 
 

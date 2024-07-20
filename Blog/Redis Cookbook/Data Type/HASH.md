@@ -1,3 +1,4 @@
+>[!info] `PacktPub Redis Cookbook` 의 내용을 정리한 것이다.
 
 `HASH` 데이터 타입은 `field` 와 `value` 사이의 관계 매핑을 표현한 타입이다
 `programing language` 에서 `dictionaries` 혹은 `maps` 과 같다.
