@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
+                "file": "Blog/Redis Cookbook/Data Type/Geospatial.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
+                "file": "Blog/Redis Cookbook/Data Type/Geospatial.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
+                "file": "Blog/Redis Cookbook/Data Type/Geospatial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/HyperLogLog.md"
+                "file": "Blog/Redis Cookbook/Data Type/Geospatial.md"
               }
             }
           },
@@ -160,11 +160,12 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
+    "Blog/Redis Cookbook/Data Type/Geospatial.md",
     "Blog/Redis Cookbook/Data Type/Sorted SET.md",
     "Blog/Redis Cookbook/Data Type/SET.md",
     "Blog/Redis Cookbook/Data Type/HASH.md",
     "Blog/Redis Cookbook/Data Type/LIST.md",
-    "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
     "Blog/Redis Cookbook/Data Type/SET KEY.md",
     "Blog/Redis Cookbook/Data Type/Untitled",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
@@ -196,7 +197,6 @@
     "Blog/LearnSQL/분석함수/데이터 윈도우.md",
     "Blog/LearnSQL/분석함수/분석함수.md",
     "Blog/LearnSQL/메타데이터/메타데이터로 작업.md",
-    "Blog/LearnSQL/메타데이터/정보 스키마.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",

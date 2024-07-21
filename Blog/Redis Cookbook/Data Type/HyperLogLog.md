@@ -63,4 +63,10 @@ OK
 ```
 
 위는 총 7일의 `HyperLogLog` 의 날짜를 `PFMERGE` 로 병합하고 `PFCOUNT` 를 센 결과이다.
+`HLL` 객체는 내부적으로 표현하기 위한 `2` 가지 방식으로 저장한다.
+
+- **Sparse**: `hll-sparse-max-bytes`(default: `3000`) 보다 작은 길이를 가진 `HLL` 객체일 경우 `Sparse` 를 사용한다.<br>`Sparse` 는 효율적인 공간을 사용하지만, 좀더 `CPU` 비용이 들 수 있다
+
+- **Dense**: 구성별 `sparse` `encoding` 을 할수 없다면, 기본 `encoding` 으로 사용된다.
+
 
