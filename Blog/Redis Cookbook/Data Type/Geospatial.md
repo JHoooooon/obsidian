@@ -13,7 +13,9 @@
 `GEORADIUS` 와 `GEORADIUSBYMEMBER` 명령어에서, `WITHDIST` 옵션을 사용할수 있다.
 `ASC/DESC` 옵션은 내림차 혹은 오름차 순서로 정렬하여 보여준다.
 
+>[!warning] `GEORADIUS` 와 `GEORADIUSBYMEMBER` 는 `deprecated` 되었다.
 
+>[!info] `GEOSEARCH` 는 $O(N + log(M))$ 으로 $N$ 은 중심에서의 반경으로 만들어진 원형 영역 경계에서 `box` 요소수이다.<br><br>따라서 뛰어난 성능을 원한다면 하나의 쿼리에서 반경 맥
 
 ---
 
@@ -66,7 +68,8 @@
 
 ---
 
->[!warning] `GEORADIUS` 와 `GEORADIUSBYMEMBER` 는 `deprecated` 되었다.<br>다음은 `Redis` 에서 사용을 권장하는 `GEOSEARCH` 의 예제이다.<br><br>[GEOSEARCH](https://redis.io/docs/latest/commands/geosearch/)에서 확인가능하다.
+>[!warning] `GEORADIUS` 와 `GEORADIUSBYMEMBER` 는 `deprecated` 되었다.<br>다음은 `Redis` 에서 사용을 권장하는 `GEOSEARCH` 의 예제이다.<br><br>[GEOSEARCH](https://redis.io/docs/latest/commands/geosearch/) 및 [GEOSEARCHSTORE](https://redis.io/docs/latest/commands/geosearchstore/)에서 확인가능하다.
+
 
 >[!info] GEOSEARCH
 ```sh
@@ -98,5 +101,30 @@ GEOSEARCH key <FROMMEMBER member | FROMLONLAT longitude latitude>
 - **ASC**: 중심점으로 부터 가장 가까운 항목부터 먼 항목까지 정렬된다
 - **DIST**: 중심점으로 부터 가장 먼 항목부터 가까운 항목까지 정렬된다
 
+`query` 시 매칭된 `member` 의 개수를 몇개 출력할지 선택하는 선택적 옵션이다.
+
+ - **COUNT**: `count` 숫자만큼 `member` 위치에 가까운순으로 반환한다.
+ - **COUNT count ANY**: `ANY` 를 사용하면 거리와 상관없이 `N` 개의 데이터를 반환한다.<br>정확도가 떨어지지만 빠르게 검색해야할 실시간 데이터같은경우 사용할수 있다고 한다.
+
+>[!info] GEOSEARCHSTORE
+```sh
+GEOSEARCHSTORE destination source <FROMMEMBER member |
+  FROMLONLAT longitude latitude> <BYRADIUS radius <m | km | ft | mi>
+  | BYBOX width height <m | km | ft | mi>> [ASC | DESC] [COUNT count
+  [ANY]] [STOREDIST]
+```
+
+`GEOSEARCHSTORE`  는 `GEOSEARCH` 와 비슷하지만, 그 결과를 `destination key` 에 저장한다.
+약간 다른 옵션이 몇가지 더 있는데,  다음과 같다
+
+- **destination**: 이는 `Store` 할 `목적지 key` 이름이다.
+- **source**: 데이터를 가져올 `key` 이다.
+
+`query` 시 선택적 옵션으로 저장방식을 선택할수 있다.
+
+- **STOREDIST**: 이 명령은 `circle` 또는 `box` 의 중심으로 부터 거리인 `value` 와 `member` `key` 값을 정렬된 집합으로 저장한다. 이때, `value` 값은 부동소수점형식으로 변환되어 저장된다.
+
 ---
+
+
 
