@@ -8,7 +8,12 @@
 이는 일반적으로 허용하는 `GEO encoding` 시스템이다.
 
 저장된 `GEO` 와 `GEOPOS` 가 반환하는 좌표간에는 약간의 차이가 있음을 고려하는것이 좋다.
-그래서 완벽하게 $2$ 개가 
+그래서 정확하게 $2$ 개가 동일한것이라고 기대해서는 안된다
+
+`GEORADIUS` 와 `GEORADIUSBYMEMBER` 명령어에서, `WITHDIST` 옵션을 사용할수 있다.
+`ASC/DESC` 옵션은 내림차 혹은 오름차 순서로 정렬하여 보여준다.
+
+
 
 ---
 
@@ -32,6 +37,7 @@
 현재 `location` 에서 $5km$  내의 `member` 를 알고싶다면, `GEORADIUS` 명령어를 사용한다.
 
 >[!note] 책에서는 내 위치가 `Mount Diablo` 주립공원에 있고(`-121.923170 37.878506`), 근방 $5km$ 내의 레스토랑을 찾는다는 가정이다.
+
 
 >[!info] GEORADIUS
 ```sh
@@ -57,4 +63,40 @@
 2) "Outback Steakhouse" 
 3) "P.F. Chang's"
 ```
+
+---
+
+>[!warning] `GEORADIUS` 와 `GEORADIUSBYMEMBER` 는 `deprecated` 되었다.<br>다음은 `Redis` 에서 사용을 권장하는 `GEOSEARCH` 의 예제이다.<br><br>[GEOSEARCH](https://redis.io/docs/latest/commands/geosearch/)에서 확인가능하다.
+
+>[!info] GEOSEARCH
+```sh
+GEOSEARCH key <FROMMEMBER member | FROMLONLAT longitude latitude>
+  <BYRADIUS radius <m | km | ft | mi> | BYBOX width height <m | km |
+  ft | mi>> [ASC | DESC] [COUNT count [ANY]] [WITHCOORD] [WITHDIST]
+  [WITHHASH]
+```
+
+`query` 시 `center` 위치를 제공하는 **필수옵션**들로 이중 하나만 제공가능하다.
+
+- **FROMMEMBER**: 주어진 `member` 의 `position` 을 기반으로 `search` 한다
+- **FROMLONLAT**: 주어진 `longitude`, `latitude` 위치를 기반으로 `search` 한다.
+
+`query` 시 `shape` 를 제공하는 **필수옵션**들로 이중 하나만 제공가능하다.
+
+- **BYRADIUS**: `GEOREDIUS` 와 비슷하며, 주어진 `radius` 에 따라 원형 영역 내부를 검색한다.
+- **BYBOX**: `height` 과 `width` 에 따라 결정되며, 축 정렬 직사각형 내부를 검색한다.
+
+`query` 시 추가적인 정보를 제공하는 **선택적 옵션**들이다.
+
+- **WITHDIST**: `member` 들의 지정된 중심점에서 부터 거리를 반환한다.<br> 거리는 `redius` 혹은 `width`, `height` 인자로 지정된 단위와 동일한 단위로 리턴된다.
+- **WITHCOORD**: 매칭되는 `member` 들의 경도, 위도를 리턴한다.
+- **WITHHASH**: `member` 의 `GEOHASH` 로 `encoding` 된 `raw` 데이터를 정렬된 집합으로 반환한다.<br>이는 저수준 단계에서 해킹 또는 디버깅하는데 유용하며, 일반 사용자에게는 별 관심이 없는 옵션이다.
+
+`query` 시 매칭된 `member` 는 기본적으로 정렬되지 않은 값이다.
+만약 정렬을 하고 싶다면 다음의 선택적 옵션중 하나를 사용할수 있다.
+
+- **ASC**: 중심점으로 부터 가장 가까운 항목부터 먼 항목까지 정렬된다
+- **DIST**: 중심점으로 부터 가장 먼 항목부터 가까운 항목까지 정렬된다
+
+---
 
