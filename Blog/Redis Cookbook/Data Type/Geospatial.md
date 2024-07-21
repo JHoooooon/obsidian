@@ -15,7 +15,7 @@
 
 >[!warning] `GEORADIUS` 와 `GEORADIUSBYMEMBER` 는 `deprecated` 되었다.
 
->[!info] `GEOSEARCH` 는 $O(N + log(M))$ 으로 $N$ 은 중심에서의 반경으로 만들어진 원형 영역 경계에서 `box` 요소수이다.<br><br>따라서 뛰어난 성능을 원한다면 하나의 쿼리에서 반경 맥
+>[!info] `GEOSEARCH` 는 $O(N + log(M))$ 으로 $N$ 은 중심에서의 반경으로 만들어진 원형 영역 경계에서 `box` 요소수이다.<br><br>따라서 뛰어난 성능을 원한다면 하나의 쿼리에서 반경 매개변수를 가능한 작게 설정하여 더 적은 포인트를 포함해야 한다.
 
 ---
 
