@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiLocate",
       "LiHeadingGlyph",
       "RiSortDesc",
       "LiCircleDot",
-      "LiVariable",
-      "LiHash"
+      "LiVariable"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -158,5 +158,6 @@
   "Blog/Redis Cookbook/Data Type/SET KEY.md": "LiVariable",
   "Blog/Redis Cookbook/Data Type/SET.md": "LiCircleDot",
   "Blog/Redis Cookbook/Data Type/Sorted SET.md": "RiSortDesc",
-  "Blog/Redis Cookbook/Data Type/HyperLogLog.md": "LiHeadingGlyph"
+  "Blog/Redis Cookbook/Data Type/HyperLogLog.md": "LiHeadingGlyph",
+  "Blog/Redis Cookbook/Data Type/Geospatial.md": "LiLocate"
 }
