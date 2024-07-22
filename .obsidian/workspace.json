@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Expiration.md",
+                "file": "Blog/Redis Cookbook/Data feature/Sort.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Expiration.md",
+                "file": "Blog/Redis Cookbook/Data feature/Sort.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Expiration.md",
+                "file": "Blog/Redis Cookbook/Data feature/Sort.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Expiration.md"
+                "file": "Blog/Redis Cookbook/Data feature/Sort.md"
               }
             }
           },
@@ -185,9 +185,10 @@
   },
   "active": "28650c864821e4e4",
   "lastOpenFiles": [
-    "Blog/Redis Cookbook/Data feature/Intro.md",
     "Blog/Redis Cookbook/Data feature/Expiration.md",
+    "Blog/Redis Cookbook/Data feature/Sort.md",
     "Blog/Redis Cookbook/Data feature/Bitmaps.md",
+    "Blog/Redis Cookbook/Data feature/Intro.md",
     "Blog/Redis Cookbook/assets/images/bitmap structuer.png",
     "Blog/Redis Cookbook/assets/excalidraw/bitmap structure.md",
     "Blog/Redis Cookbook/assets/excalidraw",
@@ -222,7 +223,6 @@
     "Blog/NEXTJS/NEXT.JS 렌더링/전통적인 웹 렌더링 방식.md",
     "Blog/LearnSQL/분석함수/리포팅 함수.md",
     "Blog/LearnSQL/분석함수/LAG() 함수와 LEAD() 함수.md",
-    "Blog/LearnSQL/분석함수/GROUP_CONCAT() 함수.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",

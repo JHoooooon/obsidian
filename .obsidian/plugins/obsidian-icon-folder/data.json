@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiLocate",
-      "LiHeadingGlyph",
-      "RiSortDesc",
-      "LiCircleDot",
-      "LiVariable"
+      "LiBookType",
+      "RiPassExpiredFill",
+      "LiArrowDown10",
+      "0️⃣",
+      "RiInfoI"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -159,5 +159,13 @@
   "Blog/Redis Cookbook/Data Type/SET.md": "LiCircleDot",
   "Blog/Redis Cookbook/Data Type/Sorted SET.md": "RiSortDesc",
   "Blog/Redis Cookbook/Data Type/HyperLogLog.md": "LiHeadingGlyph",
-  "Blog/Redis Cookbook/Data Type/Geospatial.md": "LiLocate"
+  "Blog/Redis Cookbook/Data Type/Geospatial.md": "LiLocate",
+  "Blog/Redis Cookbook/assets": "🧺",
+  "Blog/Redis Cookbook/assets/excalidraw": "RiMarkPenLine",
+  "Blog/Redis Cookbook/assets/images": "LiImage",
+  "Blog/Redis Cookbook/Data feature": "RiFunctionAddLine",
+  "Blog/Redis Cookbook/Data feature/Intro.md": "RiInfoI",
+  "Blog/Redis Cookbook/Data feature/Bitmaps.md": "LiArrowDown10",
+  "Blog/Redis Cookbook/Data feature/Expiration.md": "RiPassExpiredFill",
+  "Blog/Redis Cookbook/Data Type": "LiBookType"
 }
