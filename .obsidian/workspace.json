@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/transaction.md",
+                "file": "Blog/Redis Cookbook/Data feature/PubSub.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/transaction.md",
+                "file": "Blog/Redis Cookbook/Data feature/PubSub.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/transaction.md",
+                "file": "Blog/Redis Cookbook/Data feature/PubSub.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/transaction.md"
+                "file": "Blog/Redis Cookbook/Data feature/PubSub.md"
               }
             }
           },
@@ -185,8 +185,9 @@
   },
   "active": "28650c864821e4e4",
   "lastOpenFiles": [
-    "Blog/Redis Cookbook/Data feature/Pipeline.md",
     "Blog/Redis Cookbook/Data feature/transaction.md",
+    "Blog/Redis Cookbook/Data feature/PubSub.md",
+    "Blog/Redis Cookbook/Data feature/Pipeline.md",
     "Blog/Redis Cookbook/Data feature/Sort.md",
     "Blog/Redis Cookbook/Data feature/Expiration.md",
     "Blog/Redis Cookbook/Data feature/Bitmaps.md",
@@ -222,7 +223,6 @@
     "Blog/NEXTJS/렌더링의 이해/병목현상.md",
     "Blog/NEXTJS/렌더링의 이해/리플로우 와 리페인트.md",
     "Blog/NEXTJS/images/HTML Parsing.png",
-    "Blog/NEXTJS/NEXT.JS 렌더링/전통적인 웹 렌더링 방식.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
