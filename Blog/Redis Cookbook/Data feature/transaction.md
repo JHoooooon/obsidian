@@ -4,8 +4,6 @@
 `transaction`  은 `RDB`  에서 그룹지어진 수행된 작업을 원자적으로 실행한다.
 이는 그룹돤위로 실행을 완료하고 전체적으로 성공 혹은 실패하는 방식을 의미한다.
 
-이러한 `transaction` 컨셉은 `redis` 에서 약간 다른의미로 사용된다.
-
 ---
 
 다음은 초당판매를 하는 상황이다.
@@ -39,6 +37,49 @@ print "Seckilling Over!"
 
 이러한 초당 판매에 위한 과잉판매를 해결하기 위해 처리를 하는 내용이며, 카운터 값을 조회할때 발생하는 `race condition` 을 처리해준다.
 
+---
+
+`RDBMS` 와 `Redis` 간의 `Transaction` 의 다른점을 주목할 가치가 있다.
+중요한 차이점은, `Redis` 의 `Transaction `은 `rollback` 기능이 없다는 것이다.
+
+일반적으로 `Redis` 의 `transaction` 은 다양한 처리 매커니즘에 의해 2가지 타입의 에러가 발생할수 있다.
+
+1. 첫번째는 `syntax Error` 이다.<br>이 경우 `command` 가 `queuing` 되는 동안 발견된 에러이기 때문에, 전체 `transaction`은 빠르게 실패되며, 이 `transaction` 의 `commands` 도 처리되지 않는다.
+
+>[!info] Syntax Error
+```sh
+127.0.0.1:6379> MULTI 
+OK 
+127.0.0.1:6379> SET FOO BAR 
+QUEUED 
+127.0.0.1:6379> GOT FOO 
+(error) ERR unknown command 'GOT' 
+127.0.0.1:6379> INCR MAS 
+QUEUED 
+127.0.0.1:6379> EXEC 
+(error) EXECABORT Transaction discarded because of previous errors. 
+```
+
+2. 두번째는 모든 `commands` 는 `queued` 되었지만, 실행 중간에 발생한 에러이다.<br>이후 명령은 `rollback` 없이 계속 실행된다.
+
+>[!info] Error occurs in the middle of execute
+```sh
+127.0.0.1:6379> MULTI 
+OK 
+127.0.0.1:6379> SET foo bar 
+QUEUED 
+127.0.0.1:6379> INCR foo 
+QUEUED 
+127.0.0.1:6379> SET foo mas 
+QUEUED 
+127.0.0.1:6379> GET foo 
+QUEUED 
+127.0.0.1:6379> EXEC 
+1) OK 
+2) (error) ERR value is not an integer or out of range 
+3) OK 
+4) "mas"
+```
 
 
 
