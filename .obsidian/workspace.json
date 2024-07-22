@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Sort.md",
+                "file": "Blog/Redis Cookbook/Data feature/Pipeline.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Sort.md",
+                "file": "Blog/Redis Cookbook/Data feature/Pipeline.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Sort.md",
+                "file": "Blog/Redis Cookbook/Data feature/Pipeline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Sort.md"
+                "file": "Blog/Redis Cookbook/Data feature/Pipeline.md"
               }
             }
           },
@@ -185,10 +185,15 @@
   },
   "active": "28650c864821e4e4",
   "lastOpenFiles": [
-    "Blog/Redis Cookbook/Data feature/Expiration.md",
     "Blog/Redis Cookbook/Data feature/Sort.md",
+    "Blog/Redis Cookbook/Data feature/Expiration.md",
     "Blog/Redis Cookbook/Data feature/Bitmaps.md",
     "Blog/Redis Cookbook/Data feature/Intro.md",
+    "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
+    "Blog/Redis Cookbook/Data Type/Sorted SET.md",
+    "Blog/Redis Cookbook/Data Type/HASH.md",
+    "Blog/Redis Cookbook/Data Type/SET KEY.md",
+    "Blog/Redis Cookbook/Data feature/Pipeline.md",
     "Blog/Redis Cookbook/assets/images/bitmap structuer.png",
     "Blog/Redis Cookbook/assets/excalidraw/bitmap structure.md",
     "Blog/Redis Cookbook/assets/excalidraw",
@@ -197,12 +202,8 @@
     "Blog/Redis Cookbook/Data Type/Managing key.md",
     "Blog/Redis Cookbook/Data feature",
     "Blog/Redis Cookbook/Data Type/Geospatial.md",
-    "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
-    "Blog/Redis Cookbook/Data Type/Sorted SET.md",
     "Blog/Redis Cookbook/Data Type/SET.md",
-    "Blog/Redis Cookbook/Data Type/HASH.md",
     "Blog/Redis Cookbook/Data Type/LIST.md",
-    "Blog/Redis Cookbook/Data Type/SET KEY.md",
     "Blog/Redis Cookbook/Data Type/Untitled",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
     "Blog/LearnSQL/필터링/조건 평가.md",
@@ -222,7 +223,6 @@
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/NEXTJS/NEXT.JS 렌더링/전통적인 웹 렌더링 방식.md",
     "Blog/LearnSQL/분석함수/리포팅 함수.md",
-    "Blog/LearnSQL/분석함수/LAG() 함수와 LEAD() 함수.md",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",

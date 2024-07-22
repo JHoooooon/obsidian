@@ -1,4 +1,6 @@
 
+>[!info] `개발자를 위한 레디스` 의 내용과 `PacktPub Redis Cookbook` 의 내용을 정리한 것이다.
+
 `Redis` 의 `key` 를 삭제할때 `DEL` 또는 `UNLINK` 명령어를 사용한다.
 
 `key` 를 수동으로 삭제하는것 외에도, `keys` 의 `timeout` 을 설정해서 자동적으로 `key` 를 삭제하도록 `Redis` 에 알려줄수 있다.

@@ -1,4 +1,6 @@
 
+>[!info] `개발자를 위한 레디스` 의 내용과 `PacktPub Redis Cookbook` 의 내용을 정리한 것이다.
+
 `Bitmap` 은 `bits` 로 이루어진 배열이다.
 `Redis`  `bitmap` 은 새로운 데이터 타입이 아니다.
 
