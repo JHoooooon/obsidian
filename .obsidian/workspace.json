@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Bitmaps.md",
+                "file": "Blog/Redis Cookbook/Data feature/Expiration.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Bitmaps.md",
+                "file": "Blog/Redis Cookbook/Data feature/Expiration.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Bitmaps.md",
+                "file": "Blog/Redis Cookbook/Data feature/Expiration.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Bitmaps.md"
+                "file": "Blog/Redis Cookbook/Data feature/Expiration.md"
               }
             }
           },
@@ -185,13 +185,14 @@
   },
   "active": "28650c864821e4e4",
   "lastOpenFiles": [
+    "Blog/Redis Cookbook/Data feature/Intro.md",
+    "Blog/Redis Cookbook/Data feature/Expiration.md",
+    "Blog/Redis Cookbook/Data feature/Bitmaps.md",
     "Blog/Redis Cookbook/assets/images/bitmap structuer.png",
     "Blog/Redis Cookbook/assets/excalidraw/bitmap structure.md",
-    "Blog/Redis Cookbook/Data feature/Bitmaps.md",
     "Blog/Redis Cookbook/assets/excalidraw",
     "Blog/Redis Cookbook/assets/images",
     "Blog/Redis Cookbook/assets",
-    "Blog/Redis Cookbook/Data feature/Intro.md",
     "Blog/Redis Cookbook/Data Type/Managing key.md",
     "Blog/Redis Cookbook/Data feature",
     "Blog/Redis Cookbook/Data Type/Geospatial.md",

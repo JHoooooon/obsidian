@@ -2,9 +2,9 @@
 레디스는 여러 유용한 데이터 기능을 함께 제공한다.
 이는 다음처럼 이해할수 있다.
 
-- **BItmaps**: `bitmaps` 를 어떻게 다룰수 있는지 보여준다.<br>메모리 공간을 절약하기 위해 문자열 대신 사용한다.
+- **[[Bitmaps]]**: `bitmaps` 를 어떻게 다룰수 있는지 보여준다.<br>메모리 공간을 절약하기 위해 문자열 대신 사용한다.
 
-- **Expiration**: 레디스는 `In-Memory data store` 이다.<br>이는 일반적으로 `cache` 하기 위해 사용한다.<br>`Expiration` 기능은 이러한 `cache` 에 만료시간을 주는 기능이다.<br>`Expire Key` 를 사용한다면 어떠한 일이 발생할지 다음은 보여준다.
+- **[[Expiration]]**: 레디스는 `In-Memory data store` 이다.<br>이는 일반적으로 `cache` 하기 위해 사용한다.<br>`Expiration` 기능은 이러한 `cache` 에 만료시간을 주는 기능이다.<br>`Expire Key` 를 사용한다면 어떠한 일이 발생할지 다음은 보여준다.
 
 - **Sorting**: `Sorting` 은 `Redis`의 `LIST`, `SET`, `Sorted SET` 검색할때 정렬하는데 사용한다<br>이는 `SORT` 명령어를 사용하여 처리하는것을 볼수 있다.
 
