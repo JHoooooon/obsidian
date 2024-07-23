@@ -91,23 +91,31 @@ Reading messages... (press Ctrl-C to quit)
 
 [Keyspace-notifications](https://redis.io/docs/latest/develop/use/keyspace-notifications/) 라는 `Guide` 를 보면, 다음의 `Keyspace` 를 이야기한다.
 
-`Redis` 의 데이터 스페이스에 영향을 주는 두가지 구별되는 이벤트로 구현된다.
+`Redis Keyspace Notifications` 는 `Redis` 데이터베이스 내의 이벤트를 실시간으로 모니터링하고 알림을 받을수 있게 해주는 기능이다.
 
-```sh
-PUBLISH __keyspace@0__:mykey del
-PUBLISH __keyevent@0__:del mykey
+이 기능을 통해 특정 키의 변경, 만료, 삭제 등의 이벤트를 감지하고 이에 반응할수 있다.
+
+```javascript
+const redis = require('redis');
+
+const subscriber = redis.createClient(); 
+
+const publisher = redis.createClient(); 
+
+// Keyspace notifications 활성화 
+subscriber.config('SET', 'notify-keyspace-events', 'KEA'); 
+
+// 특정 키의 만료 이벤트 구독 
+subscriber.subscribe('__keyevent@0__:expired'); 
+
+subscriber.on('message', (channel, message) => { 
+	console.log(`키 "${message}"가 만료되었습니다.`); 
+	// 여기에 만료 이벤트에 대한 처리 로직을 추가할 수 있습니다. 
+}); 
+
+// 테스트를 위한 키 설정 (10초 후 만료) 
+publisher.set('testKey', 'someValue', 'EX', 10); 
+
+console.log('10초 후 만료 이벤트를 기다리는 중...');
 ```
-
-`keyspace`  의 `channel` 의 앞에 있는 명령을 `Key-space notification` 이라 하고, 마지막에 있는 명령을 `Key-event notification` 이라 부른다.
-
-앞전의 예시에서 `DEL` `event` 는 `KEY` 인 `mykey` 에 대한 두 메시지의 결과를 생성한다.  
-
-- `Key-space` `channel` 은 `event` 의 이름을 `message` 로 수신한다. (`Key-space notification`)
-- `Key-event` `channel` 은 `Key` 의 이름을 `message` 로 수신한다. (`Key-event notification`)
-
-이는 관심있는 이벤트의 하위 집함에 전달하기 위한 한 종류의 알림만 활성화 할수 있는 컨벤션이라고 본다.
-
-
-
-
 
