@@ -189,13 +189,31 @@ SUNSUBSCRIBE [shardchannel [shardchannel ...]]
 ```
 
 주어진 `shard channel` 에서 `client` 를 `UNSUBSCRIBE` 한다.
-이는 `cluster` 된 `NODE` 들의 
+이는 `cluster`에 `Sharding` 된 `NODE` 들의 `HASH SLOT` 에 저장된 구독을 취소한다.
 
+### PING
 
+>[!info] [PING](https://redis.io/docs/latest/commands/ping/)
+```sh
+PING [message]
+```
 
+`message` 없이 보내면 `PONG` 을 반환한다.
+반면에 `message` 를 보내면 해당 `message` 를 복사해서 반환한다.
 
+이러한 `PING` `command` 를 사용하는 이유는 다음과 같다
 
+1. `Redis server` 가 여전히 제대로 실행되고 있는지 테스팅
+2.  `Redis server` 의 데이터 제공 능력 확인<br>예로 지속해서 로드 중이거나 오래된 복제본에 엑세스 하는 중에는 오류가 반환된다.
+3. 대기 시간을 측정한다.
 
+만약 `client` 가 `channel` 혹은 `pattern` 에 구독중이라면, `PONG` 대신 다중 목록(`multi-bulk`) 형태의 응답을 반환한다. `multi-bulk` 는 다음의 구조를 갖는다.
+
+1. 첫 번째 위치는 "PONG" 이라는 문자열이 포함된다.
+2. 두 번째 위치는 비어있는 `bulk` 가 포함된다
+3. 추가적으로 인자가 제공되었다면, 세번째 위치는 인자의 복사본이 호함된다
+
+이러한 구조는 클라이언트가 `Pub/Sub`매커니즘을 사용하여 `Redis` 채널이나 패턴에 대해 구독하고 있을때, `PING/PONG` 대신에 구독 상태를 확인할수 있는 방법을 제공한다.
 
 ---
 ## Keyspace-notifications
