@@ -118,6 +118,31 @@ Reading messages... (Press Ctrl-C to quit)
 
 이를 통해 `Subscriber` 는 총 $2$ 개의 구독으로 인해 $2$ 개의 메시지를 받는다
 
+### UNSUBSCRIBE
+
+>[!info] [UNSUBSCRIBE](https://redis.io/docs/latest/commands/unsubscribe/)
+```sh
+UNSUBSCRIBE [channel [channel ...]]
+```
+
+`시간 복잡도` 는 $O(N)$ 이며, $N$ 은 `unsubscribe` `channel` 들의 개수이다
+
+주어진 `channels` 을 `Unsubscribe` 하거나 아무것도 주어지지 않을때, 모든 `channel` 들을 `Unsubscribe` 한다
+
+>[!warning] 위에서 `UNSUBSCRIBE` 에서 아무런 인자값을 주지 않을때, `client` 가 이전에 구독한 `channel` 전부가 구독 취소된다는 이야기다.
+
+### PUNSUBSCRIBE
+
+>[!info] [PUNSUBSCRIBE](https://redis.io/docs/latest/commands/punsubscribe/)
+```sh
+PUNSUBSCRIBE [pattern [pattern ...]]
+```
+
+`시간 복잡도` 는 $O(N)$ 이며, $N$ 은 `unsubscribe` `channel` 들의 개수이다
+주어진 패턴에 맞는 `channel` 들을 `UNSUBSCRIBE` 한다.
+
+패턴은 `glob-style pattern` 이다.
+
 ### SSUBSCRIBE
 
 `Redis` 클러스터 구조에서역시 `Pub/Sub` 사용이 가능하다.
@@ -138,7 +163,33 @@ Reading messages... (Press Ctrl-C to quit)
 
 >[!info] `Cluster` 구조에서 모든 데이터는 `Hash Slot` 에 저장된다.<br>총 $16,384$ 개의 `Hash Slot` 을 가지며, `Master Node` 는 `Hash Slot` 을 나눠 갖고 있다.<br><br>`Redis` 에 입력되는 모든 키는 `Hash Slot` 에 매핑된다. 
 
+>[!info] SSUBSCRIBE
+```sh
+SSUBSCRIBE shardchannel [shardchannel ...]
+```
 
+```sh
+> SSUBSCRIBE orders
+Reading messages... (press Ctrl-C to quit)
+1) "ssubscribe"
+2) "orders"
+3) (integer) 1
+1) "smessage"
+2) "orders"
+3) "hello"
+```
+
+>[!info] `SSUBSCRIBE` 는 `smessage` 타입으로 메시지를 보낸다
+
+### SUNSUBSCRIBE
+
+>[!info] [SUNSUBSCRIBE](https://redis.io/docs/latest/commands/sunsubscribe/)
+```sh
+SUNSUBSCRIBE [shardchannel [shardchannel ...]]
+```
+
+주어진 `shard channel` 에서 `client` 를 `UNSUBSCRIBE` 한다.
+이는 `cluster` 된 `NODE` 들의 
 
 
 
