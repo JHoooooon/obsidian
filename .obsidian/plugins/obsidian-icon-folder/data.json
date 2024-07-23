@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "RiArrowLeftRightLine",
       "LiBox",
       "LiLineHorizontal",
       "RiSortDesc",
-      "RiSortNumberAsc",
-      "LiBookType"
+      "RiSortNumberAsc"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -170,5 +170,6 @@
   "Blog/Redis Cookbook/Data Type": "LiBookType",
   "Blog/Redis Cookbook/Data feature/Sort.md": "RiSortDesc",
   "Blog/Redis Cookbook/Data feature/Pipeline.md": "LiLineHorizontal",
-  "Blog/Redis Cookbook/Data feature/transaction.md": "LiBox"
+  "Blog/Redis Cookbook/Data feature/transaction.md": "LiBox",
+  "Blog/Redis Cookbook/Data feature/PubSub.md": "RiArrowLeftRightLine"
 }

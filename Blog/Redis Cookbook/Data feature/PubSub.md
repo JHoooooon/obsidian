@@ -89,12 +89,99 @@ Reading messages... (press Ctrl-C to quit)
 
 ---
 
-[Keyspace-notifications](https://redis.io/docs/latest/develop/use/keyspace-notifications/) 라는 `Guide` 를 보면, 다음의 `Keyspace` 를 이야기한다.
+## `PubSub` 의 명령어들
 
-`Redis Keyspace Notifications` 는 `Redis` 데이터베이스 내의 이벤트를 실시간으로 모니터링하고 알림을 받을수 있게 해주는 기능이다.
+### PSUBSCRIBE
+
+>[!info] [PSUBSCRIBE](https://redis.io/docs/latest/commands/psubscribe/) 
+```sh
+PSUBSCRIBE pattern [pattern ...]
+```
+
+```sh
+PSUBSCRIBE mail-* 
+
+Reading messages... (Press Ctrl-C to quit)
+1) "psubscribe"
+2) "mail-*"
+3) (integer) 1
+```
+
+이는 `glob-style pattern` 으로 `subscribe` 할수 있다.
+이때, `message`는 `pmessage` 타입으로 전달된다.
+
+책에서는 `SUBSCRIBE mail-1` 과 `PSUBSCRIBE mail-*` 두개를 구독했다고 가정하면 다음처럼 `message` 를 보낸다고 한다.
+
+
+
+>[!note] 이렇게 구분하는 이유는 일반 `subscribe` 와 `psubscribe` 를 구분하기 위한것으로 보인다.
+
+
+### PMESSAGE
+
+
+
+
+---
+## Keyspace-notifications
+
+[Keyspace-notifications](https://redis.io/docs/latest/develop/use/keyspace-notifications/) 는 `Redis` 데이터베이스 내의 이벤트를 실시간으로 모니터링하고 알림을 받을수 있게 해주는 기능이다.
 
 이 기능을 통해 특정 키의 변경, 만료, 삭제 등의 이벤트를 감지하고 이에 반응할수 있다.
 
+다음은, `event` 가 작동할 `Key space` 를 지정하는 유형이다.
+이는 `event`  작동시 `space` 공간을 만들어, 구분지어 처리하는데 유용하다.
+
+- **Key Events**: 키 조작 관련 이벤트 (`SET`, `DEL`, `EXPIRE`, ...)
+- **Keyspace Events**: 특정 키에 대한 모든 이벤트
+
+`Redis` 는 기본적으로 `notify-keyspace-envets` 가 비활성화 되어있으므로, 처리하기 위해서 `config` 를 사용해 설정해주어야 한다.
+
+다음은 `Redis` 에서 `notify-keyspace-envets` 에 제공하는 `event` 유형의 `paramter` 들이다.
+
+---
+- **K**: `Keyspace` 이벤트로, `__keyspace@<db>__` 접두사와 함께 `publish` 된다
+
+- **E**: `Keyevent` 이벤트로, `__keyevent@<db>__` 접두사와 함께 `publish` 된다
+
+- **g**: `type` 없이 지정된 `command`로  `DEL`, `EXPIRE`, `RENAME`... 같은 일반적인 `command` 를 뜻한다
+
+- **$**: `String` `command` 
+
+- **l**: `List` `command`
+
+- **s**: `Set` `command`
+
+- **h**: `Hash` `command`
+
+- **z**: `Sorted Set` `command`
+
+- **t**: `Stream` `command`
+
+- **d**: `Module` `key` 타입 이벤트
+
+- **x**: `Expired` 이벤트 (`key` 가 만료될때마다 발생)
+
+- **e**: `Evicted` 이벤트 <br><br>(`key` 가 `maxmemory` 설정에 도달하면 데이터 공간을 확보하기 위해 기존 키를 제거한다. 이때 발생하는 이벤트다)<br><br>`Evicted` 뜻은 `퇴거하다`, `내쫒다` 라는 의미를 가진다.
+
+- **m**: `Key miss` 이벤트 (`key` 접근시 존재하지 않을때 발생)
+
+- **n**: 새로운 `key` 생성시 발생하는 이벤트 (`A` 에는 포함되지 않는다)
+
+- **A**:  **"g$lshztxed"** 에 대한 별칭이다. (이는 `m` 과 `n` 을 제외한 모든 `parameter` 를 포함한다.)
+
+---
+
+>[!info] Shell
+```sh
+$ redis-cli config set notify-keyspace-events KEA
+
+$ redis-cli --csv psubscribe '__key*__:*'
+Reading messages... (press Ctrl-C to quit)
+"psubscribe","__key*__:*",1
+```
+
+>[!info] Javascript
 ```javascript
 const redis = require('redis');
 
@@ -119,3 +206,7 @@ publisher.set('testKey', 'someValue', 'EX', 10);
 console.log('10초 후 만료 이벤트를 기다리는 중...');
 ```
 
+위는 `subscriber.config` 에 `notify-keyspace-events` 로 `KEA` 인자를 설정한다.
+이는  `g$lshztxed` 와 `Keyspace`, `Keyevent` 를 활성화 한다고 `redis-server` 에 알려준다
+
+>[!info] `Redis` 는 `default` 로 `notify-keyspace-events` 는 `disabled` 되어 있다.
