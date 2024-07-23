@@ -112,12 +112,36 @@ Reading messages... (Press Ctrl-C to quit)
 
 책에서는 `SUBSCRIBE mail-1` 과 `PSUBSCRIBE mail-*` 두개를 구독했다고 가정하면 다음처럼 `message` 를 보낸다고 한다.
 
-
-
 >[!note] 이렇게 구분하는 이유는 일반 `subscribe` 와 `psubscribe` 를 구분하기 위한것으로 보인다.
 
+![[PSUBSCRIBE & SUBSCRIB.png]]
 
-### PMESSAGE
+이를 통해 `Subscriber` 는 총 $2$ 개의 구독으로 인해 $2$ 개의 메시지를 받는다
+
+### SSUBSCRIBE
+
+`Redis` 클러스터 구조에서역시 `Pub/Sub` 사용이 가능하다.
+이러한 경우, `Redis` 데이터가 분산되어 있으므로, 클러스터에 속한 모든 노드에 전달되도록 해야 한다.
+
+이때 `SUBSCRIBE`  를 사용하면 `Reids` 클러스터에 분산된 `Node`(어떠한 `Node` 이던지..) 에 접근하여 데이터를 수신할수 있다.
+
+>[!warning] 이는 `PUBLISH` 하면, 해당 `message` 가 모든 `Cluster` 에 전파된다.<br><br>`Redis` 의 `Cluster` 는 **데이터를 분산저장** 하기 위한 구조이다.<br><br>이렇게 분산저장을 위한 목적에 `PUBLISH` 된 `message` 가 **전파되어 복제되는것은 네트워크 부하가 발생**할수 있으며, 분산저장을 위한 `Cluster` 의 핵심 목적에 부합하지 않는다. 
+
+이러한 방식은 `Cluster` 에 안좋은 영향을 미칠수 있다.
+이부분을 해결하기 위해 만들어진 `command` 가 `SSUBSCRIBE` 이다.
+
+이는 다음처럼 처리된다.
+
+- `Shared Pub/Sub` 환경에서 각 `Channel` 은 `Slot` 에 매핑된다.
+- `Cluster` 에서 `Key` 가 `Slot` 에 할당되는 것과 동일한 방식으로 `Channel` 이 할당된다.
+- 이렇게 `Slot` 이 할당된 `Node` 간에만 `Pub/Sub` 메시지를 전파한다.
+
+>[!info] 
+
+
+
+
+
 
 
 

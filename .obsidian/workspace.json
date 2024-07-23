@@ -172,10 +172,14 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/Redis Cookbook/assets/images/PSUBSCRIBE & SUBSCRIB.png",
+    "Blog/Redis Cookbook/Data feature/PubSub.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "Blog/Redis Cookbook/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
     "Blog/Redis Cookbook/Data Type/Geospatial.md",
     "Blog/Redis Cookbook/Data feature/Bitmaps.md",
     "Blog/Redis Cookbook/Data feature/Stream.md",
-    "Blog/Redis Cookbook/Data feature/PubSub.md",
     "Blog/Redis Cookbook/Data feature/transaction.md",
     "Blog/Redis Cookbook/Data feature/Pipeline.md",
     "Blog/Redis Cookbook/Data feature/Sort.md",
@@ -203,12 +207,8 @@
     "Blog/Redis Cookbook",
     "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
     "city-table.md",
-    "Blog/REDIS-STACK/Untitled.md",
     "Blog/REDIS-STACK/Introduce REDIS",
     "Blog/REDIS-STACK",
-    "Blog/LearnSQL/분석함수/여러 순위 집합을 생성하여 비교.md",
-    "Blog/NEXTJS/렌더링의 이해/브라우저 작동 원리.md",
-    "Blog/NEXTJS/렌더링의 이해/병목현상.md",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
@@ -216,7 +216,6 @@
     "Blog/LearnSQL/Assets/Images/Union.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
-    "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png",
-    "Blog/AWS/assets/Images/AWS Direct Connect.png"
+    "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png"
   ]
 }
