@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/C/C 의 첫걸음.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/C/C 의 첫걸음.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/C/C 의 첫걸음.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md"
+                "file": "Blog/C/C 의 첫걸음.md"
               }
             }
           },
@@ -172,6 +172,10 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/Redis Cookbook/Data feature/Stream.md",
+    "Blog/C/C 의 첫걸음.md",
+    "Blog/C",
+    "Blog/Untitled.md",
     "Blog/Redis Cookbook/Data feature/PubSub.md",
     "Blog/Redis Cookbook/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Untitled.md",
@@ -179,7 +183,6 @@
     "Blog/Redis Cookbook/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
     "Blog/Redis Cookbook/Data Type/Geospatial.md",
     "Blog/Redis Cookbook/Data feature/Bitmaps.md",
-    "Blog/Redis Cookbook/Data feature/Stream.md",
     "Blog/Redis Cookbook/Data feature/transaction.md",
     "Blog/Redis Cookbook/Data feature/Pipeline.md",
     "Blog/Redis Cookbook/Data feature/Sort.md",
@@ -206,9 +209,7 @@
     "Blog/NEXTJS/NEXT.JS 렌더링/하이브리드 렌더링 전략.md",
     "Blog/Redis Cookbook",
     "Blog/REDIS-STACK/Introduce REDIS/Redis stack 소개.md",
-    "city-table.md",
     "Blog/REDIS-STACK/Introduce REDIS",
-    "Blog/REDIS-STACK",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
