@@ -13,10 +13,16 @@
 
 여기서 중요한 부분이 있는데 `Redis` 의  `PusSub` 은 `message`, `channel`, `relationships` 가 `disk` 에 저장되지 않는다. 이는 휘발성이므로, `server` 가 종료되면 모든 개체는 사라진다.
 
+>[!note] `fire and forget` 이라 한다. 즉 `불지르고(지르고) 잊는다.` 라고 해석해도 무방하다.<br>이는 `PusSub`  은 지속유지되지 않으며, 사라지는 휘발성임을 말한다.
 
+또한 `message` 를 `publish` 하고 `Channel` 에 대한 구독자가 없다면, 이 `message` 는 버려진다.
+이는, `메시지 전달 보장 매커니즘` (`mechanism to guarantee message delivery`) 가 없다는것과 같다
 
+>[!info] `Kafka`, `RabbitMQ` 같은 경우, `message` 전달을 보장한다.
 
+추가적으로  `Publisher` 에 의해 각 `message` 를 `channel` 에 넣으면, `message` 는 해당 `channel` 에 구독중인 `Redis` 의 `Subscribers` 가 받아 처리한다.
 
+>[!warning] `PubSub` 은 중요한 메시지 전달 시나리오에는 적합하지 않다.<br>이는 `메시지 전달 보장 매커니즘` 이 없기때문이다.<br><br>**반면, 중요한 전달이 아닌 경우에는 빠른 속도로 메시지를 전달할수 있는 이점이 있다.**<br><br>예) `어플리케이션 내의 data 변경 notification`, `어플리케이션 내의 보조적 전달수단의 토스트`
 
 ---
 
@@ -80,4 +86,28 @@ Reading messages... (press Ctrl-C to quit)
 2) "restaurants:Thai" 
 3) "3$ for Tom yum soap in this weekend!"
 ```
+
+---
+
+[Keyspace-notifications](https://redis.io/docs/latest/develop/use/keyspace-notifications/) 라는 `Guide` 를 보면, 다음의 `Keyspace` 를 이야기한다.
+
+`Redis` 의 데이터 스페이스에 영향을 주는 두가지 구별되는 이벤트로 구현된다.
+
+```sh
+PUBLISH __keyspace@0__:mykey del
+PUBLISH __keyevent@0__:del mykey
+```
+
+`keyspace`  의 `channel` 의 앞에 있는 명령을 `Key-space notification` 이라 하고, 마지막에 있는 명령을 `Key-event notification` 이라 부른다.
+
+앞전의 예시에서 `DEL` `event` 는 `KEY` 인 `mykey` 에 대한 두 메시지의 결과를 생성한다.  
+
+- `Key-space` `channel` 은 `event` 의 이름을 `message` 로 수신한다. (`Key-space notification`)
+- `Key-event` `channel` 은 `Key` 의 이름을 `message` 로 수신한다. (`Key-event notification`)
+
+이는 관심있는 이벤트의 하위 집함에 전달하기 위한 한 종류의 알림만 활성화 할수 있는 컨벤션이라고 본다.
+
+
+
+
 
