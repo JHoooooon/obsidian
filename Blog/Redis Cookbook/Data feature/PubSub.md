@@ -132,11 +132,11 @@ Reading messages... (Press Ctrl-C to quit)
 
 이는 다음처럼 처리된다.
 
-- `Shared Pub/Sub` 환경에서 각 `Channel` 은 `Slot` 에 매핑된다.
-- `Cluster` 에서 `Key` 가 `Slot` 에 할당되는 것과 동일한 방식으로 `Channel` 이 할당된다.
-- 이렇게 `Slot` 이 할당된 `Node` 간에만 `Pub/Sub` 메시지를 전파한다.
+- `Shared Pub/Sub` 환경에서 각 `Channel` 은 `Hash Slot` 에 매핑된다.
+- `Cluster` 에서 `Key` 가 `Hash Slot` 에 할당되는 것과 동일한 방식으로 `Channel` 이 할당된다.
+- 이렇게 `Hash Slot` 이 할당된 `Node` 간에만 `Pub/Sub` 메시지를 전파한다.
 
->[!info] 
+>[!info] `Cluster` 구조에서 모든 데이터는 `Hash Slot` 에 저장된다.<br>총 $16,384$ 개의 `Hash Slot` 을 가지며, `Master Node` 는 `Hash Slot` 을 나눠 갖고 있다.<br><br>`Redis` 에 입력되는 모든 키는 `Hash Slot` 에 매핑된다. 
 
 
 
