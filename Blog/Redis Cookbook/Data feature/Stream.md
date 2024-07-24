@@ -10,10 +10,10 @@
 
 - `stream` 의 모든 항목은 `HASH` 이다.
 
-- `stream` 의 모든 항목은 `unique ID` 를 갖는다.<br>모든 `unique ID` 는 `timestamp` 와 `0` 부터 시작하는 `sequence-number` 로 이루어져있다.<br><br>예)<br>`id: 15778368000000-0`<br>`id: 15778368000000-1`<br>`id: 15774040000000-2`<br>
-- `stream` 은 `ID` 기반으로한 `range queries` 를 지원한다.<br>`xrange message 15778368000
+- `stream` 의 모든 항목은 `unique ID` 를 갖는다.<br>모든 `unique ID` 는 `timestamp`(`miliseconds`) 와 `0` 부터 시작하는 `sequence-number` 로 이루어져있다.<br><br>예)<br>`id: 15778368000000-0`<br>`id: 15778368000000-1`<br>`id: 15774040000000-2`<br>
+- `stream` 은 `ID` 기반으로한 `range queries` 를 지원한다.<br>`unique ID` 는 `timestamp` 로 이루어져있다고 했다. 이는 시간을 의미하므로, 시간순으로 범위 쿼리가 가능하다는 이야기다<br><br>`XRANGE message 1577836800000-0 1577844000000-0`<br><br>이는 `1577836800000-0` 에서 `1577844000000-0` 까지의 모든 `entires` `ID` 를 쿼리한다.
 
-- `stream` 은 `Consumer groups` 이다. 
+- `stream` 은 `Consumer groups` 이다.<br>`Consumer groups` 는  
 
 ---
 
