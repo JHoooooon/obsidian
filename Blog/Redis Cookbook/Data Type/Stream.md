@@ -65,6 +65,19 @@ XADD key [NOMKSTREAM] [<MAXLEN | MINID> [= | ~] threshold
 
 ## XREAD
 
+>[!info] [XREAD](https://redis.io/docs/latest/commands/xread/)
+```sh
+XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
+  [id ...]
+```
+
+여러 혹은 하나의 `streams` `data` 를 읽는다.
+호출자에 의해 마지막으로 전달받은 `ID` 보다 큰 `ID` 에 대한 항목만 반환받는다. 
+
+- **[COUNT count]**: `COUNT` 옵션은 `stream` 당 최대 $2$ 요소를 반환한다.
+
+- **[BLOCK miliseconds]**: `BLOCK` 은 `producer` 가 `data` 를 [[#XADD]] 할때까지 `miliseconds` 동안 대기한다.<br><br>`BLOCK` 은 고정된 `polling` 을 방지하거나, 내부적으로 `BLOCK` 할수 있도록 할 목적으로, 이 명령어는 지정된 `string ID` 와 `ID` 에 따라 반환할 데이터가 없을 경우 `BLOCKING` 될수 있으며, 요청된 `key` 중 하나가 데이터를 받으면 자동으로 `BLOCKING` 이 해제된다.<br><br>이는 다음용어를 정리한다.<br><br>👉 **동기적형태**: 명령어가 실행되면 즉시 결과를 반환한다.<br>👉 **폴링 방지**: 새 데이터를 주기적으로 확인하는 대신, 데이터가 있을때까지 기다린다.<br>👉 **블로킹**: 데이터가 없을때 명령어 실행을 일시 중지한다.<br>👉 **자동 언 블로킹**: 새 데이터가 추가되면 명령어가 자동으로 재개된다.
+
 
 
 
