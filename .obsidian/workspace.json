@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data feature/Stream.md"
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md"
               }
             }
           },
@@ -170,10 +170,11 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d105d3fce5a6c3cb",
+  "active": "93aca785895e07c9",
   "lastOpenFiles": [
+    "Blog/Redis Cookbook/Data Type/SET.md",
+    "Blog/Redis Cookbook/Data Type/Stream.md",
     "Blog/C/C 의 첫걸음.md",
-    "Blog/Redis Cookbook/Data feature/Stream.md",
     "Blog/C",
     "Blog/Untitled.md",
     "Blog/Redis Cookbook/Data feature/PubSub.md",
@@ -199,7 +200,6 @@
     "Blog/Redis Cookbook/assets",
     "Blog/Redis Cookbook/Data Type/Managing key.md",
     "Blog/Redis Cookbook/Data feature",
-    "Blog/Redis Cookbook/Data Type/SET.md",
     "Blog/Redis Cookbook/Data Type/LIST.md",
     "Blog/Redis Cookbook/Data Type/Untitled",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
