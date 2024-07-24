@@ -78,9 +78,7 @@ XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
 
 - **[BLOCK miliseconds]**: `BLOCK` 은 `producer` 가 `data` 를 [[#XADD]] 할때까지 `miliseconds` 동안 대기한다.<br><br>`BLOCK` 은 고정된 `polling` 을 방지하거나, 내부적으로 `BLOCK` 할수 있도록 할 목적으로, 이 명령어는 지정된 `string ID` 와 `ID` 에 따라 반환할 데이터가 없을 경우 `BLOCKING` 될수 있으며, 요청된 `key` 중 하나가 데이터를 받으면 자동으로 `BLOCKING` 이 해제된다.<br><br>다음용어를 정리한다.<br><br>👉 **동기적형태**: 명령어가 실행되면 즉시 결과를 반환한다.<br>👉 **폴링 방지**: 새 데이터를 주기적으로 확인하는 대신, 데이터가 있을때까지 기다린다.<br>👉 **블로킹**: 데이터가 없을때 명령어 실행을 일시 중지한다.<br>👉 **자동 언 블로킹**: 새 데이터가 추가되면 명령어가 자동으로 재개된다.
 
-- **STREAMS key [key ...] id [id...]**: `STREAM` 옵션은 필수이며 반드시 마지막 옵션이어야 한다.<br>이는 가변 길이의 인수를 처리하는 옵션이기 때문이다.<br><br>그래서 `key` 의 목록으로 시작하고, 이후에 연관된 `ID` 들의 목록을 받으며, `stream` 에 주어진 `ID` 보다 큰 값을 받도록 호출한다<br><br>👉 **Incomplate IDS**: 불완전한 `ID` 사용역시 유효한다.<br>이는 `ID` 의 `sequnace` 부분이 누락된 경우 항상 $0$ 으로 해석되기 때문이다.<br><br>`> XREAD COUNT 2 STREAMS mystream writers 0 0`<br><br>이는 다음과 같다<br><br> `> XREAD COUNT 2 STREAMS mystream writers 0-0 0-0`<br><br>👉 **The special $ ID**: `Blocking` 할때, 때때로 `XADD` 를 통해 `stream` 의 항목이 추가될때만 수신하고 싶을때가 있다.<br><br>예를들어, 이미 추가된 항목의 `history` 에는 관심이 없는 상황이 있을수 있다.<br>이는 `stream` 의 최 상단 요소 `ID` 만을 `check` 하고, 해당 `ID` 만을 [[#XREAD]] 명령을 내려, 최 상단의 항목만을 가져올때의 경우이다.<br><br>이는 다른 `command` 를 호출하여 처리해야 하므로, 깔끔한 방법이라 할수 없다.<br>대신, `Redis` 에서는 이를 처리할수 있는 특별한 `$` `ID` 를 사용할수 있다.<br><br>`$` `ID` 는 스트림의 가장 최신 항목 다음을 가리키는 특수한 `ID` 이다.<br> `XREAD` 에서 처음 호출하는 `$` `ID` 를 이해하는것은 매우 중요하다.<br><br>1. **첫번째 `XREAD` 호출**: 처음 호출시 `$` 를 `ID` 로 사용하면 가장 최신의 데이터부터 읽기 시작한다.<br><br>`> XREAD BLOCK 5000 COUNT 100 STREAMS mystream $`<br><br>
-
-
+- **STREAMS key [key ...] id [id...]**: `STREAM` 옵션은 필수이며 반드시 마지막 옵션이어야 한다.<br>이는 가변 길이의 인수를 처리하는 옵션이기 때문이다.<br><br>그래서 `key` 의 목록으로 시작하고, 이후에 연관된 `ID` 들의 목록을 받으며, `stream` 에 주어진 `ID` 보다 큰 값을 받도록 호출한다<br><br>👉 **Incomplate IDS**: 불완전한 `ID` 사용역시 유효한다.<br>이는 `ID` 의 `sequnace` 부분이 누락된 경우 항상 $0$ 으로 해석되기 때문이다.<br><br>`> XREAD COUNT 2 STREAMS mystream writers 0 0`<br><br>이는 다음과 같다<br><br> `> XREAD COUNT 2 STREAMS mystream writers 0-0 0-0`<br><br>👉 **The special `$` ID**: `Blocking` 할때, 때때로 `XADD` 를 통해 `stream` 의 항목이 추가될때만 수신하고 싶을때가 있다.<br><br>예를들어, 이미 추가된 항목의 `history` 에는 관심이 없는 상황이 있을수 있다.<br>이는 `stream` 의 최 상단 요소 `ID` 만을 `check` 하고, 해당 `ID` 만을 [[#XREAD]] 명령을 내려, 최 상단의 항목만을 가져올때의 경우이다.<br><br>이는 다른 `command` 를 호출하여 처리해야 하므로, 깔끔한 방법이라 할수 없다.<br>대신, `Redis` 에서는 이를 처리할수 있는 특별한 `$` `ID` 를 사용할수 있다.<br><br>`$` `ID` 는 스트림의 가장 최신 항목 다음을 가리키는 특수한 `ID` 이다.<br> `XREAD` 에서 처음 호출하는 `$` `ID` 를 이해하는것은 매우 중요하다.<br><br>1. **첫번째 `XREAD` 호출**: 처음 호출시 `$` 를 `ID` 로 사용하면 가장 최신의 데이터부터 읽기 시작한다.<br>2. **이후 `XREAD` 호출**: 첫번째 호출 이후에 `$` 를 계속 사용하면 안된다. 대신, 마지막으로 받은 항목의 `ID` 를 사용해야 한다.<br><br>`$` 는 항상 현재시점의 최신항목 다음을 가리키기 때문에, 이전 호출과 현재 호출사이에 추가된 모든 항목을 놓칠수 있기 때문이다.<br><br>`> XREAD BLOCK 5000 COUNT 100 STREAMS mystream $`<br><br>`> XREAD BLOCK 5000 COUNT 100 STREAMS mystream last_recived_id`<br><br>👉 **The special `+` ID**: `XREVRANGE` 명령을 사용하여 쉽게 하나의 `stream` 안의 마지막 항목을 읽을수 있다.<br><br>`> XREVRANGE stream + - COUNT 1`<br><br>그러나 이러한 접근은 각 `stream`  에 대해 별도의 명령을 실행해야 하기 때문에 더 많은 `stream` 을 추가하면 이 접근 방식이 느려진다.<br><br>대신, `Redis 7.4` 이후부터 특별한 `ID` 로써  `+` 을 사용할수 있다.<br>이는 `stream`  안에 존재하는 마지막 요소를 요청한다.<br><br>`> XREAD STREAM streamA streamB streamC streamD + + + +` <br><br>특별한 `ID` 를 사용할때, `COUNT` 옵션은 무시되며, 오직 마지막 항목만 반환될수 있다.
 
 >[!info] XREAD STREAM
 ```sh
@@ -105,6 +103,8 @@ XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
             3) "surname"
             4) "Christie"
 ```
+
+## XRANGE 
 
 
 
