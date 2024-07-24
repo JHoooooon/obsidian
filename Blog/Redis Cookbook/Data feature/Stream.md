@@ -13,7 +13,7 @@
 - `stream` 의 모든 항목은 `unique ID` 를 갖는다.<br>모든 `unique ID` 는 `timestamp`(`miliseconds`) 와 `0` 부터 시작하는 `sequence-number` 로 이루어져있다.<br><br>예)<br>`id: 15778368000000-0`<br>`id: 15778368000000-1`<br>`id: 15774040000000-2`<br>
 - `stream` 은 `ID` 기반으로한 `range queries` 를 지원한다.<br>`unique ID` 는 `timestamp` 로 이루어져있다고 했다. 이는 시간을 의미하므로, 시간순으로 범위 쿼리가 가능하다는 이야기다<br><br>`XRANGE message 1577836800000-0 1577844000000-0`<br><br>이는 `1577836800000-0` 에서 `1577844000000-0` 까지의 모든 `entires` `ID` 를 쿼리한다.
 
-- `stream` 은 `Consumer groups` 이다.<br>`Consumer groups` 는  
+- `stream` 은 `Consumer groups` 이다.<br>**데이터를 여러 소비자에게 전달하는것을 `팬아웃`(`fan-out`) 이라 한다.**<br><br>`Redis` 에서 `stream`  은 여러 소비자가 `XREAD` 를 사용하면, `fan-out` 가능하다.<br><br>반면`counsumer` 들의 집합을 `consumer group` 이라 한다.<br><br>`XGROUP CREATE Email EmailServiceGroup $` <br>`XREADGROUP GROUP EmailServiceGroup emailService1 COUNT 1 STREAMS Email >`<br><br>`consumer group` 에 속한  `cousumer`들은 그룹내의 한 `consumer` 가 읽지 않은 데이터만 읽는다.  
 
 ---
 
@@ -34,7 +34,15 @@
 ```
 
 
+## XADD
 
+`XADD` 는 `stream` 에 새로운 항목을 추가한다.
+
+>[!info] [XADD](https://redis.io/docs/latest/commands/xadd/)
+```sh
+XADD key [NOMKSTREAM] [<MAXLEN | MINID> [= | ~] threshold
+  [LIMIT count]] <* | id> field value [field value ...]
+```
 
 
 
