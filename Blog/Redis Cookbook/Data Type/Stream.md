@@ -33,7 +33,6 @@
 127.0.0.1:6379> EXPIRE messages 86400
 ```
 
-
 ## XADD
 
 `XADD` 는 `stream` `key` 에 새로운 항목을 추가한다.
@@ -63,6 +62,8 @@ XADD key [NOMKSTREAM] [<MAXLEN | MINID> [= | ~] threshold
 - **<MAXLEN | MINID> [= | ~] threshold [LIMIT count]]** : [[#XADD]] 의 이 구문은 [[#XTRIM]] `command` 와 동일한 의미로써 사용된다.<br><br>👉 **MAXLEN**: `stream` 의 `length` 가 지정한 `threshold` 를 초과하면 요소를 제거한다.<br>`threshold` 는 `positive integer` 이다.<br><br>👉 **MINID**: `stream` 의 `length` 가 지정한 `threshold` 보다 작은 `ID` 라면 요소를 제거한다.<br>`threshold` 는 `stream ID` 이다.<br><br>👉 **`~`(Nearly exect trimming)**: `trimming` 은 `Redis` 서버의 메모리 관리 기능중 하나로, 이는 `stream` 의 크기를 제한하고, 오래된 항목을 제거하는데 사용된다.<br><br>이러한 `trimming` 은 $2$ 가지의 방식으로 나뉜다.<br>`exact` 과 `Nearly exact` 이다.<br>`Nearly exact` 라고 하는데 이 용어는 정확하지만, 완벽하지 않는것을 의미한다.<br><br>이는 `stream` 의 크기를 특정 제한 내로 유지하는데 사용된다.<br>이는 정확한 항목을 유지하려고 시도하지만, 항상 정확하지는 않다.<br>하지만, `exact` 보다는 일찍 `trimming` 이 중지된다.<br>(이는 정확하게 자르는데 더 많은 리소스를 낭비하는 동작을 하기에 이러는가 싶다.)<br><br>이로 인해 `trimming` 이 훨씬 더 효율적이 되지만, 정확하게 딱 맞는 숫자의 `threshold` 값을 유지하지는 않는다.  <br><br> 정리하자면 다음과 같다.<br> <br>:LiDot: `=`(`exect trimming`) 는 정확하지만, 대규모의 `stream` 에는 성능비용이 발생할수 있다.<br>:LiDot: `~`(`Nearly exect trimming`) 은 약간의 오차는 허용하지만, 더 효율적으로 `trimming` 가능하다.<br><br>Default 는 `Exect trimming` 이다.<br><br>👉 **LIMIT** : 이는 `trimming` 과 연관이 있는 명령이다.<br><br> 🔥 `LIMIT` 은 `~`(`nealry exact trimming`) 에서 더 의미가 있으며, `=`(`exact trimming`) 에서 모든 초과 항목을 제거해야 하므로, `LIMIT` 의 효과가 제한적이다.<br><br>기본적으로 `trimming` 을 사용하면, `stream` 의 개수를 `trimming` 에 명시한 크기 만큼 제한한다.<br> <br> 만약, `trimming` 의 개수를 초과한다면, 초과한 만큼의 오래된 `data` 를 알아서 삭제한다.<br> 만약 대규모의 `stream` 이 발생하여 많은 수의 `data` 가 작성되고, `trimming` 유지 수를 초과했다고 하자.<br><br>이러한 경우 초과된 개수 만큼 오래된 데이터를 제거해야 한다.<br>이는 당연 초과된 개수가 많을수록 성능에 악영향을 미칠수 있다.<br>실제로 `LIMIT` 을 지정하지 않으면, 초과된 개수만큼 한번에 제거한다.<br><br>`LIMIT` 은 `trimming` 으로 인한 데이터 제거시, 저정한 `LIMIT` 값 만큼의 항목만 삭제하고 나머지는 다음 `XADD` 작업시 처리하도록 한다.
 
 - **<* | id >(Specifing a Stream ID as an argument)**: `Stream` 은 주어진 항목마다 `ID` 식별자를 갖는다.<br><br>[[#XADD]]  는 `ID` 인자가 `*` 문자로 지정되어 있다면, 자동적으로 `unique ID` 를 생성한다.<br>하지만 자주 사용은 하지 않지만, 사용자 지정 `ID` 를 생성할수도 있다.<br>(보통 `SQL` 의 `ID` 와 일치시키려는 경우 많이 사용한다.)<br><br>`ID` 는 `1526919030474-55` 처럼 $2$ 개의 `-` 로 구분된 숫자로 이루어져 있다.<br>이는 두 구분된 숫자는 $64bit$ 만큼 지정할수 있다.(거의 무한하다..)<br><br>자동적으로 생성되는 `unique ID` 는 `<timestamp>-<squance number>` 형식으로 저장된다.<br>이러한 자동 생성방식을 `*` 문자를 사용하여 지정할수 있는데 이는 다음처럼 역시 가능하다.<br><br>`> XADD mystream 1526919030474-55 message "Hello,"`<br>`"1526919030474-55"`<br><br>`> XADD mystream 1526919030474-* message " World!"`<br>`"1526919030474-56"`<br><br>`*` 는 항상 자동 증분되도록 보장한다.<br><br>만약 `XADD` 에 명시적 `ID` 를 지정하는 경우에는 최소 유효 `ID` 는 `0-1` 이며, 사용자는 현재 `stream`  내부의 다른 `ID` 보다 큰 `ID` 를 지정해야 만 한다. 
+
+## XREAD
 
 
 
