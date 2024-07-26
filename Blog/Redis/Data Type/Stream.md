@@ -19,7 +19,7 @@
 - `stream` 의 모든 항목은 `unique ID` 를 갖는다.<br>모든 `unique ID` 는 `timestamp`(`miliseconds`) 와 `0` 부터 시작하는 `sequence-number` 로 이루어져있다.<br><br>예)<br>`id: 15778368000000-0`<br>`id: 15778368000000-1`<br>`id: 15774040000000-2`<br>
 - `stream` 은 `ID` 기반으로한 `range queries` 를 지원한다.<br>`unique ID` 는 `timestamp` 로 이루어져있다고 했다. 이는 시간을 의미하므로, 시간순으로 범위 쿼리가 가능하다는 이야기다<br><br>`XRANGE message 1577836800000-0 1577844000000-0`<br><br>이는 `1577836800000-0` 에서 `1577844000000-0` 까지의 모든 `entires` `ID` 를 쿼리한다.
 
-- `stream` 은 `Consumer groups` 이다.<br>**데이터를 여러 소비자에게 전달하는것을 `팬아웃`(`fan-out`) 이라 한다.**<br><br>`Redis` 에서 `stream`  은 여러 소비자가 `XREAD` 를 사용하면, `fan-out` 가능하다.<br><br>반면`counsumer` 들의 집합을 `consumer group` 이라 한다.<br><br>`XGROUP CREATE Email EmailServiceGroup $` <br>`XREADGROUP GROUP EmailServiceGroup emailService1 COUNT 1 STREAMS Email >`<br><br>`consumer group` 에 속한  `cousumer`들은 그룹내의 다른 `consumer` 가 읽지 않은 데이터만 읽는다.  <br><br>이는 독립적이지만, 동일한 동작을 수행하는 서버에서 데이터를 분산처리하는데 좋은 방식이다.
+- `stream` 은 `Consumer groups` 이다.<br>**데이터를 여러 소비자에게 전달하는것을 `팬아웃`(`fan-out`) 이라 한다.**<br><br>`Redis` 에서 `stream`  은 여러 소비자가 `XREAD` 를 사용하면, `fan-out` 가능하다.<br><br>`counsumer` 들의 집합을 `consumer group` 이라 한다.<br><br>`XGROUP CREATE Email EmailServiceGroup $` <br>`XREADGROUP GROUP EmailServiceGroup emailService1 COUNT 1 STREAMS Email >`<br><br>`consumer group` 에 속한  `cousumer`들은 그룹내의 다른 `consumer` 가 읽지 않은 데이터만 읽는다.  <br><br>이는 독립적이지만, 동일한 동작을 수행하는 서버에서 데이터를 분산처리하는데 좋은 방식이다.
 
 ---
 
@@ -68,6 +68,28 @@ XADD key [NOMKSTREAM] [<MAXLEN | MINID> [= | ~] threshold
 - **<MAXLEN | MINID> [= | ~] threshold [LIMIT count]]** : [[#XADD]] 의 이 구문은 [[#XTRIM]] `command` 와 동일한 의미로써 사용된다.<br><br>👉 **MAXLEN**: `stream` 의 `length` 가 지정한 `threshold` 를 초과하면 요소를 제거한다.<br>`threshold` 는 `positive integer` 이다.<br><br>👉 **MINID**: `stream` 의 `length` 가 지정한 `threshold` 보다 작은 `ID` 라면 요소를 제거한다.<br>`threshold` 는 `stream ID` 이다.<br><br>👉 **`~`(Nearly exect trimming)**: `trimming` 은 `Redis` 서버의 메모리 관리 기능중 하나로, 이는 `stream` 의 크기를 제한하고, 오래된 항목을 제거하는데 사용된다.<br><br>이러한 `trimming` 은 $2$ 가지의 방식으로 나뉜다.<br>`exact` 과 `Nearly exact` 이다.<br>`Nearly exact` 라고 하는데 이 용어는 정확하지만, 완벽하지 않는것을 의미한다.<br><br>이는 `stream` 의 크기를 특정 제한 내로 유지하는데 사용된다.<br>이는 정확한 항목을 유지하려고 시도하지만, 항상 정확하지는 않다.<br>하지만, `exact` 보다는 일찍 `trimming` 이 중지된다.<br>(이는 정확하게 자르는데 더 많은 리소스를 낭비하는 동작을 하기에 이러는가 싶다.)<br><br>이로 인해 `trimming` 이 훨씬 더 효율적이 되지만, 정확하게 딱 맞는 숫자의 `threshold` 값을 유지하지는 않는다.  <br><br> 정리하자면 다음과 같다.<br> <br>:LiDot: `=`(`exect trimming`) 는 정확하지만, 대규모의 `stream` 에는 성능비용이 발생할수 있다.<br>:LiDot: `~`(`Nearly exect trimming`) 은 약간의 오차는 허용하지만, 더 효율적으로 `trimming` 가능하다.<br><br>Default 는 `Exect trimming` 이다.<br><br>👉 **LIMIT** : 이는 `trimming` 과 연관이 있는 명령이다.<br><br> 🔥 `LIMIT` 은 `~`(`nealry exact trimming`) 에서 더 의미가 있으며, `=`(`exact trimming`) 에서 모든 초과 항목을 제거해야 하므로, `LIMIT` 의 효과가 제한적이다.<br><br>기본적으로 `trimming` 을 사용하면, `stream` 의 개수를 `trimming` 에 명시한 크기 만큼 제한한다.<br> <br> 만약, `trimming` 의 개수를 초과한다면, 초과한 만큼의 오래된 `data` 를 알아서 삭제한다.<br> 만약 대규모의 `stream` 이 발생하여 많은 수의 `data` 가 작성되고, `trimming` 유지 수를 초과했다고 하자.<br><br>이러한 경우 초과된 개수 만큼 오래된 데이터를 제거해야 한다.<br>이는 당연 초과된 개수가 많을수록 성능에 악영향을 미칠수 있다.<br>실제로 `LIMIT` 을 지정하지 않으면, 초과된 개수만큼 한번에 제거한다.<br><br>`LIMIT` 은 `trimming` 으로 인한 데이터 제거시, 저정한 `LIMIT` 값 만큼의 항목만 삭제하고 나머지는 다음 `XADD` 작업시 처리하도록 한다.
 
 - **<* | id >(Specifing a Stream ID as an argument)**: `Stream` 은 주어진 항목마다 `ID` 식별자를 갖는다.<br><br>[[#XADD]]  는 `ID` 인자가 `*` 문자로 지정되어 있다면, 자동적으로 `unique ID` 를 생성한다.<br>하지만 자주 사용은 하지 않지만, 사용자 지정 `ID` 를 생성할수도 있다.<br>(보통 `SQL` 의 `ID` 와 일치시키려는 경우 많이 사용한다.)<br><br>`ID` 는 `1526919030474-55` 처럼 $2$ 개의 `-` 로 구분된 숫자로 이루어져 있다.<br>이는 두 구분된 숫자는 $64bit$ 만큼 지정할수 있다.(거의 무한하다..)<br><br>자동적으로 생성되는 `unique ID` 는 `<timestamp>-<squance number>` 형식으로 저장된다.<br>이러한 자동 생성방식을 `*` 문자를 사용하여 지정할수 있는데 이는 다음처럼 역시 가능하다.<br><br>`> XADD mystream 1526919030474-55 message "Hello,"`<br>`"1526919030474-55"`<br><br>`> XADD mystream 1526919030474-* message " World!"`<br>`"1526919030474-56"`<br><br>`*` 는 항상 자동 증분되도록 보장한다.<br><br>만약 `XADD` 에 명시적 `ID` 를 지정하는 경우에는 최소 유효 `ID` 는 `0-1` 이며, 사용자는 현재 `stream`  내부의 다른 `ID` 보다 큰 `ID` 를 지정해야 만 한다. 
+
+## XDEL
+
+>[!info] [XDEL](https://redis.io/docs/latest/commands/xdel/)
+```sh
+XDEL key id [id ...]
+```
+
+이는 `stream` 의 `entries` 를 삭제하는 명령이다.
+그리고, 반환값은 삭제된 `entries` 의 수이다.
+
+일반적으로, [[#XDEL]] 을 사용하는 방식은 `stream` 의 항목을 실제 제거하는것이 아닌, 삭제될것을 표시하는 것이다.
+
+`macro-node` 의 모든 항목이 삭제됨으로 표시된 경우에만, 전체 `node` 는 파괴되고, `memory` 에 회수된다.
+
+만약, `stream` 으로 부터  $50\%$ 보다 더 많은  `entries` 를 추가한다고 가정하자.
+그럼 대량의 `entries` 를 제거해야 한다.
+
+이때 `stream` 의 단편화로 인해, `memory` 사용랑은 증가할 것이다.
+그렇지만 `stream` 은 증가되지 않으며, 기존의 퍼포먼스를 유지한다. 
+
+>[!info]  내가 이해하기로는 `macro-node` 의 모든 항목이 삭제됨으로 표시될때만 삭제하기 때문에, 대량의 `entries` 를 추가했다고 해서 처리되지 않는다고 하는듯하다.
 
 ## XREAD
 
@@ -323,4 +345,58 @@ XTRIM mystream MAXLEN ~ 1000
 
 >[!info] `매크로 노드` 는 `Redis` `stream` 에서 여러개의 `stream` `entries` 를 그룹화하여 저장하는 단위이다.<br><br>각 `매크로 노드` 는 많은 수의 `stream` `entries` 를 포함한다.
 
-이러한 구조는 
+이러한 구조는 조금더 효과적으로 `trimming` 할수 있으며, `threshold` 보다 약간의 추가된 `entries` 가 있겠지만, 일반적으로 만족할만하다.
+
+```sh
+XTRIM key <MAXLEN | MINID> [= | ~] threshold [LIMIT count]
+```
+
+이 명령어를 보면 `LIMIT` 절이 옵셔널하게 붙는다
+`LIMIT` 을 같이 사용하면 `thresold` 에 의해 삭제될 `entries` 의 개수를 지정할 수 있다.
+
+명시적으로 선언하지 않으면, 기본 값은 $100 * macro node 안의 항목 수$ 이며, `0` 을 지정하면 `LIMIT` 은 `disabled` 된다.
+
+## XGROUP
+
+`cunsumer group` 에 대해서 알아보자
+앞전의 모든 명령어는 `stream` 데이터를 한 개의 `consumers` 가 읽어가는 상황이었다.
+
+이는 `fan-out` 방식으로 사용된다.
+하지만, `fan-out` 하지 않고, 같은 데이터를 여러 `consumer` 가 나눠서 가져가기 원할수 있다.
+
+![[Consumer Group.png]]
+
+이는 소비자 그룹에 속한 이메일 서버가 각 `ID` 를 분산해서 처리하는것을 보여준다.
+
+`Redis` `stream` 에서는 소비자 그룹에게 전달되는 순서를 고려할 필요없이, 그룹내의 소비자는 다른 소비자가 읽지 않는 데이터만을 가져가는 것을 볼수 있ㄷ.
+
+>[!info] 다른 플랫폼같은 경우 전달되는 순서를 고려하기위한 처리를 따로 해주어야 한다.
+### XGROUP CREATE
+
+>[!info] XGROUP CREATE
+```sh
+XGROUP CREATE key group <id | $> [MKSTREAM]
+  [ENTRIESREAD entries-read]
+```
+
+이는 새로운 `consumer group` 을 생성한다.
+주어진 `group` 인자는, `stream key` 내의 고유 식별자로써 사용된다.
+
+>[!warning] 만약, `stream key` 가 중복된다면, `BUSYGROUP` 에러가 발생한다.
+
+- **key** : `stream` 의 `key`
+
+- **group**: `stream key` 내의 생성 그룹의 고유 식별자 
+
+- **<id | $>**: `id` 인자는 `group` 에 마지막 요소 `ID` 를 지정한다.<br>이는 마지막 요소 `ID` 이후의 요소의 메시지를 받는다는 의미이다.<br><br>\$ 을 지정하면, `stream` 의 현재 시점 이후의 데이터를 리스닝 하겠다는 의미이다.
+
+>[!info] `$` 는 특별한 `ID` 로써, `stream` 내의 마지막 항목의 `ID` 를 가리킨다.<br> 그러니 마지막 항목의 `ID` 이후의 메시지를 받는다는 의미와 같다
+
+만약, `ID` 를 $0$ 을 사용한다면, 이는 `Consumer Group` 에서 처음부터 전체 `stream` 을 받는다는 의미이다.
+
+```sh
+XGROUP CREATE mystream mygroup 0
+```
+
+- **MKSTREAM**: 
+

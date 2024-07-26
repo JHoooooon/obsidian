@@ -20,14 +20,12 @@
             }
           },
           {
-            "id": "28650c864821e4e4",
+            "id": "c04ad777ca152227",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Blog/Redis/Data Type/Stream.md",
-                "mode": "source",
-                "source": false
+                "file": "Blog/Redis/assets/images/Consumer Group.png"
               }
             }
           }
@@ -172,9 +170,13 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
+    "Blog/Redis/assets/images/Consumer Group.png",
+    "Blog/Redis/Data Type/Stream.md",
+    "Blog/Redis/assets/excalidraw/Consumer Group.md",
+    "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
+    "Blog/Redis/assets/excalidraw/bitmap structure.md",
     "Blog/Redis/Data Type/Geospatial.md",
     "Blog/Redis/Data Type/Managing key.md",
-    "Blog/Redis/Data Type/Stream.md",
     "Blog/C/데이터와 C.md",
     "Untitled 2.md",
     "Blog/C/데이터와 C",
@@ -186,7 +188,6 @@
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Untitled.md",
     "Untitled 1.md",
-    "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
     "Blog/Redis/Data feature/Bitmaps.md",
     "Blog/Redis/Data feature/transaction.md",
     "Blog/Redis/Data feature/Pipeline.md",
@@ -198,15 +199,12 @@
     "Blog/Redis/Data Type/HASH.md",
     "Blog/Redis/Data Type/SET KEY.md",
     "Blog/Redis/assets/images/bitmap structuer.png",
-    "Blog/Redis/assets/excalidraw/bitmap structure.md",
     "Blog/Redis/assets/excalidraw",
     "Blog/Redis/assets/images",
     "Blog/Redis/assets",
     "Blog/Redis/Data feature",
     "Blog/Redis/Data Type/LIST.md",
     "Blog/Redis Cookbook/Data Type/Untitled",
-    "Blog/LearnSQL/분석함수/윈도우 프레임.md",
-    "Blog/LearnSQL/필터링/조건 평가.md",
     "Blog/Redis Cookbook/Data Type/LIST",
     "Blog/Redis/Data Type",
     "Blog/Redis",
@@ -216,7 +214,6 @@
     "Blog/LearnSQL/Assets/Images/Intersect.png",
     "Blog/LearnSQL/Assets/Images/Union.png",
     "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png",
-    "Blog/GIT 교과서/Assets/Image/Snapshot Process.png",
-    "Blog/GIT 교과서/Assets/Image/HEAD Pointer.png"
+    "Blog/GIT 교과서/Assets/Image/Snapshot Process.png"
   ]
 }
