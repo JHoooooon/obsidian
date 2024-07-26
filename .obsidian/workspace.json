@@ -20,6 +20,18 @@
             }
           },
           {
+            "id": "e95294d20e6c1c58",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/Redis/Data Type/Stream.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "c04ad777ca152227",
             "type": "leaf",
             "state": {

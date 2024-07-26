@@ -102,7 +102,7 @@ XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
 여러 혹은 하나의 `streams` `data` 를 읽는다.
 호출자에 의해 마지막으로 전달받은 `ID` 보다 큰 `ID` 에 대한 항목만 반환받는다. 
 
-- **[COUNT count]**: `COUNT` 옵션은 `stream` 당 최대 $2$ 요소를 반환한다.
+- **[COUNT count]**: `COUNT` 옵션은 `stream` 당 반환 요소개수를 반환한다.
 
 - **[BLOCK miliseconds]**: `BLOCK` 은 `producer` 가 `data` 를 [[#XADD]] 할때까지 `miliseconds` 동안 대기한다.<br><br>`BLOCK` 은 고정된 `polling` 을 방지하거나, 내부적으로 `BLOCK` 할수 있도록 할 목적으로, 이 명령어는 지정된 `string ID` 와 `ID` 에 따라 반환할 데이터가 없을 경우 `BLOCKING` 될수 있으며, 요청된 `key` 중 하나가 데이터를 받으면 자동으로 `BLOCKING` 이 해제된다.<br><br>다음용어를 정리한다.<br><br>👉 **동기적형태**: 명령어가 실행되면 즉시 결과를 반환한다.<br>👉 **폴링 방지**: 새 데이터를 주기적으로 확인하는 대신, 데이터가 있을때까지 기다린다.<br>👉 **블로킹**: 데이터가 없을때 명령어 실행을 일시 중지한다.<br>👉 **자동 언 블로킹**: 새 데이터가 추가되면 명령어가 자동으로 재개된다.
 
@@ -398,5 +398,109 @@ XGROUP CREATE key group <id | $> [MKSTREAM]
 XGROUP CREATE mystream mygroup 0
 ```
 
-- **MKSTREAM**: 
+- **MKSTREAM**: 이는 만약 `stream` 이 존재하지 않는다면, 해당 `stream` 을 생성하겠다는 것이다.
+
+- **[ENTRIESREAD entries-read]**: 이 옵션은 새로 생성된 소비자 그룹이 이미 처리한 것으로 간주할 `stream` 항목의 수를 지정한다.<br><br>이는 `ENTRIESREAD`  다음에 들어가는 **숫자 값** 을 지정하여, 이미 읽은 것으로 처리할 항목 수를 지정하는 것이다.<br>
+>[!info] 여기서 **이미 읽은 것으로 가주할 항목 수** 는, 지정된 `ID` 이전 항목 개수부터 시작하여, 그 이후의 모든 항목을 처리 대상으로 삼는다.
+
+```sh
+XGROUP CREATE mysteam mygroup $ ENTRIESREAD 1000;
+```
+
+이는 이 그룹이 마지막 `ID` 에서 $1000$ 개 이전 항목부터 시작하여, 처리 대상으로 삼는다.
+
+>[!info] 헷갈릴수 있어 다시 정리한다!! 
+>
+>`stream` 에 $5000$ 개의 항목이 있다고 하자.
+>`ENTRIESREAD 1000` 을 사용하면, 처음 `4000` 개 항목은 이미 읽은 것으로 처리되며,
+>`Consumer Group` 은 `4001` 항목 부터 처리를 시작한다.
+
+### XGROUP CREATECONSUMER
+
+>[!info] [XGROUP CREATECONSUMER](https://redis.io/docs/latest/commands/xgroup-createconsumer/)
+```sh
+XGROUP CREATECONSUMER key group consumer
+```
+
+`Consumer GROUP` 의 `consumer`  를 생성하는 명령이다
+
+- **key** : `stream` 의 `key`
+- **group**: `stream key` 의 `group` 이름
+- **consumer**: `stream group` 에 생성할 `consumer` 이름
+
+>[!info] [[#XREADGROUP]] 에서, 해당하는 `Consumer` 가 없다면, 자동적으로 `Consumer` 를 생성한다.
+
+### XGROUP DELCONSUMER
+
+>[!info] XGROUP DELCONSUMER
+```sh
+XGROUP DELCONSUMER key group consumer
+```
+
+`Consumer GROUP` 의 `consumer`  를 삭제하는 명령이다
+이는 더이상 사용되지 않는 `consumer` 가 있다면 유용한 명령어이다.
+
+- **key** : `stream` 의 `key`
+- **group**: `stream key` 의 `group` 이름
+- **consumer**: `stream group` 에 생성할 `consumer` 이름
+
+>[!note] `consumer`  가 보유하고 있던 `pending message` 는 삭제된 후에는 청구할수 없다.<br> 따라서 `group` 내의 `consumer` 를 삭제하기전에 보류중인 메시지를 요청하거나 승인하는것이 좋다.
+
+### XGROUP DESTROY
+
+>[!info] [XGROUP DESTROY](https://redis.io/docs/latest/commands/xgroup-destroy/)
+```sh
+XGROUP DESTROY key group
+```
+
+이 명령은 `consumer group` 을 완벽하게 제거한다.
+
+`consumer` 가 활성화되어 있고, `message` 가 `pending` 중이라도, `consumer group` 을 삭제한다.
+그래서 정말로 필요할때, 이 명령을 사용해야 한다.
+
+- **key** : `stream` 의 `key`
+- **group**: `stream key` 의 `group` 이름
+
+### XGROUP SETID
+
+>[!info] [XGROUP SETID](https://redis.io/docs/latest/commands/xgroup-setid/)
+```sh
+XGROUP SETID key group <id | $> [ENTRIESREAD entries-read]
+```
+
+`Consumer Group` 의 마지막으로 전달된 `ID` 를 설정한다.
+
+[[#XGROUP CREATE]] 에서 `GROUP` 생성시, 마지막으로 전달된 `ID` 를 지정한다.
+[[#XGROUP SETID]] 는 기존의 `Consumer Group` 을 삭제후 재생성 없이, `Consumer Group` 의 마지막으로 전달된 `ID` 를 수정한다.
+
+- **key** : `stream` 의 `key`
+
+- **group**: `stream key` 의 `group` 이름
+
+- **<id | $>**: `id` 인자는 `group` 에 마지막 요소 `ID` 를 지정한다.<br>이는 마지막 요소 `ID` 이후의 요소의 메시지를 받는다는 의미이다.<br><br>\$ 을 지정하면, `stream` 의 현재 시점 이후의 데이터를 리스닝 하겠다는 의미이다.
+
+- **[ENTRIESREAD entries-read]**: 이 옵션은 새로 생성된 소비자 그룹이 이미 처리한 것으로 간주할 `stream` 항목의 수를 지정한다.<br><br>이는 `ENTRIESREAD`  다음에 들어가는 **숫자 값** 을 지정하여, 이미 읽은 것으로 처리할 항목 수를 지정하는 것이다.<br>
+>[!info] 여기서 **이미 읽은 것으로 가주할 항목 수** 는, 지정된 `ID` 이전 항목 개수부터 시작하여, 그 이후의 모든 항목을 처리 대상으로 삼는다.
+
+### XREADGROUP
+
+>[!info] [XREADGROUP](https://redis.io/docs/latest/commands/xreadgroup/)
+```sh
+XREADGROUP GROUP group consumer [COUNT count] [BLOCK milliseconds]
+  [NOACK] STREAMS key [key ...] id [id ...]
+```
+
+[[#XREADGROUP]] 은 [[#XREAD]] 의 특별한 버전의 명령어이다.
+`Consumer Group` 을 `READ` 하기 위한 명령어이다.
+
+- **group**: `stream key` 의 `group` 이름
+
+- **consumer**:  `consumer group` 의 `consumer` 식별자
+
+- **[COUNT count]**: 반환 개수를 지정한다.
+
+- **[BLOCK milliseconds]**: `Read` 시 다음 `message` 를 받을때까지, `block` 할 시간을 지정한다.<br> `BLOCK` 되는 동안, 대기 상태로 있다가, `message` 를 받으면 대기 상태가 풀린다.
+
+- **[NOACT]**: 
+
 
