@@ -368,9 +368,27 @@ XTRIM key <MAXLEN | MINID> [= | ~] threshold [LIMIT count]
 
 이는 소비자 그룹에 속한 이메일 서버가 각 `ID` 를 분산해서 처리하는것을 보여준다.
 
-`Redis` `stream` 에서는 소비자 그룹에게 전달되는 순서를 고려할 필요없이, 그룹내의 소비자는 다른 소비자가 읽지 않는 데이터만을 가져가는 것을 볼수 있ㄷ.
+`Redis` `stream` 에서는 소비자 그룹에게 전달되는 순서를 고려할 필요없이, 그룹내의 소비자는 다른 소비자가 읽지 않는 데이터만을 가져가는 것을 볼수 있다.
 
 >[!info] 다른 플랫폼같은 경우 전달되는 순서를 고려하기위한 처리를 따로 해주어야 한다.
+
+만약 `Consumer Group` 중 하나의 `Consumer` 가 받은 `message` 가 어떠한 이유로 인해 성공하지 못햇다고 가정하자.
+
+그럼 성공하지 못한 `message` 는 없어지게 된다.
+이는 실패한 `message` 를 식별하고 다른 `Consumer` 에서 처리할수 있는 방법을 제공할 필요가 있다.
+
+이러한 방식을 처리하기 위해 `Consumer` 는 `message` 를
+
+`Consumer Group` 은 `Consumer` 에게 명시적으로 `message` 를 성공적으로 이행했다는 것을 요구 한다.
+
+>[!info] 이를위해 [[#XACT]] 이라는 명령어를 제공한다
+
+다음은 `Consumer Group`  을 사용할지 안할지를 선택하기 위한 기준이다.
+
+1. `stream`  과 여러 `clients` 가 있고, 이 `client` 가 모든 메시지를 받기 원한다면, `Consumer Group` 이 필요없다. 
+
+2. `stream` 과 여러 `clients` 가 있고, `stream` 을 분배(`partitioned`)하거나 `client` 들 사이에서 공유(`shared`) 하고, 그래서 각 `client` 는 `stream`으로 부터 전달된 `message` 의 하위 집합을 얻는다면 `Consumer group`  을 사용해야 한다.
+
 ### XGROUP CREATE
 
 >[!info] XGROUP CREATE
@@ -491,6 +509,21 @@ XREADGROUP GROUP group consumer [COUNT count] [BLOCK milliseconds]
 ```
 
 [[#XREADGROUP]] 은 [[#XREAD]] 의 특별한 버전의 명령어이다.
+
+[[#XREADGROUP]] 은 `server` 에 기억된 주어진 `message` 를 받아 처리한다.
+이를 이해하기 위해서는 `Consumer Group` 이 어떻게 처리하는지 살펴볼 필요가 있다.
+
+#### PEL 
+
+[[#XREADGROUP]] 을 읽을때, `message` 는 `PEL`(`Pending Entries List`) 라 불리는 `Consumer Group` 안에 저장된다.
+
+이는 전달되었지만, [[#XACT]] 를 사용하지 않은 이상, 확인되지 않는 `message` 로 처리된다.
+ [[#XACT]] 를 실행한다면, `PEL` 안의 대기중인 `message` 는 삭제되며, 이는 확인된 `message` 가 된다.
+ 
+ >[!info] 만약, `PEL` 은 [[#XPENDING]] 명령을 사용하여 검사할수 있다.
+
+#### XREADGROUP Command
+
 `Consumer Group` 을 `READ` 하기 위한 명령어이다.
 
 - **group**: `stream key` 의 `group` 이름
@@ -501,6 +534,15 @@ XREADGROUP GROUP group consumer [COUNT count] [BLOCK milliseconds]
 
 - **[BLOCK milliseconds]**: `Read` 시 다음 `message` 를 받을때까지, `block` 할 시간을 지정한다.<br> `BLOCK` 되는 동안, 대기 상태로 있다가, `message` 를 받으면 대기 상태가 풀린다.
 
-- **[NOACT]**: 
+- **[NOACT]**: `NOACT` 는 `PEL`(`Pending Entries List`) 로 메시지를 추가하는것을 방지한다.<br>[[#XREADGROUP]] 은 `message` 를 읽으면 `PEL` 로 `message` 를 저장한다.
+ 
+- **STREAMS key [key...] id [id...]** : `Stream` 의 `key` 와 `id` 를 지정한다. <br>
+ `STREAMS` 는 특별한 `ID` 가 필요하다.
+ 
+- **>**: 이 특별한 `ID` 는 어떠한 다른 `consumer` 에 전달되지 않은 메시지만을 받기를 원한다는 특별한 `ID` 이다. <br><br>간단하게 새 메시지를 보내달라는 뜻이다.
+
+- **0 또는 숫자 ID**: 이는 새로운 메시지를 확인하는 것이 아닌, 입력한 `ID` 보다 큰 `ID` 중 `Pending List` 에 속하던 메시지를 반환한다.
+
+
 
 
