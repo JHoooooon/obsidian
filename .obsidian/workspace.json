@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
+                "file": "Blog/Redis/Data Type/Stream.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
+                "file": "Blog/Redis/Data Type/Stream.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
+                "file": "Blog/Redis/Data Type/Stream.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
+                "file": "Blog/Redis/Data Type/Stream.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis Cookbook/Data Type/Stream.md"
+                "file": "Blog/Redis/Data Type/Stream.md"
               }
             }
           },
@@ -172,44 +172,44 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Blog/Redis Cookbook/Data Type/Geospatial.md",
-    "Blog/Redis Cookbook/Data Type/Managing key.md",
-    "Blog/Redis Cookbook/Data Type/Stream.md",
+    "Blog/Redis/Data Type/Geospatial.md",
+    "Blog/Redis/Data Type/Managing key.md",
+    "Blog/Redis/Data Type/Stream.md",
     "Blog/C/데이터와 C.md",
     "Untitled 2.md",
     "Blog/C/데이터와 C",
-    "Blog/Redis Cookbook/Data Type/SET.md",
+    "Blog/Redis/Data Type/SET.md",
     "Blog/C/C 의 첫걸음.md",
     "Blog/C",
     "Blog/Untitled.md",
-    "Blog/Redis Cookbook/Data feature/PubSub.md",
-    "Blog/Redis Cookbook/assets/images/PSUBSCRIBE & SUBSCRIB.png",
+    "Blog/Redis/Data feature/PubSub.md",
+    "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Untitled.md",
     "Untitled 1.md",
-    "Blog/Redis Cookbook/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
-    "Blog/Redis Cookbook/Data feature/Bitmaps.md",
-    "Blog/Redis Cookbook/Data feature/transaction.md",
-    "Blog/Redis Cookbook/Data feature/Pipeline.md",
-    "Blog/Redis Cookbook/Data feature/Sort.md",
-    "Blog/Redis Cookbook/Data feature/Expiration.md",
-    "Blog/Redis Cookbook/Data feature/Intro.md",
-    "Blog/Redis Cookbook/Data Type/HyperLogLog.md",
-    "Blog/Redis Cookbook/Data Type/Sorted SET.md",
-    "Blog/Redis Cookbook/Data Type/HASH.md",
-    "Blog/Redis Cookbook/Data Type/SET KEY.md",
-    "Blog/Redis Cookbook/assets/images/bitmap structuer.png",
-    "Blog/Redis Cookbook/assets/excalidraw/bitmap structure.md",
-    "Blog/Redis Cookbook/assets/excalidraw",
-    "Blog/Redis Cookbook/assets/images",
-    "Blog/Redis Cookbook/assets",
-    "Blog/Redis Cookbook/Data feature",
-    "Blog/Redis Cookbook/Data Type/LIST.md",
+    "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
+    "Blog/Redis/Data feature/Bitmaps.md",
+    "Blog/Redis/Data feature/transaction.md",
+    "Blog/Redis/Data feature/Pipeline.md",
+    "Blog/Redis/Data feature/Sort.md",
+    "Blog/Redis/Data feature/Expiration.md",
+    "Blog/Redis/Data feature/Intro.md",
+    "Blog/Redis/Data Type/HyperLogLog.md",
+    "Blog/Redis/Data Type/Sorted SET.md",
+    "Blog/Redis/Data Type/HASH.md",
+    "Blog/Redis/Data Type/SET KEY.md",
+    "Blog/Redis/assets/images/bitmap structuer.png",
+    "Blog/Redis/assets/excalidraw/bitmap structure.md",
+    "Blog/Redis/assets/excalidraw",
+    "Blog/Redis/assets/images",
+    "Blog/Redis/assets",
+    "Blog/Redis/Data feature",
+    "Blog/Redis/Data Type/LIST.md",
     "Blog/Redis Cookbook/Data Type/Untitled",
     "Blog/LearnSQL/분석함수/윈도우 프레임.md",
     "Blog/LearnSQL/필터링/조건 평가.md",
     "Blog/Redis Cookbook/Data Type/LIST",
-    "Blog/Redis Cookbook/Data Type",
-    "Blog/Redis Cookbook",
+    "Blog/Redis/Data Type",
+    "Blog/Redis",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",

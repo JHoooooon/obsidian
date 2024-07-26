@@ -175,17 +175,39 @@ XRANGE key start end [COUNT count]
 > XRANGE somestream 1526985054069 1526985055069
 ```
 
-이는 지정된 밀리초 사이의 모든 항목을 반환하기 위해, `0` 부터 시작하여, `-18446744073709551615` 종료의 간격을 자동생성한다. 
+이는 지정된 밀리초 사이의 모든 항목을 반환하기 위해, `0` 부터 시작 시퀀스를, `-18446744073709551615` 종료 시퀀스를 자동생성한다. 
 
-이는 같은 `miliseconds` 가 두번 반복되며, 시퀀스 번호 범위가 `0` 부터 최대값이기 때문에 해당 밀리초내의 모든 항목을 얻음을 의미한다. 
+만약 같은 밀리초를 두번 반복하면, 시퀀스 번호 범위가 `0` 에서 최대 값이기 때문에 해당 밀리초내의 모든 항목을 얻을수 있음을 의미한다
 
->[!info] `timestamp-0` 과 `timestamp-18446744073709551615` 이니 두개의 `milisecond` 가 생성된다.
+```sh
+> XRANGE somestream 1526985054069 1526985054069 # 같은 밀리초
+```
 
+>[!info] `1526985054069-0` 과 `1526985054069-18446744073709551615` 이니 두개의 `milisecond` 가 반복되며, 해당 밀리초의 시작과 끝인 시퀀스가 생성된다.
 
+### Exclusive ranges
+
+`Inclusive range` 는 지정한 `ID` 를 범위에 포함한다. 
+이는 다음과 같다
+
+>[!info] Inclusive range
+```sh
+XRANGE mystream 1526985054069-0 1526985055069-0
+```
+
+`Exclusive range` 는 지정한 `ID` 를 범위에 포함하지 않는다. 
+이를 표현하기 위한 특수기호인 `(` 를 사용한다.
+
+>[!info] Exclusive range
+```sh
+XRANGE mystream (1526985054069-0 (1526985055069-0
+```
+
+이 명령은 ID가 1526985054069-0보다 크고 1526985055069-0보다 작은 항목만 반환한다. 즉, 시작과 끝 ID의 항목은 포함되지 않는다.
 ### Iterating a stream
 
 `stream` 의 반복하기 위해, 각 항목당 $2$ 개의 요소를 원한다고 가정하자.
-이를 위해 다음처럼 `fetching` 할수 잇다.
+이를 위해 다음처럼 `fetching` 할수 있다.
 
 ```sh
 > XRANGE writers - + COUNT 2
@@ -201,22 +223,104 @@ XRANGE key start end [COUNT count]
       4) "Austen"
 ```
 
+`-` 로 부터 다시 반복을 실행하는대신, `start` 범위를 리턴된 마지막 항목을 사용하여 범위지정 가능하다.
+
+```sh
+> XRANGE writers (1526985685298-0 + COUNT 2
+1) 1) 1526985691746-0
+   2) 1) "name"
+      2) "Toni"
+      3) "surname"
+      4) "Morrison"
+2) 1) 1526985712947-0
+   2) 1) "name"
+      2) "Agatha"
+      3) "surname"
+      4) "Christie"
+```
+
+이는 [[#Exclusive ranges]] 를 사용하여, 이전의 명령에서의 마지막 `ID` 값인 `1526985685298-0` 을 포함하지 않고, 그 다음의 $2$ 개의 항목을 리턴한다.
+
+이러한 방식을 사용하여 `iteration` 가능하다.
+이는 효과적으로 `stream`  의 항목을 순회할수 있다. 
+
+>[!info] [[#Exclusive ranges]] 는 `Reids 6.2` 이후 추가된 `spec` 이다.<br>이전 버전에서 이처럼 사용하려면 다음처럼 사용할수 있다고 한다.
+
+```sh
+> XRANGE writers 1526985685298-1 + COUNT 2
+1) 1) 1526985691746-0
+   2) 1) "name"
+      2) "Toni"
+...
+```
+
+이는 `1526985685298-0` 이 이전 `XRANGE` 의 마지막 값이므로, 이를 제외한 값인 `1526985685298-1` 부터 항목을 찾아 처리하는 것이다.
+
+### Fetching single itmes
+
+[[#XGET]] 명령을 본다면, [[#XRANGE]] 가 효과적으로 단일 항목을 가져올수있기 때문에 실망할수 있다고 말한다.
+
+>[!note] 뭐 굳이 실망할것 까지야...
+
+이는 다음처럼 $2$ 번 같은 `ID` 를 지정해주면 된다.
+
+```sh
+> XRANGE mystream 1526984818136-0 1526984818136-0
+1) 1) 1526984818136-0
+   2) 1) "duration"
+      2) "1532"
+      3) "event-id"
+      4) "5"
+      5) "user-id"
+      6) "7782813"
+```
+
+## XTRIM
+
+[[#XTRIM]] 은 항목의 나열에서 필요하다면, 제거하는 명령어이다.
+
+>[!info] 이는 가장 오래된 `ID` (`lower ID`) 를 제거한다<br><br>`lower ID` 는 `timestamp` 상 더 낮은 시간값을 가지므로, 더 오래된 `ID` 라 볼수 있다.
+
+>[!info] [XTRIM](https://redis.io/docs/latest/commands/xtrim/)
+```sh
+XTRIM key <MAXLEN | MINID> [= | ~] threshold [LIMIT count]
+```
 
 
+`Trimming` 은 `stream` 에서 다음중 하나를 완료하는 전략이다.
 
+- **MAXLEN**: `stream`  의 항목 개수가 `threshold` 만큼 다다르면 항목을 삭제한다.<br>`threshold` 는 양수이다.
 
+```sh
+XTRIM mystream MAXLEN 1000
+```
 
+- **MINID**: `threshold` 가 `ID` 일때, `threshold` 보다 작은 `ID`  를 제거한다.
 
+```sh
+XTRIM mystream MINID 649085820
+```
 
+### Nearly exact trimming
 
+`Exact trimming` 은 해당 `threshold` 에 해당 조건에 맞게 정확하게 `trimming` 한다.
+이는 `default` 값이며, 직접 명시한다면 `=` 을 사용한다.
 
+하지만, `Redis` 는 조금더 효율적으로 `trimming` 하기 위한 `Nearly exact trimming` 방식을 사용할수 있도록 제공한다.
 
+이는 옵셔널한 값으로 `~` 를 사용하여 명시할수있다.
 
+```sh
+XTRIM mystream MAXLEN ~ 1000
+```
 
+이것이 의미하는 바는, `stream` 의 최소 `thresold` 길이로 `trimming` 하는 명령어이다. 그러나, 약간 더 많을수 있다.
 
- 
+이 경우 `Redis` 는 `trimming` 을 일찍 종료한다.
+이는 퍼포먼스상 이득을 얻는다고 말한다.
 
+>[!info] 예를들어, 자료구조에서 전체 `macro node` 를 삭제할수 없을때, 퍼포먼스상 이득을 얻을수 있다고 한다.<br><br>[[#XTRIM]] 에서 `Redis`  는 전체 `매크로 노드` 단위로 삭제를 수행한다.
 
+>[!info] `매크로 노드` 는 `Redis` `stream` 에서 여러개의 `stream` `entries` 를 그룹화하여 저장하는 단위이다.<br><br>각 `매크로 노드` 는 많은 수의 `stream` `entries` 를 포함한다.
 
-
-  
+이러한 구조는 
