@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/C/데이터와 C.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/C/데이터와 C.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/C/데이터와 C.md",
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/C/데이터와 C.md"
+                "file": "Blog/Redis Cookbook/Data Type/Stream.md"
               }
             }
           },
@@ -172,9 +172,11 @@
   },
   "active": "d105d3fce5a6c3cb",
   "lastOpenFiles": [
-    "Untitled 2.md",
-    "Blog/C/데이터와 C.md",
+    "Blog/Redis Cookbook/Data Type/Geospatial.md",
+    "Blog/Redis Cookbook/Data Type/Managing key.md",
     "Blog/Redis Cookbook/Data Type/Stream.md",
+    "Blog/C/데이터와 C.md",
+    "Untitled 2.md",
     "Blog/C/데이터와 C",
     "Blog/Redis Cookbook/Data Type/SET.md",
     "Blog/C/C 의 첫걸음.md",
@@ -185,7 +187,6 @@
     "Untitled.md",
     "Untitled 1.md",
     "Blog/Redis Cookbook/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
-    "Blog/Redis Cookbook/Data Type/Geospatial.md",
     "Blog/Redis Cookbook/Data feature/Bitmaps.md",
     "Blog/Redis Cookbook/Data feature/transaction.md",
     "Blog/Redis Cookbook/Data feature/Pipeline.md",
@@ -201,7 +202,6 @@
     "Blog/Redis Cookbook/assets/excalidraw",
     "Blog/Redis Cookbook/assets/images",
     "Blog/Redis Cookbook/assets",
-    "Blog/Redis Cookbook/Data Type/Managing key.md",
     "Blog/Redis Cookbook/Data feature",
     "Blog/Redis Cookbook/Data Type/LIST.md",
     "Blog/Redis Cookbook/Data Type/Untitled",

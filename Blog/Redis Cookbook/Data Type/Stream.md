@@ -1,7 +1,13 @@
+
+>[!info] `개발자를 위한 레디스` 의 내용과 `PacktPub Redis Cookbook` 의 내용을 정리한 것이다.
+
 `Stream` 은 `Redis` 에서 새롭게 만들어진 자료 구조이다.
 이는 `Pus/Sub` 처럼 `fire and forget` 방식이 아닌, `list` 에 저장했다가 `consumer` 의 수신여부를 구분지을수 있고, 모든 `counsumer` 에게 메시지를 전달할수 있다.
 
-이러한 `stream` 은 대규모 메시징 데이터를 빠르게 처리할수 있도록 설계되었다.
+>[!info] 이 `Stream`  에 대해서는, `micro service` 관련 해서도, 지금 현재 만들 프로젝트에서도 유용하게 사용될 개념으로, `DOCS` 의 내용도 같이 정리한다.
+## Stream 의 특징
+
+`stream` 은 대규모 메시징 데이터를 빠르게 처리할수 있도록 설계되었다.
 `stream` 은 몇가지 특징을 갖는데 다음과 같다
 
 - `stream` 은 `data structure` 이다.
@@ -106,6 +112,94 @@ XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
 
 ## XRANGE 
 
+`XRANGE` 는 `ID` 의 범위와 맞는 항목들을 반환한다.
+이러한 `Range` 는 큰`ID`  와 작은 `ID` 로 정의된다.
+
+두 지정된 `ID`  중 하나와 정확하게 맞는 항목 이거나 `2` 지정된 `ID` 사이의 항목들을 가진다
+`XRANGE` 명령어는 다양한 용도가 있다.
+
+- **지정된 시간 범위안의 `items` 를 반환**<br>이는 `stream ID` 가 시간과 관련있기 때문에 가능하다.<br>[[#Stream 의 특징]] 에서 `ID` 가 자동적으로 어떻게 생성되는지 알수있다. 
+
+- **점진적으로 `stream` 반복** <br>매 반복마다 `item` 들을 분할해서 리턴한다.<br>그러나 일반적인 `SCAN` 계열의 함수들보다 훨씬 강력하다.
+
+- **`stream` 에서 단일 항목을 가져오고, 쿼리 간격의 시작과 끝으로 가져올 항목의 `ID` 를 두번 제공한다.**<br><br>번역체라서 이해한 내용을 다시 풀어쓴다..  `SCAN` 종류의 함수를 실행시, 반복하면서, 값을 가져오는데 이때 쿼리 시작의 `ID` 에서 부터 모든 요소를 순환하여 끝까지 가게된다.<br><br>이때 단일항목의 `ID` 만 지정했으니, 끝에 있는 항목은 쿼리 시작의 `ID` 의 바로 전 `ID` 일 것이다.<br><br>이말은, 단일 항목을 `fatch` 할때, 시작과 끝은 구분하는 `ID`  는 현재 제공된 `ID` 라는 말이다.
+
+다음은, `XRANGE` 의 명령어이다.
+
+>[!info] [XRANGE](https://redis.io/docs/latest/commands/xrange/)
+```sh
+XRANGE key start end [COUNT count]
+```
+
+- **key** : `stream` 의 `key`
+- **start** : `stream` 의 `key` 에서 찾을 범위의 시작
+- **end** : `stream` 의 `key` 에서 찾을 범위의 마지막
+- **[COUNT count]**: `XRANGE` 의 반복에서, 한번에 몇개의 항목을 가져올지 지정하는 옵션
+
+### - and + special IDs
+
+`XRANGE` 사용시 특별한 `ID` 들을 제공한다.
+
+- **+**: 현재 `stream` 의 가장 큰 `ID`
+- **-**: 현재 `stream` 의 가장 작은 `ID`
+
+이를 통해 다음처럼 쿼리 가능하다.
+
+```sh
+> XRANGE somestream - +
+1) 1) 1526985054069-0
+   2) 1) "duration"
+      2) "72"
+      3) "event-id"
+      4) "9"
+      5) "user-id"
+      6) "839248"
+2) 1) 1526985069902-0
+   2) 1) "duration"
+      2) "415"
+      3) "event-id"
+      4) "2"
+      5) "user-id"
+      6) "772213"
+... other entries here ...
+```
+
+### Incomplete IDs
+
+[[#Stream 의 특징]] 에서 `ID` 는 `timestamp-sequnce number` 식으로 자동 생성될수있다고 말했다.
+
+이때, `ID` 의 형식이 아닌, 불완전한 형식의 `ID`  를 사용해도 쿼리 가능하다.
+이는 `timestamp` 자체가 `miliseconds` 로 이루어진 시간 값이기 때문이다.
+
+```sh
+> XRANGE somestream 1526985054069 1526985055069
+```
+
+이는 지정된 밀리초 사이의 모든 항목을 반환하기 위해, `0` 부터 시작하여, `-18446744073709551615` 종료의 간격을 자동생성한다. 
+
+이는 같은 `miliseconds` 가 두번 반복되며, 시퀀스 번호 범위가 `0` 부터 최대값이기 때문에 해당 밀리초내의 모든 항목을 얻음을 의미한다. 
+
+>[!info] `timestamp-0` 과 `timestamp-18446744073709551615` 이니 두개의 `milisecond` 가 생성된다.
+
+
+### Iterating a stream
+
+`stream` 의 반복하기 위해, 각 항목당 $2$ 개의 요소를 원한다고 가정하자.
+이를 위해 다음처럼 `fetching` 할수 잇다.
+
+```sh
+> XRANGE writers - + COUNT 2
+1) 1) 1526985676425-0
+   2) 1) "name"
+      2) "Virginia"
+      3) "surname"
+      4) "Woolf"
+2) 1) 1526985685298-0
+   2) 1) "name"
+      2) "Jane"
+      3) "surname"
+      4) "Austen"
+```
 
 
 
@@ -125,3 +219,4 @@ XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id
 
 
 
+  

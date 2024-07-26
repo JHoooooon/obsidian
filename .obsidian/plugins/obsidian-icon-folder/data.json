@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiAlignJustify",
       "LiCopyright",
       "RiArrowLeftRightLine",
       "LiBox",
-      "LiLineHorizontal",
-      "RiSortDesc"
+      "LiLineHorizontal"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -172,5 +172,6 @@
   "Blog/Redis Cookbook/Data feature/Pipeline.md": "LiLineHorizontal",
   "Blog/Redis Cookbook/Data feature/transaction.md": "LiBox",
   "Blog/Redis Cookbook/Data feature/PubSub.md": "RiArrowLeftRightLine",
-  "Blog/C/C 의 첫걸음.md": "LiCopyright"
+  "Blog/C/C 의 첫걸음.md": "LiCopyright",
+  "Blog/Redis Cookbook/Data Type/Stream.md": "LiAlignJustify"
 }
