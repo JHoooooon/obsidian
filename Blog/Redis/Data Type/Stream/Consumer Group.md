@@ -220,5 +220,17 @@ XREADGROUP GROUP NotificationServiceGroup NS1 COUNT 2 STREAMS Push >;
 
 ![[stream data process.png]]
 
+모든 소비자 그룹에 전달되는 데이터는 시간순으로 정렬되며, `stream` 에 쌓인 메시지는 해당 데이터가 필요한 여러 서비스에 분산되 읽을 수 있다.
+
+## XACT
+
+메시지 브로커를 이용해 데이터를 처리할 때, 예상치 못한 장애로 시스템이 종료되었을 경우 이를 인지하고 재처리할 수 있는 기능이 필요하다.
+
+메시지 브로커는 각 소비자에게 어떤 메시지까지 전달됬고, 전달될 메세지의 처리 유무를 인지하고 있어야 한다.
 
 
+`Redis` `Stream`  은 `Consumer Group` 에 속한 `Consumer` 가 `message` 를 읽어가면 각 `Consumer` 별로 읽어간 메시지에 대한 리스트를 새로 생성한다.
+
+그리고, 마지막으로 읽어간 `ID` 로 `last-delivered_id` 값을 업데이트 한다. 
+
+`last_delivered_id` 는 `Consumer Group` 에 마지막으로 전달한 `ID` 가 무엇인지를 파악해, 동일한 메시지를 중복으로 전달하지 않기 위해 사용된다.
