@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiImage",
+      "LiPen",
+      "🧺",
       "LiBox",
-      "RiPagesLine",
-      "LiGroup",
-      "LiAlignJustify",
-      "LiCopyright"
+      "RiPagesLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -176,5 +176,8 @@
   "Blog/Redis/Data Type/Stream/Stream.md": "LiAlignJustify",
   "Blog/Redis/Data Type/Stream/Consumer Group.md": "LiGroup",
   "Blog/PWA": "RiPagesLine",
-  "Blog/PWA/Cache API.md": "LiBox"
+  "Blog/PWA/Cache API.md": "LiBox",
+  "Blog/PWA/assets": "🧺",
+  "Blog/PWA/assets/Excalidraw": "LiPen",
+  "Blog/PWA/assets/images": "LiImage"
 }

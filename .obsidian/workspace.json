@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "5d6d12fa648f0549",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -158,10 +171,16 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d57b1716a5cc1338",
+  "active": "5d6d12fa648f0549",
   "lastOpenFiles": [
     "Blog/PWA/Cache API.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+    "Blog/PWA/assets/images/Service worker lifecycle.png",
+    "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
+    "Blog/PWA/assets/images",
+    "Blog/PWA/assets/Excalidraw",
+    "Blog/PWA/assets",
+    "Blog/PWA/Untitled.md",
     "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/PWA",
     "Blog/Redis/assets/images/Consumer Group.png",
@@ -190,21 +209,14 @@
     "Blog/Redis/Data feature/Pipeline.md",
     "Blog/Redis/Data feature/Sort.md",
     "Blog/Redis/Data feature/Expiration.md",
-    "Blog/Redis/Data feature/Intro.md",
-    "Blog/Redis/Data Type/HyperLogLog.md",
-    "Blog/Redis/Data Type/Sorted SET.md",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/Redis/assets/excalidraw",
     "Blog/Redis/assets/images",
     "Blog/Redis/assets",
-    "Blog/Redis/Data feature",
-    "Blog/Redis Cookbook/Data Type/Untitled",
-    "Blog/Redis Cookbook/Data Type/LIST",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
     "Blog/LearnSQL/Assets/Images/Intersect.png",
-    "Blog/LearnSQL/Assets/Images/Union.png",
-    "Blog/GIT 교과서/Assets/Image/Snapshot 요약.png"
+    "Blog/LearnSQL/Assets/Images/Union.png"
   ]
 }
