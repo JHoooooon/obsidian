@@ -55,6 +55,122 @@ self.addEventListener("install", (event) => {
 > 
 > 이렇게 하면, `database` `schema` 업데이트하고, 오래된 `cache` 를 삭제할 시간을 확보하며, 다른 `event`  는 완전히 업그레이드된 상태에 의존할수 있다.
 
+이 상태에서는 `index-offline.html` 에 의존적이다.
+
+이는 성공적으로 설치가 진행되고, 새 `service worker` 가 활성화 되었다고 이야기하기 전에 성공적으로 `caching` 되었는지 확인해야 한다.
+
+>[!info] `Promise` `settled` 상태는, 비동기 처리를 위해 `background` 로 넘겼다는 뜻이다.<br>이후, `callback` 함수가 이상없이 수행되면 `fulfilled`, 오류가 발생했다면 `rejected` 된다. 
+
+>[!info] 앞에서 말했듯, `waitUntil` 은 `Promise` `settled` 되었을때, `install` `event` 를 연기한다.
+
+위의 상황은 `caches.open` 이후, `promise` 가 `resolve` 될때까지, 작업을 진행한다.
+만약, 문제가 생긴다면 `reject` 함으로써 설치를 중단할수 있다.
+
+다음은, `index-offline.html` 에 `match`  되는 `html` `file` 을 `cache` 에서 가져오는 로직이다.
+
+```js
+self.addEventListener("fetch", (event) => {
+	event.respondWith(
+		fetch(event.request).catch(() => {
+			return caches.match("/index-offline.html");
+		});
+	);
+});
+```
+
+이때, `server` 에서 가져오는것이 아닌, `cache` 안에 `request` 에 대한 `response` 가 정말 있는지 확인하고, 바로 `response` 를 받는다.
+
+>[!note] `CacheStorage` 는 `cors` (`Cross Origin Resource Sharing`) 보안 정책을 따른다.<br>`cache.match()` 혹은 `caches.open()` 을 사용해도, 현재 `Origin` 에서 생성된 `cahce` 에만 접근 가능하다.
+
+>[!info] `cache.match`
+>`match` 메서드는 주어진 `request` 에 대해서 `cache` 로 부터 `response` 객체를 반환한다.
+>
+>`match` 메서드는 모든 `cache` 에서 `match` 검색을 하는 `cache` 객체에서 호출되거나, 특정 `cache` 객체에서 호출될 수 있다.
+>
+>`match` 를 통하여 반환된 `promise` 는 `response` 를 찾지 못해도 `reject` 되지 않는다.
+>단지, `response` 값이 `undefined` 로 반환할뿐이다.
+```js
+// 모든 캐시에서 일치하는 `request` 검색
+caches.match("logo.png");
+
+// 특정 캐시에서 일치하는 `request` 검색
+cache.open("my-cache").then((cache) => {
+	return cache.match("logo.png");
+});
+
+// 만약 `cache` 가 없는 경우
+caches.match("not-exists.png").then((res) => {
+	if (res) { // res 가 `undefined` 인지 확인
+		return res
+	} else {
+		// res 가 `undefined` 이면 처리할 로직	
+	}
+});
+```
+
+다음은 모든 `response` 데이터를 `cache` 한다.
+
+>[!info] `cache` 의 `add` 메서드는 `request` 객체를 받아 처리한다.<br>이는 매개변수로 사용되며, `URL` 은 해당 생성자와 동일한 규칙을 따른다.
+
+```js
+self.addEventListener("install", (event) => {
+	event.waitUntil(
+		caches.open("gih-cache", async (cache) => {
+			await cache.add("gih-offline.html");
+			await cache.add( 
+			"https://maxcdn.boostrapcdn.com/boostrap/3.3.6/css/boostrap.min.css"
+			);
+			await cache.add("/css/gih-offline.css");
+			await cache.add("/img/background-sm.jpg");
+			await cache.add("/img/logo-header.png");	
+		});
+	);
+});
+```
+
+`addAll` 을 사용하여, 이보다 더 간단한 방법으로 처리할수도 있다.
+
+```js
+const CACHE_NAME = 'gih-cache';
+const CACHED_URLS = [
+	"/index-offline.html",
+	"https://maxcdn.boostrapcdn.com/boostrap/3.3.6/css/boostrap.min.css",
+	"/css/gih-offline.css",
+	"/img/background-sm.jpg",
+	"/img/logo-header.png"
+];
+
+self.addEventListener("install", (event) => {
+	event.waitUntil(
+		caches.open(CACHE_NAME, async (cache) => {
+			return await cache.addAll(CACHED_URLS);
+		});
+	);
+});
+```
+
+그리고 `serviceworker.js` 에서 다음처럼 변경한다.
+
+```js
+self.addEventListener("fetch", (event) => {
+	event.respondWith(
+		fetch(event.request).catch(await () => {
+			const res = await caches.match(event.request)
+			if (res) {
+				return res;
+			} else if (
+				event.request.headers.get("accept").includes("text/html")
+			) {
+				return caches.match("/index-offline.html");	
+			}
+		});
+	);
+});
+```
+
+
+
+
 
 
 
