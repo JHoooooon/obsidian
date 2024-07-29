@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Cache API.md",
+                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Cache API.md",
+                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Cache API.md",
+                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Cache API.md"
+                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "d57b1716a5cc1338",
   "lastOpenFiles": [
-    "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/PWA/Cache API.md",
+    "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+    "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/PWA",
     "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/Data Type/Stream/Consumer Group.md",
@@ -192,7 +193,6 @@
     "Blog/Redis/Data feature/Intro.md",
     "Blog/Redis/Data Type/HyperLogLog.md",
     "Blog/Redis/Data Type/Sorted SET.md",
-    "Blog/Redis/Data Type/HASH.md",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/Redis/assets/excalidraw",
     "Blog/Redis/assets/images",

@@ -151,24 +151,59 @@ self.addEventListener("install", (event) => {
 
 그리고 `serviceworker.js` 에서 다음처럼 변경한다.
 
+>[!info] `respondWith` 는 `browser` 의 기본 `fetch` 동작을 막으며, `response` 에 대한 `promise` 를 직접 수정 및 추가하여 제공할수 있는 메서드이다. 
+
+>[!info] `fetch` 이벤트는 `browser` 가 `server` 에 `fetch` 할때  발생하는 이벤트이다. 
+
+>[!info] `index-offline.html` 은 `index.html` 일수 있고, `/` 일수도 있다.<br> 그러므로, `headers` 의 `accept` 객체를 가져와 `text/html` 인 값이 있는지 확인한다.
 ```js
 self.addEventListener("fetch", (event) => {
 	event.respondWith(
-		fetch(event.request).catch(await () => {
-			const res = await caches.match(event.request)
-			if (res) {
-				return res;
-			} else if (
-				event.request.headers.get("accept").includes("text/html")
-			) {
-				return caches.match("/index-offline.html");	
-			}
+		// event.request 를 `fetch`
+		fetch(event.request)
+			// fetch 에서 오류가 나왔다면 offline 이다.
+			// offline 시 실행
+			.catch(await () => {
+				// cache 가 있는지 확인
+				const res = await caches.match(event.request)
+				// 있다면 반환값 반환
+				if (res) {
+					return res;
+				// 없다면, 요청 `header` 에 `text/html` 이 있는지 확인
+				} else if (
+					event.request.headers.get("accept").includes("text/html")
+				) {
+					// 있다면, `index-offline.html` 반환
+					return caches.match("/index-offline.html");	
+				}
 		});
 	);
 });
 ```
 
+>[!note] `caches.match` 사용시, `event.request` 를 사용하여 처리도 가능하다.<br>하지만, 주의 해야 할점은 `query string` 을 같이 포함했을때, `query string` 도 같이 읽는다는 것이다.<br><br>만약, 이러한 `query string` 이 포함되어도 `contents` 에 아무런 영향을 주지 않는다면, 다음처럼 `ignoreSearch` 에 `match` 가 `query string` 을 무시하도록 할수 있다.<br><br>`caches.match("/promote.html", { ignoreSearch: true });`<br><br>이는 `/promote.html`, `/promote.html?utm_source=urchin`, `/promote.html?utm_medium=social` 모두 `match` 된다.
 
+## HTTP 캐싱과 HTTP 헤더
+
+`CacheStorage` 는 `HTTP` 캐시를 대체하지 않는다.
+
+`HTTP` `header` 에 `Cache-Control: max-age=31536000` 헤더를 사용하여 파일을 제공하는경우, `browser cache` 에 `1년동안` 저장한다.
+
+이와 동시에 `service worker` 는 `fetch` 이벤트를 받아, `cache storage` 에 파일을 저장할 것이다.
+
+그럼, `1년 이전에` 이후 해당 파일을 수정했다고 가정하자.
+
+그리고, `client`  는 새로 접속시 해당 파일을 요청할것이지만, `browser cache` 에 저장된 파일을 가져오고, `service worker` 의 `fetch` 이벤트 역시 `browser cache` 에 저장된 파일을 가져와 `cache storage` 에 저장할 것이다.
+
+>[!info] 이는 간단하게, `Network` 통신이 아닌 `browser cache` 에서 파일을 가져온다는 것이다.
+
+이는 `HTTP` `caching` 의 작동개념이며, 이를 이해하고 올바르게 수행하는것이 중요하다.
+
+## 결론
+
+`ServiceWorker`  `proxy` 를 통한 `Cache` 는 매우 강력하며, 빠르고, `offline` 시에도 `content` 를 반환할수 있도록 만든다.
+
+이는 사이트의 `loading` 시간을 획기적으로 줄여주며, `server` 비용을 절약하는데 도움이 된다.
 
 
 

@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiBox",
       "RiPagesLine",
       "LiGroup",
       "LiAlignJustify",
-      "LiCopyright",
-      "RiArrowLeftRightLine"
+      "LiCopyright"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -175,5 +175,6 @@
   "Blog/Redis/assets/images": "LiImage",
   "Blog/Redis/Data Type/Stream/Stream.md": "LiAlignJustify",
   "Blog/Redis/Data Type/Stream/Consumer Group.md": "LiGroup",
-  "Blog/PWA": "RiPagesLine"
+  "Blog/PWA": "RiPagesLine",
+  "Blog/PWA/Cache API.md": "LiBox"
 }
