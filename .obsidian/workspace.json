@@ -11,26 +11,15 @@
             "id": "d57b1716a5cc1338",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/Redis/assets/excalidraw/stream data process.md"
-              }
-            }
-          },
-          {
-            "id": "e95294d20e6c1c58",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Redis/Data Type/Stream/Consumer Group.md",
+                "file": "Blog/PWA/Cache API.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Redis/Data Type/Stream/Consumer Group.md",
+                "file": "Blog/PWA/Cache API.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -113,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Redis/Data Type/Stream/Consumer Group.md",
+                "file": "Blog/PWA/Cache API.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Redis/Data Type/Stream/Consumer Group.md"
+                "file": "Blog/PWA/Cache API.md"
               }
             }
           },
@@ -169,14 +158,16 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "e95294d20e6c1c58",
+  "active": "d57b1716a5cc1338",
   "lastOpenFiles": [
+    "Blog/Redis/assets/excalidraw/stream data process.md",
+    "Blog/PWA/Cache API.md",
+    "Blog/PWA",
+    "Blog/Redis/assets/images/Consumer Group.png",
+    "Blog/Redis/Data Type/Stream/Consumer Group.md",
     "Blog/Redis/Data Type/Stream/Stream.md",
     "Blog/Redis/assets/images/stream data process.png",
-    "Blog/Redis/Data Type/Stream/Consumer Group.md",
-    "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/Redis/assets/excalidraw/Consumer Group.md",
-    "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/Data Type/Stream",
     "Untitled.md",
     "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
@@ -209,7 +200,6 @@
     "Blog/Redis/Data feature",
     "Blog/Redis Cookbook/Data Type/Untitled",
     "Blog/Redis Cookbook/Data Type/LIST",
-    "Blog/Redis/Data Type",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
