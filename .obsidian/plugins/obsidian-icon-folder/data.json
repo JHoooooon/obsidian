@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiPalette",
       "LiImage",
       "LiPen",
       "🧺",
-      "LiBox",
-      "RiPagesLine"
+      "LiBox"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -179,5 +179,7 @@
   "Blog/PWA/Cache API.md": "LiBox",
   "Blog/PWA/assets": "🧺",
   "Blog/PWA/assets/Excalidraw": "LiPen",
-  "Blog/PWA/assets/images": "LiImage"
+  "Blog/PWA/assets/images": "LiImage",
+  "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md": "LiBox",
+  "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md": "LiPalette"
 }

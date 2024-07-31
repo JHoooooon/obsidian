@@ -25,6 +25,18 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e27e2ca61f7bb08d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
                 "mode": "source",
                 "source": false
@@ -32,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -171,11 +183,12 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "93aca785895e07c9",
+  "active": "e27e2ca61f7bb08d",
   "lastOpenFiles": [
-    "Blog/PWA/오프라인 우선",
-    "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+    "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
     "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
+    "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+    "Blog/PWA/오프라인 우선",
     "Blog/PWA/Cache API.md",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
@@ -213,7 +226,6 @@
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/Redis/assets/excalidraw",
     "Blog/Redis/assets/images",
-    "Blog/Redis/assets",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
