@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
+                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -170,12 +171,12 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d57b1716a5cc1338",
+  "active": "e27e2ca61f7bb08d",
   "lastOpenFiles": [
+    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
+    "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "Blog/PWA/Cache API.md",
-    "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
-    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
     "Blog/PWA/오프라인 우선",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
