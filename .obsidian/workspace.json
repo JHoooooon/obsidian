@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md"
+                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md"
               }
             }
           },
@@ -171,16 +171,17 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "5d6d12fa648f0549",
+  "active": "93aca785895e07c9",
   "lastOpenFiles": [
-    "Blog/PWA/Cache API.md",
+    "Blog/PWA/오프라인 우선",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
+    "Blog/PWA/Cache API.md",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
     "Blog/PWA/assets/images",
     "Blog/PWA/assets/Excalidraw",
     "Blog/PWA/assets",
-    "Blog/PWA/Untitled.md",
     "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/PWA",
     "Blog/Redis/assets/images/Consumer Group.png",
