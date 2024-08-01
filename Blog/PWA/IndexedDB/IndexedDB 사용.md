@@ -313,3 +313,60 @@ request.addEventListener("success", (event) => {
 
 - **`createIndex`**: 첫번째 인수는 `index` 명, 두번째 인수는 `key 경로`,  세번째 인수는 `옵션 객체` 를 받는다.
 
+## Index 로 데이터 읽기
+
+인덱스를 사용하면 특정 기준과 일치하는 결과만 순회하는 `cursor` 를 열수 있다.
+
+```js
+const request = window.indexedDB.open("my-database", 2);
+
+request.addEventListener("success", (event) => {
+	const db = event.target.result;
+	const exchangeTransaction = db.transaction('exchange_rates');
+	const exchangeStore = exchangeTransaction.objectStore('exchange_rates');
+
+	exchangeStore
+		.index('from_idx')
+		.openCursor('CAD')
+		.addEventListener('success', (event) => {
+			const cursor = event.target.result;
+			if (!cursor) {
+				return;
+			}
+			const rate = cursor.value;
+			console.log(
+				`${rate.exchange_from} to ${rate.exchange_to}`
+			);
+			cursor.continue();
+		});
+	};
+});
+```
+
+이 예시에서 `index` 를 통해 검색하기 위해 [IDBIndex](https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex) 에서 `openCursor` 메서드를 사용한다.
+`index` 는 `from_idx` 를 사용하며, `from_idx` `index` 는 `exchange_from` 값을 기준으로 `indexing` 되어 있다.
+
+그러므로, 위의 예시는 `index` 내에서 `exchange_from` 이 `CAD` 인, 요소를 찾는다.
+
+>[!info] [IDBObjectStore](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore) 에서의 `openCursor` 는 해당하는  `ObjectStore` 전체에서 검색하며, [IDBIndex](https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex)에서의 `openCursor`  는 지정한 `Index` 에서 검색한다는것이 다르다
+
+## Cursor 범위 제한
+
+기본적으로 `cursor` 는 `object store` 의 모든 객체 혹은 `index` 로 부터 반환된 모든 객체를 순회한다.
+이는 비효율적이다. 모든 객체를 순회할 필요없이, 범위를 지정하면 더 효율적으로 검색할수 있을것이다.
+
+이를 위해 필요한것이 [IDBKeyRange](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange) 이다.
+다음은 동일한 결과를 도출한다.
+
+```js
+exchangeIndex.openCursor("CAD");
+exchangeIndex.openCursor(IDBKeyRange.only("CAD"));
+```
+
+`IDBKeyRange` 의 `only()`  는 물론 여러 메서드들이 존재한다.
+
+- [IDBKeyRange.bound()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/bound_static): `bound()` 정적 메서드는 `key` 의 `upper`, `lower` 범위를 지정한다.<br>이는 `range` 의 끝지점이 포함될수도 있고, 포함되지 않을수도 있다.<br><br>`IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])`<br><br>👉 `lower`: 새로운 `key` 범위의 `lower`(`하한`) 을 지정<br><br>👉 `upper`: 새로운 `key` 범위의 `upper`(`상한`) 을 지정<br><br>👉 `lowerOpen`: `lower` 범위의 `endpoint` 값을 제외할지를 가리킨다. <br>`default` 는  `false`<br><br>👉 `upperOpen`:`upper` 범위의 `endpoint` 값을 제외할지를 가리킨다. <br>`default` 는  `false` <br>
+
+- [IDBKeyRange.only()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/only_static): `only()` 정적 메서드는 하나의 `value` 를 포함한 `key` 의 범위를 생성한다.<br><br>`IDBKeyRange.only(value)`<br><br>👉 `value`: `key` 의 범위에 대한 `value`
+
+
