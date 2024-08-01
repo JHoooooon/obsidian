@@ -268,7 +268,7 @@ request.addEventListener("success", (event) => {
                     });
 
                     exchangeStore.transaction.addEventListener(
-                        'complate',
+                        'complete',
                         (event) => {
                             const exchangeRates = [
                                 {
