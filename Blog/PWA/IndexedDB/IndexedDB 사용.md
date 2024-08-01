@@ -240,7 +240,76 @@ request.addEventListener("success", (event) => {
 여기에 `index` 를 사용하면, 객체 저장소를 `query` 할수 있고, `query` 와 매칭되는 `record` 만 순회하여 살펴보는 `cursor` 를 열수 있다.
 
 ```js
-request.addEventListener("upgradeneeded", (event) => {
-	const db = event.target.result;
-});
+            request.addEventListener('upgradeneeded', (event) => {
+                const db = event.target.result;
+                if (!db.objectStoreNames.contains('customers')) {
+                    db.createObjectStore('customers', {
+                        keyPath: 'passport_number',
+                    });
+                }
+                if (!db.objectStoreNames.contains('exchange_rates')) {
+					// exchange_rates store 생성
+                    const exchangeStore = db.createObjectStore(
+                        'exchange_rates',
+                        {
+                            autoIncrement: true,
+                        }
+                    );
+
+					// exchnageStore 의 from_idx index 생성 
+					// exchange_from 을 사용하여, 검색
+                    exchangeStore.createIndex('from_idx', 'exchange_from', {
+                        unique: false,
+                    });
+					// exchnageStore 의 to_idx index 생성 
+					// exchange_to 를 사용하여, 검색
+                    exchangeStore.createIndex('to_idx', 'exchange_to', {
+                        unique: false,
+                    });
+
+                    exchangeStore.transaction.addEventListener(
+                        'complate',
+                        (event) => {
+                            const exchangeRates = [
+                                {
+                                    exchange_from: 'CAD',
+                                    exchange_to: 'USD',
+                                    rage: 0.77,
+                                },
+                                {
+                                    exchange_from: 'JPY',
+                                    exchange_to: 'USD',
+                                    rage: 0.009,
+                                },
+                                {
+                                    exchange_from: 'USD',
+                                    exchange_to: 'CAD',
+                                    rage: 1.29,
+                                },
+                                {
+                                    exchange_from: 'CAD',
+                                    exchange_to: 'JPY',
+                                    rage: 81.6,
+                                },
+                            ];
+                            const exchangeStore = db
+                                .transaction('exchange_rates', 'readwrite')
+                                .objectStore('exchange_rates');
+
+                            for (
+                                const i = 0;
+                                i < exchangeRates.length;
+                                i += 1
+                            ) {
+                                exchangeStore.add(exchangeRates);
+                            }
+                        }
+                    );
+                }
+            });
 ```
+
+>[!info] 인라인 키 VS `out of line key`<br><br>`autoIncrement` 키로 `exchange_rates` 저장소를 생성한다.<br>`autoIncrement` 를 `ture` 로 설정하면, `IndexedDB` 로 하여금 `unique index` 를 자동으로 생성하도록 할수 있다.<br><br>첫번째 객체는 `ID 1`, 두번재 객체는 `ID 2` 인 형식이다.<br>이렇게 값과 별도로 저장되는 키를 `out-of-line-key` 라 한다.<br><br>반면, `keyPath` 를 사용하는 키를 `inline-key` 라 한다.
+
+- **`createIndex`**: 첫번째 인수는 `index` 명, 두번째 인수는 `key 경로`,  세번째 인수는 `옵션 객체` 를 받는다.
+
