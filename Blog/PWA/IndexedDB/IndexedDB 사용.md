@@ -229,4 +229,18 @@ request.addEventListener("success", (event) => {
 
 - 마지막 데이터를 전달하거나, 객체 저장소가 비어있으면 `null` 을 가리킨다.<br>`cursor` 가 앞으로 이동할때마다 `success` `event` 가 발생하므로, `null` 을 가리키는지 확인해야 한다.
 
+>[!info] `cursor`  는 [IDBCursor](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor) 객체이다.
 
+## 인덱스 생성
+
+`Object stroe` 에서 모든 객체에 대해 순회하여 이동하는 `cursor` 를 여는 방법에 대해서 살펴보았다.
+특정 조건에 맞는 객체를 검색하려고 할때, 모든 객체 저장소를 살펴보아야 한다.
+
+처음부터 끝까지 `scan` 한다면 이는 매우 비효율적이다.
+여기에 `index` 를 사용하면, 객체 저장소를 `query` 할수 있고, `query` 와 매칭되는 `record` 만 순회하여 살펴보는 `cursor` 를 열수 있다.
+
+```js
+request.addEventListener("upgradeneeded", (event) => {
+	const db = event.target.result;
+});
+```
