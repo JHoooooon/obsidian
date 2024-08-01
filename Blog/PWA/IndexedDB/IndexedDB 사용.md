@@ -212,7 +212,7 @@ request.addEventListener("success", (event) => {
 	db.transaction("customers")
 		.objectStore("customers")
 		.openCursor()
-		.addEventListener((event) => {
+		.addEventListener("success", (event) => {
 			const cursor = evnet.target.result;
 			if (!cursor) {
 				return;
@@ -223,5 +223,10 @@ request.addEventListener("success", (event) => {
 });
 ```
 
+- `objectStore` 는 [IDBObjectStore](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore) 객체를 반환한다.<br>[IDBObjeectStore.openCursor()](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/openCursor) 는 비동기 메서드이며, `success` `event` 를 통해 `cursor` 를 받아 처리한다.
+
+- `event.target.result` 를 통해 현재 `cursor`  를 가져오며, `continue()` 메서드를 호출하여, `cursor` 가 앞으로 이동할때마다, `success` `event` 가 발생한다.
+
+- 마지막 데이터를 전달하거나, 객체 저장소가 비어있으면 `null` 을 가리킨다.<br>`cursor` 가 앞으로 이동할때마다 `success` `event` 가 발생하므로, `null` 을 가리키는지 확인해야 한다.
 
 
