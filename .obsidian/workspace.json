@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e27e2ca61f7bb08d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+                "file": "Blog/PWA/IndexedDB/IndexdDB 소개.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+                "file": "Blog/PWA/IndexedDB/IndexdDB 소개.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+                "file": "Blog/PWA/IndexedDB/IndexdDB 소개.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md"
+                "file": "Blog/PWA/IndexedDB/IndexdDB 소개.md"
               }
             }
           },
@@ -171,10 +158,13 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "e27e2ca61f7bb08d",
+  "active": "d57b1716a5cc1338",
   "lastOpenFiles": [
-    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
+    "Blog/PWA/Untitled.md",
+    "Blog/PWA/IndexedDB/IndexdDB 소개.md",
+    "Blog/PWA/IndexedDB",
     "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "Blog/PWA/Cache API.md",
     "Blog/PWA/오프라인 우선",
@@ -209,11 +199,8 @@
     "Blog/Redis/Data feature/Bitmaps.md",
     "Blog/Redis/Data feature/transaction.md",
     "Blog/Redis/Data feature/Pipeline.md",
-    "Blog/Redis/Data feature/Sort.md",
-    "Blog/Redis/Data feature/Expiration.md",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/Redis/assets/excalidraw",
-    "Blog/Redis/assets/images",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
     "Blog/LearnSQL/Assets/Images/except.png",
