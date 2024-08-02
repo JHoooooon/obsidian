@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiSyncSmall",
+      "👆",
       "📇",
       "🗂",
-      "LiPalette",
-      "LiImage",
-      "LiPen"
+      "LiPalette"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -183,5 +183,7 @@
   "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md": "LiBox",
   "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md": "LiPalette",
   "Blog/PWA/IndexedDB/IndexedDB 사용.md": "🗂",
-  "Blog/PWA/IndexedDB/IndexdDB 소개.md": "📇"
+  "Blog/PWA/IndexedDB/IndexdDB 소개.md": "📇",
+  "Blog/PWA/IndexedDB": "👆",
+  "Blog/PWA/Background Sync": "LiSyncSmall"
 }
