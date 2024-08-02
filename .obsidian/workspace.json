@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
+                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
+                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
+                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md"
+                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "d57b1716a5cc1338",
   "lastOpenFiles": [
-    "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
+    "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
+    "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "Blog/PWA/Background Sync",
     "Blog/PWA/IndexedDB/IndexedDB 사용.md",
     "().md",
@@ -199,7 +200,6 @@
     "Blog/Untitled.md",
     "Blog/Redis/Data feature/PubSub.md",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
-    "Untitled 1.md",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/NEXTJS/images/HTML Parsing.png",
     "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
