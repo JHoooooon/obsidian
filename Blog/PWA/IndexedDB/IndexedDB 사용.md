@@ -240,73 +240,73 @@ request.addEventListener("success", (event) => {
 여기에 `index` 를 사용하면, 객체 저장소를 `query` 할수 있고, `query` 와 매칭되는 `record` 만 순회하여 살펴보는 `cursor` 를 열수 있다.
 
 ```js
-            request.addEventListener('upgradeneeded', (event) => {
-                const db = event.target.result;
-                if (!db.objectStoreNames.contains('customers')) {
-                    db.createObjectStore('customers', {
-                        keyPath: 'passport_number',
-                    });
-                }
-                if (!db.objectStoreNames.contains('exchange_rates')) {
-					// exchange_rates store 생성
-                    const exchangeStore = db.createObjectStore(
-                        'exchange_rates',
-                        {
-                            autoIncrement: true,
-                        }
-                    );
+request.addEventListener('upgradeneeded', (event) => {
+	const db = event.target.result;
+	if (!db.objectStoreNames.contains('customers')) {
+		db.createObjectStore('customers', {
+			keyPath: 'passport_number',
+		});
+	}
+	if (!db.objectStoreNames.contains('exchange_rates')) {
+		// exchange_rates store 생성
+		const exchangeStore = db.createObjectStore(
+			'exchange_rates',
+			{
+				autoIncrement: true,
+			}
+		);
 
-					// exchnageStore 의 from_idx index 생성 
-					// exchange_from 을 사용하여, 검색
-                    exchangeStore.createIndex('from_idx', 'exchange_from', {
-                        unique: false,
-                    });
-					// exchnageStore 의 to_idx index 생성 
-					// exchange_to 를 사용하여, 검색
-                    exchangeStore.createIndex('to_idx', 'exchange_to', {
-                        unique: false,
-                    });
+		// exchnageStore 의 from_idx index 생성 
+		// exchange_from 을 사용하여, 검색
+		exchangeStore.createIndex('from_idx', 'exchange_from', {
+			unique: false,
+		});
+		// exchnageStore 의 to_idx index 생성 
+		// exchange_to 를 사용하여, 검색
+		exchangeStore.createIndex('to_idx', 'exchange_to', {
+			unique: false,
+		});
 
-                    exchangeStore.transaction.addEventListener(
-                        'complete',
-                        (event) => {
-                            const exchangeRates = [
-                                {
-                                    exchange_from: 'CAD',
-                                    exchange_to: 'USD',
-                                    rage: 0.77,
-                                },
-                                {
-                                    exchange_from: 'JPY',
-                                    exchange_to: 'USD',
-                                    rage: 0.009,
-                                },
-                                {
-                                    exchange_from: 'USD',
-                                    exchange_to: 'CAD',
-                                    rage: 1.29,
-                                },
-                                {
-                                    exchange_from: 'CAD',
-                                    exchange_to: 'JPY',
-                                    rage: 81.6,
-                                },
-                            ];
-                            const exchangeStore = db
-                                .transaction('exchange_rates', 'readwrite')
-                                .objectStore('exchange_rates');
+		exchangeStore.transaction.addEventListener(
+			'complete',
+			(event) => {
+				const exchangeRates = [
+					{
+						exchange_from: 'CAD',
+						exchange_to: 'USD',
+						rage: 0.77,
+					},
+					{
+						exchange_from: 'JPY',
+						exchange_to: 'USD',
+						rage: 0.009,
+					},
+					{
+						exchange_from: 'USD',
+						exchange_to: 'CAD',
+						rage: 1.29,
+					},
+					{
+						exchange_from: 'CAD',
+						exchange_to: 'JPY',
+						rage: 81.6,
+					},
+				];
+				const exchangeStore = db
+					.transaction('exchange_rates', 'readwrite')
+					.objectStore('exchange_rates');
 
-                            for (
-                                const i = 0;
-                                i < exchangeRates.length;
-                                i += 1
-                            ) {
-                                exchangeStore.add(exchangeRates);
-                            }
-                        }
-                    );
-                }
-            });
+				for (
+					const i = 0;
+					i < exchangeRates.length;
+					i += 1
+				) {
+					exchangeStore.add(exchangeRates);
+				}
+			}
+		);
+	}
+});
 ```
 
 >[!info] 인라인 키 VS `out of line key`<br><br>`autoIncrement` 키로 `exchange_rates` 저장소를 생성한다.<br>`autoIncrement` 를 `ture` 로 설정하면, `IndexedDB` 로 하여금 `unique index` 를 자동으로 생성하도록 할수 있다.<br><br>첫번째 객체는 `ID 1`, 두번재 객체는 `ID 2` 인 형식이다.<br>이렇게 값과 별도로 저장되는 키를 `out-of-line-key` 라 한다.<br><br>반면, `keyPath` 를 사용하는 키를 `inline-key` 라 한다.
@@ -366,7 +366,80 @@ exchangeIndex.openCursor(IDBKeyRange.only("CAD"));
 `IDBKeyRange` 의 `only()`  는 물론 여러 메서드들이 존재한다.
 
 - [IDBKeyRange.bound()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/bound_static): `bound()` 정적 메서드는 `key` 의 `upper`, `lower` 범위를 지정한다.<br>이는 `range` 의 끝지점이 포함될수도 있고, 포함되지 않을수도 있다.<br><br>`IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])`<br><br>👉 `lower`: 새로운 `key` 범위의 `lower`(`하한`) 을 지정<br><br>👉 `upper`: 새로운 `key` 범위의 `upper`(`상한`) 을 지정<br><br>👉 `lowerOpen`: `lower` 범위의 `endpoint` 값을 제외할지를 가리킨다. <br>`default` 는  `false`<br><br>👉 `upperOpen`:`upper` 범위의 `endpoint` 값을 제외할지를 가리킨다. <br>`default` 는  `false` <br>
+```js
+// "C"(포함) 와 "D"(미포함) 사이의 모든 키
+exchangeIndex.openCursor(IDBKeyRange.bound("C", "D", false, true))
+```
 
 - [IDBKeyRange.only()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/only_static): `only()` 정적 메서드는 하나의 `value` 를 포함한 `key` 의 범위를 생성한다.<br><br>`IDBKeyRange.only(value)`<br><br>👉 `value`: `key` 의 범위에 대한 `value`
+
+```js
+exchangeIndex.openCursor("CAD"); // 같다
+exchangeIndex.openCursor(IDBKeyRange.only("CAD")); // 같다
+```
+
+- [IDBKeyRange.lowerBound()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/lowerBound_static): `lowerBound()` 정적 메서드의 `IDBKeyRange` 인터페이스는 오직 `lower` 범위에 대한 `key` 를 생성한다.<br><br>`IDBKeyRange.lowerBound(lower, [open])`<br><br>👉 `lower`: 새로운 `key` 범위의 `lower`(`하한`) 을 지정<br><br>👉 `open`: `lower` 범위의 `endpoint` 값을 제외할지를 가리킨다.<br>`default` 는 `false` 이다.
+
+```js
+// "CAD" 를 포함하여, "CAD" 이상의 모든 키를 포함
+// CAD, USD
+IDBKeyRange.lowerBound("CAD", false);
+```
+
+- [IDBKeyRange.upperBound()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/upperBound_static): `upperBound()` 정적 메서드의 `IDBKeyRange` 인터페이스는 오직 `upper` 범위에 대한 `key` 를 생성한다.<br><br>`IDBKeyRange.upperBound(upper, [open])`<br><br>👉 `upper`: 새로운 `key` 범위의 `upper`(`상한`) 을 지정<br><br>👉 `open`: `upper` 범위의 `endpoint` 값을 제외할지를 가리킨다.<br>`default` 는 `false` 이다.
+
+```js
+// "CAD" 를 제외한 "CAD" 아래의 모든 키 포함
+// AUD, BRL
+IDBKeyRange.upperBound("CAD", ture);
+```
+
+- [IDBKeyRange.includes()](https://developer.mozilla.org/en-US/docs/Web/API/IDBKeyRange/includes): `include()` 메서드는 인스턴스 메서드이다.<br>이는 `key` 의 범위내에 포함된 `key` 인지 아닌지 `boolean`  으로 반환하여 알려준다.<br><br>`include(key)`<br><br>👉 `key`: `key` 범위안에 있는지 확인하길 원하는 `key` 를 지정
+
+```js
+// "A"(포함) 와 "K"(포함) 사이의 모든 값
+const keyRangeValue = IDBKeyRange.bound("A", "K", false, false);
+
+keyRangeValue.includes("F");
+// Returns true
+
+keyRangeValue.includes("W");
+// Returns false
+```
+
+## Cursor 방향 설정
+
+`cursor` 는 기본적으로 오름차순으로 정렬된다.
+`cursor` 를 `open` 할때 두번째 인수를 `"prev"` 로 넘겨 객체를 내림차순으로 정렬할수 있다.
+
+```js
+const request = window.indexedDB.open("my-database", 4);
+
+request.addEventListener("success", (event) => {
+	const db = event.target.result;
+	const exchangeTransaction = db.transaction("exchange_rates");
+	exchangeTransaction
+		.objectStore("exchange_rates)
+		.openCursor(null, "prev")
+		.addEventListener("success", (event) => {
+			const cursor = event.target.result;
+			if (!cursor) {
+				return;
+			}
+			const rate = cursor.value;
+			console.log(`${rate.exchange_from} to ${rate.exchnage_to}: ${rate.rate}`);
+
+			cursor.continue();
+		})
+});
+```
+
+이는 `index` 가 아닌, `objectStore` 에서 `cursor` 를 열고 순회한다.
+이때, $2$  번째 인자로, `"prev"` 를 넣어, 내림차순으로 정렬되게 하며, $1$ 번째 인자는 `IDBKeyrange` 객체 대신 `null`  을 사용한다.
+
+이는 `index` 든, `object store` 이든, 여부에 관계없이 모든 `cursor` 는 `range` 및 방향에 관한 인자를 받을수 있고, 그 두가지를 받거나 받지 않을수 있다.
+
+## 객체 저장소의 객체 업데이트
+
 
 

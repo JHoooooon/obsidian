@@ -160,8 +160,9 @@
   },
   "active": "d57b1716a5cc1338",
   "lastOpenFiles": [
-    "Blog/PWA/Untitled.md",
+    "().md",
     "Blog/PWA/IndexedDB/IndexedDB 사용.md",
+    "Blog/PWA/Untitled.md",
     "Blog/PWA/IndexedDB/IndexdDB 소개.md",
     "Blog/PWA/IndexedDB",
     "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
@@ -198,7 +199,6 @@
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Untitled 1.md",
     "Blog/Redis/Data feature/Bitmaps.md",
-    "Blog/Redis/Data feature/transaction.md",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/Redis/assets/excalidraw",
     "Blog/NEXTJS/images/HTML Parsing.png",
