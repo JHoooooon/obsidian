@@ -441,5 +441,150 @@ request.addEventListener("success", (event) => {
 
 ## 객체 저장소의 객체 업데이트
 
+`put()` 메소드를 호출해 객체의 내용을 바로 업데이트할수 있다.
+
+```js
+const request = window.indexedDB.open("my-database", 4);
+
+request.addEventListener("success", (event) => {
+	const updateRate = {
+		"exchange_from": "CAD",
+		"exchange_to": "ILS",
+		"rate": 1.2,
+	};
+
+	const db = event.target.result;
+	db.transaction("exchange_rates", "readwrite")
+		.objectStore("exchange_rates")
+		.put(updateRate, 2)
+		.addEventListener("success", (event) => {
+			console.log("Updated")
+		});
+});
+```
+
+위는 `out-of-line-key` 를 사용했을때, 사용가능하다.
+이는 `incrimentalNumber`  를 통해 자동적으로 `ID` 값을 할당하므로, 이 `ID` 를 식별하여 처리한다.
+
+이 방식이 아닌, `inline key` 를 사용할때, `field` 의 `ID` 값을 알고 있어야 처리 가능하므로, 먼저 객체저장소에서 객체를 먼저 가져오는것이 좋다.
+
+```js
+const request = window.indexedDB.open("my-database", 4);
+
+request.addEventListener("success", (event) => {
+	const db = event.target.result;
+	const customerStore = db
+		.transaction("customers", "readwrite")
+		.objectStore("customers");
+
+	customerStore
+		.openCursor()
+		.addEventListener((event) => {
+			const cursor = event.target.result;
+
+			if (!cursor) {
+				return;
+			}
+
+			const customer = cursor.value;
+			if (customer.first_name === "Archie") {
+				customer.first_name = "Archer";
+				cursor.update(customer);
+			} else {
+				customer.first_name = "Tom";
+				customerStore.put(customer);
+			}
+
+			cursor.continue();
+		});
+});
+```
+
+이 코드는 모든 고객 정보를 순회하는 `cursor` 를 연후에, 각 고객의 이름을 검사하고, `update` 한다.
+하지만, `"Tom"` 은 `customerStore.put` 을 통해 `update` 한다.
+
+이는 원하는 방식을 사용하여 처리 가능하다.
+단, 두번째 인자로 `ID` 값을 주지 않는데, 이는 객체 자체에 `ID` 값이 포함되어 있기 때문이다.
+굳이, `Primary Key` 를 명시할 필요는 없다.
+
+## 객체 저장소에서 객체 삭제
+
+객체 삭제는 `delete` 를 사용한다.
+
+```js
+const request = window.indexedDB.open("my-database", 4);
+
+request.addEventListener("success", (event) => {
+	const db = event.target.result;
+	db.transaction("exchange_rates", "readwrite")
+		.objectStore("exchange_rates)
+		.delete(2);
+});
+```
+
+이는 `ID` 가 $2$ 인 `exxhange_rates` 의 요소를 삭제한다.
+이는 `cursor` 를 통해 처리도 가능하다.
+
+```js
+const request = window.indexedDB.open("my-database", 4);
+
+request.addEvenetListener("success", (event) => {
+	const db = event.target.result;
+	db.transaction("customers", "readwrite")
+		.objectStore("customers")
+		.openCursor()
+		.addEventListener((event) => {
+			const cursor = event.target.cursor;	
+			if (!cursor) {
+				return;
+			}
+			const customer = cursor.value
+			if (customer.first_name === "Stevens") {
+				cursor.delete();
+			}
+			cursor.continue();
+		});
+});
+```
+
+## 객체 저장소에서 모든 객체 삭제
+
+`clear()` 는 `success`  및 `error` 이벤트를 갖는 `request` 를 반환한다.
+다음은 `customers` 객체 저장소를 삭제하고 삭제를 끝내는 즉시 콘솔에 메시지를 기록한다.
+
+```js
+const request = window.indexedDB.open("my-database", 4);
+
+request.addEventListener("success", (event) => {
+	const db = event.target.result;
+	db.transaction("customers", "readwrite")
+		.objectStore("customers")
+		.clear()
+		.addEventListener("success", (event) => {
+			console.log(`Object store clear`);
+		});
+});
+```
+
+## 위로 전파되는 Bubbling IndexedDB 에러 처리
+
+`IndexedDB` 의 `error` 는 `bubbling` 된다.
+이말은, 만약 `openCursor` 에서 `error` 가 발생했는데, `error` `event` 가 없다면, 이는 `transaction` 의 `error` `event` 로 올라갈것이고, 이역시 없다면 `objectStore` 의 `error` `event` 로 넘어간다.
+
+이렇게 위 단계로 `error` 가 전파되어 올라가는데, 이를 활용하여, 공통 에러 핸들러 정의가 가능하다.
+이는 편하게 에러 처리를 할수 있는 기법중 하나이다.
+
+## SQL 과 비교
+
+- `Cursor` 는 `SELECT * FROM table;` 과 비슷하다.<br>단, `Cursor` 는 `SQL` 과 달리 객체의 `Pointer` 로 가리키고 있을 뿐이다.  
+
+- `IDBKeyRange` 는 `SELECT` 문에서 `WHERE` 절의 관계와 같다.<br>`WHERE x >= y` 는 `IDBKeyRange.lowerBound(y, false)` 와 같다.
+
+- `Index` 는 `SQL` 의`Index` 를 열별로 미리 만들어두어 사용하는 개념과 비슷하다.<br>`IndexedDB` 의 `Index` 는 저장된 하나의 객체 속성에대해서만 쿼리가 가능하다.
+
+- `Cursor Direction` 은 `SQL` 의 `ORDER BY x DESC` 와 비슷하다.<br>`IndexedDB` 에서는 `prev` 를 사용하여, 내림차순으로 정렬한다.<br>`SQL` 과는 달리 `index key` 를 기준으로 결과 값을 정렬할수 있다.
+
+
+
 
 
