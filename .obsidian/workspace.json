@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
+                "file": "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ffd8bd3b6ae37c90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blog/PWA/페이지간의 커뮤니케이션.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
+                "file": "Blog/PWA/페이지간의 커뮤니케이션.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
+                "file": "Blog/PWA/페이지간의 커뮤니케이션.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md"
+                "file": "Blog/PWA/페이지간의 커뮤니케이션.md"
               }
             }
           },
@@ -158,20 +171,20 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d57b1716a5cc1338",
+  "active": "ffd8bd3b6ae37c90",
   "lastOpenFiles": [
-    "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
     "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
+    "Blog/PWA/페이지간의 커뮤니케이션.md",
+    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
+    "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
+    "Blog/PWA/Cache API.md",
+    "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
     "Blog/PWA/Background Sync",
     "Blog/PWA/IndexedDB/IndexedDB 사용.md",
     "().md",
-    "Blog/PWA/Untitled.md",
     "Blog/PWA/IndexedDB/IndexdDB 소개.md",
     "Blog/PWA/IndexedDB",
-    "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
-    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
-    "Blog/PWA/Cache API.md",
     "Blog/PWA/오프라인 우선",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
