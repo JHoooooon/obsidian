@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "LiSyncSmall",
-      "👆",
-      "📇",
-      "🗂",
-      "LiPalette"
+      "LiFileCog",
+      "LiFileBox",
+      "LiFile",
+      "RiMobileDownloadLine",
+      "LiAppWindow"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -185,5 +185,11 @@
   "Blog/PWA/IndexedDB/IndexedDB 사용.md": "🗂",
   "Blog/PWA/IndexedDB/IndexdDB 소개.md": "📇",
   "Blog/PWA/IndexedDB": "👆",
-  "Blog/PWA/Background Sync": "LiSyncSmall"
+  "Blog/PWA/Background Sync": "LiSyncSmall",
+  "Blog/PWA/서비스 워커 생명주기와 캐시관리.md": "RiRecycleLine",
+  "Blog/PWA/페이지간의 커뮤니케이션.md": "LiSpeech",
+  "Blog/PWA/오프라인 우선": "RiCloudOffLine",
+  "Blog/PWA/웹앱": "LiAppWindow",
+  "Blog/PWA/웹앱/웹앱.md": "RiMobileDownloadLine",
+  "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md": "LiFileCog"
 }
