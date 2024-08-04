@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
                 "mode": "source",
                 "source": false
               }
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md"
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md"
               }
             }
           },
@@ -184,8 +184,10 @@
   },
   "active": "d57b1716a5cc1338",
   "lastOpenFiles": [
-    "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
     "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
+    "Blog/PWA/Push Notification/Push Notification life cycle.md",
+    "Blog/PWA/Push Notification",
+    "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
     "Blog/PWA/웹앱/웹앱.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "웹앱 매니페스트의 구조.md",
@@ -221,8 +223,6 @@
     "Blog/Redis/Data Type/Geospatial.md",
     "Blog/Redis/Data Type/Managing key.md",
     "Blog/C/데이터와 C.md",
-    "Untitled 2.md",
-    "Blog/C/데이터와 C",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/NEXTJS/images/HTML Parsing.png",
