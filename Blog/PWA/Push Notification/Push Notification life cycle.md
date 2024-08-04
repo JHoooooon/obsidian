@@ -53,13 +53,40 @@ Notification.requestPermission().then((permission) => {
 
 #### 1단계: 푸시 메시지 구독
 
+![[Send subscribe.png]]
+
 먼저, `page` 는 `Push API` 의 `subscribe()` 메서드를 호출한다.
 `method` 가 호출되면, 중앙 메시징 서버로 구독 요청이 전달되고, 중앙 서버는 신규 구독 상세 정보를 저장한후, `구독 상세 정보` 를 `page` 로 반환한다.
 
 #### 2단계: 구독 세부내용 저장 
 
+![[Save subscription info.png]]
+
 `구독 상세 정보` 받은 `page`  는 이 정보를 나중에 사용할수 있도록 `app server` 로 전송한다.
 `구독 상세 정보` 는 `사용자 상세 정보` 를 저장하는 테이블이나, 객체 저장소에 함께 저장하는 경우가 많다.
+
+#### 3단계: 구독자에게 메시지 전송
+
+![[Send message to subscriber.png]]
+
+`App server` 는 저장해두었던, `구독 상세 정보` 를 가져와, `messaing server` 로 `message` 를 전송할때 사용한다.
+
+#### 4단계:  서비스워커로 메시지 전달
+
+![[Send Message To Service Worker.png]]
+
+`Messaging server` 는 `App Server`  에게 받은 `message` 를 `Browser` 에게 전달한다.
+이를 통해 `Browser` 의 `Service Worker` 는 `message` 를 수신하여 그 내용을 읽고 무엇을 할지 결정한다.
+
+>[!info] [[#1단계 푸시 메시지 구독]] 단계의 `Push` 생성에는 사용자 권한이 필요하다.<br>보통의 `Browser` 는 알림 표시를 위한 권한을 한번만 요청한다.
+
+### Push 알림 프로세스
+
+`Push` 알림을 전송하는 전체 프로세스는 다음과 같다
+
+1. `Page` 가 사용자에게 알림을 보여주기 위한 권한을 요청하면, 사용자가 그 권한을 부여
+2. 
+
 
 
 

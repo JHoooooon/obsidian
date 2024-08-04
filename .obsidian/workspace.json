@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d57b1716a5cc1338",
+            "id": "0ddd7909f0c11255",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,41 +20,18 @@
             }
           },
           {
-            "id": "0ddd7909f0c11255",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "ffd8bd3b6ae37c90",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "웹앱 매니페스트의 구조.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "0bd26a878e89d6da",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -120,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md",
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -137,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md",
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md"
+                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md"
               }
             }
           },
@@ -195,17 +172,22 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
+    "Blog/PWA/assets/images/Send Message To Service Worker.png",
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
-    "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md",
+    "Blog/PWA/assets/Excalidraw/Push API steps.md",
+    "Blog/PWA/assets/images/Send message to subscriber.png",
+    "Blog/PWA/assets/images/Save subscription info.png",
+    "save subscribe request.png",
+    "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
+    "웹앱 매니페스트의 구조.md",
+    "Blog/PWA/assets/images/Send subscribe.png",
     "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
     "Blog/PWA/Push Notification",
     "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
     "Blog/PWA/웹앱/웹앱.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
-    "웹앱 매니페스트의 구조.md",
     "Blog/PWA/페이지간의 커뮤니케이션.md",
     "Blog/PWA/웹앱",
-    "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
     "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
     "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
     "Blog/PWA/Cache API.md",
@@ -233,13 +215,7 @@
     "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
     "Blog/Redis/assets/excalidraw/bitmap structure.md",
     "Blog/Redis/Data Type/Geospatial.md",
-    "Blog/Redis/Data Type/Managing key.md",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
-    "Blog/Redis/assets/images/bitmap structuer.png",
-    "Blog/NEXTJS/images/HTML Parsing.png",
-    "Blog/LearnSQL/Assets/Images/교집합을 제외한 나머지 A, B 영역.png",
-    "Blog/LearnSQL/Assets/Images/except.png",
-    "Blog/LearnSQL/Assets/Images/Intersect.png",
-    "Blog/LearnSQL/Assets/Images/Union.png"
+    "Blog/Redis/assets/images/bitmap structuer.png"
   ]
 }
