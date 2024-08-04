@@ -20,6 +20,16 @@
             }
           },
           {
+            "id": "0ddd7909f0c11255",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md"
+              }
+            }
+          },
+          {
             "id": "ffd8bd3b6ae37c90",
             "type": "leaf",
             "state": {
@@ -43,7 +53,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
+                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -126,7 +137,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
+                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md"
+                "file": "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md"
               }
             }
           },
@@ -182,10 +193,11 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "d57b1716a5cc1338",
+  "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
+    "Blog/PWA/assets/Excalidraw/Drawing 2024-08-04 15.35.34.excalidraw.md",
+    "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
     "Blog/PWA/Push Notification",
     "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
     "Blog/PWA/웹앱/웹앱.md",
@@ -222,7 +234,6 @@
     "Blog/Redis/assets/excalidraw/bitmap structure.md",
     "Blog/Redis/Data Type/Geospatial.md",
     "Blog/Redis/Data Type/Managing key.md",
-    "Blog/C/데이터와 C.md",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png",
     "Blog/NEXTJS/images/HTML Parsing.png",
