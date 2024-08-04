@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 생성.md",
+                "file": "Blog/PWA/Push Notification/알림 표시.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 생성.md",
+                "file": "Blog/PWA/Push Notification/알림 표시.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 생성.md",
+                "file": "Blog/PWA/Push Notification/알림 표시.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 생성.md"
+                "file": "Blog/PWA/Push Notification/알림 표시.md"
               }
             }
           },
@@ -175,6 +175,7 @@
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
     "Blog/PWA/Push Notification/알림 표시.md",
     "Blog/PWA/Push Notification/알림 생성.md",
+    "Blog/PWA/페이지간의 커뮤니케이션.md",
     "Blog/PWA/assets/images/Send Message To Service Worker.png",
     "Blog/PWA/assets/Excalidraw/Push API steps.md",
     "Blog/PWA/assets/images/Send message to subscriber.png",
@@ -188,7 +189,6 @@
     "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
     "Blog/PWA/웹앱/웹앱.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
-    "Blog/PWA/페이지간의 커뮤니케이션.md",
     "Blog/PWA/웹앱",
     "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
     "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
