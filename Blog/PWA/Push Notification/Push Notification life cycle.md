@@ -85,7 +85,36 @@ Notification.requestPermission().then((permission) => {
 `Push` 알림을 전송하는 전체 프로세스는 다음과 같다
 
 1. `Page` 가 사용자에게 알림을 보여주기 위한 권한을 요청하면, 사용자가 그 권한을 부여
-2. 
+2. `Page` 가 `중앙 메시징 서버` 에 접속해 신규 구독 생성을 요청
+3. `메시징 서버` 는 새로운 구독 세부 정보 객체를 응답으로 반환
+4. `Page` 는 받은 구독 세부 정보 객체를 `App Server`  에 전송
+5. `App Server` 는 구독 세부 정보 객체를 저장하여 구독할 사용자 업데이트
+6.  이후, 언제가 될지 모르겠지만, `App Server` 에서 구독 사용자에게 보낼 알림이 필요해짐
+7. `App Server`  는 기존의 구독 세부 정보들을 확인하여, 사용자에게 보낼 `Message` 를 `중앙 메시징 서버` 로 전송
+8. `중앙 메시징 서버` 에서는 사용자 `browser` 로 메시지를 전달
+9. `Service Worker` 는 `중앙 메시징 서버` 로 부터 받은 `Message` 를 `Push` 이벤트 리스너가 수신
+10. `Service Worker` 가 `Message` 내용을 기반으로 알림을 표시
+
+## 알림 생성
+
+앞의 `Process` 를 이용하여, 알림을 생성해본다.
+### 알림을 위한 권한 요청 
+
+`Notification.permission` 속성의 값을 확인하면, `Page` 가 알림 표시 `permission` 을 갖고 있는지 확인할수 있다.
+
+- 만일 값이 `"granted"` 라면 권한을 갖고 있다는 뜻
+- 사용자가 아직 결정하지 않앗다면 `"default"` 를 반환
+- 거부했다면 `"denied"` 를 반환
+
+```js
+if (Notification.permission === "granted") {
+	console.log("Notification permission was granted");
+}
+```
+
+
+
+
 
 
 
