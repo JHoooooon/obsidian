@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
+                "file": "Blog/PWA/Push Notification/알림 생성.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
+                "file": "Blog/PWA/Push Notification/알림 생성.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md",
+                "file": "Blog/PWA/Push Notification/알림 생성.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Push Notification/Push Notification life cycle.md"
+                "file": "Blog/PWA/Push Notification/알림 생성.md"
               }
             }
           },
@@ -172,8 +172,10 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/PWA/assets/images/Send Message To Service Worker.png",
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
+    "Blog/PWA/Push Notification/알림 표시.md",
+    "Blog/PWA/Push Notification/알림 생성.md",
+    "Blog/PWA/assets/images/Send Message To Service Worker.png",
     "Blog/PWA/assets/Excalidraw/Push API steps.md",
     "Blog/PWA/assets/images/Send message to subscriber.png",
     "Blog/PWA/assets/images/Save subscription info.png",
@@ -214,7 +216,6 @@
     "Untitled.md",
     "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
     "Blog/Redis/assets/excalidraw/bitmap structure.md",
-    "Blog/Redis/Data Type/Geospatial.md",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png"
   ]

@@ -95,29 +95,3 @@ Notification.requestPermission().then((permission) => {
 9. `Service Worker` 는 `중앙 메시징 서버` 로 부터 받은 `Message` 를 `Push` 이벤트 리스너가 수신
 10. `Service Worker` 가 `Message` 내용을 기반으로 알림을 표시
 
-## 알림 생성
-
-앞의 `Process` 를 이용하여, 알림을 생성해본다.
-### 알림을 위한 권한 요청 
-
-`Notification.permission` 속성의 값을 확인하면, `Page` 가 알림 표시 `permission` 을 갖고 있는지 확인할수 있다.
-
-- 만일 값이 `"granted"` 라면 권한을 갖고 있다는 뜻
-- 사용자가 아직 결정하지 않앗다면 `"default"` 를 반환
-- 거부했다면 `"denied"` 를 반환
-
-```js
-if (Notification.permission === "granted") {
-	console.log("Notification permission was granted");
-}
-```
-
-
-
-
-
-
-
-
-
-
