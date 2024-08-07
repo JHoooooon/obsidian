@@ -172,8 +172,10 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/PWA/Push Notification/Push Notification life cycle.md",
+    "Blog/TDD/테스트 구성요소.md",
     "Blog/PWA/Push Notification/알림 표시.md",
+    "Blog/TDD",
+    "Blog/PWA/Push Notification/Push Notification life cycle.md",
     "Blog/PWA/Push Notification/알림 생성.md",
     "Blog/PWA/페이지간의 커뮤니케이션.md",
     "Blog/PWA/assets/images/Send Message To Service Worker.png",
@@ -212,10 +214,8 @@
     "Blog/Redis/Data Type/Stream/Stream.md",
     "Blog/Redis/assets/images/stream data process.png",
     "Blog/Redis/assets/excalidraw/Consumer Group.md",
-    "Blog/Redis/Data Type/Stream",
     "Untitled.md",
     "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
-    "Blog/Redis/assets/excalidraw/bitmap structure.md",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png"
   ]
