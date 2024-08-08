@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
+                "file": "Blog/TDD/UI  Component/query 개요.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
+                "file": "Blog/TDD/UI  Component/query 개요.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
+                "file": "Blog/TDD/UI  Component/query 개요.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md"
+                "file": "Blog/TDD/UI  Component/query 개요.md"
               }
             }
           },
@@ -160,10 +160,13 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
+    "Blog/TDD/UI  Component/event-handler 개요.md",
+    "Blog/TDD/UI  Component/query 개요.md",
+    "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
+    "Blog/TDD/UI  Component",
     "Blog/TDD/Mock/Mock.md",
     "Blog/TDD/Mock/웹 API 목 객체 생성 함수.md",
     "Blog/TDD/Mock/웹 API 구현.md",
-    "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
     "Blog/TDD/Mock",
     "Blog/PWA/Push Notification/알림 표시.md",
@@ -199,10 +202,7 @@
     "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
     "Blog/PWA/assets/images",
     "Blog/PWA/assets/Excalidraw",
-    "Blog/PWA/assets",
-    "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/Redis/assets/images/Consumer Group.png",
-    "Blog/Redis/Data Type/Stream/Consumer Group.md",
     "Blog/Redis/assets/images/stream data process.png",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png"
