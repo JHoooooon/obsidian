@@ -106,6 +106,7 @@ jest.mock("next/router", () => require("next-router-mock"))
 ## Spy
 
 `Spy` 는 기록하는 용도로 사용된다.
+>[!info] `Spy fn` 을 `stub` 으로 만들수 있기도 하다.
 
 `jest` 에서 생성하는 `jest.fn` 은 내부적으로, 해당 함수에 대한 `meta` 데이터가 저장된다.
 
@@ -121,46 +122,7 @@ jest.mock("next/router", () => require("next-router-mock"))
 
 하지만, `jest.spyOn` 은 이미 구현되어있는 함수의 구현을 그대로 사용하면서, `mocking fn` 으로써 사용한다.
 
-### 웹 API 테스트 
 
-다음은 웹 `API` 를 테스트를 `Stub` 으로 교체한다.
 
->[!info] fetchers.ts
-```ts
-export type Profile {
-	id: string;
-	name?: string;
-	age?: number;
-	email: string;
-}
-
-const getMyProfile = async (): Promise<Profile> => {
-	const res = await fetch("https://myapi.test.com/my/profile"))
-	const data = await res.json();
-	if (!res.ok) {
-		throw data; // server 의 error 내용
-	}
-	return data; // Profile type 의 반환값
-}
-
-export getMyProfile
-```
-
->[!info] greet.ts
-```ts
-import { getMyProfile } from "./fetchers"
-
-export const getGreet = async () => {
-	const data = await getMyProfile();
-	if (!data.name) {
-		return "Hello, annoymous user!"
-	}
-	
-	return `Hello, ${data.name}`
-}
-```
-
-`Test` 를 구현한다.
-여기에서 `fetchers` 는 `Stub` 으로 대체하고, `spyOn` 은 
 
 
