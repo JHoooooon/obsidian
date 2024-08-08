@@ -12,6 +12,8 @@
 
 ## Stub
 
+>[!warning] `jest.mock` 으로 만든 모의함수는 `jest.fn`, `jest.spyOn` 으로 만든 모의함수와는 다르게 호출정보 추적이 불가능하다는것이다.<br><br>대신 구현체의 동작을 직접 설정해야 한다.
+
 `Stub` 은 `Test Double`(`대체역할`) 로 사용하는 용도이다.
 
 - 의존중인 모듈의 대체 용도
@@ -102,8 +104,9 @@ jest.mock("next/router", () => require("next-router-mock"))
 
 이는, `nest/router` 의존 모듈을 `next-router-mock` 으로 대체한다.
 
-
 ## Spy
+
+>[!warning] `jest.mock` 으로 만든 모의함수는 `jest.fn`, `jest.spyOn` 으로 만든 모의함수와는 다르게 호출정보 추적이 불가능하다
 
 `Spy` 는 기록하는 용도로 사용된다.
 >[!info] `Spy fn` 을 `stub` 으로 만들수 있기도 하다.
@@ -121,8 +124,4 @@ jest.mock("next/router", () => require("next-router-mock"))
 >[!info] `mock` 함수는 기본적으로, `mocking` 된 함수이므로 추적가능하다.<br>`Stub` 역시 이러한 `mock` 함수로 구현된다.
 
 하지만, `jest.spyOn` 은 이미 구현되어있는 함수의 구현을 그대로 사용하면서, `mocking fn` 으로써 사용한다.
-
-
-
-
 

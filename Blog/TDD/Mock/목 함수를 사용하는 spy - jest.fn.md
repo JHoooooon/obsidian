@@ -226,6 +226,57 @@ test("500 error", async () => {
 })
 ```
 
+## 현재 시각에 의존하는 테스트
+
+현재 시각에 의존하는 로직이 테스트 대상에 포함되었다면, 테스트 결과가 실행 시각에 의존하게 된다.
+이렇게 특정 시간대에는 `CI` 테스트 자동화가 실패하는 불안정한 테스트가 된다
+
+이때 태스트 실행 환경의 현재 시각을 고정하면 언제 실행하더라도 같은 테스트 결과를 얻는다.
+
+>[!info] greet.ts
+```ts
+export const greetByTime = async () => {
+	const hour = new Date().getHours();
+	if (hour < 12) {
+		return "좋은 아침입니다"
+	} else if (hour < 18) {
+		return "식사는 하셨나요"
+	}
+	return "좋은 밤 되세요"
+}
+```
+
+- `jest.userFakeTimers`: 제스트에 가짜 타이머를 사용하도록 지시하는 함수
+- `jest.setSystemTime`: 가짜 타이머에서 사용할 현재 시각을 설정하는 함수
+- `jest.useRealTimers`: 제스트에 실제 타이머를 사용하도록 지시하는 원상 복귀 함수
+
+`beforeEach` 와 `afterEach` 에서 타이머를 교체하는 작업을 수행하여 테스트마다 가짜 타이머를 설정한다
+
+```ts
+describe("greetByTime", () => {
+	beforeEach(() => {
+		jest.useFakeTimers()
+	})
+	afterEach(() => {
+		jest.useRealTimers()
+	})
+
+	test("hour < 12", () => {
+		jest.setSystemTime(new Date(2023, 4, 23, 8, 0, 0))
+		expect(greetByTime()).toBe("좋은 아침입니다")
+	})
+
+	test("hour < 18", () => {
+		jest.setSystemTime(new Date(2023, 4, 23, 14, 0, 0))
+		expect(greetByTime()).toBe("식사는 하셨나요")
+	})
+
+	test("hour >= 18", () => {
+		jest.setSystemTime(new Date(2023, 4, 23, 19, 0, 0))
+		expect(greetByTime()).toBe("좋은 밤 되세요")
+	})
+})
+```
 
 
 
