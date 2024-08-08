@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 표시.md",
+                "file": "Blog/TDD/Mock.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 표시.md",
+                "file": "Blog/TDD/Mock.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 표시.md",
+                "file": "Blog/TDD/Mock.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/PWA/Push Notification/알림 표시.md"
+                "file": "Blog/TDD/Mock.md"
               }
             }
           },
@@ -172,8 +172,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/TDD/테스트 구성요소.md",
     "Blog/PWA/Push Notification/알림 표시.md",
+    "Blog/TDD/Mock.md",
+    "Blog/TDD/테스트 구성요소.md",
     "Blog/TDD",
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
     "Blog/PWA/Push Notification/알림 생성.md",
@@ -215,7 +216,6 @@
     "Blog/Redis/assets/images/stream data process.png",
     "Blog/Redis/assets/excalidraw/Consumer Group.md",
     "Untitled.md",
-    "Blog/Redis/assets/excalidraw/Drawing 2024-07-23 20.48.54.excalidraw.md",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png"
   ]
