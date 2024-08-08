@@ -107,6 +107,70 @@ export const getMyArticleLinksByCategory = async (category: string) {
 
 >[!info] greet.ts
 ```ts
-import { getMyArticleLinksByCategory } from 'greet'
-import * as 
+import { getMyArticleLinksByCategory } from './greet'
+import * as fetchers from "./fetchres"
+import { getMyArticlesData, httpError } from "./fixture"
+
+// mocking 객체를 생성하는 함수
+const mockGetArticles = (status = 200) => {
+	// jestOn 으로 spyobject 를 생성
+	const getMyArticles = jest.jestOn(fetchres, "getMyArticles");
+
+	// status 가 299 보다 크면 reject
+	if (status > 299) {
+		return getMyArticles.mockRejectedValueOnce(httpError)
+	}
+
+	// status 가 299 보다 작으면 resolve
+	return getMyArticles.mockResolvedValueOnce(getMyArticlesData)
+}
+
+describe("getMyArticleLinksByCategory", () => {
+	// tag 가 없으면 null
+	test("article is null, if tags not includes tag", async () => {
+		// spyon 객체 생성 함수 호출
+		mockGetMyArticles()
+		// playwright 인 tag 를 가진 articles 반환
+		const data = await getMyArticleLinksByCategory("playwright")
+		// playwright 라는 tag 를 가진 article 이 없어 null
+		expect(data).toBeNull()
+	})
+
+	// tag 가 있으면 article 은 not null
+	test("article is not null, if tags includes tag", async () => {
+		// spyon 객체 생성 함수 호출
+		mockGetMyArticles()
+		// testing 인 tag 를 가진 articles 반환
+		const data = await getMyArticleLinksByCategory("testing")
+		// data 는 다음의 배열과 일치
+		expect(data).toMatchObject([
+			{
+				link: "/articles/howto-testing-with-typescript",
+				title: "타입스크립트를 사용한 테스트 작성법",
+			},
+			{
+				link: "/articles/react-component-testing-with-jest",
+				title:  "제스트로 시작하는 리액트 컴포넌트 테스트",
+			}
+		])
+	})
+
+	// 데이터취득 실패로 reject 테스트
+	test("fetch failed", async () => {
+		// spyon 객체 생성 함수 호출
+		// reject
+		mockgetMyArticles(500)
+		// error 단언문 생성
+		await getMyArticleLinksByCategory("testing").catch(err => {
+			// reject 된 error object 테스트
+			expect(err).toMatchObject({
+				err: {
+					message: "Internal server error"
+				}
+			})
+		})
+	})
+
+})
 ```
+

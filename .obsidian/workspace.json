@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/TDD/Mock/웹 API 목 객체 생성 함수.md",
+                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/TDD/Mock/웹 API 목 객체 생성 함수.md",
+                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/TDD/Mock/웹 API 목 객체 생성 함수.md",
+                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/TDD/Mock/웹 API 목 객체 생성 함수.md"
+                "file": "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/TDD/Mock/웹 API 구현.md",
     "Blog/TDD/Mock/웹 API 목 객체 생성 함수.md",
+    "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
+    "Blog/TDD/Mock/웹 API 구현.md",
     "Blog/TDD/Mock/Mock.md",
     "Blog/PWA/Push Notification/Push Notification life cycle.md",
     "Blog/TDD/Mock",
@@ -202,7 +203,6 @@
     "Blog/Redis/assets/excalidraw/stream data process.md",
     "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/Data Type/Stream/Consumer Group.md",
-    "Blog/Redis/Data Type/Stream/Stream.md",
     "Blog/Redis/assets/images/stream data process.png",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
     "Blog/Redis/assets/images/bitmap structuer.png"
