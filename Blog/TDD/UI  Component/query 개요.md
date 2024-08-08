@@ -163,14 +163,37 @@ test('목록을 표시', () => {
 
 위는 `listItmes` 의 `length` 가 $3$ 개임을 볼수 있다.
 
-### within 함수로 범위 좁히기
+## within 함수로 범위 좁히기
 
 큰 컴포넌트를 다룰때, `test` 대상이 아닌 `listitem` 도 `getAllByRole` 의 반환값에 포함될수 있다.
 
 >[!info] `listitem` 은 모든 `li` 를 선택한다. 그러므로 `test` 대상이 아닌 모든 `li` 를 선택하므로 이는 문제가된다.
 
 이때 얻은 `list` 노드로 범위를 좁혀, 여기에 포함된 `listitem` 요소의 숫자를 검증해야 한다.
+이때 사용하는 함수가 `within` 이다.
 
+```tsx
+test('itmes 수만큼 목록 표시', () => {
+    render(<ArticleList items={articleList} />);
+    const list = screen.getAllByRole('list');
+    expect(list).toBeInTheDocument();
+	expect(within(list)).getAllByRole('listitem').toHaveLength(3) // 3
+});
+```
+
+##  목록에 표시할 내용이 없는 상황에서 테스트
+
+목록을 표시하지 않으면, `"게시된 기사가 없습니다.` 라는 문구가 나온다.
+이를 검증하는 테스트는 다음과 같다
+
+```tsx
+test('목록이 없음', () => {
+	render(<ArticleList items={[]} />)
+	const list = screen.getAllByRole('list')
+	expect(list).toBeNull() // true
+	expect(screen.getByText('게시된 기사가 없습니다.')).toBeInTheDocument() // true
+})
+```
 
 
 
