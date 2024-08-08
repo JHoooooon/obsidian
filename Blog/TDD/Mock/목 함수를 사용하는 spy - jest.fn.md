@@ -120,10 +120,112 @@ test("목 함수는 실행시 인수가 객체일대도 검증가능하다", () 
 	const mockFn = jest.fn()
 	checkConfig(mockFn)
 	expect(mockFn).toHaveBeenCalledWith(
-		expect.objectContainin
-	{
-		mock: true,
-		feature: { spy: true },
-	})
+		expect.objectContaining({
+			feature: { spy: true }
+		})
+	)
 })
 ```
+
+## 웹 API 목 객체 처리
+
+다음은 `server` 에서 `유효성 검사` 를 한다고 가정하며, `유효성 검사` 는 다음의 함수를 사용한다
+
+>[!info] checkLength
+```ts
+export class ValidationError extends Error {};
+
+export function checkLength(value: string) {
+	if (value.length === 0) {
+		throw new ValidationError("한 글자 이상의 문자를 입력해주세요.")
+	}
+}
+```
+
+다음은, `mock` 객체를 생성하여, 검증한다.
+
+```ts
+import { httpError, postMyArticleData } from "./fixtures"
+import { checkLength } from "./checkLength"
+import * as fetchers from "./fetchres"
+import { postMyArticle } from "./postMyArticle"
+
+function mockPostMyArticle(input: ArticleInput, status = 200) {
+	const postMyArticle = jest
+		.spyon(fetchres, "postMyArticle")
+	
+	if (status > 299) {
+		return postMyArticle.mockRejectedValueOnce(httpError)
+	}
+
+	try {
+		checkLength(input.title)
+		checkLength(input.body)
+		return postMyArticle.mockResolvedValue({ 
+			...postMyArticleData, 
+			...input 
+		})
+	} catch (err) {
+		return postMyArticle
+			.mockRejectedValuesOnce(httpError)
+	}
+}
+
+function inputFactory(input?: Partial<ArticleInput>) {
+	return {
+		tags: ["testing"],
+		title: "타입스크립트를 사용한 테스트 작성법",
+		body: "테스트 작성시 타입스크립트를 사용하면 테스트의 유지보수가 쉬워진다",
+		...input
+	}
+}
+
+// inputFactory() 유효성 통과
+// inputFactory({ title: "", body: "" }) 유효성 통과 x
+
+test("유효성 검사를 성공하면 성공 응답 반환", async () => {
+	// input 생성
+	const input = inputFactory()
+	// mocking 
+	const mock = mockPostMyArticle(input)
+	// input 으로 실행할 함수호출
+	const data = await postMyArticle(input)
+	// data 에 input 이 포함되었는지 확인
+	expect(data).toMatchObject(expect.objectContaining(input))
+	// mock 이 호출되었는지 확인
+	expect(mock).toHaveBeenCalled()
+})
+
+test("유효성 검사에 실패", async () => {
+	expect.assertions(2)
+	// 통과못하도록 input 생성
+	const input = inputFactory({ title: "", body: "" })
+	// mocking
+	const mock = mockPostMyArticle(input)
+	// input 검증: rejected 되었는지 확인
+	await postMyArticle(input).catch((err) => {
+		expect(err).toMatchObject({ err: { message: expect.anyting() } })
+		// mock 호출되었는지 확인
+		expect(mock).toHaveBeenCalld()
+	});
+})
+
+test("500 error", async () => {
+	expect.assertions(2)
+	// 통과못하도록 input 생성
+	const input = inputFactory()
+	// mocking status = 500
+	const mock = mockPostMyArticle(input, 500)
+	// input 검증: rejected 되었는지 확인
+	await postMyArticle(input).catch((err) => {
+		// rejected
+		expect(err).toMatchObject({ err: { message: expect.anyting() } })
+		// mock 호출되었는지 확인
+		expect(mock).toHaveBeenCalld()
+	});
+})
+```
+
+
+
+
