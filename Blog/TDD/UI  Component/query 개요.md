@@ -90,9 +90,86 @@ test("heading 을 포함", () => {
 
 ## 아이템 목록 UI 컴포넌트 테스트
 
-```
+>[!info] ArticleList.ts
+```ts
+import { ItemProps } from './index.type';
+
+export const articleList: ItemProps = [
+    {
+        id: 'howto-testing-with-typescript',
+        title: '타입스크립트를 사용한 테스트 작성법',
+        body: '테스트 작성 시 타입스크립트를 사용하면 테스트의 유지 보수가 쉬워진다',
+    },
+    {
+        id: 'nextjs-link-component',
+        title: 'Next.js의 링크 컴포넌트',
+        body: 'Next.js는 화면을 이동할 때 링크 컴포넌트를 사용한다',
+    },
+    {
+        id: 'react-component-testing-with-jest',
+        title: '제스트로 시작하는 리액트 컴포넌트 테스트',
+        body: '제스트는 단위 테스트처럼 UI 컴포넌트를 테스트할 수 있다',
+    },
+];
 ```
 
+>[!info] ArticleList.tsx
+```tsx
+import { ItemProps } from '../../fixtures/index.type';
+import ArticleListItem from './ArticleListItem';
+
+type Props = {
+    items: ItemProps;
+};
+
+const ArticleList = ({ items }: Props) => {
+    return (
+        <div>
+            <h2>기사 목록</h2>
+            {items.length ? (
+                <ul>
+                    {items.map((item) => (
+                        <ArticleListItem {...item} key={item.id} />
+                    ))}
+                </ul>
+            ) : (
+                <p>게시된 기사가 없습니다.</p>
+            )}
+        </div>
+    );
+};
+
+export default ArticleList;
+```
+
+>[!info] ArticleList.test.tsx
+```tsx
+import { render, screen } from '@testing-library/react';
+import ArticleList from './ArticleList';
+import { articleList } from '../../fixtures/index';
+
+test('itmes 수만큼 목록 표시', () => {
+    render(<ArticleList items={articleList} />);
+    const listItmes = screen.getAllByRole('listitem');
+    expect(listItmes).toHaveLength(3); // 3
+});
+
+test('목록을 표시', () => {
+    render(<ArticleList items={articleList} />);
+    const list = screen.getByRole('list');
+    expect(list).toBeInTheDocument(); // true
+});
+```
+
+위는 `listItmes` 의 `length` 가 $3$ 개임을 볼수 있다.
+
+### within 함수로 범위 좁히기
+
+큰 컴포넌트를 다룰때, `test` 대상이 아닌 `listitem` 도 `getAllByRole` 의 반환값에 포함될수 있다.
+
+>[!info] `listitem` 은 모든 `li` 를 선택한다. 그러므로 `test` 대상이 아닌 모든 `li` 를 선택하므로 이는 문제가된다.
+
+이때 얻은 `list` 노드로 범위를 좁혀, 여기에 포함된 `listitem` 요소의 숫자를 검증해야 한다.
 
 
 
