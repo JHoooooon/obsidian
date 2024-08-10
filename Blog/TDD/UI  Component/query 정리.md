@@ -992,4 +992,116 @@ export function postMyAddress(values: unknown): Promise<Result> {
 }
 ```
 
-`postMyAddress` 는 `fetch API` 를 상숑ㅎ
+`postMyAddress` 는 `fetch API` 를 사용하여 `server` 에 값을 보내는 로직이다.
+이를 `testing` 해야 한다.
+
+다음은 `test` 할 로직이다.
+
+>[!info] [RegisterAddress.tsx](https://github.com/frontend-testing-book-kr/unittest/blob/main/src/05/07/RegisterAddress.tsx)
+```tsx
+import { useState } from "react";
+import { Form } from "../06/Form";
+import { postMyAddress } from "./fetchers";
+import { handleSubmit } from "./handleSubmit";
+import { checkPhoneNumber, ValidationError } from "./validations";
+
+/* 코드 5-46
+<Form
+  onSubmit={handleSubmit((values) => {
+    try {
+      checkPhoneNumber(values.phoneNumber);
+      // 데이터 취득 함수
+    } catch (err) {
+      if (err instanceof ValidationError) {
+        setPostResult("올바르지 않은 값이 포함되어 있습니다");
+        return;
+      }
+    }
+  })}
+/>
+*/
+
+export const RegisterAddress = () => {
+  const [postResult, setPostResult] = useState("");
+  return (
+    <div>
+      <Form
+        onSubmit={handleSubmit((values) => {
+          try {
+            checkPhoneNumber(values.phoneNumber);
+            postMyAddress(values)
+              .then(() => {
+                setPostResult("등록됐습니다");
+              })
+              .catch(() => {
+                setPostResult("등록에 실패했습니다");
+              });
+          } catch (err) {
+            if (err instanceof ValidationError) {
+              setPostResult("올바르지 않은 값이 포함되어 있습니다");
+              return;
+            }
+            setPostResult("알 수 없는 에러가 발생했습니다");
+          }
+        })}
+      />
+      {postResult && <p>{postResult}</p>}
+    </div>
+  );
+};
+```
+
+이는 `handleSubmit` 에서 `callback` 을 받아, `Promise` 를 반환한다.
+`callback` 에서 처리된 `postMyAddress` 를 다음처럼 `mock` 함수를 만든다.
+
+>[!info] [fetchers/mock.ts](https://github.com/frontend-testing-book-kr/unittest/blob/main/src/05/07/fetchers/mock.ts)
+```tsx
+import * as Fetchers from ".";
+import { httpError, postMyAddressMock } from "./fixtures";
+
+export function mockPostMyAddress(status = 200) {
+  if (status > 299) {
+    return jest
+      .spyOn(Fetchers, "postMyAddress")
+      .mockRejectedValueOnce(httpError);
+  }
+  return jest
+    .spyOn(Fetchers, "postMyAddress")
+    .mockResolvedValueOnce(postMyAddressMock);
+}
+```
+
+이제 이렇게 만든 `mock` 함수를 기존의 처리되어야할 `postMyAddress` 함수로 대체하면 된다.
+
+```tsx
+import { render, screen } from "@testing-library/react";
+import { mockPostMyAddress } from "./fetchers/mock";
+import { RegisterAddress } from "./RegisterAddress";
+import {
+  clickSubmit,
+  inputContactNumber,
+  inputDeliveryAddress,
+} from "./testingUtils";
+
+jest.mock("./fetchers");
+
+test("성공하면 등록됐습니다 표시", () => {
+	const mockFn = mockPostMyAddress();
+	render(<RegisterAddress/>);
+
+	const submitValues = await fillValueAndSubmit();
+	expect(mockFn).toHaveBeenCalledWith(expect.objectConataining(submitValues));
+	expect(screen.getByText("등록됐습니다.")).toBeInTheDocument();
+});
+
+test("성공하면 등록됐습니다 표시", () => {
+	const mockFn = mockPostMyAddress(500);
+	render(<RegisterAddress/>);
+
+	const submitValues = await fillValueAndSubmit();
+	expect(mockFn).toHaveBeenCalledWith(expect.objectConataining(submitValues));
+	expect(screen.getByText("등록에 실패했습니다.")).toBeInTheDocument();
+});
+```
+
+
