@@ -759,5 +759,111 @@ export default DeliveryForm;
 
 >[!info] Form.text.tsx
 ```tsx
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import DeliveryForm from '.';
 
+const user = userEvent.setup();
+
+// contactNumber input 입력 함수
+const inputContactNumber = async (
+    inputValues = {
+        name: '배연수',
+        phoneNumber: '000-0000-0000',
+    }
+) => {
+    const phone = screen.getByRole('textbox', { name: '전화번호' });
+    const name = screen.getByRole('textbox', { name: '이름' });
+
+    await user.type(phone, inputValues.phoneNumber);
+    await user.type(name, inputValues.name);
+
+    return inputValues;
+};
+
+// deliveryAddress input 입력 함수
+const inputDeliveryAddress = async (
+    inputValues = {
+        postalCode: '16397',
+        prefectures: '경기도',
+        municipalities: '수원시 권선구',
+        streetNumber: '매곡로 67',
+    }
+) => {
+    const postalCode = screen.getByRole('textbox', { name: '우편번호' });
+    const prefectures = screen.getByRole('textbox', { name: '시/도' });
+    const municipalities = screen.getByRole('textbox', { name: '시/군/구' });
+    const streetNumber = screen.getByRole('textbox', { name: '도로명' });
+
+    await user.type(postalCode, inputValues.postalCode);
+    await user.type(prefectures, inputValues.prefectures);
+    await user.type(municipalities, inputValues.municipalities);
+    await user.type(streetNumber, inputValues.streetNumber);
+
+    return inputValues;
+};
+
+// mockFn 을 반환하는 함수
+// onsubmit 함수실행시 mockFn 에 formData 를 넣어 호출한다.
+const mockHandleSubmit = () => {
+    const mockFn = jest.fn();
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        const formData = new FormData(e.currentTarget);
+        const data: { [k: string]: unknown } = {};
+        formData.forEach((v, k) => {
+            console.log(v, k);
+            data[k] = v;
+        });
+        mockFn(data);
+    };
+
+    return [mockFn, onSubmit] as const;
+};
+
+// test
+describe('이전 배송지가 없는경우', () => {
+	// 배송지 입력란 존재하는지 검증
+    test('배송지 입력란이 존재한다.', async () => {
+        render(<DeliveryForm />);
+
+        const contractNumber = screen.getByRole('group', { name: '연락처' });
+        const deliveryAddress = screen.getByRole('group', { name: '배송지' });
+
+        expect(contractNumber).toBeInTheDocument();
+        expect(deliveryAddress).toBeInTheDocument();
+    });
+
+	// 폼 제출시 입력내용 확인 검증
+    test('폼을 제출하면 입력 내용을 전달받는다', async () => {
+		// mockHandleSubmit 함수에서 mockFn 과 onSubmit 구조분해할당
+        const [mockFn, onSubmit] = mockHandleSubmit();
+		// 구조분해 할당된 onSubmit 을 DeliveryForm 에 전달
+        render(<DeliveryForm onSubmit={onSubmit} />);
+
+		// inputCntactNumber 함수 호춯
+        const contactNumberValue = await inputContactNumber();
+		// deliveryAddressValue 함수 호춯
+        const deliveryAddressValue = await inputDeliveryAddress();
+		// button 쿼리
+        const btn = screen.getByRole('button', { name: '주문내용 확인' });
+
+		// button 클릭
+        await user.click(btn);
+
+		// mockFn 이 호출되었는지 검증
+        expect(mockFn).toBeCalled();
+		// mockFn 이 contactNumberValue 와 deliveryAddressValue 와
+		// 함께 호출되었는지 검증
+        expect(mockFn).toHaveBeenCalledWith({
+            ...contactNumberValue,
+            ...deliveryAddressValue,
+        });
+    });
+});
+
+```
+
+### 이전 배송지가 있는 경우 테스트
+
+```tsx
 ```
