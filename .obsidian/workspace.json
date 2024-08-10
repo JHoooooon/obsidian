@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md",
+                "file": "Blog/Lambda/Serverless Framework yaml.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md",
+                "file": "Blog/Lambda/Serverless Framework yaml.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md",
+                "file": "Blog/Lambda/Serverless Framework yaml.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -115,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md"
+                "file": "Blog/Lambda/Serverless Framework yaml.md"
               }
             }
           },
@@ -161,8 +160,10 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "().md",
     "Blog/TDD/UI  Component/query 정리.md",
+    "Blog/Lambda/Serverless Framework yaml.md",
+    "Blog/Lambda",
+    "().md",
     "Blog/TDD/UI  Component/event-handler 개요.md",
     "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
     "Blog/TDD/UI  Component",
@@ -200,9 +201,7 @@
     "Blog/PWA/IndexedDB",
     "Blog/PWA/오프라인 우선",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
-    "Blog/PWA/assets/Excalidraw/Service Worker Lifecycle.md",
     "Blog/PWA/assets/images",
-    "Blog/PWA/assets/Excalidraw",
     "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/assets/images/stream data process.png",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",

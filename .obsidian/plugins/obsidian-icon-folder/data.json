@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiFunctionSquare",
       "RiNotificationFill",
       "RiEarthLine",
       "LiFileCog",
-      "LiFileBox",
-      "LiFile"
+      "LiFileBox"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -193,5 +193,6 @@
   "Blog/PWA/웹앱/웹앱.md": "RiMobileDownloadLine",
   "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md": "LiFileCog",
   "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md": "RiEarthLine",
-  "Blog/PWA/Push Notification": "RiNotificationFill"
+  "Blog/PWA/Push Notification": "RiNotificationFill",
+  "Blog/Lambda": "LiFunctionSquare"
 }
