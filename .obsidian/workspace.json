@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Lambda/Serverless Framework yaml.md",
+                "file": "Blog/Lambda/Usage/Parameters.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Lambda/Serverless Framework yaml.md",
+                "file": "Blog/Lambda/Usage/Parameters.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Lambda/Serverless Framework yaml.md",
+                "file": "Blog/Lambda/Usage/Parameters.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Lambda/Serverless Framework yaml.md"
+                "file": "Blog/Lambda/Usage/Parameters.md"
               }
             }
           },
@@ -160,8 +160,10 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/TDD/UI  Component/query 정리.md",
     "Blog/Lambda/Serverless Framework yaml.md",
+    "Blog/Lambda/Usage/Parameters.md",
+    "Blog/Lambda/Usage",
+    "Blog/TDD/UI  Component/query 정리.md",
     "Blog/Lambda",
     "().md",
     "Blog/TDD/UI  Component/event-handler 개요.md",
@@ -197,11 +199,9 @@
     "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
     "Blog/PWA/Background Sync",
     "Blog/PWA/IndexedDB/IndexedDB 사용.md",
-    "Blog/PWA/IndexedDB/IndexdDB 소개.md",
     "Blog/PWA/IndexedDB",
     "Blog/PWA/오프라인 우선",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
-    "Blog/PWA/assets/images",
     "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/assets/images/stream data process.png",
     "Blog/Redis/assets/images/PSUBSCRIBE & SUBSCRIB.png",
