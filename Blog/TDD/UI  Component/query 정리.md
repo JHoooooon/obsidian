@@ -866,4 +866,130 @@ describe('이전 배송지가 없는경우', () => {
 ### 이전 배송지가 있는 경우 테스트
 
 ```tsx
+describe('이전 배송지가 있는 경우', () => {
+    test('이전 배송지가 있는지 검증', () => {
+        render(<DeliveryForm deliveryAddresses={deliveryAddresses} />);
+        const registerDeliveryAddresss = screen.getByRole('group', {
+            name: '새로운 배송지를 등록하시겠습니까?',
+        });
+        const postDeliveryAddress = screen.getByRole('group', {
+            name: '이전 배송지',
+        });
+
+        expect(registerDeliveryAddresss).toBeInTheDocument();
+        expect(postDeliveryAddress).toBeDisabled();
+    });
+
+    test('아니오를 선택한 경우', async () => {
+        // mocking 된 함수와, onSubmit 을 처리하는 함수생성
+        const [mockFn, onSubmit] = mockHandleSubmit();
+
+        render(
+            <DeliveryForm
+                deliveryAddresses={deliveryAddresses}
+                onSubmit={onSubmit}
+            />
+        );
+
+        // btn 쿼리
+        const btn = screen.getByRole('button', { name: '주문내용 확인' });
+        // 아니오 radio 버튼
+        const regNo = screen.getByLabelText('아니오');
+        // 아니오 radio 버튼 클릭
+        await user.click(regNo);
+
+        // contactNumber 작성
+        const inputValue = await inputContactNumber();
+        // btn 을 눌러 제출
+        await user.click(btn);
+
+        // mockFn 이 inputValue 를 포함한 객체를 받았는지 검증
+        expect(mockFn).toHaveBeenCalledWith(
+            expect.objectContaining(inputValue)
+        );
+    });
+
+    test('"네" 를 선택한 경우', async () => {
+        const [mockFn, onSubmit] = mockHandleSubmit();
+
+        render(
+            <DeliveryForm
+                onSubmit={onSubmit}
+                deliveryAddresses={deliveryAddresses}
+            />
+        );
+
+        // radio 버튼의 '예' 쿼리
+        const yesReg = screen.getByLabelText('예');
+        // radio 버튼 클릭
+        await user.click(yesReg);
+
+        // 새로운 배송지 이름을 가진 field 쿼리
+        const deliveryAddress = screen.getByRole('group', {
+            name: '새로운 배송지',
+        });
+        // 해당 field 가 존재하는지 검증
+        expect(deliveryAddress).toBeInTheDocument();
+
+        // inputContactNumber 호출
+        const contactValue = await inputContactNumber();
+        // inputDeliveryAddress 호출
+        const addrValue = await inputDeliveryAddress();
+        // '주문내용 확인' btn 쿼리
+        const btn = screen.getByRole('button', { name: '주문내용 확인' });
+
+        // btn 클릭
+        await user.click(btn);
+
+        // mockFn 에서 contactValue, addressValue 가 포함된 객체를
+        // 인조로 받아 호출했는지 확인
+        expect(mockFn).toHaveBeenCalledWith(
+            expect.objectContaining({
+                ...contactValue,
+                ...addrValue,
+            })
+        );
+    });
+});
+
 ```
+
+## 비동기 처리가 포함된 UI 컴포넌트 테스트
+
+`<input />` 요소에 문자를 입력하면 `<form />` 요소의 `onSubmit` 에 할당된 이벤트 핸들러가 호출되는 상황을 테스트했다.
+
+이를 `fetch API` 로 전송하는 과정을 테스트한다
+
+>[!info] 코드는 [github](https://github.com/frontend-testing-book-kr/unittest/tree/main/src/05/07) 에서 살펴본다. 
+
+일단 여기서 중요한부분은 [fetchers](https://github.com/frontend-testing-book-kr/unittest/blob/main/src/05/07/fetchers/index.ts)  부분이다.
+[fetchers/index.ts](https://github.com/frontend-testing-book-kr/unittest/blob/main/src/05/07/fetchers/index.ts) 를 보면, 다음처럼 구성되어 있다. 
+
+```tsx
+import { Result } from "./type";
+
+async function handleResponse(res: Response) {
+  const data = await res.json();
+  if (!res.ok) {
+    throw data;
+  }
+  return data;
+}
+
+const host = (path: string) => `https://myapi.testing.com${path}`;
+
+const headers = {
+  Accept: "application/json",
+  "Content-Type": "application/json",
+};
+
+export function postMyAddress(values: unknown): Promise<Result> {
+  return fetch(host("/my/address"), {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers,
+  }).then(handleResponse);
+}
+```
+
+`postMyAddress` 는 `fetch API` 를 상숑ㅎ
