@@ -511,8 +511,8 @@ export const InputAccount= () => {
 				</label>
 			</div>
 			<div>
-				비밀번호
-				<input type="password" placeholder="8자 이상" />
+				<label htmlFor="pass">비밀번호</label>
+				<input id="pass" type="password" placeholder="8자이상" />
 			</div>
 		</fieldset>
 	)
@@ -528,8 +528,145 @@ export const InputAccount= () => {
 `user` 로 입력하여 테스트를 생성한다.
 
 ```tsx
-import userEvent from '@testing-libarary/react'
+import { render, screen } from '@testing-libarary/react'
 import userEvent from '@testing-libarary/user-event'
-import 
+import { InputAccount } from './IntpuAccount'
 
+const user = userEvent.setup();
+
+test("메일 주소 입력", async () => {
+	render(<InputAccount />)
+	// 메일주소 input 쿼리
+	const textBox = screen.getByRole('textbox', { name: '메일주소' })
+	// 입력값
+	const value = 'test@mail.com'
+
+	// user.type 을 사용하여 textBox 에 value 값 입력
+	await user.type(textBox, value)
+
+	// screen 상에 value 값이 있는 요소가 있는지 검증
+	expect(screen.getByDisplayValue(value)).toBeInTheDocument()
+})
 ```
+
+### 비밀번호 입력
+
+이는 똑같이 처리 가능하지만, 약간 다르다.
+`input type=password` 는 `textbox` 로 취급하지 않기 때문이다.
+
+이는 몇가지 이유가 존재한다.
+
+1. password 입력 필드는 일반 텍스트 상자와 다른 보안 특성을 가집니다. 입력된 문자가 asterisks(\*)나 dots(•)로 마스킹되어 표시된다.
+
+2. 접근성: 스크린 리더와 같은 보조 기술이 이 필드를 일반 텍스트 상자와 다르게 처리할 수 있다 
+
+>[!warning] ARIA  명세에서는 `password` `no-role` 인것을 볼수 있다. 
+
+이렇게 명세가 되어있지 않기때문에, `browser` 마다 다른 접근법을 제시할수 있기에, 다른 방법으로 처리해야한다.
+
+대략적으로 $2$ 가지 방법이 제시된다.
+
+>[!info] InputAccount.test.tsx
+```tsx
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import InputAccount from '.';
+
+const user = userEvent.setup();
+
+test('메일주소 입력', () => {
+    render(<InputAccount />);
+    const textbox = screen.getByRole('textbox', { name: '메일주소' });
+    expect(textbox).toBeInTheDocument();
+});
+
+test('비밀번호 존재 확인(plaeholder 로 쿼리)', () => {
+    render(<InputAccount />);
+    const passwordBox = screen.getByPlaceholderText('8자이상');
+    expect(textbox).toBeInTheDocument();
+});
+
+test('비밀번호 존재 확인(label text 로 쿼리)', () => {
+    render(<InputAccount />);
+    const passwordBox = screen.getByLabelText('비밀번호');
+    expect(textbox).toBeInTheDocument();
+});
+```
+
+이제 입력을 확인한다
+
+```tsx
+test('비밀번호 존재 확인(plaeholder 로 쿼리)', async () => {
+    render(<InputAccount />);
+    const passwordBox = screen.getByPlaceholderText('8자이상');
+	const value = "abc12345"
+    expect(textbox).toBeInTheDocument();
+
+	await user.type(textbox, value)
+
+	expect(screen.getByDisplayValue(value)).toBeInTheDocument()
+});
+```
+
+제대로 처리되는것을 확인할수 있다.
+
+### 회원가입 폼 테스트
+
+>[!info] Form.tsx
+```tsx
+
+import { useState, useId } from 'react';
+import { InputAccount } from './InputAccount'; 
+import { Agreement } from './Agreement';
+
+const [checked, setChecked] = useState(false)
+const headingId = useId()
+
+export const Form = ()=> {
+	<form aria-labelledby={headingId}>
+		<h2 id={headingId}>신규 계정 등록</h2>
+		<InputAccount />
+		<Agreement />
+		<div>
+			<button disabled={!checked}>회원가입하기</button>
+		</div>
+	</form>
+}
+```
+
+```tsx
+test('회원가입 버튼 비활성화', () => {
+    render(<Form />);
+    const button = screen.getByRole('button', { name: '회원가입하기' });
+
+    // button 있는지 확인
+    expect(button).toBeInTheDocument();
+
+    // button 이 disabled 인지 확인
+    expect(button).toBeDisabled();
+});
+```
+
+```tsx
+test('회원가입 버튼 활성화', async () => {
+    render(<Form />);
+    const button = screen.getByRole('button', { name: '회원가입하기' });
+    const chkBox = screen.getByRole('checkbox', { name: '이용 약관 동의' });
+
+    // button 있는지 검증
+    expect(button).toBeInTheDocument();
+    // chkBox 있는지 검증
+    expect(chkBox).toBeInTheDocument();
+
+    // button disabled 검증
+    expect(button).toBeDisabled();
+
+    // 체크박스 클릭
+    await user.click(chkBox);
+
+    // button enabled 검증
+    expect(button).toBeEnabled();
+});
+```
+
+
