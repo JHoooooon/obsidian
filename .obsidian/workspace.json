@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Lambda/Usage/Parameters.md",
+                "file": "Blog/TDD/UI  Component/query 정리.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Lambda/Usage/Parameters.md",
+                "file": "Blog/TDD/UI  Component/query 정리.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Lambda/Usage/Parameters.md",
+                "file": "Blog/TDD/UI  Component/query 정리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Lambda/Usage/Parameters.md"
+                "file": "Blog/TDD/UI  Component/query 정리.md"
               }
             }
           },
@@ -160,8 +160,8 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Lambda/Serverless Framework yaml.md",
     "Blog/Lambda/Usage/Parameters.md",
+    "Blog/Lambda/Serverless Framework yaml.md",
     "Blog/Lambda/Usage",
     "Blog/TDD/UI  Component/query 정리.md",
     "Blog/Lambda",
