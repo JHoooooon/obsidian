@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 개요.md",
+                "file": "Blog/TDD/UI  Component/query 정리.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 개요.md",
+                "file": "Blog/TDD/UI  Component/query 정리.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 개요.md",
+                "file": "Blog/TDD/UI  Component/query 정리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 개요.md"
+                "file": "Blog/TDD/UI  Component/query 정리.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
+    "().md",
+    "Blog/TDD/UI  Component/query 정리.md",
     "Blog/TDD/UI  Component/event-handler 개요.md",
-    "Blog/TDD/UI  Component/query 개요.md",
     "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
     "Blog/TDD/UI  Component",
     "Blog/TDD/Mock/Mock.md",
@@ -194,7 +195,6 @@
     "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
     "Blog/PWA/Background Sync",
     "Blog/PWA/IndexedDB/IndexedDB 사용.md",
-    "().md",
     "Blog/PWA/IndexedDB/IndexdDB 소개.md",
     "Blog/PWA/IndexedDB",
     "Blog/PWA/오프라인 우선",

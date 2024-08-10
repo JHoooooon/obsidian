@@ -45,6 +45,52 @@ test('이름을 표시', () => {
 이는 `taro` 라는 `text` 를 가진 요소를 가져온다.
 이와 동시에 `expect` 단언문을 사용하여, `document` 안에 해당 요소가 있는지 검증한다.
 
+### Testing-library/react 의 query 우선순위
+ 
+`testing-library/react` 에서의 `query` 는 우선순위가 존재한다.
+이는 요소를 얻기 위한 원칙인데, 웹 접근성과 연관이 깊다.
+
+웹접근성은 청각, 시각, 인지, 신경, 신체 , 언어에 대한 장애를 겪는 사람들 역시 이러한 점을 극복하고 웹에 대한 접근성을 높히는데 있다. 
+
+>[!info] 웹의 힘은 보편성에 있습니다.<br>장애에 상관없이 모두가 접근할 수 있다는 것이 가장 중요한 부분입니다.<br><br>`팀 버너스리, W3C 디렉터 및 Wrold Wide Web의 창시자`
+
+`testing-library` 는 `모든 사용자 입력을 제약없이 재현` 이라는 목적을 가지고 설계되었다.
+
+**이는 신체적, 정신적 특성에 따른 차이 없이 접근할수 있는 쿼리를 의미한다.**
+
+이러한 접근성을 고려해서, 테스팅에 대한 쿼리를 웹 접근성을 기반으로 한 `query` 가 우선시되어야 한다.
+
+다음은 이러한 우선순위를 보여준다.
+
+1. **모두가 접근 가능한 쿼리**<br>신체적, 정신적 특성에 따른 차이 없이 접근할 수 있는 쿼리를 의미.<br>`screen reader` 등의 보조 기기로 인지한것과 동일한것을 증명한다.<br><br>[`ByRole`](https://testing-library.com/docs/queries/byrole): [HTML-Aria](https://www.w3.org/TR/html-aria/#docconformance)에 명시된 `ROLE` 로 `query`<br><br>[`ByLabelText`](https://testing-library.com/docs/queries/bylabeltext): 주어진 `TextMatch` 와 연관된 `label` 로 `element` `query`<br>`TextMatch` 는 `label` 에 주어진 이름이다.<br><br>[`ByPlaceholderText`](https://testing-library.com/docs/queries/byplaceholdertext): 주어진 `placeholder` 에 맞는 `element` `query`<br><br>[`ByDisplayValue`](https://testing-library.com/docs/queries/bydisplayvalue): `textfield`, `input`, `select` 요소에서 표시된 `value` 로 `query`<br>
+
+2. **시맨틱 쿼리**<br>공식 표준에 기반한 속성을 사용하는 쿼리를 의미<br>시맨틱 쿼리를 사용할때는 브라우저나 보조 기기에따라 상당히 다른 결과가 나올수있다.<br><br>[`ByAltText`](https://testing-library.com/docs/queries/byalttext): `Alt` 에 주어진 `text` 를 기반으로 `element` `query`<br><br>[`ByTitle`](https://testing-library.com/docs/queries/bytitle): `element` 가 가진 `textContent` 를 기반으로 `element` `query`<br><br>[`ByText`](https://testing-library.com/docs/queries/bytext): 주어진 `TextMatch` 와 매칭되는 `Text Node` 를 가진 `element` 를 `query` 
+
+3. **테스트 ID**<br><br>테스트용으로 할당된 식별자를 의미<br>역할이나 문자 컨텐츠를 활용한 쿼리를 사용할수 없거나, 의도적으로 의미 부여를 피하고 싶을때 사용<br><br>[`ByTextId`](https://testing-library.com/docs/queries/bytestid):  `container.querySelector("[data-testid="${yourId}"]` 와 같은 의미로, 식별자를 `query`
+
+### query Type
+
+중요한 부분은 `query` 에 대한 타입에 따라 붙는 `prefix` 가 달라진다.
+이는 공통적으로 사용되는 `query` `convention` 으로 사용된다. 
+`query type` 은 다음과 같다
+
+>[!info] [type of query](https://testing-library.com/docs/queries/about#types-of-queries) 에서 확인할수 있다.
+
+#### Single Element
+
+**getBy...** : `matching` 되는 `element` 를 반환한다.<br>만약 `matching` 되는 `element` 가 없거나 $2$ 이상의 `element` 가 있다면,<br>`error` 를 `throw` 한다.
+
+**queryBy...**: `matching` 되는 `element` 를 반환한다.<br>만약, `matching` 되는 `element` 가 없다면 `NULL` 을 반환한다.<br>하지만, $2$ 이상의 `element` 가 있다면, `error` 를 `throw` 한다.
+
+**findBy...**: `Promise`  를 반환한다.<br> 주어진 `query` 에 `matching` 되는 `element` 가 있다면`resolve` 된다.<br> 주어진 `query` 에 `matching` 되는 `element` 가 없거나, `default` `timeout` 이 지나면, `reject` 된다.<br><br>`default` `timeout`  은 $1000ms$  이다. 
+
+#### Multiple element
+
+**getAllBy...**: `query` 에 `matching` 되는 모든 `element` 를 배열로 반환한다.<br>주어진 `query` 에 `matching` 되는 `element` 가 없다면 `error` 를 `throw` 한다.
+
+**queryAllBy...**: `query` 에 `matching` 되는 모든 `element` 를 배열로 반환한다.<br>주어진 `query` 에 `matching` 되는 `element` 가 없다면 `[]`(`empty array`) 를 반환한다.
+
+**findAllBy...**: `Primise` 를 반환한다.
 ## DOM 요소를 `Role` 로 가져오기
 
 모든 요소마다 `Role` 이 존재한다.
@@ -195,5 +241,50 @@ test('목록이 없음', () => {
 })
 ```
 
+## 개별 아이템 컴포넌트 테스트
 
+만약 다음과 같은 개별 컴포넌트가 있다고 가정하자
+
+>[!info] ArticleListItem.tsx
+```tsx
+export type ItemProp {
+	id: string;
+	title: string;
+	body: string;
+}
+
+export const ArticleListItmem = ({ id, title, body }: ItemProps) => {
+	return (
+		<li>
+			<h3>{title}</h3>
+			<p>{body}</p>
+			<a href={`/articles/${id}`}>더 알아보기</a>
+		</li>
+	)
+}
+```
+
+그리고, 이러한 `listItem` 을 테스트한다.
+테스트는 `id` `attrubute` 를 찾는다.
+
+이때 해당 `attribute` 를 찾기위한 `toHaveAttribute` 메서드를 사용한다.
+
+>[!info] ArticleListItem.test.tsx
+```tsx
+import {render, screen} from "@testing-library/react";
+import { ArticleListItem } from "./ArticleListItem";
+
+const item: ItemProp = {
+	id: "howto-testing-with-typescript",
+	title: "타입스크립트를 위한 테스트 방법",
+	body: "테스트..."
+};
+
+test("링크에 id 로 만든 URL 표시", () => {
+	render(<ArticleListItem {...item}/>);
+	expect(screen.getRoleBy("link", { 
+		name: "더 알아보기" 
+	})).toHaveAttribute('href', `/articles/${item.id}`)
+});
+```
 
