@@ -84,13 +84,16 @@ test('이름을 표시', () => {
 
 **findBy...**: `Promise`  를 반환한다.<br> 주어진 `query` 에 `matching` 되는 `element` 가 있다면`resolve` 된다.<br> 주어진 `query` 에 `matching` 되는 `element` 가 없거나, `default` `timeout` 이 지나면, `reject` 된다.<br><br>`default` `timeout`  은 $1000ms$  이다. 
 
+---
 #### Multiple element
 
 **getAllBy...**: `query` 에 `matching` 되는 모든 `element` 를 배열로 반환한다.<br>주어진 `query` 에 `matching` 되는 `element` 가 없다면 `error` 를 `throw` 한다.
 
 **queryAllBy...**: `query` 에 `matching` 되는 모든 `element` 를 배열로 반환한다.<br>주어진 `query` 에 `matching` 되는 `element` 가 없다면 `[]`(`empty array`) 를 반환한다.
 
-**findAllBy...**: `Primise` 를 반환한다.
+**findAllBy...**: `Primise` 를 반환한다.<br>주어진 `query` 에 `matching` 되는 `element`  가 있다면, `resolve` 되며 모든 `element` 를 담은 `Array` 를 반환한다.<br>주어진 `query` 에 `matching` 되는 `element` 가 없거나, `default` `timeout` 이 지나면, `reject` 된다.<br><br>`default` `timeout` 은 $1000ms$ 이다. <br><br>여기서 중요한 부분은 `reject` 된다는것은 `error` 를 `throw` 한다는 뜻이며, 빈배열을 반환하지 않는다.
+
+---
 ## DOM 요소를 `Role` 로 가져오기
 
 모든 요소마다 `Role` 이 존재한다.
@@ -288,3 +291,245 @@ test("링크에 id 로 만든 URL 표시", () => {
 });
 ```
 
+## 인터렉티브 UI 컴포넌트 테스트
+
+다음은 `form` 컴포넌트를 테스트한다.
+이는 이용약관에 동의하면 `button` 이 활성화 된다.
+
+>[!info] Agreement.tsx
+```tsx 
+type Props = {
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+export const Agreement = ({ onChange }: Props) => {
+	return (
+		<fieldset>
+			<legend>이용 약관 동의</legend>
+			<label>
+				<input type="checkbox" onChange={onChange} />
+				서비스&nbsp;<a href="/terms">이용 약관</a>을 확인했으며 이에 동의합니다.
+			</label>
+		</fieldset>
+	)
+};
+```
+
+>[!info] InputAccount.tsx
+```tsx
+export const InputAccount= () => {
+	return (
+		<fieldset>
+			<legend>계정정보 입력</legend>
+			<div>
+				<label>
+					메일주소
+					<input type="text" placeholder="example@test.com" />
+				</label>
+			</div>
+			<div>
+				비밀번호
+				<input type="password" placeholder="8자 이상" />
+			</div>
+		</fieldset>
+	)
+}
+```
+
+>[!info] Form.tsx
+```tsx
+
+import { useState, useId } from 'react';
+import { InputAccount } from './InputAccount'; 
+import { Agreement } from './Agreement';
+
+const [checked, setChecked] = useState(false)
+const headingId = useId()
+
+export const Form = ()=> {
+	<form aria-labelledby={headingId}>
+		<h2 id={headingId}>신규 계정 등록</h2>
+		<InputAccount />
+		<Agreement />
+		<div>
+			<button disabled={!checked}>회원가입</button>
+		</div>
+	</form>
+}
+```
+
+이를 테스팅 한다.
+
+### Agreement
+
+>[!info] Agreement.tsx
+```tsx 
+type Props = {
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+export const Agreement = ({ onChange }: Props) => {
+	return (
+		<fieldset>
+			<legend>이용 약관 동의</legend>
+			<label>
+				<input type="checkbox" onChange={onChange} />
+				서비스&nbsp;<a href="/terms">이용 약관</a>을 확인했으며 이에 동의합니다.
+			</label>
+		</fieldset>
+	)
+};
+```
+
+다음은 `fieldset`  이 존재하는지 확인하는 테스트이다
+
+>[!info] Agreement.test.tsx
+```tsx
+import { render, screen } from '@testing-library/react';
+import { Agreement } from './Agreement'
+
+test("fieldset", () => {
+	render(<Agreement />)
+	expect(
+		screen.getByRole('group', { name: "이용 약관 동의" })
+	).toBeInTheDocument();
+})
+```
+
+[group role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/group_role) 에서 보면, `fieldset`  의 `role` 은 `group` 이라고 명시한다.
+
+>[!info] `fieldset` 요소는 `group` 이라는 암묵적 역할을 한다.<br>`legend` 는 `fieldset` 의 하위요소로서 그룹에 제목을 붙이는데 사용된다.
+
+이는 기능적으로 연관된 `item`  들의 논리적인 모음으로도 사용된다.
+`role` 은 `items` 를 묶는 `ul`, `tree` 구조로 이루어진 항목에 사용된다.
+
+```html
+<div id="tree1" role="tree" tabindex="-1">
+  <div
+    id="animals"
+    class="groupHeader"
+    role="presentation"
+    aria-owns="animalGroup"
+    aria-expanded="true">
+    <img role="presentation" tabindex="-1" src="images/treeExpanded.gif" />
+    <span role="treeitem" tabindex="0">Animals</span>
+  </div>
+  <div id="animalGroup" role="group">
+    <div id="birds" role="treeitem">
+      <span tabindex="-1">Birds</span>
+    </div>
+    <div
+      id="cats"
+      class="groupHeader"
+      role="presentation"
+      aria-owns="catGroup"
+      aria-expanded="false">
+      <img role="presentation" tabindex="-1" src="images/treeContracted.gif" />
+      <span role="treeitem" tabindex="0">Cats</span>
+    </div>
+    <div id="catGroup" role="group">
+      <div id="siamese" role="treeitem">
+        <span tabindex="-1">Siamese</span>
+      </div>
+      <div id="tabby" role="treeitem">
+        <span tabindex="-1">Tabby</span>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+```html
+<div role="menu">
+  <ul role="group">
+    <li role="menuitem">Inbox</li>
+    <li role="menuitem">Archive</li>
+    <li role="menuitem">Trash</li>
+  </ul>
+  <ul role="group">
+    <li role="menuitem">Custom Folder 1</li>
+    <li role="menuitem">Custom Folder 2</li>
+    <li role="menuitem">Custom Folder 3</li>
+  </ul>
+  <ul role="group">
+    <li role="menuitem">New Folder</li>
+  </ul>
+</div>
+```
+
+책에서는 다음처럼 역할을 가지지 않은 `div` 로 마크업하지 않기를 강조한다.
+이는 접근성에서 역할이 없으므로, 그룹으로 식별하기 어렵다.
+
+>[!warning] `div` 로 마크업하는건 `role` 식별이 어렵다
+```tsx
+type Props = {
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+export const Agreement = ({ onChange }: Props) => {
+	return (
+		<div>
+			<legend>이용 약관 동의</legend>
+			<label>
+				<input type="checkbox" onChange={onChange} />
+				서비스&nbsp;<a href="/terms">이용 약관</a>을 확인했으며 이에 동의합니다.
+			</label>
+		</div>
+	)
+};
+```
+
+>[!info] 이처럼 `UI 컴포넌트 테스트` 작성시 웹 접근성을 고려하며 테스팅하게 된다.
+
+### 체크박스의 초기 상태 검증
+
+다음은, `checkbox` 가 `checked` 되었는지 확인한다.
+
+```tsx
+test("체크 박스 체크되어 있지 않습니다.", () => {
+	render(<Agreement />)
+	expect(screen.getByRole("checkbox")).not.toBeChecked()
+})
+```
+
+>[!info] [JEST DOM toBeChecked](https://github.com/testing-library/jest-dom?tab=readme-ov-file#tobechecked)
+>
+> 주어진 `element` 가 `checked` 되었는지 확인하는 메서드
+> `checked` 되었다면 `ture`, 아니면 `false` 이다.
+
+### 계정 정보 입력 컴포넌트 테스트
+
+```tsx
+export const InputAccount= () => {
+	return (
+		<fieldset>
+			<legend>계정정보 입력</legend>
+			<div>
+				<label>
+					메일주소
+					<input type="text" placeholder="example@test.com" />
+				</label>
+			</div>
+			<div>
+				비밀번호
+				<input type="password" placeholder="8자 이상" />
+			</div>
+		</fieldset>
+	)
+}
+```
+
+`Input` 에 입력을 하는 테스트를 진행한다
+이를 위해 [user-event](https://testing-library.com/docs/user-event/intro) 를 `import` 해서 사용한다.
+
+>[!info] `user-event` 는 `user` 와의 상호작용을 위해 만들어진 `libarary` 이다.
+
+`userEvent.setup()` 으로 `API` 를 호출할 `user` 인스턴스를 생성하며,
+`user` 로 입력하여 테스트를 생성한다.
+
+```tsx
+import userEvent from '@testing-libarary/react'
+import userEvent from '@testing-libarary/user-event'
+import 
+
+```
