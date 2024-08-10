@@ -307,7 +307,8 @@ export const Agreement = ({ onChange }: Props) => {
 		<fieldset>
 			<legend>이용 약관 동의</legend>
 			<label>
-				<input type="checkbox" onChange={onChange} />
+				<label htmlFor="agreement">동의하기</label>
+				<input id="agreement" type="checkbox" onChange={onChange} />
 				서비스&nbsp;<a href="/terms">이용 약관</a>을 확인했으며 이에 동의합니다.
 			</label>
 		</fieldset>
@@ -651,7 +652,7 @@ test('회원가입 버튼 비활성화', () => {
 test('회원가입 버튼 활성화', async () => {
     render(<Form />);
     const button = screen.getByRole('button', { name: '회원가입하기' });
-    const chkBox = screen.getByRole('checkbox', { name: '이용 약관 동의' });
+    const chkBox = screen.getByRole('checkbox', { name: '이용 약관' });
 
     // button 있는지 검증
     expect(button).toBeInTheDocument();
@@ -669,4 +670,94 @@ test('회원가입 버튼 활성화', async () => {
 });
 ```
 
+### Form 의 접근 가능한 이름
 
+`Form` 의 이름역할을 하는 `heading` 이 존재한다.
+이는 `<h2>` 요소로써  `aria-labelledby` 라는 속성으로 접근가능한 이름으로 사용할수 있다.
+
+```tsx
+import { useState, useId } from 'react';
+import { InputAccount } from './InputAccount'; 
+import { Agreement } from './Agreement';
+
+const [checked, setChecked] = useState(false)
+const headingId = useId()
+
+export const Form = ()=> {
+	<form aria-labelledby={headingId}>
+		<h2 id={headingId}>신규 계정 등록</h2>
+		...
+	</form>
+}
+```
+
+이는 다음처럼 테스트 가능하다.
+
+```tsx
+test("form 접근가능한 이름", () => {
+	render(<Form />);
+	expect(
+		screen.getByRole("form", { name: "신규 계정 등록" })
+	).toBeInTheDocument();
+});
+```
+
+## 유틸리티 함수를 활용한 테스트
+
+>[!info] DeliveryForm.tsx
+```tsx
+import { useState } from 'react';
+import ContactNumber from './ContactNumber';
+import RegisterDeliveryAddress from './RegisterDeliveryAddress';
+import DeliveryAddress from './DeliveryAddress';
+import PastDeliveryAddress from './PastDeliveryAddress';
+
+export type AddressOption = React.ComponentProps<'option'> & { id: string };
+
+export interface Props {
+    deliveryAddresses?: AddressOption[];
+    onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const DeliveryForm = (props: Props) => {
+    const [registerNew, setRegisterNew] = useState<boolean | undefined>(
+        undefined
+    );
+
+    return (
+        <form onSubmit={props.onSubmit}>
+            <h1>배송지 정보 입력</h1>
+            <ContactNumber />
+            {props.deliveryAddresses?.length ? (
+                <>
+                    <RegisterDeliveryAddress onChange={setRegisterNew} />
+                    {registerNew ? (
+                        <DeliveryAddress title="새로운 배송지" />
+                    ) : (
+                        <PastDeliveryAddress
+                            disabled={registerNew === undefined}
+                            options={props.deliveryAddresses}
+                        />
+                    )}
+                </>
+            ) : (
+                <DeliveryAddress />
+            )}
+        </form>
+    );
+};
+
+export default DeliveryForm;
+```
+
+위의 `DeliveryForm`  을 사용하여 `Testing` 한다.
+
+### 폼 입력을 함수화
+
+화면 분기가 있는경우 폼 입력 테스트는 여러번 동일한 인터렉션을 작성한다.
+이렇게 반복적인 호출해야 하는 인터렉션을 하나의 함수로 처리하면 처리하기 편해진다.
+
+>[!info] Form.text.tsx
+```tsx
+
+```
