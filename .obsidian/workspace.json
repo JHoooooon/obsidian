@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
+                "file": "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
+                "file": "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
+                "file": "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md"
+                "file": "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md"
               }
             }
           },
@@ -160,8 +160,11 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Servierless/Serverless.yaml reference/Provider/Provider General AWS Lambda settings.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
+    "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
+    "Blog/Servierless/Usage/Events",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider General AWS Lambda settings.md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider General Settings.md",
     "Blog/Servierless/Serverless.yaml reference/Serverless Framework yaml.md",
     "Blog/Servierless/Serverless.yaml reference/Root Properties.md",
@@ -197,10 +200,7 @@
     "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
     "Blog/PWA/Push Notification",
     "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
-    "Blog/PWA/웹앱/웹앱.md",
-    "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "Blog/PWA/웹앱",
-    "Blog/PWA/Background Sync",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/assets/images/stream data process.png",

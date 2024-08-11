@@ -34,7 +34,7 @@ provider:
 		versioning: true
 
 		# server-side 암호화 메서드
-		serverSideEncryption: AES256
+		serverSideEncryption: AES256server-side 
 
 		# server-side 암호화인 경우
 		sseKMSKeyId: arn:aws:kms:ap-northeast-2:xxxxxxxxxxxx:key/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
@@ -42,5 +42,11 @@ provider:
 		# custom keys 와함께 server-side 암호화인 경우
 		sseCustomerAlgorithim: AES256
 		sseCustomerKey: string
-		sseCustomerKey
+		sseCustomerKeyMD5: md5sum
+
+		# 각 배포 resources 에 추가될 tags
+		tags:
+			key1: value1
+			key2: value2
 ```
+
