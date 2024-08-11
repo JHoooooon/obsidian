@@ -58,3 +58,30 @@ stages:
 
 ## Parameters
 
+[[Parameters]] 를 통해 내용을 확인할수 있다.
+
+```yml
+# Stage parameters
+# Parameters 는 stage 별 `values` 이다.
+# 이러한 Parameters 는 ${params:my-value} 를 통해 참조가능하다.
+# default parameters 는 지정된 stage 를 제외한 모든 stage 에서 사용하는 parameters 이다.
+# 그 외의 지정된 stage 에서는 설정한 parameters 를 사용한다.
+params:
+	default:
+		domain: ${sls:stage}.myapi.com
+	prod:
+		domain: myapi.com
+	dev:
+		domain: dev.myapi.com
+
+# 예로써, foo 에서 사용되는 ${param:domain} 은 stage 에 따라 그 값이 변경된다.
+foo: ${param:domain}
+```
+
+>[!info] `Serverless v4` 는 `stage` `property` 안에 `parameter` 설정을 선호한다.<br><br>[[Parameters]] 에서 보면,`top level property` 인 `params` 가 아닌  `stages` 에서 `Params`  설정이 가능하다.
+
+## Provider
+
+`AWS` `service`
+
+

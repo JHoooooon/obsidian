@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md",
+                "file": "Blog/Servierless/Serverless Framework yaml.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md",
+                "file": "Blog/Servierless/Serverless Framework yaml.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md",
+                "file": "Blog/Servierless/Serverless Framework yaml.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/TDD/UI  Component/query 정리.md"
+                "file": "Blog/Servierless/Serverless Framework yaml.md"
               }
             }
           },
@@ -160,11 +160,11 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Lambda/Usage/Parameters.md",
-    "Blog/Lambda/Serverless Framework yaml.md",
-    "Blog/Lambda/Usage",
+    "Blog/Servierless/Usage/Parameters.md",
+    "Blog/Servierless/Serverless Framework yaml.md",
     "Blog/TDD/UI  Component/query 정리.md",
-    "Blog/Lambda",
+    "Blog/Servierless/Usage",
+    "Blog/Servierless",
     "().md",
     "Blog/TDD/UI  Component/event-handler 개요.md",
     "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
