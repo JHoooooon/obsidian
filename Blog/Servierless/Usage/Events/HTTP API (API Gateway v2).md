@@ -92,6 +92,82 @@ functions:
 ## CORS Setup
 
 `HTTP APIs` 와 함께 `CORS` 설정이 가능하다. 
-이는 
+이는 구성된 모든 `endpoints` 에 적용된다.
 
+`Default` 로 구성된 `CORS` 는 다음처럼 구성하면 된다.
+
+```yml
+provicer:
+	httpApi:
+		cors: true
+```
+
+이는 다음과 같은 `header` 와 같다.
+
+| Header                       | Value                                                                                                       |
+| :--------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Access-Control-Allow-Origin  | *                                                                                                           |
+| Access-Control-Allow-Headers | Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token, X-Amz-User-Agent, X-Amzn-Trace-Id |
+| Access-Control-Allow-Methods | OPTIONS, (...all defined in endpoints)                                                                      |
+만약, `CORS` `headers` 를 조정해야 한다면, 각 `설정`은 다음처럼 각각 설정가능하다.
+
+```yml
+provider:
+	httpApi:
+		cors:
+			allowdOrigins:
+				- https://url1.com
+				- https://url2.com
+			allowedHeaders:
+				- Content-Type
+				- Authorization
+			allowedMethod:
+				- GET
+			allowCredentials: true
+			exposedResponseHeaders:
+				- Special-Response-Header
+			maxAge: 6000
+```
+
+## JWT Authorizers
+
+설정된 `HTTP API` `endpoints` 로 접근을 제한하는 한가지 방법중 하나로 `JWT` `Authorizer` 가 있다.
+
+만약, `API` 의 `route` 에서 `JWT` `Authorizaer` 를 설정한다면, `API Gateway` 는 `API` 요청과 함께 제출하는 `JWT` 의 유효성을 검사한다.
+
+`API Gateway` 는 이 `token` 검증을 기반으로 요청을 허락하거나 거부한다.
+
+만약, `route` 에 의해 설정된 `scope` 가 정의되어 있다면, `token` 은 반드시 `route` 의 `scope` 중 하나 이상이 포함되어야 한다.
+
+`API` 의 각 `route` 에 의해 별도의 `authorizer` 구성이 가능하며, 또한 여러 `routes` 가 같은 `authorizer` 를 사용할수도 있다.
+
+>[!info] `JWT Access Token` 을 `OpenID`, `Connect ID` 처럼 다른 유형의 `JWT` 와 구별하는 표준 매커니즘은 없다.<br><br> 이에 대해서, `authorization` `scope` 를  요구하도록 `routes` 를 구성하는것을 추천하다.<br>또한 `ID` `provider` 는 `JWT Acess Token` 을 발급할때만 사용할때만 사용하는`issuers` 또는 `audiences` 를 요구하도록 하여 `JWT authorizer` 를 설정할수 있다.<br> <br><br>[AWS Control access to HTTP APIs with JWT authorizers in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-jwt-authorizer.html)에서 이렇게 설명한다.) 
+
+### Authorizing API requests with a JWT authorizer
+
+`API Gateway` 는  다음의 일반적인 `workflow` 를 사용하여, `route` 에 대한 `authorization` `request` 를 승인한다.
+
+이는 `JWT Authorizer` 를 사용하도록 구성된다.
+
+1. [Authorizer Properties](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.html#apis-apiid-authorizers-authorizerid-properties) 중 `token` 의 `identitySource` 를 확인한다.<br>`identitySource` 는 오직 `token` 혹은 `Bearer` `prefix` 를 가진 `token`  을 포함하고 있다.
+
+2. `token` 을 `decode` 한다.
+
+3. `issuer` 의 `jwks_uri` 에서 가져온 `public key` 를 사용하여, `token` `algorithm` 과 `signature` 를 확인한다. <br><br>현재는 `RSA-based Algorithm` 만 지원가능하다.<br>`API Gateway` 는 $2$ 시간 동안 `public key` 를 `cache` 할수 있다.<br><br>가장 좋은방법은, `key` 를 교체할때 이전 `key` 와 새로운 `key` 에 유효한 유예 기간을 허용하는것이다.
+
+4. `claims` 를 검증한다. `API Gateway` 는  다음의 `claims` 를 평가한다. <br><br>**kid**: 이 `claim` 에는 `token` 에 서명한 `jwks_uri` 의 `key` 와 일치하는 `header` `claim` 이 있어야 한다.<br><br>**iss**: 이 `claim` 은 `authorizer` 에 대해 설정된 `issuer` 와 일치해야 한다.<br><br>
+
+`kid` 관련해서 내용을 정리해야 겠다.
+`jwks_uri` 와 같다고 했는데, 이는 `AWS` 에서 `JWT` 기반 인증을 사용할때, 특히 `API Gateway`  와 같은 서비스에서 `AWS Lambda Authorizer` 를 설정할대 사용한다.
+
+`jwks_uri` 의 `jwks` 는  `JSON Web Key Set` 의 약자이며, `JSON` 형식으로 된 공개키 집합이다.
+이 `key` `set` 은 `JWT` 를 검증하기 위해 사용된다.
+
+`JWT` 는 `signed` 되어있으며, 이 `sign` 을 검증하기 위해 `public key` 가 필요하다.
+
+그럼 뒤의 `uri` 가 붙는데, 이는 `JWKS` 를 제공하는 `URI` 라는 뜻이다.
+이 `URI` 는 `server` 가 `public key` 를 제공하는 위치를 나타낸다.
+이를 통해 `public key` 를 얻는것이다.
+
+즉, `kid` 가 `jwks_uri` 의 `key id` 와 일치한 `key id` 를 저장하고, `jwks_uri` 에서 해당 `key id` 를 조회하여, `JWKS` 를 얻어오는 방식인듯하다.
 
