@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
+    "Blog/Servierless/Usage/Events/REST APIs.md",
     "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
     "Blog/Servierless/Usage/Events",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider General AWS Lambda settings.md",
@@ -199,7 +200,6 @@
     "Blog/PWA/assets/images/Send subscribe.png",
     "Blog/PWA/웹앱/다양한 플랫폼 호환성 고려.md",
     "Blog/PWA/Push Notification",
-    "Blog/PWA/웹앱/웹 앱 매니페스트의 구조.md",
     "Blog/PWA/웹앱",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/Redis/assets/images/Consumer Group.png",
