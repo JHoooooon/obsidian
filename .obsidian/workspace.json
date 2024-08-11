@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Servierless/Serverless Framework yaml.md",
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 344.5
   },
   "right": {
     "id": "197648690abfb0fc",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Servierless/Serverless Framework yaml.md",
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Servierless/Serverless Framework yaml.md",
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Servierless/Serverless Framework yaml.md"
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md"
               }
             }
           },
@@ -160,8 +160,15 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider General AWS Lambda settings.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider General Settings.md",
+    "Blog/Servierless/Serverless.yaml reference/Serverless Framework yaml.md",
+    "Blog/Servierless/Serverless.yaml reference/Root Properties.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider",
+    "Root Property.md",
+    "Blog/Servierless/Serverless.yaml reference",
     "Blog/Servierless/Usage/Parameters.md",
-    "Blog/Servierless/Serverless Framework yaml.md",
     "Blog/TDD/UI  Component/query 정리.md",
     "Blog/Servierless/Usage",
     "Blog/Servierless",
@@ -193,14 +200,7 @@
     "Blog/PWA/웹앱/웹앱.md",
     "Blog/PWA/서비스 워커 생명주기와 캐시관리.md",
     "Blog/PWA/웹앱",
-    "Blog/PWA/오프라인 우선/일반적인 캐싱 패턴.md",
-    "Blog/PWA/오프라인 우선/믹스 앤 매치, 새 패턴 사용.md",
-    "Blog/PWA/Cache API.md",
-    "Blog/PWA/Background Sync/백그라운드 동기화의 작동원리.md",
     "Blog/PWA/Background Sync",
-    "Blog/PWA/IndexedDB/IndexedDB 사용.md",
-    "Blog/PWA/IndexedDB",
-    "Blog/PWA/오프라인 우선",
     "Blog/PWA/assets/images/Service worker lifecycle.png",
     "Blog/Redis/assets/images/Consumer Group.png",
     "Blog/Redis/assets/images/stream data process.png",
