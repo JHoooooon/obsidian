@@ -215,6 +215,7 @@ functions:
 				method: POST
 				path: /some-post
 				authorizer:
+					# authorizer 로 someJwtAuthorizer 를 사용
 					name: someJwtAuthorizer
 					# scopes 는 요청이 검증된 이후에 사용된다.
 					# 이는 `scopes claim` 함수의 scopes 를 가졌는지 인증을 확인한다
@@ -223,9 +224,113 @@ functions:
 						- user.email
 ```
 
-## Lambda (Request) Authorizers
+### Custome Authorizer 설정
 
 `HTTP API` `endpoint` 접근 제한을 하는 다른 방법으로 `customer` `Lambda` `Authorizer` 를 사용한다.
+`custom authorizer` 를 위한 `options` 는 다음과 같다,
+
+- **type**: `Lambda authorizer` 를 위해 `request` 로 설정해야 한다. (고정값인듯 하다)
+
+- **name [optional]**: 생성된 `authorizer` 의 이름
+
+- **functionName**: `authorizer` `function` 으로 사용되는 `service` 이름을 정의한다.<br>`functionArl` 을 설정할때, 정의할수 없다. 
+
+- **functionArn**: `authorizer` `function` 으로 사용될 `function`  `ARN` <br>이는 `CloudFormaion` 의 `Instrinsic Functions` 을 허용한다.<br>`functionName` 을 설정할때, 정의할수 없다.
+
+- **resultTtlInSeconds [optional]**: `chache` 된 `authorizer` 결과를 위한 `TTL` 이다.<br>이는 $0$ (`no caching`) 부터 $3600$ ($1 hour$) 까지 값을 허용한다.<br>$0$ 이 아닌 값을 설정할때, `identitySource` 도 반드시 정의해야 한다.
+
+- **enableSimpleResponses [optional]**: `flag` 가 지정된다면, 간단한 `format` 인 `authorization` `response` 을 리턴한다.<br>`default` 는 `false` 이다.
+
+- **payloadVersion [optional]**: `payload` 의 `version` 을 `authorizer` `fuction` 에 보낸다.<br>`default` 는 `2.0` 이다.
+
+- **identitySource [optional]**: `request` `parameters` 에 대한 하나 이상의 매핑된 표현식을 지정한다. 예를 들어, `$request.header.Authorization` 형식으로 지정할수 있다.<br><br>이 지정된 값은 `authorizer` 에 의해 `null` 이 아니고 비어있는 값이 아님을 확인된다.<br> <br>`resultTtlinSeconds` 가 `non-zero` 가 아닌경우, `identitySource` 는 캐시키로 추가로 사용된다. 이경우 `identitySource` 는 인증 응답 캐싱으로 사용된다.
+
+- **managedExternally [optional]**: 만약, `authorizer` 기능이 외부에서 관리되는 지 여부를 지정하는 `flag` 이다.<br>(예, 다른 `AWS` 계정에 존재하는 기능) <br><br>`true` 로 설정한다면,  `authorizer` 기능에 대한 `permission` `resource` 생성을  건너띄게 된다. 
+
+>[!info] `managedExternally` 가 번역체로 해석되다 보니 내용이 애매하다.<br>명확하게 말하자면, `authorizer` 생성시 `permission` 이 자동 생성되는듯하다.<br><br>이때, `permission` 생성을 하지 않고, 이미 만들어 놓은  `authorizer`  기능을 사용하는 경우 `true` 로 설정하여 생성하지 않도록 만들수 있다는것으로 이해하고 있다.
+
+```yml
+provider:
+  name: aws
+  httpApi:
+    authorizers:
+      customAuthorizer:
+        type: request
+        functionName: authorizerFunc # `functionArn` 과 함께 사용할수 없다
+        functionArn: arn:aws:lambda:us-east-1:11111111111:function:external-authorizer # `functionName` 과 함께 사용할수 없다.
+        name: customAuthorizerName
+        resultTtlInSeconds: 300
+        enableSimpleResponses: true
+        payloadVersion: '2.0'
+        identitySource:
+          - $request.header.Auth
+          - $request.header.Authorization
+        managedExternally: true # `resource permission` 생성 방지를 위해 외부에서
+								# 정의한 `Authorizer` 기능을 사용하는 경우에만 적용가능
+```
+### Lambda (Request) Authorizers
+
+다음은 `serverless.yam` 의 `service` 를 `cusotom authorizer` 로 설정한다. 
+아래는 `provider.httpApi.authorizers` 에서 `labmda` 로 생성한 `authorizerFunc` 를 `request` 시 사용하여 검증한다. 
+
+이렇게 생성한 `customeAuthorizer` 는 `hello` 에서 `authorizer` 로 사용한다.
+
+```
+provider:
+	name: aws
+	httpApi:
+		authorizers:
+			customAuthorizer:
+				type: request
+				functionName: authorizerFunc
+	functions:
+		hello:
+			handler: handler.hello
+			events:
+				- httpApi: 
+					method: get
+					path: /hello
+					authorizer:
+						name: customAuthorizer
+
+		authorizerFunc:
+			handler: authorizer.handler
+```
+
+`authorizer` 로써 `service` 의 바깥에서 사용된 `function` 을 사용할수도 있다.
+이는 다음처럼 `arn` 을 사용하여 지정한다.
+
+```yml
+provider:
+	name: aws
+	httpApi:
+		authorizers:
+			customerAuthorizer:
+				type: request
+				functionArn: arn:aws:lambda:ap-northeast-2:1111111111:function:external-authorizer
+
+functions:
+	hello:
+		handler: handler.hello
+		events:
+			- httpApi:
+				method: get
+				path: /hello
+				authorizer:
+					name: customAuthorizer
+```
+
+## AWS IAM Authorization
+
+`AWS IAM` 정책을 활용하여 `HTTP API` `endpoint` 를 보호하는 것도 가능하다.
+
+### Control access for invoking an API
+
+[Control access for invoking an API](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html) 은 `IAM permission` 을 사용하여 `API` 접근을 제어하기 위한 `permission` 모델이다.
+
+이 `policy` 
+
+
 
 
 
