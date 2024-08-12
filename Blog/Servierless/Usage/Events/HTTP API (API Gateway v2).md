@@ -155,10 +155,10 @@ provider:
 
 3. `issuer` 의 `jwks_uri` 에서 가져온 `public key` 를 사용하여, `token` `algorithm` 과 `signature` 를 확인한다. <br><br>현재는 `RSA-based Algorithm` 만 지원가능하다.<br>`API Gateway` 는 $2$ 시간 동안 `public key` 를 `cache` 할수 있다.<br><br>가장 좋은방법은, `key` 를 교체할때 이전 `key` 와 새로운 `key` 에 유효한 유예 기간을 허용하는것이다.
 
-4. `claims` 를 검증한다. `API Gateway` 는  다음의 `claims` 를 평가한다. <br><br>**kid**: 이 `claim` 에는 `token` 에 서명한 `jwks_uri` 의 `key` 와 일치하는 `header` `claim` 이 있어야 한다.<br><br>**iss**: 이 `claim` 은 `authorizer` 에 대해 설정된 `issuer` 와 일치해야 한다.<br><br>**aud**: 이 `claim` 은  `authorizer` `property` 인 `audience` 중 하나와 일치해야 한다.<br>`API Gateway` 는  `aud` 가 없는 경우에만 `client_id` 의 유효성을 검사한다.<br>만약, `aut` 와 `client_id` 둘다 제공된다면, `API Gateway`  는 `aud` 를 평가한다.<br><br>**exp**: 이는 `UTC` 인 현재 시간이후이어야 한다.<br>`expiration time` 만료시간 의 약자이다<br><br>**nbf**: 이는 `UTC` 인 현재 시간 이후이어야 한다.<br>`Not Before` 의 약자이며, 특정 시간 이후에만 유효한 시간을 설정한다<br>이는 말 그대로 지정한 특정 시간 이전에는 유효한 `token` 이 아니며, 반드시 이 시간 이후에만 유효한 `token` 으로 사용된다.<br><br>**iat**: 이는 `UTC` 인 현재 시간 이후이어야 한다.<br>이는 `token` 발급 시간을 나타낸다.<br><br>**scope or scp**: 이 `claim` 은 `route` 의 `authorizationScopes` 안의 `scope` 중 하나이상을 반드시 포함해야 한다.
+4. `claims` 를 검증한다. `API Gateway` 는  다음의 `claims` 를 평가한다. <br><br>**kid**: 이 `claim` 에는 `token` 에 서명한 `jwks_uri` 의 `key` 와 일치하는 `header` `claim` 이 있어야 한다.<br><br>**iss**: 이 `claim` 은 `authorizer` 에 대해 설정된 `issuer` 와 일치해야 한다.<br><br>**aud**: 이 `claim` 은  `authorizer` `property` 인 [audience](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.html#apis-apiid-authorizers-authorizerid-model-jwtconfiguration) 중 하나와 일치해야 한다.<br>`API Gateway` 는  `aud` 가 없는 경우에만 `client_id` 의 유효성을 검사한다.<br>만약, `aut` 와 `client_id` 둘다 제공된다면, `API Gateway`  는 `aud` 를 평가한다.<br><br>**exp**: 이는 `UTC` 인 현재 시간이후이어야 한다.<br>`expiration time` 만료시간 의 약자이다<br><br>**nbf**: 이는 `UTC` 인 현재 시간 이후이어야 한다.<br>`Not Before` 의 약자이며, 특정 시간 이후에만 유효한 시간을 설정한다<br>이는 말 그대로 지정한 특정 시간 이전에는 유효한 `token` 이 아니며, 반드시 이 시간 이후에만 유효한 `token` 으로 사용된다.<br><br>**iat**: 이는 `UTC` 인 현재 시간 이후이어야 한다.<br>이는 `token` 발급 시간을 나타낸다.<br><br>**scope or scp**: 이 `claim` 은 `route` 의 `authorizationScopes` 안의 `scope` 중 하나이상을 반드시 포함해야 한다.
 
 >[!info] `kid` 관련해서 내용을 정리해야 겠다.
-`jwks_uri` 와 같다고 했는데, 이는 `AWS` 에서 `JWT` 기반 인증을 사용할때, 특히 `API Gateway`  와 같은 서비스에서 `AWS Lambda Authorizer` 를 설정할대 사용한다.
+`jwks_uri` 와 같다고 했는데, 이는 `AWS` 에서 `JWT` 기반 인증을 사용할때, 특히 `API Gateway`  와 같은 서비스에서 `AWS Lambda Authorizer` 를 설정할때 사용한다.
 >
 >`jwks_uri` 의 `jwks` 는  `JSON Web Key Set` 의 약자이며, `JSON` 형식으로 된 공개키 집합이다.
 이 `key` `set` 은 `JWT` 를 검증하기 위해 사용된다.
@@ -178,7 +178,59 @@ provider:
 
 예를 들어, 만약 `JWT` 가 `emailID` `claim` 을 포함하고 있다면, 이는 `Lambda integration` 안의 `$event.requestContext.authorizer.jwt.claims.emailID` 에 존재한다.
 
-이에 대한 더 많으 정보를 얻고 싶다면, [Create AWS Lambda proxy integrations for HTTP APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) 을 확인하라
+이에 대한 더 많은 정보를 얻고 싶다면, [Create AWS Lambda proxy integrations for HTTP APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) 을 확인하는것이 좋을듯 싶다.
+
+>[!info] `API Gateway` 에서는 `Integration` 이라는 개념을 갖는다.<br><br>간단하게 연결되어 있는 `service` 에 `request` 및 `response` 를 하기 전에, 전처리 및 후처리하는 `proxy` 이다.<br><br>실제로, `request` 를 받아 `proxy` 에서 `integraion` 을 통해 캡슐화 하면, 이는 `IntegrationRequest` 로 갭슐화 되며,  `response` 는 `IntegrationResponse` 로 캡슐화 된다.
+
+이를 통해 `Serverless.yaml` 에서 `authorizer` 와 함께 지원하려면 다음 처리한다. 
+
+>[!info] provider.httpApi.authorizers
+```yml
+provider:
+	httpApi:
+		authorizers:
+			someJwtAuthorizer:
+				# type 은 jwt 이다
+				type: jwt
+				# identitySource 는 token 혹은 Beare toekn 
+				identitySource: $request.header.Authorization
+				# issuerUrl 은 jwks 이 저장된 url 여기서는 cognito 를 사용
+				issuerUrl: https://cognito-idp.${region}.amazonaws.com/${cognitoPoolId}
+				# audience entries 설정
+				# 이후 발급된 jwt 의 aud claim 에서 이 entries 에
+				# 포함되어 있는지 검증
+				audience:
+					- ${client1Id}
+					- ${client2Id}
+
+```
+
+>[!info] 설정된 `endpoint` 는 접근 제한이 될것으로 예상
+```yml
+functions:
+	someFunction:
+		handler: index.handler
+		events:
+			- httpApi:
+				method: POST
+				path: /some-post
+				authorizer:
+					name: someJwtAuthorizer
+					# scopes 는 요청이 검증된 이후에 사용된다.
+					# 이는 `scopes claim` 함수의 scopes 를 가졌는지 인증을 확인한다
+ 					scopes: # Optional
+						- user.id
+						- user.email
+```
+
+## Lambda (Request) Authorizers
+
+`HTTP API` `endpoint` 접근 제한을 하는 다른 방법으로 `customer` `Lambda` `Authorizer` 를 사용한다.
+
+
+
+
+
 
 
 
