@@ -324,6 +324,7 @@ functions:
 
 `AWS IAM` 정책을 활용하여 `HTTP API` `endpoint` 를 보호하는 것도 가능하다.
 
+>[!info] 이를 확인하기 전에 `API` 호출을 `IAM` 에서 접근제어하는지 확인해볼 필요가 있다.<br>다음은 이러한 `API` 호출 접근제어에 대한 내용을 정리한 것이다.<br><br>이는 `Serverless Framwork` 가 아닌 `AWS` 자체에서 제공하는 `Docs` 를 보고 정리한 내용이다.
 ### Control access for invoking an API
 
 [Control access for invoking an API](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html) 은 `IAM permission` 을 사용하여 `API` 접근을 제어하기 위한 `permission` 모델이다.
@@ -351,10 +352,185 @@ functions:
 - `Permission` : 포함된 권한을 부여할지 취소할지 여부에 따라 `Allow` 또는 `Deny` 로 대체된다.
 - `Execution-operation` : `API` 실행 서비스에서 지원하는 작업으로 대체된다.
 - `METHOD_HTTP_VERB`: `resource` 에 지정된 `HTTP` `method` 로 대체된다 
-- `Resource-path`: 
+- `Resource-path`: 이는 배포된 `API` `Resource` `instance` `URL` 경로에 대한 `placeholder` 이다.
+
+이를 이용하면, `API` 접근시 `user` `permission` 을 부여할수 있다.
+다음은 `pets` 의 `list` 를 볼수 있도록 `user` `permission` 을 부여하도록 지정한 `API` 이다.
+하지만, `pets` `list` 에 `pet` 을 추가하면, `deny` 된다.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow", // Allow
+      "Action": [
+        "execute-api:Invoke"  // api 호출 액션
+      ],
+      "Resource": [
+		  // account-id 와 api gateway id 의 모든 stage 에서 GET 메서드를 
+		  // 가진 `pets` resource 를 지정
+        "arn:aws:execute-api:us-east-1:account-id:api-id/*/GET/pets"
+      ]
+    },
+    {
+      "Effect": "Deny", // Deny
+      "Action": [
+        "execute-api:Invoke"  // api 호출 액션         
+      ],
+      "Resource": [
+		  // account-id 와 api gateway id 의 모든 stage 에서 POST 메서드를 
+		  // 가진 `pets` resource 를 지정
+        "arn:aws:execute-api:us-east-1:account-id:api-id/*/POST/pets"
+      ]
+    }
+  ]
+} 
+```
+
+다음은, `GET /pets/{petId}` 로 설정된 `API` 를 볼수있도록 `permission` 을 부여한다.
+이는 `IAM` `Statement` 를 통해 다음처럼 포함될수 있다.
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"execute-api:Invoke"
+			],
+			"Resource": [
+				"arn:aws:execute-api:us-east-1:account-id:api-id/*/GET/pets/a1b2"
+			]
+		}
+	]
+}
+```
+
+### API Gateway 의 실행 API 를 위한 IAM Policies 의 Statement 참조  
+
+다음은 `executing API` 에 대한 `permission` 접근에 대한 `IAM Policy` `Statement` 의 `Resource`, `Action` `format` 에 대한 정보를 정리한다. 
+
+####  API Gateway 안의 execution API 에 대한 permission 의 Action format
+
+`API-executing` `Action` 문법은 다음처럼 일반적인 포멧을 가진다.
+
+```sh
+execute-api:action
+```
+
+여기서 `action` 은 실행가능한 `API-executing` `action`  이다.
+
+- **\*** : 다음의 모든 `actions` 를 가리킨다. 
+- **Invoke**: `client` `request` 시 `API` 를 호출하는데 사용한다
+- **InvalidateCache**: `client` `request` 시 `API` `cache` 를  무효화하는데 사용된다.
+
+#### API Gateway 안에 execution API 에 대한 permission  의 Resource format
+
+`API-executing` `Resource` 문법은 다음의 일반적인 포멧을 가진다.
+
+```sh
+arn:aws:execute-api:region:account-id:api-id/stage-name/HTTP-VERB/resource-path-specifier
+```
+
+이는 다음과 같다.
+
+- **region**: `AWS` 의 `region` 이다.<br>`method` 에 대한 배포된 `API` 에 해당하는 `region` 이다.
+
+- **account-id**: `REST API` 의 소유자인 `12-digit` 인 `AWS` 계정 `ID` 
+
+- **api-id**:  `method` 에 대한 `API` 가 정의된 `API Gateway` 식별자 `ID`
+
+- **stage-name**: `method` 에 대해 연결된 `stage` 의 이름
+
+- **HTTP-VERB**: `method` 에 대한 `HTTP verb` 이다.<br>이는 다음중 하나일수 있다.<br><br>GET, POST, PUT, DELETE, PATCH
+
+- **resource-path-specifier**: 원하는 `method` 에대한 `path` 이다.
+
+`resource` 를 포함할수 있는 몇가지 예시를 살펴보자.
+
+- **`arn:aws:execute-api:*:*:*`** : 이는 모든 `AWS region`  안의 모든 `API`, 모든 `stage` 안의 모든`resource path` 를 뜻한다.
+
+- **`arn:aws:execute-api:us-east-1:*:*`**: 이는 `us-east-1` 안의 모든 `API`, 모든 `stage`, 모든 `resrouce path` 를 뜻한다.
+
+- **`arn:aws:execute-api:us-east-1:*:api-id/*`**: 이는 `us-east-1` 의 모든 `account-id` , `API Gateway` 의 `api-id` 에 속하는 모든 `stage`, `resource path` 를 뜻한다.
+
+- **`arn:aws:execute-api:us-east-1:*:api-id/test/*`**: 이는 `us-east-1` 의 모든 `account-id`, `API Gateway` 의 `api-id` 에 속하는 `test` `stage` 안의 모든 `resource path` 를 뜻한다. 
+
+---
+
+여기까지가, `AWS` 에서 제공하는 `IAM policies` 를 통해 접근을 제어하는 방법이다.
+이를 `Serverless.yml` 에서 처리하려면 다음처럼 한다.
+
+>[!info] 여기서 중요한 부분은, `httpApi` 이벤트에서 `aws_iam` 유형으로 `authorizer` 를 설정해야 한다.<br><br>이는 [[#API Gateway 의 실행 API 를 위한 IAM Policies 의 Statement 참조]] 상에서 볼수 있듯, `resource` 를 지정해야 한다.<br><br> 그러므로 `provider` 의 `authorizer` 가 아닌, `functions` 상의 함수에 직접 지정하는듯하다.
+
+```yml
+provider:
+	name: aws
+
+functions:
+	hello:
+		handler: handler.hello
+		events:
+			- httpApi:
+				method: get
+				path: /hello
+				authorizer:
+					type: aws_iam
+```
+
+## Access logs
+
+배포된 `stage`  은 접근하기 위한 로깅이 활성화 될수 있다.
+이를 위해 다음처럼 `provider` 의 `HTTP API` 에 `logs` 를 통해 설정할수 있다.
+
+```yml
+provider:
+	logs: 
+		httpApi: true
+```
+
+이를 통한 `default` `log` 포멧은 다음과 같다.
+
+```json
+{
+  "requestId": "$context.requestId",
+  "ip": "$context.identity.sourceIp",
+  "requestTime": "$context.requestTime",
+  "httpMethod": "$context.httpMethod",
+  "routeKey": "$context.routeKey",
+  "status": "$context.status",
+  "protocol": "$context.protocol",
+  "responseLength": "$context.responseLength"
+}
+```
+
+만약 이러한 `default` `log` 포멧을 오버리아드 하고 싶다면 다음처럼 설정할수도 있다.
+
+```yml
+provider:
+  logs:
+    httpApi:
+      format: '{ "ip": "$context.identity.sourceIp", "requestTime":"$context.requestTime" }'
+```
+
+다음은 사용자 정의 `HTTP API` `access` `log` 에 대한 변수들이다.
+
+| Parameter                            | Description                         |
+| :----------------------------------- | ----------------------------------- |
+| $context.accountId                   | API 를 소유한 AWS 계정 `ID`               |
+| $context.apiId                       | API 에 할당된 `API Gateway` 의 식별자 `ID`  |
+| $context.authorizer.claims.`property | `JWT` 에 대한 `claim` 을 리턴된 `property` |
 
 
- 
+
+
+
+
+
+
+
 
 
 
