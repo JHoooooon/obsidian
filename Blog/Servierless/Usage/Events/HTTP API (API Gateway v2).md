@@ -328,7 +328,34 @@ functions:
 
 [Control access for invoking an API](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html) 은 `IAM permission` 을 사용하여 `API` 접근을 제어하기 위한 `permission` 모델이다.
 
-이 `policy` 
+이 `policy` 문법에는  `API` 실행 `service` 와 연관된 `Action` 과 `Resource` `field` 를 포함한다.
+이러한 참조된 `resource` 를 사용하여, `IAM` 정책 문법을 생성하는데 사용할수 있다.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Permission",
+      "Action": [
+        "execute-api:Execution-operation"           
+      ],
+      "Resource": [
+        "arn:aws:execute-api:region:account-id:api-id/stage/METHOD_HTTP_VERB/Resource-path"
+      ]
+    }
+  ]
+} 
+```
+
+- `Permission` : 포함된 권한을 부여할지 취소할지 여부에 따라 `Allow` 또는 `Deny` 로 대체된다.
+- `Execution-operation` : `API` 실행 서비스에서 지원하는 작업으로 대체된다.
+- `METHOD_HTTP_VERB`: `resource` 에 지정된 `HTTP` `method` 로 대체된다 
+- `Resource-path`: 
+
+
+ 
+
 
 
 
