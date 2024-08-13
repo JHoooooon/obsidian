@@ -598,9 +598,12 @@ provider:
 ## Shared Authorizer
 
 외부 `HTTP API` 에 위해, `RestApi` 와 비슷한 방식으로 `shared` `authorizer` 를 사용할수 있다.
-`custom` `authorizer` 가 공유된 `Lambda` 를 사용할때, `request` 로 `type`  을 설정할 필요가 있다.
+`custom` `authorizer` 가 공유된 `Lambda` 를 사용할때, `request`  `type`  을 설정할 필요가 있다.
 
 ```yml
+# Top Level Property httpApi
+# 이를 통해 `serverless` 서비스의 `HTTP API` 인스턴스를 지정하여,
+# 이후 함수들에서 이 `HTTP API` 를 참조한다.
 httpApi:
 	id: xxx # requred
 
@@ -614,6 +617,7 @@ functions:
 				authorizer:
 					type: jwt
 					id:
+						# Resource 를 통해 만들어진 ApiGatewayAuthorizer 를 참조
 						Ref: ApiGatewayAuthorizer
 					scopes:
 						- myapp/myscope
@@ -626,24 +630,41 @@ functions:
 				authorizer:
 					type: jwt
 					id:
+						# Resource 를 통해 만들어진 ApiGatewayAuthorizer 를 참조
 						Ref: ApiGatewayAuthorizer
 					scopes:
 						- myapp/anotherscope
-
+						
+# resources 는 AWS 에서 제공하는 resource 를 정의하는 프로퍼티이다.
 resources:
 	Resources:
 		ApiGatewayAuthorizer:
+			# apiGatewayV2 의 Authorizer resource 설정
 			Type: AWS::ApiGatewayV2::Authorizer
 			Properties:
+				# ApiId 는 Gateway의 ID
 				ApiId:
 					Ref: YourApiGatewayName
+					
+				# Authorizer 의 타입은 JWT
 				AuthorizerType: JWT
+				
+				# 식별 source 값 jwt 같은 경우
+				# token 혹은 Beare Token 이 값을 사용
 				IdentitySource:
+					# request.header.Authorization 에 저장된 Token 값
 					- $request.header.Authorization
+
+				# JWT 설정
 				JwtConfiguration:
+					# 토큰 대상은 CognitoUserPoolClientName
 					Audience:
 						- Ref: YourCognitoUserPoolClientName
+					# 토큰 발급자
 					Issuer:
+						# Fn::Join 을 사용하여, 문자열을 `JOIN` 한다
+						# 배열의 첫번째 원소는 구분자이며,
+						# 배열의 두번째 원소는 `Join` 할 문자열 배열을 받는다
 						Fn::Join:
 							- ""
 							- - "https://cognito-idp"
@@ -652,22 +673,88 @@ resources:
 							  - Ref: YourCognitoUserPoolName
 ```
 
+## Event / payload format
 
+`Lambda` `Integration` 에서 `proxy` 옵션을 제공하며, 이를 통해 제출된 `event` 는  `header`, `query string` `parameters` 등등의 `request` 의 세부정보가 포함되어있다.
 
+이러한 `event` 는 대해서 $2$ 가지 유형이 존재하는데 [Event Payload format](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) 에서 확인가능하다.
 
+>[!info] default 로 v2.0 을 사용한다고 말한다.<br>이는 `payload` 를 지정하여 `1.0` 으로 다운그레이드 할수도 있다.
 
+```yml
+provider:
+	httpApi:
+		payloiad: '1.0'
+```
 
+그리고, `functions` `level`  에서 직접 `payload` `verion` 을 지정할수도 있다. 
+이는 `provider` `level` 에서 지정한 `payload` `version` 보다 우선시 되므로, 덮어씌워져 지정된다.
 
+```yml
+functions:
+	hello: index.handler
+	httpApi:
+		payload: '1.0'
+	events:
+		- httpApi:
+			path: /hello
+			method: GET
+```
 
+## Detailed Metrics
 
+`HTTP API` 에 자세한 지표(`metrics`) 를 설정할수있다.
+이를 통해 `CloudWatch` 안에 경고 및 모니터링을 구성할수 있다.
 
+```yml
+provider:
+	httpApi:
+		metrics: true
+```
 
+## Tags
 
+`HTTP API` 를 사용할때, 해당 `API Gateway` `resource` 에 사용할수있는 `tag` 설정이 가능하다. 
+`provider.httpApi.useProviderTags` 를 `ture` 로 설정하면, 모든 `tags` 는 `provider.tags` 안에 정의된다.
 
+이는 `API Gateway` 와 `API Gateway Stage` 에 적용된다.
 
+```yml
+provider:
+	tags:
+		project: myProject
+	httpApi:
+		useProviderTags: true
+```
 
+위의 예시에서 `tags.project` 의 `myProject` `API Gateway`  와 `API Gateway Stage` 에 적용된다.
 
+>[!info] 만약 `Serverless Framework` 외부에 기존에 존재하는 `tags` 가 적용되어있다면, 이는 배포하는동안 삭제될것이다.
 
+## Disable Default Endpoint
 
+기본적으로, `client` 는 `https://{api_id}.execute-api.{region}.amazonaws.com` `endpoint` 로 `API` 를 호출할수 있다.
 
+`API` 를 호출할때 `disabled` 시켜 `default` `endpoint` 가 아닌 [[#Custom domains]] 이름으로 호출하도록 처리할수 있다
 
+>[!info] 이러한 경우 사용자 지정 `domain` 이름이 필수적으로 필요하다
+
+```yml
+provider:
+	httpApi:
+		disableDefaultEndpoint: true
+```
+
+## Service Naming
+
+`shouldStartnameWithService` 옵션을 사용하여, `default` 로 지정된 `${stage}-${service}` 를 `${service}-${stage}` 방식으로 변경가능하다.
+
+>[!info] 기본적으로, `service` 생성시, `${stage}-${service}` 방식으로 생성된다.<br>예를 들어 `functions.hello`  서비스, `provider.stage: dev` 로 설정되어 있으면, 다음과 같다.<br><br>`dev-hello`
+
+```yml
+provider:
+	httpApi:
+		shouldStartNameWithService: true
+```
+
+## Custom domains
