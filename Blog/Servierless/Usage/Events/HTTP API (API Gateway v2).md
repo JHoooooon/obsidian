@@ -14,7 +14,7 @@
 >
 >**HTTP APIs**: `HTTP APIs` 는 저렴한 가격과 최소한의 기능을 사용하도록 구성되어 있다.
 >
->**[[REST APIs]]**: `REST APIs` 는 `API keys`, `client 제한`, `request validation`, `AWS WAF`, `private API Endpoint` 등 필요한 더 많은 기능을 제공한다.
+>**[[REST APIs (API Gateway v1)]]**: `REST APIs` 는 `API keys`, `client 제한`, `request validation`, `AWS WAF`, `private API Endpoint` 등 필요한 더 많은 기능을 제공한다.
 >
 >만약, 이러한 많은 기능이 필요없다면, 더 저렴한 `HTTP APIs` 를 사용할것을 권장한다.
 
@@ -749,7 +749,7 @@ provider:
 
 `shouldStartnameWithService` 옵션을 사용하여, `default` 로 지정된 `${stage}-${service}` 를 `${service}-${stage}` 방식으로 변경가능하다.
 
->[!info] 기본적으로, `service` 생성시, `${stage}-${service}` 방식으로 생성된다.<br>예를 들어 `functions.hello`  서비스, `provider.stage: dev` 로 설정되어 있으면, 다음과 같다.<br><br>`dev-hello`
+>[!info] 기본적으로, `service` 생성시, `${stage}-${service}` 방식으로 생성된다.<br>예를 들어 `functions.hello`  서비스, `provider.stage: dev` 로 설정되어 있으면, 다음과 같다.<br><br>`https://{api-id}.execute-api.{region}.amazonaws.com/dev-hello/{resource-path}` <br><br> 반면, `shouldStartnameWithService` 가 `false` 라면, 다음과 같다.<br><br>`https://{api-id}.execute-api.{region}.amazonaws.com/hello-dev/{resource-path}`
 
 ```yml
 provider:
@@ -758,3 +758,19 @@ provider:
 ```
 
 ## Custom domains
+
+`API Gateway` 에서 생성된 `URL` 은 다음의 `format` 을 따른다.
+
+```sh
+https://<random>.execute-api.<region>.amazonaws.com/
+```
+
+이렇게 만들어진, `URL` 을 사용자 지정 `URL` 로 변경하는 방법은 다음과 같다.
+
+- `AWS ACM`(`AWS Certificate Manager`) 를 사용하여, `domain` 을 추가한다.
+- `API Gateway` 에서 추가한 `domain` 을 설정한다.
+- `domain` 의 `DNS` 를 등록한다.
+
+이처럼 연결되었다면, [[#Disable Default Endpoint]] 를 통해 `true` 로 설정한다.
+o
+
