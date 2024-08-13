@@ -569,6 +569,89 @@ provider:
 
 ## 다른 서비스에서 HTTP API 재사용
 
+외부에서 생성된 `HTTP API`  에 연결된 `endpoint` 를 연결할수 있다.
+다음처럼 `HTTP API` `id` 를 `provider` 에 설정하면 된다.
+
+```yml
+provider:
+	httpApi:
+		id: xxx # `endpoint` 에 연결된 외부 `HTTP API` ID 
+ ```
+
+또한 `AWS Fn:ImportValue` 함수를 사용하여, 다른 `CloudFormation` `Stack` 내에서 생성되고, 해당 `ID` 를 보내지는 `HTTP API` 를 참조할수도 있다.
+
+```yml
+provider:
+	httpApi:
+		id:
+			Fn::ImportValue: xxx # 외부 `HTTP API` `ID` 를 나타내는 내보낸 값의 이름
+```
+
+이경우, `API` 와 `Stage` `Resource` 가 생성되지 않는다. 그러므로, `CORS` , `logs` 설정 또는 `authorizer` 와 같은 `HTTP API` 확장설정은 제공되지 않는다.
+
+## HTTP API URL
+
+`httpApi` 이벤트와 함께 함수들이 배포될때, `HTTP API` 의 `URL` 은 `serverless deploy` 와 `serverless info` 의 `output` 으로 표시될수 있다.
+
+`URL` 은 `HttpApiUrl` 출력 아래 `CloudFormation` 출력으로도 내보내진다.
+
+## Shared Authorizer
+
+외부 `HTTP API` 에 위해, `RestApi` 와 비슷한 방식으로 `shared` `authorizer` 를 사용할수 있다.
+`custom` `authorizer` 가 공유된 `Lambda` 를 사용할때, `request` 로 `type`  을 설정할 필요가 있다.
+
+```yml
+httpApi:
+	id: xxx # requred
+
+functions:
+	createUser:
+		...
+		events: 
+			- httpApi:
+				path: /users
+				...
+				authorizer:
+					type: jwt
+					id:
+						Ref: ApiGatewayAuthorizer
+					scopes:
+						- myapp/myscope
+	deleteUser:
+		...
+		events:
+			- httpApi:
+				path: /user/{userId}
+				...
+				authorizer:
+					type: jwt
+					id:
+						Ref: ApiGatewayAuthorizer
+					scopes:
+						- myapp/anotherscope
+
+resources:
+	Resources:
+		ApiGatewayAuthorizer:
+			Type: AWS::ApiGatewayV2::Authorizer
+			Properties:
+				ApiId:
+					Ref: YourApiGatewayName
+				AuthorizerType: JWT
+				IdentitySource:
+					- $request.header.Authorization
+				JwtConfiguration:
+					Audience:
+						- Ref: YourCognitoUserPoolClientName
+					Issuer:
+						Fn::Join:
+							- ""
+							- - "https://cognito-idp"
+							  - "${opt:region, self:provider.region}"
+							  - ".amazonaws.com"
+							  - Ref: YourCognitoUserPoolName
+```
+
 
 
 
