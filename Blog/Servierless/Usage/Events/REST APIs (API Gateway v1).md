@@ -604,7 +604,64 @@ MyApiMethod:
 
 `API keys` 는 전역적으로 생성되므로, `service` 를 여러 `stage` 에 배포하려면 `API key` 정의에 `stage` `variable`  을 포함해야 한다.
 
->[!info] 여기에서 여러 `stage` 에 배포하려면 `API Key` 에 정의에 `stage` `variable` 을 포함해야 한다. 라는 말이 애매할수 있다.<br><br>이 말은 `API` 키 이름이나 설명에 `stage` 이름을 포함시킬수 있으므로, 
+>[!info] 여기에서 여러 `stage` 에 배포하려면 `API Key` 에 정의에 `stage` `variable` 을 포함해야 한다. 라는 말이 애매할수 있다.<br><br>`API` 키 이름이나 설명에 `stage` 이름을 포함시킬수 있으므로, `API` 키에 `stage` `variable` 을 포함시키면, 각 `stage` 에 대한 고유한 `key` 가 생성된다.<br><br>이를 통해 `stage` 별로 `API` 사용을 분리하고 관리가능하다.<br> (`API Keys` 는 전역적이므로, `stage` 별로 분리되서 사용할수 없다)<br><br>이렇게 사용하기 위해 `stage` `variable` 을 포함하라고 말하는것이다.<br><br>예: `MyAPI-${stageVariables.stageName}-ApiKey`
+
+`API key` 를 사용할때 `usagePlan` 객체를 통해 선택적으로 사용 계획 할당량(`usage plan quota`) 와 제한 (`throttle`) 을 정의할수 있다.
+
+추가적으로, 선택된 `API key` 를 `enabled` `property` 를 `false` 로 하여 `disabled` 시킬수 있다.
+값을 설정할때, 값을 변경하면 교체가 필요하다는 점에 유의해야 하며, `CloudeFormation`  은 같은 이름을 가진 $2$ 개의 `API keys` 를 허용하지 않는다.
+
+이는 `value`  을 변경할때 이름도 변경해야 한다는 의미이다.
+
+만약, `key` 의 이름에 관심이 없다면, 값만 설정하고, `CloudFormation` 에서 `key` 이름을 지정하도록 하는것이 좋다.
+
+```yml
+service: my-service
+provider:
+	name: aws
+	apiGateway:
+		apiKeys:
+			# myFirstKey 생성
+			- myFirstkey
+			
+			# stage 에 따른 api key 생성
+			- ${opt:stage}-myFirstKey
+			
+			# env 의 MY_API_KEY 의 value 로 key 생성
+			# env 를 통해 serverless variable 에 숨길수 있다.
+			- ${env:MY_API_KEY}
+			
+			# myThirdKey 이름을 가진 api key 생성
+			- name: myThirdKey
+			  # myThirdKey 의 값
+			  value: myThirdKeyValue
+			  
+			# cloudformation 에 키 이름 지정 (api key 값 설정시 권장)
+			- value: myFourthKeyValue
+			  description: api key description # optional
+			  customerId: A string that will be set as the customerId for the key # optional
+			  
+		usagePlan:
+			quota:
+				limit: 5000
+				offset: 2
+				period: MONTH
+			throttle:
+				burstLimit: 200
+				rateLimit: 100
+
+functions:
+	hello:
+		events:
+			- http:
+				path: user/create
+				method: get
+				private: true
+```
+
+>[!warining] `API key` 이름은 실제 `value` 가 아니며 `API key` 를 식별하는데 사용되는 `label` 이다.<br>이는 배포전 식별하기 위한 `APi key` 이름만 정의된것일 뿐이다.<br><br>`service` 배포한 후에는 `API keys` 에 대한 실제 `value` 가 `AWS` 에서 자동으로 생성된다<br> `value` 는 실제로 `API` 를 호출할때 사용되는 암호화된 문자열이다.<br>이러한 `API` 의 실제값이 생성된후 화면에 출력된다.<br><br>`--conceal` 배포 옵션을 사용하면 출력에서 값을 숨길수 있다.<br>이는 보안상의 이유로 `API key` `value` 를 로그나 화면에 표시하지 않는 경우에 유용하다.
+
+`Rest API` 에 연결하는 `client` 는 `request` 의 `x-api-key` `header`  에 `API key` 값을 설정해야 한다. 이를 통해 `private` 
 
 
 
