@@ -49,12 +49,292 @@
 
 ## Lambda Proxy Integration
 
+간단한, `HTTP Endpoint` 를 만드는 방법이다.
 
+```yml
+functions:
+	index:
+		handler: handler.hello
+		events:
+			- http: GET hello
+```
 
+>[!info] handler.js
+```js
+'use strict'
 
+module.exports.hello = function (event, context, collback) {
+	console.log(event); // incoming request data 를 담은 event
+						// query params, headers and more
 
+	const res = {
+		statusCode: 200,
+		headers: {
+			'x-custom-haeder': "My Header Value"
+		},
+		body: JSON.stringify({ message: 'Hello Wolrd' })
+	};
 
+	callback(null, res);
+};
+```
 
+### Lambda-proxy event 객체 예시
+
+```json
+{
+  "resource": "/",
+  "path": "/",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4",
+    "cache-control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "GB",
+    "content-type": "application/x-www-form-urlencoded",
+    "Host": "j3ap25j034.execute-api.eu-west-2.amazonaws.com",
+    "origin": "https://j3ap25j034.execute-api.eu-west-2.amazonaws.com",
+    "Referer": "https://j3ap25j034.execute-api.eu-west-2.amazonaws.com/dev/",
+    "upgrade-insecure-requests": "1",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
+    "Via": "2.0 a3650115c5e21e2b5d133ce84464bea3.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "0nDeiXnReyHYCkv8cc150MWCFCLFPbJoTs1mexDuKe2WJwK5ANgv2A==",
+    "X-Amzn-Trace-Id": "Root=1-597079de-75fec8453f6fd4812414a4cd",
+    "X-Forwarded-For": "50.129.117.14, 50.112.234.94",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "path": "/dev/",
+    "accountId": "125002137610",
+    "resourceId": "qdolsr1yhk",
+    "stage": "dev",
+    "requestId": "0f2431a2-6d2f-11e7-b799-5152aa497861",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "apiKey": "",
+      "sourceIp": "50.129.117.14",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
+      "user": null
+    },
+    "resourcePath": "/",
+    "httpMethod": "POST",
+    "apiId": "j3azlsj0c4"
+  },
+  "body": "postcode=LS17FR",
+  "isBase64Encoded": false
+}
+```
+
+## HTTP Endpoint 에 대한 확장 옵션
+
+`POST` `endpoint` 에 `posts/create` 경로를 정의한다
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+```
+
+### CORS 활성화
+
+`HTTP` `endpoint` 에 `CORS` 설정을 활성화 한다. 
+이는 다음의 `event` 설정에서 간단하게 수정할수 있다.
+
+```yml
+functions:
+	create:
+		handler: handler.hello
+		events:
+			- http:
+				path: hello
+				method: get
+				cors: true
+```
+
+`cors: true` 는 다음의 구문과 같다 
+
+```yml
+functions:
+	create:
+		handler: handler.hello
+		events:
+			- http:
+				path: hello
+				method: get
+				cors:
+					origin: '*' # 모든 origin 허용
+					headers:
+						- Content-Type # 요청 본문의 미디어 타입
+						- X-Amz-Date # AWS 요청에 대한 날짜와 시간
+						- Authorization # 인증 토큰 정보
+						- X-Api-Key # API 키를 전달하는데 사용
+						- X-Amz-Security-Token # AWS 임시 보안 자격 증명에 사용
+						- X-Amz-User-Agent # AWS SDK 나 클라이언트 정보를 전달
+						- X-Amzn-Trace-Id # AWS 에서 요청을 추적하는데 사용
+					allowCredentials: false # CORS 에 쿠키, HTTP 인증, 
+											# 클라이언트 측 SSL 인정서 포함여부
+```
+
+또한, 여러 `origin` 정의를 허용한다.
+이때. `origins` 를 사용하여 배열로 설정해주어야 한다.
+
+```yml
+functions:
+	create:
+		handler: handler.hello
+		events:
+			- http:
+				path: hello
+				method: get
+				cors:
+					origins: # 여러 origin 설정
+						- http://example.com
+						- http://example2.com
+					headers:
+						- Content-Type # 요청 본문의 미디어 타입
+						- X-Amz-Date # AWS 요청에 대한 날짜와 시간
+						- Authorization # 인증 토큰 정보
+						- X-Api-Key # API 키를 전달하는데 사용
+						- X-Amz-Security-Token # AWS 임시 보안 자격 증명에 사용
+						- X-Amz-User-Agent # AWS SDK 나 클라이언트 정보를 전달
+						- X-Amzn-Trace-Id # AWS 에서 요청을 추적하는데 사용
+					allowCredentials: false # CORS 에 쿠키, HTTP 인증, 
+											# 클라이언트 측 SSL 인증서 포함여부
+```
+
+또한, 이러한 `origin` 을 작성할때 `waildcard` 를 허용한다.
+다음은 `example.com` 의 모든  `subdomain` 을 가진 `domain` 을 허용한다..
+
+```yml
+cors:
+	origins:
+		- http://*.example.com
+		- http://example2.com
+```
+
+>[!warning] `origins` 에 여러 `Domain` 작성시, `Access-Control-Allow-Origin` `header` 에 여러 값을 보낼수 없다. 
+
+이렇게 `Access-Control-Origin` 헤더에 여러값을 보낼수 없는 이유는, `browser` 의 보안 정책때문이다.
+
+이러한 부분을 해결하기 위해서는, `response` `template` 를 사용해야 한다.
+이러한 `template` 는 다음과 같은 작업을 수행한다.
+
+- 요청 출처가 `origin` 인지 확인한다.
+- 이 출처가 허용된 `origins` 목록과 일치하는지 확인한다.
+- 일치하는경우, `Access-Control-Allow-Origin` `header` 를 해당 출처로 동적으로 설정한다.
+
+여기에 사용된 `response` `template` 는 다음과 같다. 
+
+```sh
+#set($origin = $input.params("Origin")
+#if($origin == "http://example.com" || $origin == "http://*.amazonaws.com") #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end
+```
+
+`cors` 속성을 설정하면, `CORS` `preflight` `response` 에서 `Access-Control-Allow-Origin`, `Access-Control-Allow-Headers`, `Access-Control-Allow-Methods` , `Access-Control-Allow-Credentials` `Header` 가 설정된다.
+
+`Lambda` `Integration` 을 사용하는 경우, `Access-Controll-Allow-Origin` 및 `Access-Control-Allow-Credentials` `header` 도 `method` 및 `integration response` 에 모두 제공된다.
+
+여기서 주의할점은 `Access-Control-Allow-Credentials` `header` 는 명시적으로 `true` 로 설정하지 않는한, 제외되어 처리된다.
+
+다음은, `preflight` `response` 에 `Access-Control-Max-Age` 를 활성화 한다.
+이를 위해서는 `cors` 안에 `maxAge`  `property` 를 작성한다.
+
+```yml
+functions:
+	hello:
+		handler: handler.hello
+		events:
+			- http:
+				path: hello
+				method: get
+				cors:
+					origin: '*'
+					maxAge: 86400
+```
+
+`API Gateway` 에  `CloudFront` 나 다른 `CDN` 을 사용한다면, 추가 `hop` 을 피하기 위해 `OPTIONS` 요청을 `cache` 할수 있도록  `Cache-Control` `header` 설정을 할수도 있다,
+
+`preflight` `response` 에 `Cache-Control` `header` 를 활성화하는 `property` 가 `cors.cacheControl` 이다.
+
+```yml
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+			# 브라우저와 프록시에 10분동안 캐시, 프록시가 오래된 컨텐츠를 제공하는것을
+			# 허용하지 않는다.
+            cacheControl: 'max-age=600, s-maxage=600, proxy-revalidate'
+```
+
+`CORS` `header` 는 단일한 값도 허용한다.
+
+```yml
+functions:
+	hello:
+		handler: handler.hello
+		events:
+			- http:
+				path: hello
+				method: get
+				cors:
+					headers: '*'
+```
+
+만약, `lambda-proxy` 와 함께 `CORS` 를 사용하길 원한다면, `headers` 객체안에 `Access-Control-Allow-*` 를 포함해야 한다. 이는 다음과 같다.
+
+```js
+'use strict'
+
+module.exports.hello = function(event, context, callback) {
+	const res = {
+		statusCode: 200,
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Credentials': true,
+		},
+		body: JSON.stringify({ message: 'Hello Wolrd!' })
+	};
+
+	callback(null, response);
+};
+```
+
+### HTTP Endpoint with `AWS_IAM` Authorizers
 
 
 
