@@ -848,4 +848,114 @@ functions:
 							id: true # path 에 id 필수
 ```
 
-`request` `parameters` 에 의해 다른 `value` 을 
+`request` `parameters` 에 의해 다른 `value` 을 매핑하려면, 요청 `parameters` 의 필수 및 `mappedValue` 속성을 정의해야 한다.
+
+```yml
+functions:
+	create:
+		handler: posts.post_detail
+		events:
+			- http:
+				path: posts/{id}
+				method: get
+				request:
+					parameters:
+						paths:
+							id: true # path 의 id 는 필수
+						headers: # headers 적용
+							custom-header: # custom-header 
+								required: true # 필수
+								mappedValue: cotnext.requestId # 매핑된 값
+```
+
+### Request Schema Validators
+
+`API Gateway` 와 함께 `request` `schema` `validator`  를 사용하려면, content 타입에 [JSON Schema](https://json-schema.org/) 를 추가해야 한다.
+
+다음은 `create_request.json`  을 만든 `JSON Schema` 이다.
+
+```json
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"title": "The Root Schema",
+	"properties": {
+		"username": {
+			"type": "string",
+			"title": "The Foo Schema",
+			"default": "",
+			"pattern": "^[a-zA-Z0-9]+$"
+		}
+	}
+}
+```
+
+>[!warning] 현재 `API Gateway` 에서 제공하는 `JSON Schema` 는 `draft-04` 이다.
+
+`JSON Schema` 는 `JSON` 으로 표시되므로, 파일에서 포함하는것이 더 쉽다
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				request:
+					schemas:
+						application/json: ${file(create_request.json)}
+```
+
+>[!info] `file(...)`  은 `serverless.yaml` 에서 제공하는 문법으로, 해당 `file` 값을 가져온다.
+
+추가적으로, `name` 과 `description` `property` 와 함께 사용자 지정 모델을 생성할수도 있다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				request:
+					schemas:
+						application/json:
+							schema: ${file(create_request.json)}
+							name: PostCreateModel
+							description: 'Validation modal for Createing Posts'
+```
+
+다른 `events` 에서 같은 `model`  을 재사용하고 싶다면, `provider` `level`  에서 `global` `models` 를 지정할수 있다.
+
+`global` `model` 을 추가할 목적으로, `provider.apiGateway.request.schemas`  에 설정을 추가 정의한다.
+
+`global` `model` 을 정의한 이후에, `key` 에 위한 참조를 통해 `event` 안에서 사용할수 있다.
+
+>[!info] serverless.yml
+```yml
+provider:
+	...
+	apiGateway:
+		request:
+			schemas:
+				post-create-model: # post-create-model schema 생성
+					name: PostCretaeModel
+					schema: ${file(api_schema/post_add_schema.json)}
+					description: "A Model validation for adding posts"
+functions
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				request:
+					schemas:
+						# schema 로 post-create-model schema 사용
+						application.json: post-create-model 
+```
+
+

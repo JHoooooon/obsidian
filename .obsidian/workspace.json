@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
+    "Blog/Servierless/Usage/Parameters.md",
     "Blog/Servierless/Usage/Events/REST APIs (API Gateway v1).md",
+    "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
     "Blog/Servierless/Usage/Events",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
@@ -172,7 +173,6 @@
     "Blog/Servierless/Serverless.yaml reference/Provider",
     "Root Property.md",
     "Blog/Servierless/Serverless.yaml reference",
-    "Blog/Servierless/Usage/Parameters.md",
     "Blog/TDD/UI  Component/query 정리.md",
     "Blog/Servierless/Usage",
     "Blog/Servierless",
