@@ -615,6 +615,47 @@ MyApiMethod:
 
 만약, `key` 의 이름에 관심이 없다면, 값만 설정하고, `CloudFormation` 에서 `key` 이름을 지정하도록 하는것이 좋다.
 
+#### API key 생성방식
+
+`Servieless framework` 에서 `API Gateway` 의 `apiKeys` 를 설정할때 다음과 같은 사항들이 적용된다.
+
+1. **명시적으로 값만 지정한 경우**
+
+```yml
+- myFirstKey
+```
+
+이 경우, `myFirstKey` 라는 이름의 `API key` 가 생성된다. `API key` 의 값은 자동으로 생성되며, `myFirstKey` 라는 이름으로 식별된다 
+
+2. **이름과 같이 모두 지정된 경우**
+
+```yml
+- name: mySecondKey
+  value: mySecondKeyValue
+```
+
+이 경우, `mySecondKey` 라는 이름과 `mySecondKeyValue` 라는 값을 가진 `API key` 가 생성된다. 이름과 같이 모두 명시적으로 제공된다.
+
+3. **복수의 `API key` 이름과 `value` 를 지정한 경우**
+
+```yml
+- myFirstKey
+- ${opt:stage}-myFirstkey
+```
+
+이 경우, 두개의 `API key` 가 생성된다.
+
+4. **변수와 환경 변수 사용**
+
+```yml
+- ${env:MY_API_KEY}
+```
+
+이 경우, `MY_API_KEY` 환경 변수의 값을 `API` `key` 로 사용하게 된다.
+예를 들어, 환경 변수 `MY_API_KEY` 가 `customKey` 로 설정되어 있으면, `customKey` 라는 이름의 `API key` 가 생성된다.
+
+>[!info] `API key` 이름은 실제 `value` 가 아니며 `API key` 를 식별하는데 사용되는 `label` 이다.<br>이는 배포전 식별하기 위한 `APi key` 이름만 정의된것일 뿐이다.
+
 ```yml
 service: my-service
 provider:
@@ -622,7 +663,7 @@ provider:
 	apiGateway:
 		apiKeys:
 			# myFirstKey 생성
-			- myFirstkey
+			- myFirstKey
 			
 			# stage 에 따른 api key 생성
 			- ${opt:stage}-myFirstKey
@@ -659,9 +700,152 @@ functions:
 				private: true
 ```
 
->[!warining] `API key` 이름은 실제 `value` 가 아니며 `API key` 를 식별하는데 사용되는 `label` 이다.<br>이는 배포전 식별하기 위한 `APi key` 이름만 정의된것일 뿐이다.<br><br>`service` 배포한 후에는 `API keys` 에 대한 실제 `value` 가 `AWS` 에서 자동으로 생성된다<br> `value` 는 실제로 `API` 를 호출할때 사용되는 암호화된 문자열이다.<br>이러한 `API` 의 실제값이 생성된후 화면에 출력된다.<br><br>`--conceal` 배포 옵션을 사용하면 출력에서 값을 숨길수 있다.<br>이는 보안상의 이유로 `API key` `value` 를 로그나 화면에 표시하지 않는 경우에 유용하다.
+>[!info] `service` 배포한 후에는 `API keys` 에 대한 실제 `value` 가 `AWS` 에서 자동으로 생성된다<br> `value` 는 실제로 `API` 를 호출할때 사용되는 암호화된 문자열이다.<br>이러한 `API` 의 실제값이 생성된후 화면에 출력된다.<br><br>`--conceal` 배포 옵션을 사용하면 출력에서 값을 숨길수 있다.<br>이는 보안상의 이유로 `API key` `value` 를 로그나 화면에 표시하지 않는 경우에 유용하다.
+이는 통해 `private` `property` 가 `true` 로 설정된 함수에만 필요하다
+`Rest API` 에 연결하는 `client` 는 `request` 의 `x-api-key` `header`  에 `API key` 값을 설정해야 한다. 
 
-`Rest API` 에 연결하는 `client` 는 `request` 의 `x-api-key` `header`  에 `API key` 값을 설정해야 한다. 이를 통해 `private` 
+이는 당연하게도, `private` `property` 가 `true` 인 함수에서만 이러한 `header` 설정이 필요하다.
 
+>[!info] `private` 는 `API` 를 `API key` 만을 가진 `client` 만 접근가능하도록 만드는 설정값이다.<br>[[#setting API keys for your Rest API]] 에서 `private` `property` 를 `boolean` 값으로 설정하는 내용이 있다.
 
+`API` 를 위한, 여러 `usage plan`  을 설정할수도 있다.
+이 경우, `provider.apiGateway.usagePlan` 에서 `API key` 에 대한 `usagePlan` 을 `map` 형식으로 구성가능하다.
 
+```yml
+service: my-service
+provider:
+  name: aws
+  apiGateway:
+    apiKeys:
+      - free: # myFreeKey 와 ${opt:stage}-myFreeKey 를 가진 free 이름 식별자
+          - myFreeKey
+          - ${opt:stage}-myFreeKey
+      - paid: # myPaidKey 와 ${opt:stage}-myPaidKey 를 가진 paid 이름 식별자
+	      - myPaidKey
+          - ${opt:stage}-myPaidKey
+    usagePlan: # usagePlan 사용
+      - free: # free apiKeys 식별자에 대한 설정
+          quota:
+            limit: 5000
+            offset: 2
+            period: MONTH
+          throttle:
+            burstLimit: 200
+            rateLimit: 100
+      - paid: # paid apiKeys 식별자에 대한 설정
+          quota:
+            limit: 50000
+            offset: 1
+            period: MONTH
+          throttle:
+            burstLimit: 2000
+            rateLimit: 1000
+functions:
+  hello:
+    events:
+      - http:
+          path: user/create
+          method: get
+          private: true # apiKey 사용
+						# clietn request 에서 x-api-key header 에 해당하는
+						# api-key 를 가져야 접근 가능하다
+```
+
+### Configuring endpoint types
+
+`API Endopint` 는 여러개의 타입이 존재한다.
+
+1. **Edge-optimized endpoint** <br>`CloudFront` 를 활용하여 전 세계적으로 `caching` 하고 `deploy` 한다.<br>`global` 사용자에게 최적화된 성능을 제공한다
+
+2. **Regional endpoint** <br>`region` 내에서만 `API` 를 사용하려는 경우 적합하다.<br>`local region` 내에서 처리되며, `global` `network` 를 활용하지 않는다.
+
+3. **Private endpoint**<br>`VPC` 내에서만 접근 할수 잇는 `API endpoint` 이다.<br>`VPC` 와 관련된 `resource` 에 대한 `access` 를 제한할때 사용한다.
+
+>[!info] `REST API` 에서 `provider.endpointType` 의 `default` 값은 `EDGE` `endpoint` 설정을 사용한다. 
+
+만약, `REGIONAL` 혹은 `PRIVATE` 를 설정하고 싶다면, `provider.endpointType` 을 지정하여 설정할수 있다
+
+```yml
+service: my-service
+provider:
+	name: aws
+	endpointType: REGIONAL # regional endpoint 설정
+functions:
+	hello:
+		events:
+			- http:
+				path: user/create
+				method: get
+```
+
+만약, `API Gateway` 에서 `VPC` `endpoint` 와 연관지어 제공하고 싶다면, `private endpoint` 설정을 사용하여 `REST API` 에서 사용할수 있다.
+
+`VPC endpoint`  를 사용하면, `VPC` 내의 `resource` 가 `API Gateway` 의 `PRIVATE API` 를 호출할수 있다.
+
+이 `endpoint` 는 `API Gateway REST API`  에 대해 다음과 같은 형식의 `Route 53 alias` 를 생성한다.
+
+```sh
+https://<rest_api_id>-<vpc_endpoint_id>.execute-api.<aws_region>.amazonaws.com
+```
+
+- `<rest_api_id>` 는 `API Gateway REST API` 의 `ID` 이다
+- `<vpc_endpoint_id>` 는 `VPC endpoint` 의 `ID` 이다
+- `<aws_region>` 은 `API Gateway` 가 배포된 `region` 이다
+
+>[!info] `API Gateway` 가 `PRIVATE` `endpoint` 를 사용할때, `AWS Route 53` 이 자동으로 `API endpoint` 에 대한 `alias` `record` 를 생성한다.<br><br>이 `alias` `record` 는 `VPC` 내의 `resource` 가 `API`를 쉽게 호출할수 있도록 도와준다.
+
+이 설정에 대한 예시이다.
+
+```yml
+service: my-service
+provider:
+	name: aws
+	# API Gateway `Private endpoint` 로 구성
+	endpointType: PRIVATE
+	
+	# 이는 `API Gateway` 가 접근할수 있는 `VPC endpoint` 의 `ID` 목록
+	vpcEndpointIds:
+		- vpce-123
+		- vpce-456
+```
+
+### Request Parameters
+
+선택 및 필수 `parameters` 를 함수에 전달할수 있다.
+`API Gateway` 및 `SDK` 생성에 사용할 수 있도록 `true` 로 표시하면 필수 매개변수가 되며, `false` 로 표시하면 선택적 매개변수가 된다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				requrest:
+					parameters:	
+						querystrings:
+							url: true # querystring 으로 url 필수
+						headers:
+							foo: false # headers 에 foo 선택적 요구
+						paths:
+							bar: false # path 에 bar 선택적 요구
+```
+
+`path` `variable` 이 작동하려면 `API Gateway` 가 다음과 같이 메서드 `path` 자체에도 해당 변수가 필요하다.
+
+```yml
+functions:
+	create:
+		handler: posts.post_detail
+		events:
+			- http:
+				path: posts/{id} # path 상의 id 경로변수 사용
+				method: get
+				request:
+					parameters:
+						paths:
+							id: true # path 에 id 필수
+```
+
+`request` `parameters` 에 의해 다른 `value` 을 
