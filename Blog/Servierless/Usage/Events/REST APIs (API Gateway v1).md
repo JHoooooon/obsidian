@@ -383,6 +383,160 @@ functions:
 			handler: handler.authorizerFunc
 ```
 
+또는, 만약 더 많은 `options` 와 함께 `Authorizer` 를 설정하길 원한다면, `authorizer` `property` 를 객체로 전환할수 있다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer: 
+					name: authorizerFunc
+					resultTtlInSeconds: 0
+					identitySource: method.request.header.Authorization
+					identityValidationExpression: someRegex
+					type: token
+		authorizerFunc:
+			handler: handler.authorizerFunc
+```
+
+`Authorizer` 함수가 `service` 에 존재하지 않고, `AWS` 에 존재한다면, 함수이름 대신 `Lambda` 함수 `ARN`  을 전달할수 있다. 
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer: xxx:xxx:Lambda-Name
+```
+
+이렇게 `ARN` 으로 전달한 `authorizer` 에 더많은 `Authorizer` 옵션을 설정하길 원한다면, `authorizer` `property` 를 사용하여 전환할수 있다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer: 
+					arn: xxx:xxx:Lambda-Name
+					managedExternally: false
+					resultInSecond: 0
+					identitySource: method.request.heaser.Authorization
+					identityValidationExpression: someRegx
+```
+
+만약 `Authorizer` `function` 에 대한 `permission` 이 외부에서 관리되는 경우, `ManagedExternally: true` 를 설정하여 함수에 대한 `permission` 생성을 건너뛸수 있다.
+
+```yml
+functions:
+  create:
+    handler: posts.create
+    events:
+      - http:
+          path: posts/create
+          method: post
+          authorizer:
+            arn: xxx:xxx:Lambda-Name
+            managedExternally: true
+```
+
+>[!warning] `API Gateway` 에 의해 호출할수 있도록 하는 `permission` 이 허용된 `authorizer` 함수는 반드시 `stacke` 을 배포하기전에 존재해야 한다. 그렇지 않으면 배포는 실패한다.
+
+`type` `property` 를 설정하면 `Request` 유형 `Authorizer` 를 사용할수 있다.
+이 경우, `identitySource` 는 정책 `cache` 에 대한 여러 항목이 포함될수 있다.
+`type` `property` 의 `default` 는 `token` 이다.
+
+```yml
+functions:
+  create:
+    handler: posts.create
+    events:
+      - http:
+          path: posts/create
+          method: post
+          authorizer:
+            arn: xxx:xxx:Lambda-Name
+			resultTtlInSeconds: 0
+			identitySource: method.request.header.Auhtorization, context.identity.sourceIp
+			identityValidationExpression: someRegex
+			type: request
+```
+
+존재하는 `Cognito User Pool` 의 `authorizer` 로 설정할수도 있다.
+이는 선택적 `access token` 에 허용 `scopes` 가 포함된 다음의 예시를 볼수있다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer:
+					arn: arn:aws:cognito-idp:ap-northeastp2:xxx:userpool/ap-norteast-2_ZZZ
+					scopes:
+						- my-app/read
+```
+
+만약, 기본적인 `lambda-proxy` `integration` 을 사용한다면, `attributes` 는 `event.requestContext.authorizer.claims` 에 노출된다.
+
+`attributes` 로 드러나게된 `claims` 를 더 많이 제어하길 원한다면, `integration: lambda` 와 다음의 설정을 추가해야 한다. 
+
+이러한 `claim` 들은 `events.cognitoPoolCalims` 를 통해 노출된다.
+
+```yml
+sources
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				integration: lambda
+				authorizer:
+					arn: arn:aws:cognito-idp:ap-northeastp2:xxx:userpool/ap-norteast-2_ZZZ
+				claims:
+					- email
+					- nickname
+```
+
+동일한 `template` 의 `resources` 섹션 안에 `CognitoUserPool` 을 생성한다면, `CloudFormation` 의 `Fn::GetAtt` 속성을 사용하여 `ARN` 참조할수있다.
+
+이렇게 하려면, `authorizer` 에 이름을 부여하고, `COGNITO_USER_POOLS` 유형을 지정한다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				integration: lambda
+				authorizer:
+					name: MyAuhtorizer
+					type: COGNITO_USER_POOLS
+					arn:
+						Fn::GetAtt:
+							- CognitoUserPool
+							- Arn
+---
+resources:
+	Resources:
+		CognitoUserPool:
+			type: 'AWS::Cognito::UserPool'
+			properties: ...
+```
 
 
 
