@@ -363,6 +363,25 @@ functions:
 					type: aws_iam
 ```
 
+### HTTP Endopoint with custom Authorizers
+
+`Custom Authorizer` 는 대상 `AWS Lambda` 함수 이전에, 실행되는 `AWS Lambda` 함수이다.
+이는 매우 `Microservice Architecture` 또는 `businiess logic` 실행전에 간단한 인증을 원할때 유용하게 사용된다.
+
+다음과 같이 `http event` 의 `Authorizer` 를 동일한 `service` 의 다른 함수로 설정하여, `HTTP Endpoint` 에 대한 `Custom Authorizer` 를 활성화 할수 있다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer: authorizerFunc
+		authorizerFunc:
+			handler: handler.authorizerFunc
+```
 
 
 
