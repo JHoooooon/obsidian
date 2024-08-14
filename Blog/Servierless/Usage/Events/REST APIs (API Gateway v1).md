@@ -336,5 +336,34 @@ module.exports.hello = function(event, context, callback) {
 
 ### HTTP Endpoint with `AWS_IAM` Authorizers
 
+`caller` 가 `Lambda` 함수 호출을에 대한 인증을 받기 위해 `IAM` 사용자의 `access key` 를 제출하도록 요구하려면, 다음처럼 `Authorizer` 에 `AWS_IAM` 으로 설정해야 한다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer: aws_iam
+```
+
+이는  간편한 작성법 이며, 다음과 같은 내용이다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: posts/create
+				method: post
+				authorizer: 
+					type: aws_iam
+```
+
+
+
 
 
