@@ -525,8 +525,8 @@ functions:
 				integration: lambda
 				authorizer:
 					name: MyAuhtorizer
-					type: COGNITO_USER_POOLS
-					arn:
+					type: COGNITO_USER_POOLS # authorizer 타입
+					arn: # resource 에서 생성한, CognitoUserPool 의 Arn 을 get
 						Fn::GetAtt:
 							- CognitoUserPool
 							- Arn
@@ -537,6 +537,74 @@ resources:
 			type: 'AWS::Cognito::UserPool'
 			properties: ...
 ```
+
+### HTTP Endpoint with `operationId`
+
+`endpoint` 메서드와 함께 이름을 제공하길 원한다면 `operationId` 를 포함할수 있다.
+이렇게 하면 `AWS::ApiGateway::Method` 내부에 `OperationsName` 이 설정된다.
+
+```yml
+functions:
+	create:
+		handler: users.create
+		events:
+			- http:
+				path: users/create
+				method: post
+				operationId: createUser
+```
+
+>[!info] AWS::ApiGateway::Method
+>`AWS CloudFormation` 에서 사용되는 리소스 유형이다.
+>이는 `Amazion API Gateway` 에서 `API` 메서드를 정의하는데 사용된다.
+>
+>여기에 `OperationName` 이 사용되는데, 이는 `AWS::ApiGateway::Method` 의 속성중 하나이다.
+>이는 `API` 문서화시 유용하게 사용될수 있도록 `API` 작업에 대한 사용자 정의이름을 지정한다
+```yml
+MyApiMethod:
+  Type: AWS::ApiGateway::Method
+  Properties:
+    RestApiId: !Ref MyRestApi
+    ResourceId: !Ref MyApiResource
+    HttpMethod: GET
+    AuthorizationType: NONE
+    Integration:
+      Type: AWS_PROXY
+      IntegrationHttpMethod: POST
+      Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+    OperationName: GetUserData
+```
+
+이는 `AWS::ApiGateway::Method` 에 대한 예시이다.
+이 `method` 는 `GET` 이며, `OperationName` 은 `GetUserData` 인것을 볼 수 있다.
+
+### Using aynchronous integration
+
+`event` 호출방식으로 `integration` 할때,  `async: true` 을 사용하면, 비동기 호출로 처리된다.
+이렇게 하면, `labmda` 가 실행되는 동안에도 `API Gateway` 는 $200$ 상태코드와 함께 즉시 반환된다.
+
+>[!info] `Labmda` 가 실행되는 동안이라는 말은 `background` 에서 실행되며, `API Gateway `는 응답을 받는 즉시 `200` 상태코드를 보낸다는 말이다.<br><br>이는 `javascript` 의 비동기처리와 연결되어 있으며, 비동기 처리되는 함수는 `callstack`  전부 비워진후, `event loop` 에 의해 처리 완료된 `task queue` 에서 함수를 `callsatck` 으로 넘겨 실행하기 때문이다.<br><br>이는 `API Gateway` 가 바로 응답을 보내도록 하는 합리적인 이유이다.
+
+반면, 이를 명시하지 않으면 기본적으로 `AWS` `integration` 유형으로 사용된다.
+`default` 값으로 `false` 이므로, `Labmda` 함수 실행시 `sync` 적으로 처리된다.
+
+>[!warning] 여기서 혼란스러운 부분이 있다. 내가 알기로는 [[#Lambda Proxy Integration]] 부분에서 볼수 있듯이, `default` 로 `lambda-proxy` 를 사용한다고 했다.<br><br>그런데, 명시하지 않으면 `aws` 로 사용한다고?<br><br>뭔가 앞뒤가 안맞는다..<br><br>일단 여기서 말하고자 하는 핵심은, `integration` 은 `async` 로 처리가능하며, 그렇지 않은경우 `default` 로 `sync` 로 처리된다는것이다.
+
+### Lambda 함수의 예외 처리
+
+`Lambda` 함수안에서 예외가 `throw` 될 경우, `AWS` 는 `process existed before complateing request` 라는 `error` `message` 를 보낸다.
+
+이는 $500$ HTTP 코드에 대한 정규 표현식으로 포착되며, 이로인해 $500$ 상태코드가 반환된다.
+
+### setting API keys for your Rest API
+
+`serverless.yml` 안의 `provieder.apiGateway` 에 `apiKeys`  배열 `property` 를 추가함으로써 `Rest API` `service` 에 사용될 `API Keys` 리스트를 지정할수 있다.
+
+또한, `private` 로 설정하려는 `http` `event` 객체에 `private` `boolean` `property` 을 추가하여 `private` `endpoint` 를 명시적으로 지정하고 `API keys` 중 하나가 요청에 포함되도록 요구해야 한다.
+
+`API keys` 는 전역적으로 생성되므로, `service` 를 여러 `stage` 에 배포하려면 `API key` 정의에 `stage` `variable`  을 포함해야 한다.
+
+>[!info] 여기에서 여러 `stage` 에 배포하려면 `API Key` 에 정의에 `stage` `variable` 을 포함해야 한다. 라는 말이 애매할수 있다.<br><br>이 말은 `API` 키 이름이나 설명에 `stage` 이름을 포함시킬수 있으므로, 
 
 
 
