@@ -1059,5 +1059,70 @@ functions:
 
 >[!note] 이 `template` 는 `plain text` 로 정의된다. 그러나 `${file(templatefile)}` 구문과 함께 외부 `file` 을 참조할수도 있다.
 
->[!note] `.yml` 안에서, `:`, `{`, `}`, `[`, `]`, `,`, `&`, `*`, `#`, `?`, `|`, `-`, `<`, `>`, `=`, `!`, `%`, `@`, <code>&#96;</code> 를  포함하는 문자열을 인용한다
+>[!note] `.yml` 안에서, `:`, `{`, `}`, `[`, `]`, `,`, `&`, `*`, `#`, `?`, `|`, `-`, `<`, `>`, `=`, `!`, `%`, `@`, <code>&#96;</code> 를  포함하는 문자열을 인용부호로 사용한다.<br><br>이는 특정 문자가 포함된 문자열을 제대로 파싱하기 이해 인용부호를 사용하여 문자열을 감싸야 한다.
+
+만약, `event` 객체로 `querystrings` 를 매핑하길 원할때, `API Gateway` 에서 `$input.params('hub.challenge')`  를 사용할수 있다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				path: whatever
+				method: get
+				integration: lambda
+				request:
+					template:
+						application/json: '{ "foo": "$input.params(''bar'')" }'
+```
+
+>[!note] `single-quoted` 로 묶인 `string` 을 사용할때, 내용안의 작은 따옴표 `'` 을 사용하고 싶다면, `doubled` `''`  로 이를 `escape` 한다. <br><br>위의 예시는 `lambda` 함수에서 `event.foo` 로`https://example.com/dev/whatever?bar=123` 의 `querystring` `bar` 에 접근할수 있다.<br><br>만약 문자열을 여러줄로 나누고싶다면, `>` 또는 `|` 구문을 사용할수 있다. 그러나 `yml` 문법에 의해 문자열은 같은 크기의 들여쓰기가 되어야 한다.
+
+다음은 `null`  을 전달하여 `default` `request` `template` 중 하나를 삭제한다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: get
+				path: whatever
+				integration: lambda
+				request:
+					template:
+						application/x-www-form-urlencoded: null
+```
+
+#### 통과 동작 (Pass Through Behavior)
+
+`API Gateway` 는 `Content-Type` `header` 가 지정한 매핑 `templates` 에 어떠한 것도 매치되지 않는 `request` 를 처리하는 여러방법을 제공한다. 
+
+설정에 따라, `request` `payload` 가 아무런 변형(`trasfomation`) 없이 `request` `integration` 을 통해 전달되거나, `415 - Unsupported Media Type` 으로 `rejected` 될수 있다. 
+
+다음처럼 동작을 정의할수 있다.
+>[!info] 만약 아무것도 지정하지 않았다면, `default` 값으로 `NEVER` 를 사용한다
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: post
+				path: whatever
+				integration: lambda
+				request:
+					passThrough: NEVER
+```
+
+이러한 `passThrough` 는 총 $3$ 가지 `option` 이 존재한다.
+
+| value             | Passed Through When                              | Rejected When                                                   |
+| :---------------- | ------------------------------------------------ | --------------------------------------------------------------- |
+| NEVER             | Never                                            | 정의된 `template` 가 없거나 `Content-Type` 이 정의된 `template` 와 일치하지 않을때 |
+| WHEN_NO_MATCH     | `Content-Type` 이 정의된 `template` 와 `match` 되지 않을때 | Never                                                           |
+| WHNE_NO_TEMPLATES | 정의된 `template` 가 없을때                             | 하나 또는 여러 `template` 가 정의되어 있지만, `Content-Type` 은 `match` 되지 않을때 |
+>[!info] `Content-Type` 이 없거나 비어있다면, `API Gateway` 는 `default` 값으로 간주된다. (`application/json`)
 
