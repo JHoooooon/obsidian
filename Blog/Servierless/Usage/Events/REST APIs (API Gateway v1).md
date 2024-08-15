@@ -1209,7 +1209,22 @@ module.exports.hello = (event, context, callback) => {
 | 504         | Gateway Timeout       |
 #### Using Status Codes
 
+특정 상태코드를 반환하려면 선택한 `status code ` 에 대괄호를 추가하기만 하면 된다. 아래는 이러한 예시를 사용하여 $404$ `HTTP status` 가 발생하도록 보여준다.
 
+```js
+module.exports.hello = (event, context, callback) => {
+	callback(new Error(`[404] Not found`))
+}
+```
+
+#### Custom Status Codes
+
+`Serverless` 에서 제공되는 `default` `status code ` 를 덮어씌울수 있다.
+이를 통해 `default statuscode` 를 바꾸고, `status code` 를 추가 삭제하거나, 각 `status code` 에 사용되는 `template` 및 `header` 를 바꿀수 있다.
+
+`pattern` `key` 를 사용하여 반환되는 `code` 를 지정하는 선택 프로세스를 변경할수있다.
+
+만약, `"` 의 패턴과 함께 `status code` 지정한다면, 이는 `default` `response` `code` 가 될것이다. 
 
 
 
