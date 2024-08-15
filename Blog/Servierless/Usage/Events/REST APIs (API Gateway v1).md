@@ -1404,5 +1404,26 @@ functions:
 	hello:
 		handler: handler.hello
 		events:
-			- th
+			- http:
+				path: hello
+				cors: true
+				method: get
+				integration: mock
+				# 요청 template 설정
+				request:
+					template:
+						# json request 를 보내면 무조건 상태코드 200 반환 
+						application/json: '{"statusCode": 200}'
+				# 응답 template 설정
+				response:
+					# 응답 본문 그대로 반환
+					template: $input.path('$')
+					# default 응답으로 201 사용
+					# 이는 mock integration 에서 201 로 무조건 응답을 보낸다
+					statusCode:
+						201:
+							pattern: ''
 ```
+
+## API Gateway 와 API Resource 공유
+
