@@ -1126,3 +1126,24 @@ functions:
 | WHNE_NO_TEMPLATES | 정의된 `template` 가 없을때                             | 하나 또는 여러 `template` 가 정의되어 있지만, `Content-Type` 은 `match` 되지 않을때 |
 >[!info] `Content-Type` 이 없거나 비어있다면, `API Gateway` 는 `default` 값으로 간주된다. (`application/json`)
 
+### Responses
+
+`Servless` 는 `custom header` 와 `http` `event` 를 위한 `template` 설정이 가능하다
+
+#### Custom Response Headers
+
+다음은  `custom response` `header` 를 설정하는 예시이다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: get
+				path: whatever
+				integration: lambda
+				response:
+					headers:
+						Content-Type: 
+```
