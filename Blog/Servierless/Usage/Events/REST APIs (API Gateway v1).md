@@ -1018,6 +1018,8 @@ functions
 ```
 
 ### Request templates
+
+>[!info] Request template 를 사용하기 위해서는 `integration` 이 `lambda` 이어야 한다
 #### Default Request Templates
 
 `Serverless` 는 다음의 즉시 사용가능한 `default` `request` `template` 이 함께 제공된다.
@@ -1130,6 +1132,7 @@ functions:
 
 `Servless` 는 `custom header` 와 `http` `event` 를 위한 `template` 설정이 가능하다
 
+>[!info] Request template 를 사용하기 위해서는 `integration` 이 `lambda` 이어야 한다
 #### Custom Response Headers
 
 다음은  `custom response` `header` 를 설정하는 예시이다.
@@ -1225,7 +1228,181 @@ module.exports.hello = (event, context, callback) => {
 `pattern` `key` 를 사용하여 반환되는 `code` 를 지정하는 선택 프로세스를 변경할수있다.
 
 만약, `"` 의 패턴과 함께 `status code` 지정한다면, 이는 `default` `response` `code` 가 될것이다. 
+`post` `request` 에 대한 기본값을 $201$ 로 변경하는 방법은 아래와 같다ㅏ
 
+`default status code` 를 생략한 경우, 표준 `default` $200$ `status code` 가 생성된다.
 
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: post
+				path: whatever
+				integration: lambda
+				response:
+					headers:
+						Content-Type: "'text/html'"
+					template: $input.path('$')
+					statusCodes:
+						201:
+							pattern: '' # default response method
+						409:
+							 # JSON response
+							pattern: '.*"statusCode": 409,.*'
+							# JSON return object
+							template: $input.path("$.errorMessage")
+							headers:
+								Content-Type: "'application/json+hal'"
+```
 
+`pattern`  부분을보자. $409$ `status code` 는 응답 본문에서 `statusCode: 409,` 패턴이 있는지 확인한다.
 
+만약, 다음처럼 `error` 가 발생하고, `Lambda` 함수가 다음의 응답 본문을 반환한다고 하자.
+
+```json
+{
+	"statusCode": 409,
+	"errorMessage": "Conflict occurred"
+}
+```
+
+`API Gateway` 는 `statusCode: 409,` 패턴을 찾고, $409$ `pattern` 규칙을 적용한다.
+
+결과적으로 `API Gateway` 는 `response` `body` 에서 `errorMessage` `field` 값인 `"Conflict occurred"` 를 추출하여 `client` 로 반환한다.
+
+또한, `Content-Type` 에 따라 `response` `template` 를 바꾸어 생성할수도 있다.
+이때, `template` 의 `key` 는 `Cotent-Type` 으로 지정한다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: post
+				path: whatever
+				integration: lambda
+				response:
+					headers:
+						Content-Type: "'text/html'"
+					template: $input.path('$')
+					statusCodes:
+						201:
+							pattern: '' # default response method
+						409:
+							 # JSON response
+							pattern: '.*"statusCode": 409,.*'
+							# JSON return object
+							template:
+								# JSOn return object
+								application/json: $input.path("$.errorMessage")
+								# XML return object
+								application/xml: $input.path("$.body.errorMessage")
+							headers:
+								Content-Type: "'application/json+hal'"
+```
+
+## API Gateway 에 HTTP Proxy 설정
+
+`HTTP proxy` 를 설정하려면, 두개의 `CloudFormation` `template` 가 필요하다.
+하나는 `endpoint` (`CloudFormation` 에서는 `resource` 라 함) 용이고 다른 하나는 `method` 용이다.
+
+이 $2$ 개의 `template` 는 함께 작동하여 `proxy` 를 구성한다.
+
+그래서 만약 `serverless.com` 을 위한 `proxy` 로써 `your-app.com/serverless` 를 설정하기 원한다면, `serverless.yml` 에서 다음의 $2$ `template` 가 필요하다
+
+```yml
+service: service-name
+provider: aws
+functions: ...
+
+resources:
+	Resources:
+		ProxyResource:
+			# ApiGateway endpoint 구성 template
+			# CloudFormation 에서는 Resource 라 부른다
+			Type: AWS::ApiGateway::Resource 
+			Properties:
+				# endpoint 의 부모 ID
+				# 이는 `ApiGatewayRestApi` 의 `RootResourceId` 이다
+				ParentId:
+					Fn::GetAtt:
+						- ApiGatewayRestApi
+						- RootResourceId
+				# endpoint 의 path 부분
+				# 여기서는 `serverless` 이다.
+				PathPart: serverless
+				# 참조하는 RestApi 의 Id
+				# 여기서는 ApiGatewayRestApi 이다.
+				RestApiId:
+					Ref: ApiGatewayRestApi
+
+		# Proxy 의 method 생성
+		ProxyMethod:
+			# ApiGateway 의 Method 구성 template
+			Type: AWS::ApiGateway::Method
+			Properties:
+				# 위에 만들어둔 Proxy Resource id
+				ResourceId:
+					Ref: ProxyResource
+				# RestApi 의 id
+				RestApiId:
+					Ref: ApiGatewayRestApi
+				# HttpMethod 는 Get
+				HttpMethod: GET
+				# Method 의 응답 코드
+				MethodResponses:
+					- StatusCode: 200
+				# Backend 로 보낼 Integration 설정
+				Integration:
+					IntegrationHttpMethod: POST
+					Type: HTTP
+					Uri: http://serverless.com
+					IntegrationResponses:
+						- StatusCode: 200
+```
+
+>[!info] `AWS::ApiGateway::Method` 에서 `Integration` 과 `Method` 는 다르다.<br><br>약간 설정상 헷갈릴까봐 추가해서 적는다<br><br> `httpMethod` 는 클라이언트가 `API Gateway` 에 요청을 보낼때 사용하는 `HTTP` 메서드를 정의한다<br><br> `IntegrationHttpMethod` 는 `API Gateway` 가 요청을 `backend` `service` 에 보낼때 어떤 메서드를 사용할지 결정한다.<br><br>이는 다음과 같은 시나리오가 가능하다
+
+```plantuml
+Client->"APIGateway IntegrationHttpMethod" : HTTP GET
+"APIGateway IntegrationHttpMethod" -> backend : HTTP POST
+```
+
+이 두 `template` 에는 많은 일이 진행되고 있지만, 간단한 `proxy` 를 설정하기 위해 알아야 할것은 `proxy` 의 `method` 및 `endpoint` 와 `proxy` 를 설정하려는 `URI` 를 지정하는것이다.
+
+이 `CloudFormation` `template` 를 정의한후, `serverless deploy` 를 하기만 하면 `service`  와 함께 이러한 사용자 정의 `resource` 를 배포하고 `REST API` 에 `proxy` 를 설정한다.
+
+## VPC Link 를 사용하여 private resource 접근
+
+만약 `Edge` 최적화되거나, `Regional API Gateway` 를 가진다면, `VPC Link` 를 사용하여 내부 `VPC` `resource` 에 접근할수 있다. 
+
+이를 위한 `http-proxy`, `vpc-link` `integration` 이 가진 설정을 사용할수 있다.
+
+```yml
+- http:
+	path: v1/repository
+	method: get
+	integration: http-proxy
+	connectionType: vpc-link
+	connectionId: '{your-vpc-link-id}'
+	cors: true
+	request:
+		uri: http://www.githug.com/v1/repository
+		method: get
+```
+
+## Mock Integration
+
+`Mock` 은 `API` 에 대한 시뮬레이션된 `method` 를 개발자에게 전달해준다.
+이를 위해 `integration` `backend` 없이 즉각적으로 `response` 를 정의해줄수 있다
+
+```yml
+functions:
+	hello:
+		handler: handler.hello
+		events:
+			- th
+```
