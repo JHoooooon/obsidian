@@ -958,4 +958,106 @@ functions
 						application.json: post-create-model 
 ```
 
+## Lambda Integration
+
+이 `method` 는 좀더 복잡하며, `HTTP` `event` 구문에 대한 더 많은 구성이 필요하다
+
+### Example "LAMBDA" event (before customization)
+
+기본이 아닌 `LAMBDA` `integaration` 방법을 사용하는 경우에만 이를 참조하라고 한다.
+
+```yml
+{
+  "body": {},
+  "method": "GET",
+  "principalId": "",
+  "stage": "dev",
+  "cognitoPoolClaims": {
+    "sub": ""
+  },
+  "enhancedAuthContext": {},
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "GB",
+    "Host": "ec5ycylws8.execute-api.us-east-1.amazonaws.com",
+    "upgrade-insecure-requests": "1",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
+    "Via": "2.0 f165ce34daf8c0da182681179e863c24.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "l06CAg2QsrALeQcLAUSxGXbm8lgMoMIhR2AjKa4AiKuaVnnGsOFy5g==",
+    "X-Amzn-Trace-Id": "Root=1-5970ef20-3e249c0321b2eef14aa513ae",
+    "X-Forwarded-For": "94.117.120.169, 116.132.62.73",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "query": {},
+  "path": {},
+  "identity": {
+    "cognitoIdentityPoolId": "",
+    "accountId": "",
+    "cognitoIdentityId": "",
+    "caller": "",
+    "apiKey": "",
+    "sourceIp": "94.197.120.169",
+    "accessKey": "",
+    "cognitoAuthenticationType": "",
+    "cognitoAuthenticationProvider": "",
+    "userArn": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
+    "user": ""
+  },
+  "stageVariables": {},
+  "requestPath": "/request/path"
+}
+```
+
+### Request templates
+#### Default Request Templates
+
+`Serverless` 는 다음의 즉시 사용가능한 `default` `request` `template` 이 함께 제공된다.
+
+1. `application/json`
+2. `application/x-www-form-urlencoded`
+
+이 두 `template` 는 `event` 객체로 접근가능한 다음의 `properties` 를 제공한다. 
+
+- body
+- method
+- principalId
+- stage
+- headers
+- queryStringParameters
+- path
+- identity
+- stageVariables
+- requestPath
+
+#### Custom Request Templates
+
+그러나 다음과 같이 `custom` `request` `template` 를 정의하고 사용할수 있다.
+기존 `content` `type` 에 대한 새로운 `request` `template` 를 정의하여 기본 `request` `template` 를 덮어쓸수 있다,
+
+```yml
+functions:
+	create:
+		events:
+			- http:
+				method: get
+				path: whatever
+				integration: lambda
+				request:
+					template:
+						text/xhtml: '{ "stage" : "$context.stage" }'
+						application/json: '{ "httpMethod": "$context.httpMethod" }'
+```
+
+>[!note] 이 `template` 는 `plain text` 로 정의된다. 그러나 `${file(templatefile)}` 구문과 함께 외부 `file` 을 참조할수도 있다.
+
+>[!note] `.yml` 안에서, `:`, `{`, `}`, `[`, `]`, `,`, `&`, `*`, `#`, `?`, `|`, `-`, `<`, `>`, `=`, `!`, `%`, `@`, <code>&#96;</code> 를  포함하는 문자열을 인용한다
 
