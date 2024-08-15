@@ -1145,5 +1145,72 @@ functions:
 				integration: lambda
 				response:
 					headers:
-						Content-Type: 
+						Content-Type: integration.response.header.Content-Type
+						Cache-Control: "'max-age=120'"
 ```
+
+>[!note] `header value` 를 위한 [integration response variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html#mapping-response-parameters)  를 사용할수 있다.<br>`Headers` 에 전달된 것과 똑같이 `API Gateway` 에 전달된다.
+
+#### Custom Response Templates
+
+`API Gateway`  가 `Lambda` 출력으로 변환하는데 사용되는  `custom` `response` `template`  를 정의할수 있다.
+
+다음은 `HTML` 로 렌더링 되도록 `lambda` 반환 값을 변환하는 예시이다.
+
+```yml
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: get
+				path: whatever
+				integration: lambda
+				response:
+					# header 의 Content-Type 을 text/html 로 변환
+					headers:
+						Content-Type: "'text/html'"
+					# API Gateway 에서 Lambda 응답 본문을 그대로 사용
+					template: $input.path('$') 
+```
+
+>[!info] `API Gateway` 에서 사용하는 `VTL` 에서 제공하는 변수들에 대한 정보는 [API Gateway mapping template and access logging variable reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html) 에서 확인가능하다.
+
+>[!info] `$input.path('$')`  에서 `$input` `variables` 는  `mapping templage` 에 의해 처리할 `request` `payload` 와 `parameters` 를 나타낸다.<br><br>그중 `$input.path` 는 `JSONpath` 표현식 문자열을 가지며, 결과로 보여줄 `JSON object` 를 반환한다.<br><br>이를 통해 기본적으로 `Apache VTL` 에서 `payload` 요소에 엑세스하고 조작할수 있다.
+
+### Status Codes
+
+`Serverless` 는 사용할 `default` `status` 코드와 함게 적제되어 사용할수 있다
+예를 들어, `resource` 를 찾을수 없다는 $404$ `signal` 또는 이 `action` 에 대한 수행할 권한이 없는 $401$ `signal` 이 있다.
+
+이 `status` 코드는  정규식으로 정의되어 `API Gateway` 설정에 추가된다 
+
+```js
+module.exports.hello = (event, context, callback) => {
+	callback(null, {
+		status: 404,
+		body: 'Not Found',
+		headers: { 'Content-Type': 'text/plain' }
+	})
+}
+```
+
+#### Avialble Status Codes
+
+| Status code | Meaning               |
+| :---------- | --------------------- |
+| 400         | Bad Request           |
+| 401         | Unauthorized          |
+| 403         | Forbidden             |
+| 404         | Not Found             |
+| 422         | Unprocessable Entity  |
+| 500         | Internal Server Error |
+| 502         | Bad Gateway           |
+| 504         | Gateway Timeout       |
+#### Using Status Codes
+
+
+
+
+
+
