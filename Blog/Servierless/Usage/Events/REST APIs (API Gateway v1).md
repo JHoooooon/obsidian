@@ -1704,11 +1704,210 @@ provider:
 
 이는 [# Cannot reference an authorizer already created within services that shares the same API GW](https://github.com/serverless/serverless/issues/4711) 와 같은 문제가 발생한다.
 
-이것이 작동하기 위한 적절한 수정 방법은 [[#Share Authoizer]] 을 사용하거나
+이것이 작동하기 위한 적절한 수정 방법은 [[#Share Authorizer]] 을 사용하거나
 각 함수의 `Authorizer` 에 고유한 `name` `property` 를 추가하는것이다.
 
 이는 같은 `API Gateway` 에 바인딩된 각 함수에 대한 다른 `API Gateay authorizer` 를 생성한다
 
-그러나, 여기에도 `RestApi` 당 $10$ 개의 `authorizer` 가 제한되며, 개발 차단을 해제하려면 `AWS`  에 연락하여 한도 증가 요청을 해야 한다고 말한다.
+다음은 `name` `property` 를 사용하여 고유하게 만드는 설정이다. 
 
+```yml
+service: service-c
+
+provider:
+	apiGateway:
+		restApiId:
+			'Fn::ImportValue': apiGateway-restApiId
+		restApiRootResourceId:
+			'Fn:ImportValue': apitGateway-rootResourceId
+
+	functions:
+		deleteUser:
+			events:
+				- http:
+					path: /users/{userId}
+					authorizer:
+						name: service-c-authorizer
+						arn: xxxxxxxxxxxxxxxx # cognio/custom authorizer arn
+```
+
+```yml
+service: service-d
+
+provider:
+	apiGateway:
+		restApiId:
+			'Fn::ImportValue': apiGateway-restApiId
+		restApiRootResourceId:
+			'Fn:ImportVlaue': apitGateway-rootResourceId
+
+	functions:
+		deleteProject:
+			events:
+				- http:
+					path: /project/{projectId}
+					autyhorizer:
+						name: service-d-authorizer
+						arn: xxxxxxxxxxxxxxxx # cognio/custom authorizer arn
+```
+
+>[!warning] 그러나, 여기에도 `RestApi` 당 $10$ 개의 `authorizer` 가 제한되며, 개발 차단을 해제하려면 `AWS`  에 연락하여 한도 증가 요청을 해야 한다고 말한다.
+
+## Share Authorizer
+
+자동 생성된 `authorizer` 는 기존 설정에 편리하게 설정가능하다. 
+
+그러나, `shared API Gateway` 와 함께 `custom authorizer`  또는 `API Gateway` 와 함께 `COGNITO_USR_POOLS` `authorizer` 를 정의할 필요가 있을때, `AWS` 제한때문에 고통스러울수 있다.
+
+이럴때, `Authorizer` 를 공유하는것이 더 좋은 방법이다.
+
+>[!info] 명확하게 알고 넘어가야할것 같아서 정리한다.<br><br>[[#API Gatway 와 함께 Authorizer 를 사용시 참고사항]] 에서 API Gateway와에서 authorizer 상에서 arn 과 authorizer 를 참조하기 위해 `name` `property` 를 사용하여 처리했다.<br><br>이는 `API Gateway` 는 하나의 `authorizer` 와 `authorizer arn` 을 사용해야 한다는 제약때문에 생긴것이며, 이를 해결하기위해 `arn`  으로 참조하지만, 각 함수마다 `name` `property` 를 적용하여 같은 `authorizer` 가 아님을 표시한다.<br><br>이 역시 `AWS` 의 `arn` 참조 제약으로 인해 `RestAPI` 당 $10$ 개로 제한될수 있다<br><br>하지만, 이번 [[#Share Authorizer]] 에서의 방식으로 `resource`  를 생성하여 `authorizerId` 를 제공하면, 이러한 제약에서 벗어날수 있다고 한다.<br><br>이유는 `cloudFormation` `template` 내에서 직접 관리되므로, 구성과 배포가 일관되게 통합된 관리가 가능하다고 말한다.<br><br>확장성을 따진다면, `resources` 를 통해 `authorizer` 를 생성해야 할듯 싶다..
+
+```yml
+functions:
+  createUser:
+     ...
+    events:
+      - http:
+          path: /users
+          ...
+          authorizer:
+            # Provide both type and authorizerId
+            type: COGNITO_USER_POOLS # TOKEN or REQUEST or COGNITO_USER_POOLS, same as AWS Cloudformation documentation
+            authorizerId:
+              Ref: ApiGatewayAuthorizer  # or hard-code Authorizer ID
+            scopes: # Optional - List of Oauth2 scopes when type is COGNITO_USER_POOLS
+              - myapp/myscope
+  deleteUser:
+     ...
+    events:
+      - http:
+          path: /users/{userId}
+          ...
+          authorizer:
+            # Provide both type and authorizerId
+            type: COGNITO_USER_POOLS # TOKEN or REQUEST or COGNITO_USER_POOLS, same as AWS Cloudformation documentation
+            authorizerId:
+              Ref: ApiGatewayAuthorizer # or hard-code Authorizer ID
+resources:
+  Resources:
+    ApiGatewayAuthorizer:
+      Type: AWS::ApiGateway::Authorizer
+      Properties:
+        AuthorizerResultTtlInSeconds: 300
+        IdentitySource: method.request.header.Authorization
+        Name: Cognito
+        RestApiId:
+          Ref: YourApiGatewayName
+        Type: COGNITO_USER_POOLS
+        ProviderARNs:
+          - arn:aws:cognito-idp:${self:provider.region}:xxxxxx:userpool/abcdef
+```
+
+## Resource Policy
+
+`Resource` 정책은 `policy` `document` 이다.
+이는 `API` 호출을 제어하는데 사용되며, 다음처럼 정의될수 있다.
+
+```yml
+provider:
+	name: aws
+	runtime: nodejs14.x
+
+apiGateway:
+	resourcePolicy:
+		- Effect: Allow
+		  Principal: '*'
+		  Action: execute-api:Invoke
+		  Resource:
+			  - execute-api:/*/*/*
+		Condition:
+			IpAddress:
+				aws:SourceIp:
+					- '123.123.123.123'
+```
+
+## Compression
+
+`API Gateway` 는 `client` 로 부터 압축된 `payload` 를 받도록 허용한다.
+그리고 여러 `content endocing`들을 제공한다.
+
+```yml
+provider:
+	name: aws	
+	apiGateway:
+		minimumCompressionSize: 1024
+```
+
+## Binary Media Types
+
+`API Gateway` 는  예를들어 `image` 나 `files` 같은 응답에 대한 `binary media` 를 반환하게 만들수 있다.
+
+```yml
+provider:
+	apiGateway:
+		binarymediaTypes:
+			- '*/*'
+
+functions:
+	binaryExample:
+		handler: binaryExample.handler
+		events:
+			- http:
+				path: binary
+				method: GET
+```
+
+`Lambda` 함수에 이를 포함하면, 올바른 `Content-Type`  가 설정되엇는지 확인하고 `body`  에 `base64` 로 `encoding` 된 문자열을 제공해야 한다.
+
+예를 들어, `binaryExample.js` `labmda` 핸들러 파일경로상에 `image.jpg` 파일이 있다고 가정하면 `handler` 는 다음과 같이 설정할수 있다.
+
+```js
+const fs = require('fs').promises;
+const path = require('path');
+
+module.exports.handler = async () => ({
+	statusCode: 200,
+	headers: { 'Content-Type': 'image/jpeg' }
+	body: (await fs.readFile(path.resolve(__dirname, 'image.jpg')))
+		.toString('base64'),
+	isBase64Encoded: true,
+});
+```
+
+## Detailed CloudWatch Metrics
+
+자세한 `CloudWatch` 지표를 활성화 하도록 설정할수 있다
+
+```yml
+provider:
+	apiGateway:
+		metrics: true
+```
+
+## AWS X-Ray Tracing
+
+`API Gateway` 는 즉시 사용가능한 `AWS X-Ray` 로 분산 추적 형태를 지원한다 
+`serverless application`  에서 이 기능을 활성화하도록 다음처럼 추가 할수 있다.
+
+```yml
+provider:
+	name: aws
+	tracing:
+		apiGateway: true
+```
+
+## Tags /Stack Tags
+
+`API Gateway`  `stage` 는 `tags` 와 `stackTags` 와 함께 `tagged` 가능하다.
+이를 위해 `provider` `level` 에 정의한다
+
+```yml
+provider:
+	name: aws
+	stackTags:
+		stackTagKey: stackTagValue
+	tags:
+		tagKey: tagValue
+```
 
