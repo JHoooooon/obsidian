@@ -1489,7 +1489,9 @@ functions:
 				path: /posts/{id}/comments
 ```
 
-그러나, 만약, 이미 존재하는 `path resource` 를 생성하려고 하면 `Cloudformation` 은  오류가 발생한다. 이를 방지하기 위해 `/posts` 의 `resource ID` 를 참조한다.
+그러나, 만약, 이미 존재하는 `path resource` 를 생성하려고 하면 `Cloudformation` 은  오류가 발생한다. 이를 방지하기 위해 `/posts` 의 `resource ID` 를 참조해야 한다.
+
+>[!info] 이는 `apiGateway` 에 이미 `/posts` 라는 경로가 존재하므로, `/posts` 에 대한 경로를 다시 생성하려고 하면, `error` 가 발생한다고 하는듯하다.<br><br>이러한 `error` 를 방지하기 위해 `restApiResource` 에 `경로명: 경로명 ID` 방식으로, 이미 존재하는 경로를 참조하여 생성하겠다고 알려주어야 한다.
 
 ```yml
 service: service-a
@@ -1499,7 +1501,9 @@ proivder:
 		restApiRootResourceId: xxxxxxxxxx
 		websocketApiId: xxxxxxxxxx
 		description: Some Description
+		# posts 경로를 참조 혹은 생성
 		restApiResources:
+			# 이는 상대경로이지만, 여기에서는 /posts 와 그 하위 경로를 포함한다
 			posts: xxxxxxxxxx
 
 functions: ...
@@ -1513,9 +1517,198 @@ proivder:
 		restApiRootResourceId: xxxxxxxxxx
 		websocketApiId: xxxxxxxxxx
 		description: Some Description
+		# posts 경로를 참조 혹은 생성
 		restApiResources:
+			# 이는 절대 경로로 /posts 와 그 하위 경로를 포함한다
 			/posts: xxxxxxxxxx
 
 functions: ...
 ```
+
+기본적으로 `serverless` 는 `root resource` 에서 이를 생성한다.
+`/` 루트 경로 리소스가 필요하지 않는 경우 `RestApiRootResourceId` 는 선택사항이다. 
+
+또한, 둘 이상의 `path` `resource` 정의가 가능하다 
+
+```yml
+service: service-a
+provider:
+  apiGateway:
+    restApiId: xxxxxxxxxx
+    # restApiRootResourceId: xxxxxxxxxx # Optional
+    websocketApiId: xxxxxxxxxx
+    description: Some Description
+    restApiResources:
+      /posts: xxxxxxxxxx
+      /categories: xxxxxxxxx
+	  
+functions:
+  listPosts:
+    handler: posts.list
+    events:
+      - http:
+          method: get
+          path: /posts
+		  
+  listCategories:
+    handler: categories.list
+    events:
+      - http:
+          method: get
+          path: /categories
+```
+
+### 공유된 API Gateway 와 API Resource 사용하는 가장 쉽고 CI/CD 친화적인 예
+
+`restApiId`, `restApiRootResourceId` 그리고, `websocketApiId`  를 사용하는 `cloudeformation` `stack` 간 참조를 `export` 하고 소유한 `service` 안에 `API Gateway` `resource` 를 정의할수 있다.
+
+```yml
+service: my-api
+
+provider:
+	name: aws
+	runtime: nodejs14.x
+	stage: dev
+	region: eu-west-2
+
+resources:
+	Resources:
+		MyApiGW:
+			Type: AWS::ApiGateway::RestApi
+			properties:
+				Name: MyApiGW
+
+		MyWebSocketApi:
+			Type: AWS::ApiGatewayV2::Api
+			properties:
+				Name: MyWebsocketApi
+				protocolType: WEBSOCKET
+				routeSelectionExpression: '$request.body.action'
+
+		Outputs:
+			# stack 내부에서 사용하는 이름지정
+			apiGatewayRestApiId:
+				# output 값 설정
+				Value:
+					Ref: MyApiGW
+				# output 에서 사용할 이름
+				Export:
+					Name: MyApiGateway-restApiId
+
+			# stack 내부에서 사용하는 이름지정
+			apiGatewayRestApiRootResourceId:
+				# output 값 설정
+				Value:
+					Fn::GetAtt:
+						- MyApiGW
+						- RootResourceId
+				# output 에서 사용할 이름
+				Export:
+					Name: MyApiGateway-rootResourceId
+					
+			# stack 내부에서 사용하는 이름지정
+			websocketApiId:
+				# output 값 설정
+				Value:
+					Ref: MyWebsocketApi
+				# output 에서 사용할 이름
+				Export:
+					Name: MyApiGateway-websocketApiId
+
+```
+
+>[!info] CloudeFormation 의 Outputs<br><br>`Outputs` 기능은 다른 `stack` 에서 이 값을 사용할수 있도록 `내보내기` 하는 기능이다.<br><br>이때, `Outputs` 의 속성이름으로 만 사용한다면, 이는 `stack` 내부에서만 사용가능하기에, 명시적으로 `Export` 를 통해 `Name` 을 지정해주어야, 다른 `stack` 에서 이 지정된 `Name` 으로 참조하여 재사용 가능하다
+
+이러한 `Outputs` 이 `stack` 간 참조 (`cross-stack reference`) 의 핵심이다.
+이를 통해 `Fn::ImportValue` 를 사용하여 `Outputs` 된 값을 참조하여가져올수 있다
+
+```yml
+service: service-a
+
+provider:
+	apiGateway:
+		restApiId:
+			'Fn::ImportValue': MyApiGateway-restApiId
+		restApiRootResourceId:
+			'Fn::ImportValue': MyApiGateway-rootResourceId
+		websocketApiId:
+			'Fn:ImportValue': MyApiGateway-websocketApiId
+
+functions: service-a-functions
+```
+
+```yml
+service: service-b
+
+provider:
+	apiGateway:
+		restApiId:
+			'Fn::ImportValue': MyApiGateway-restApiId
+		restApiRootResourceId:
+			'Fn::ImportValue': MyApiGateway-rootResourceId
+		websocketApiId:
+			'Fn:ImportValue': MyApiGateway-websocketApiId
+
+functions: service-b-functions
+```
+
+>[!info] `service` 간 `API Gateway` 에서의 `method` 공유는 같은 `region`  에서 사용해야 한다.
+
+>[!warning]  `restApiId` 와 `restApiRootResourceId` 에 대한 `Fn::ImportValue`와  `provider.tag` 와 함께 사용하면 `error` 발생하는것을 확인했다고 한다. 이렇게 같이 사용하지 말라고 경고하고 있다.
+
+#### API Gatway 와 함께 Authorizer 를 사용시 참고사항
+
+`AWS API Gateway` 는 오직 하나의 `Authorizer` 와 하나의 `ARN` 을 허용한다.
+이는 전통적인 `serverless` 설정일때는 괜찮다 왜냐하면, 각 `stage` 와 `service` 는 다른 `API Gateway` 를 생성하기 때문이다.
+
+하지만, 공유된 `API Gatway` 와 함께 `Authorizer` 를 사용할때 문제가 발생하낟.
+만약 이와 같이 다른 `services` 에 직접적으로 같은 `authorizer` 를 사용하다고 가정해보자
+
+```yml
+service: service-c
+
+provider:
+	apiGateway:
+		restApiId:
+			'Fn::ImportValue': apiGateway-restApiId
+		restApiRootResourceId:
+			'Fn:ImportVlaue': apitGateway-rootResourceId
+
+	functions:
+		deleteUser:
+			events:
+				- http:
+					path: /users/{userId}
+					autyhorizer:
+						arn: xxxxxxxxxxxxxxxx # cognio/custom authorizer arn
+```
+
+```yml
+service: service-d
+
+provider:
+	apiGateway:
+		restApiId:
+			'Fn::ImportValue': apiGateway-restApiId
+		restApiRootResourceId:
+			'Fn:ImportVlaue': apitGateway-rootResourceId
+
+	functions:
+		deleteProject:
+			events:
+				- http:
+					path: /project/{projectId}
+					autyhorizer:
+						arn: xxxxxxxxxxxxxxxx # cognio/custom authorizer arn
+```
+
+이는 [# Cannot reference an authorizer already created within services that shares the same API GW](https://github.com/serverless/serverless/issues/4711) 와 같은 문제가 발생한다.
+
+이것이 작동하기 위한 적절한 수정 방법은 [[#Share Authoizer]] 을 사용하거나
+각 함수의 `Authorizer` 에 고유한 `name` `property` 를 추가하는것이다.
+
+이는 같은 `API Gateway` 에 바인딩된 각 함수에 대한 다른 `API Gateay authorizer` 를 생성한다
+
+그러나, 여기에도 `RestApi` 당 $10$ 개의 `authorizer` 가 제한되며, 개발 차단을 해제하려면 `AWS`  에 연락하여 한도 증가 요청을 해야 한다고 말한다.
+
 

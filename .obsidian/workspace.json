@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Servierless/Usage/Parameters.md",
+    "().md",
     "Blog/Servierless/Usage/Events/REST APIs (API Gateway v1).md",
+    "Blog/Servierless/Usage/Parameters.md",
     "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
     "Blog/Servierless/Usage/Events",
@@ -176,7 +177,6 @@
     "Blog/TDD/UI  Component/query 정리.md",
     "Blog/Servierless/Usage",
     "Blog/Servierless",
-    "().md",
     "Blog/TDD/UI  Component/event-handler 개요.md",
     "Blog/TDD/Mock/목 함수를 사용하는 spy - jest.fn.md",
     "Blog/TDD/UI  Component",
