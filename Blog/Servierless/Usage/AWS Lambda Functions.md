@@ -151,4 +151,134 @@ deleteFoo:
 
 ## Permissions
 
-모든 `AWS Lambda`  인프라 `resource` 와 상호작용하기 위해 함수는 다른 `AWS` `permission` 
+모든 `AWS Lambda`  인프라 `resource` 와 상호작용하기 위해 `Lambda` 는 다른 `permission` 이 필요하다
+이러한 `Permission` 은 `AWS IAM Role` 을 통해 설정한다.
+
+이는 `provider.iam.role.statements` `property` 를 통해 `policy` 를 설정할수 있다.
+
+```yml
+service: MyServcie
+
+provider:
+	name: aws
+	runtime: nodejs14.x
+	iam:
+		role:
+			statements:
+				# permission 을 허용하는 정책
+				- Effect: Allow
+				  # 허용할 permission 액션
+				  Action:
+					  # dynamodb 관련 액션 정의
+					  - dynamodb:DescribeTable
+					  - dynamodb:Query
+					  - dynamodb:Scan
+					  - dynamodb:GetItem
+					  - dynamodb:PutItem
+					  - dynamodb:UpdateItem
+					  - dynamodb:DeleteItem
+				  # 액션을 허용할 resource arn
+				  Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+
+functions:
+	functionOne:
+		handler: handler.functionOne
+		memeorSize: 512
+```
+
+```yml
+servcie: myService
+provider:
+	name: aws
+	iam:
+		role:
+			statements:
+				# permsssion 을 허용하는 정책
+				- Effect: 'Allow'
+				  Action:
+					# 허용할 액션
+					- 's3:ListBucket'
+				  Resource:
+					  # CloudeFormation 문법을 넣을수 있다
+					  # 이러한 문법은 CloudeFormation 으로 변환된다는점을 기억하라고 말한다
+					  # Fn::Join: 문법으로, 첫번째는 구분자를 지정하고,
+					  # 두번째 원소로 배열을 받아 배열의 원소들을 첫번째 원소의 구분자로 합친다
+					  {
+						  'Fn::Join':
+							  [
+								  '',
+								  [
+									  'arn:aws:s3:::', 
+									  { 'Ref': 'ServerlessDeploymentBucket' },
+								  ],
+							  ],
+					  }
+				- Effect: 'Allow'
+				  Action:
+					  - 's3:PutObject'
+				  Resource:
+					  Fn::Join:
+						  - ''
+						  - - 'arn:aws:s3:::'
+						    - 'Ref': 'serverlessDeploymentBucket'
+							- '/*'
+functions:
+	functionOne:
+		handler: handler.functionOne
+		memorySize: 512
+```
+
+원래 존재하는 `IAM role` 을 사용하고 싶다면, `iam.role` `property` 에 `IAM Role` `ARN`   를 추가할수 있다
+
+```yml
+service: new-service
+provider:
+	name: aws
+	iam:
+		role: arn:aws:iam::YourAccoutNumbeR:role/YourIamRole
+```
+
+## Lambda Function URLs
+
+Lambda 함수를 `HTTP(S)` `endopint` 로 노출시켜 웹 요청을 받을수 있도록 해야 한다.
+이때 사용하는 설정이 `url` 이다. 
+
+이 설정은 `API Gateway` 를 자동으로 설정하고, `Lambda` 함수에 대한 `HTTP(S)` `URL` 을 생성하여 외부에서 호출할수 있게 해준다.
+
+다음은, `url` `property` 를 사용하여 `CORS` 없이 `Public` `URL` 을 생성하게 한다.
+
+```yml
+functions:
+	func:
+		handler: index.hanlder
+		url: true
+```
+
+`authorizer`, `cors` 와 `invokeMode` 옵션을 추가하여 설정을 변경할수도 있다.
+
+```yml
+provider:
+	name: aws
+	# 
+	iam:
+		role:
+			statements:
+				- Effect: Allow
+				  Action:
+					  - lambda:InvokeFunctionUrl
+				  Resource:
+					  - arn:aws:lambda:${opt:region, 'us-east-1'}:${aws:accountId}:function:${self:service}-${opt:stage}-func
+		
+
+functions:
+	func:
+		handler: index.handler
+		url:
+			authorizer: aws_iam
+```
+
+`IAM Authorization` 을 사용하는 경우 `URL`  은 `Lambda:InvokeFunctionUrl` 을 허용하는 `AWS` `credentials` (자격증명) 이 있는 `HTTP` 요청만 허용한다. 
+
+
+
+
