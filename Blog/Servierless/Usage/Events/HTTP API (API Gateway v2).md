@@ -245,7 +245,7 @@ functions:
 
 - **identitySource [optional]**: `request` `parameters` 에 대한 하나 이상의 매핑된 표현식을 지정한다. 예를 들어, `$request.header.Authorization` 형식으로 지정할수 있다.<br><br>이 지정된 값은 `authorizer` 에 의해 `null` 이 아니고 비어있는 값이 아님을 확인된다.<br> <br>`resultTtlinSeconds` 가 `non-zero` 가 아닌경우, `identitySource` 는 캐시키로 추가로 사용된다. 이경우 `identitySource` 는 인증 응답 캐싱으로 사용된다.
 
-- **managedExternally [optional]**: 만약, `authorizer` 기능이 외부에서 관리되는 지 여부를 지정하는 `flag` 이다.<br>(예, 다른 `AWS` 계정에 존재하는 기능) <br><br>`true` 로 설정한다면,  `authorizer` 기능에 대한 `permission` `resource` 생성을  건너띄게 된다. 
+- **managedExternally [optional]**:  `authorizer` 기능이 외부에서 관리되는 지 여부를 지정하는 `flag` 이다.<br>(예, 다른 `AWS` 계정에 존재하는 기능) <br><br>`true` 로 설정한다면,  `authorizer` 기능에 대한 `permission` `resource` 생성을  건너띄게 된다. 
 
 >[!info] `managedExternally` 가 번역체로 해석되다 보니 내용이 애매하다.<br>명확하게 말하자면, `authorizer` 생성시 `permission` 이 자동 생성되는듯하다.<br><br>이때, `permission` 생성을 하지 않고, 이미 만들어 놓은  `authorizer`  기능을 사용하는 경우 `true` 로 설정하여 생성하지 않도록 만들수 있다는것으로 이해하고 있다.
 
