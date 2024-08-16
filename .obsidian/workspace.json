@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
+                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
+                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
+                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md"
+                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
+    "Blog/Servierless/Usage/AWS Lambda Functions.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
     "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
     "Blog/Servierless/Usage/Events/REST APIs (API Gateway v1).md",
@@ -197,7 +198,6 @@
     "Blog/PWA/assets/images/Save subscription info.png",
     "save subscribe request.png",
     "Blog/PWA/Background Sync/동기화 이벤트로 데이터 넘기기.md",
-    "웹앱 매니페스트의 구조.md",
     "Blog/PWA/assets/images/Send subscribe.png",
     "Blog/PWA/Push Notification",
     "Blog/PWA/웹앱",
