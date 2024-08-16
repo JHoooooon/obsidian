@@ -40,6 +40,7 @@ provider:
 		# `execute-api` 에서 생성된 기본 HTTP Endpoint 를 disabled (default: false)
 		disableDefaultEndpoint: true
 
-		# 
+		# 사용량 계획(usage plan)에 대한 API key 의 소스: HEADER or AUTHORIZER 
+		apiKeySourceType: HEADER
 		
 ```
