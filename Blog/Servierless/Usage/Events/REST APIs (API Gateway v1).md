@@ -1427,3 +1427,95 @@ functions:
 
 ## API Gateway 와 API Resource 공유
 
+`Application` 이 성장함에 따라, 작은 `service` 로 나누어야 할 필요가 생긴다
+기본적으로, 각 `Serverless Project` 는 새로운 `API Gateway` 를 생성한다.
+
+다음처럼  `REST API ID` 와 `Root Resource ID` 를 참조하여 같은 `API Gateway` 사이에 여러 `project` 를 공유할수 있다 
+
+다음의 예시는 두 `service` 에 같은 `perent` `path` 인 `/posts` 를 참조한다
+
+```yml
+service: service-name
+provider:
+	name: aws
+	apiGateway:
+		# Rest API resource ID, 기본적값은 framework 에 의해 생성된다
+		restApiId: xxxxxxxxxx 
+		# Root Resource, / path 로 표시
+		restApiRootResourceId: xxxxxxxxxx 
+		# websocket API resource ID, 기본값은 framework 에 위해 생성된다
+		websocketApiId: xxxxxxxxxx 
+		# 선택적 - 배포 기록 설명
+		description: Some Desription
+		
+functions: ...
+```
+
+`Application` 에 많은 중첩된 경로를 가진다면, 다음처럼 작은 `services` 로 나누길 원할수 있다
+
+```yml
+service: service-a
+provider:
+	apiGateway:
+		restApiId: xxxxxxxxxx
+		restApiRootResourceId: xxxxxxxxxx
+		websocketApidId: xxxxxxxxxx
+		description: Some Description
+
+functions:
+	create:
+		handler: posts.create
+		events:
+			- http:
+				method: post
+				path: /posts
+```
+
+```yml
+service: service-b
+provider:
+	apiGateway:
+		restApiId: xxxxxxxxxx
+		restApiRootResourceId: xxxxxxxxxx
+		websocketApiId: xxxxxxxxxx
+		description: Some Description
+
+functions:
+	create:
+		handler: posts.createComment
+		events:
+			- http:
+				method: post
+				path: /posts/{id}/comments
+```
+
+그러나, 만약, 이미 존재하는 `path resource` 를 생성하려고 하면 `Cloudformation` 은  오류가 발생한다. 이를 방지하기 위해 `/posts` 의 `resource ID` 를 참조한다.
+
+```yml
+service: service-a
+proivder:
+	apiGateway:
+		restApiId: xxxxxxxxxx
+		restApiRootResourceId: xxxxxxxxxx
+		websocketApiId: xxxxxxxxxx
+		description: Some Description
+		restApiResources:
+			posts: xxxxxxxxxx
+
+functions: ...
+```
+
+```yml
+service: service-b
+proivder:
+	apiGateway:
+		restApiId: xxxxxxxxxx
+		restApiRootResourceId: xxxxxxxxxx
+		websocketApiId: xxxxxxxxxx
+		description: Some Description
+		restApiResources:
+			/posts: xxxxxxxxxx
+
+functions: ...
+```
+
