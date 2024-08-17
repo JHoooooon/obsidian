@@ -279,6 +279,42 @@ functions:
 
 `IAM Authorization` 을 사용하는 경우 `URL`  은 `Lambda:InvokeFunctionUrl` 을 허용하는 `AWS` `credentials` (자격증명) 이 있는 `HTTP` 요청만 허용한다. 
 
+또한, `CORST headers` 를 사용하여, `function` `URL` 을 다른 `domain` 에서 호출되게 할수 있다.
+`cors` 를 `true` 로 해주면, 모든 `domain` 을 허용한다.
 
+```yml
+functions:
+	func:
+		handler: index.handler
+		url:
+			cors: true
+```
 
+이는 기본적으로 다음의 `table` 의 `HTTP Header` 내용을 가진다.
+
+| Header                       | Value                                                                   |
+| :--------------------------- | ----------------------------------------------------------------------- |
+| Access-Control-Allow-Origin  | *                                                                       |
+| Access-Control-Allow-Header  | Cntent-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token |
+| Access-Control-Allow-Methods | *                                                                       |
+다음처럼 `allowedOrins` , `allowedHeaders`, `allowedMethods`, `allowCredentials`, `exposedResponseHeaders` , `maxAge` 속성을 설정하여, `CORS` 설정을 추가로 조정할수 있다.
+
+```yml
+functions:
+	func: index.handler
+	url:
+		cors:
+			allowedOrigins: # 헝
+				- https://url1.com
+				- https://url2.com
+			allowedHeaders:
+				- Content-Type
+				- Authrization
+			allowedMethods:
+				- GET
+			alloweCredentials: true
+			exposedResponseHeaders:
+				- Sepcial-Response-Header
+			maxAge: 6000 # In Seconds (초단위)
+```
 
