@@ -689,4 +689,74 @@ functions:
 
 `Lambda` `function` `execution` `role` 은 `ENI` 를 `create`, `describe`, `delete` 권한(`permission`)을 가져야 한다 
 
-`VPC Configuration` 을 제공할때, 기본적으로 `AWSLambdaVPCAccessExecutionRole`  
+`VPC Configuration` 을 제공할때, 기본적으로 `AWSLambdaVPCAccessExecutionRole`  이 `Labmda execution role` 과 함께 제공된다.
+
+이  `custom role` 이 있는 경우, 적절한 `ManagedPolicyArns` 이 포함되어 제공되야 한다.
+
+[Required IAM Permissions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html#configuration-vpc-permissions) 에서 보면, `Lambda` 함수는 `AWS VPC` 를 연결하려면, `Lambda` 는 `network interface` (`ENI`)를 관리하고 생성할수 있는 `permission`  이 필요하다.
+
+이를 위해 `Lambda` 함수에 `AWS` `managed policy` 인 `AWSLambdaVPCAccesExecutionRole` 을 연결할 필요가 있다.
+
+이는 `Lambda` 콘솔에서 새 함수를 생성하고, 이를 `VPC` 에 연결하면 `Lambda`가 자동으로 이 권한 정책을 추가한다. 
+
+>[!note] 함수 생성시 `default` 로 `execution role` 로 제공된다는 말이다.
+
+만약, 자체적으로 `IAM` `permission` `policy` 를 생성하려면 다음권한을 모두 추가한다.
+
+- `ec2:CreateNetworkInterface`
+- `ec2:DescribeNetworkInterfaces`: 이 액션은 `Resource: "*"` 인 경우에만 작동한다
+- `ec2:DesribeSubnets`
+- `ec2:DeleteNetworkInterface`:  `DeleteNetworkInterface` 를 위한 `resource ID` 가 지정되지 않는다면, 함수가 `VPC` 접근을 할수 없을수도 있다.<br><br>이는 고유한 `resource ID` 혹은 모든 `resource ID` 를 포함하도록 둘중 하나를 지정한다 <br><br>ex: `Resource: "arn:aws:ec2:us-west-2:123456789012:*/*`
+- `ec2:AssignPrivateIpAddresses`
+- `ec2:UnassignPrivateIpAddresses`
+
+>[!warning] `ENI` 생성을 위해 함수의 `role` 에만 이러한 `permission` 이 필요하며, 함수 호출에는 필요하지 않는다. `VPC` 에 연결된 상태에서도 이러한 권한이 제거된 경우에도 함수 호출은 성공적으로 수행될수도 있다.
+
+함수를 `VPC` 에 연결하려면, `Lambda` 는 `IAM` 사용자 `role` 을 사용하여 `network` `resources` 를 확인해야 한다.
+
+다음과 같은 `IAM` `permission` 이 있는지 확인하라
+
+- `ec2:DescribeSecurityGroups`
+- `ec2:DescribeSubnets`
+- `ec2:DescribeVpcs`
+
+## Environment Variables
+
+`serverless.yml` 에 특정 `function` 에 `environment` 객체 `property `를 추가하여 환경변수 설정을 추가할수 있다
+
+```yml
+service: service-name
+provider: aws
+
+functions:
+	hello:
+		hanlder: handler.hello
+		environment:
+			TABLE_NAME: tableName
+```
+
+또는, `provider` `level` 에 설정을 추가하여, 모든 `functions` 에 환경변수를 적용할수 있다. 
+`function` `level` 에 설정한 환경변수는 `provider` `level` 의 환경변수와 `merge` 되므로, `provider` `level` 에 정의한 환경변수에 접근할수 있다.
+
+만약, `function` `level` 과 `provider` `level` 의 `envoriment` `key` 가 중복된다면, `function` `level` 의 환경변수로 `overwrite` 된다
+
+```yml
+service: service-nameeeeeeeeeee
+provider:
+	name: aws
+	environment:
+		SYSTEM_NAME: mySystem
+		TABLE_NAME: tableName
+functions:
+	hello:
+		handler: handler.hello
+	users:
+		handler: handler.users
+		environment:
+			TABLE_NAME: tableName2
+```
+
+## Tags
+
+`functions` 에 대한 `tags` 를 추가하는것이 가능하다
+이러한 `tags`  는 `AWS consle` 에 나타나며 이를 통해 `tag`별 함수를 그룹호하거
