@@ -558,12 +558,135 @@ functions:
 
 ## Runtime Management
 
+>[!info] [Understanding how Lambda manages runtime version updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html) 에서 `Lambda` 에서  `version update` 를 어떻게 관리하는지에 대해 나와있다
 
+`Runtime Management` 는 `lambda` 함수에서 호환성 문제가 발생하는 경우 `runtime` 을 세부적으로 제어할수 있도록 해준다. 
 
+만약, `runtimeManagement` 를 `auto` 로 설정하길 원한다면, `runtimeManagement` 를 지정할 필요없이 `default` 로 암묵적으로 `auto`  설정된다.
 
+만약, `function` 을 재배포할때, `runtime` 을 `update` 하길 원한다면, `onFunctionUpdate` 로 설정할수 있다. 
 
+모든 `functions` 의 `runtime` 을 관리설정하도록, `provider.runtimeManagement` 에 다음처럼 설정할수도 있다.
 
+```yml
+provider:
+	...
+	runtimeManagement: onFunctionUpdate
+```
 
+>[!info] `function` 마다 개별적으로 설정도 가능하다 
 
+마지막으로, `mode` `property` 로 `auto` , `onFunctionUpdate`  를 설정할수 있다.
+이러한 경우, 다른 `variable` `source` 에 `runtimeManagement` 를 적용할때 사용된다.
+이는 다음과 같다
 
+```yml
+functions:
+	hello:
+		...
+		runtimeManagement:
+			mode: manual
+			arn: <aws runtime arn>
+```
 
+## SnapStart
+
+`Lmabda`  의 `JAVA` 용 `SnapStart`  는 대기시간에 민감한 `application` 의 시작 성능을 향상시킨다.
+
+>[!info] `Cold start` 를 말하는듯 하다.
+
+`lambda` 함수에 `SnapStart` 를 활성화하려면 함수 구성에 `snapStart` `property`  를 추가하면 된다.
+이 `property`  를 `true`  로 설정하면 이 함수에 대한 `PublishedVersions` 값이 생성된다고 말한다.
+
+```yml
+functions:
+	hello:
+		...
+		runtime: java11
+		snapStart: true
+```
+
+>[!info] `Lambda` `snapStart` 는 오직 `Java11`, `Java17`, `Java21` `runtime` 에서만 지원되며, `provisioned concurrency`, `arm64 archtecture`, `Lambda Extensions API`, `Amazon Elastic System`, `AWS X-Ray`, `512MB` 보다 큰 임시 스토리지는 지원하지 않는다.
+
+## VPC Configuration
+
+`function` 에 `vpc` 객체 `property` 추가해서 `serverlss.yml`는 `VPC` 설정을 추가했다.
+
+이 객체는 `function` 을 위한 `VPC` 구축을 위해 `secrityGroupIds` 와 `subnetIds` 배열 `property` 가 필요하다.
+
+```yml
+service: service-name
+provider: aws
+
+functions:
+	hello:
+		handler: handler.hello
+		vpc:
+			securityGroupIds:
+				- securityGroupId1
+				- securityGroupId2
+			subnetIds:
+				- subnetId1
+				- subnetId2
+```
+
+또는, `service` 의 모든 `functions` 에 `VPC` 설정을 적용하길 원한다면, `provider.vpc` 에 설정을 추가할수 있다. 그리고 `function` `level` 에 설정하여, `service` `level` 에서 설정한것을 덮어씌울수도 있다
+
+```yml
+service: service-name
+provider:
+	name: aws
+	vpc:
+		securityGroupIds:
+			- securityGroupId1
+			- securityGroupId2
+		subnetIds:
+			- subnetId1
+			- subnetId2
+
+functions:
+	hello:
+		handler: handler.hello
+		# service level 에서 설정한 vpc overwrite
+		vpc:
+			securityGroupIds:
+				- securityGroupId1
+				- securityGroupId2
+			subnetIds:
+				- subnetId1
+				- subnetId2
+				
+	# service level 에 설장한 vpc 적용됨
+	users:
+		handler: handler.users
+```
+
+`serverles deploy` 를 실행할때, `VPC` 설정은 `lambda` 와 함께 배포된다.
+
+만약, 특정 `functions` 가  `VPC` 없이 설정되길 원한다면, `functions` 안에 `vpc` `property` 에 `~`(null) 을 설정할수 있다.
+
+```yml
+service: service-name
+provider:
+	name: aws
+	vpc:
+		securityGroupIds:
+			- securityGroupId1
+			- securityGroupId2
+		subnetIds:
+			- subnetId1
+			- subnetId2
+
+functions:
+	hello:
+		handler: handler.hello
+		vpc: ~
+	users:
+		handler: handler.users
+```
+
+### VPC IAM Permissions
+
+`Lambda` `function` `execution` `role` 은 `ENI` 를 `create`, `describe`, `delete` 권한(`permission`)을 가져야 한다 
+
+`VPC Configuration` 을 제공할때, 기본적으로 `AWSLambdaVPCAccessExecutionRole`  
