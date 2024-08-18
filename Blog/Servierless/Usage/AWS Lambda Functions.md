@@ -741,7 +741,7 @@ functions:
 만약, `function` `level` 과 `provider` `level` 의 `envoriment` `key` 가 중복된다면, `function` `level` 의 환경변수로 `overwrite` 된다
 
 ```yml
-service: service-nameeeeeeeeeee
+service: service-name
 provider:
 	name: aws
 	environment:
@@ -759,4 +759,219 @@ functions:
 ## Tags
 
 `functions` 에 대한 `tags` 를 추가하는것이 가능하다
-이러한 `tags`  는 `AWS consle` 에 나타나며 이를 통해 `tag`별 함수를 그룹호하거
+이러한 `tags`  는 `AWS consle` 에 나타나며 이를 통해 `tag`별 함수를 그룹화하거나 공통 `tag` 가 있는 함수를 쉽게 찾을수 있다고 한다.
+
+```yml
+functions:
+	hello:
+		handler: handler.hello
+		tags:
+			foo: bar
+```
+
+또는 `service` 안의 모든 `functions` 에 `tag` 를 적용할수 있다.
+`provider` `level` 에 설정하면 되며, `function` `level`  에 적용시, `tags` 는 `merge` 되어 `provider` `level` 의 `tag` 도 같이 적용된다. 
+
+만약, `function` `level` 의 `tags` 와 `provider` `level` 의 `tag` 가 겹친다면, `function` `level` 의 `tags` 로 `overwrite` 된다.
+
+```yml
+# serverless.yml
+service: service-name
+provider:
+  name: aws
+  tags:
+    foo: bar
+    baz: qux
+functions:
+  hello:
+    # 이 함수는 `provider.tags` 를 적용한다
+    handler: handler.hello
+  users:
+    # 이 함수는 `provider.tags` 와 `merge` 되지만
+    # foo 값을 overwrite 한다
+    handler: handler.users
+    tags:
+      foo: quux
+```
+
+## Layers
+
+`function` 에 `layer` 설정을 할수 있다.
+
+```yml
+functions:
+	hello:
+		handler: handler.hello
+		layers:
+			- arn:aws:lambda:region:xxxxxx:layer:layerName:Y
+```
+
+`Layder` 는 `Lambda` 에서 구현한 사용자 지정 `runtime` 을 통해 `runtime: provided` 와  함께 사용될수 있다
+
+## Log Group Resources
+
+기본적으로, `framework` 는 `Lambda` 에 대한 `LogGroups` 를 생성한다.
+이는 `service` 를 삭제할 경우 쉽게 정리할수 있으며, `Labmda IAM permission` 을 훨씬 구체적이고 안전하게 만든다.
+
+이러한 `default` 설정을 비활성화 하고 싶다면 `disalbeLogs: true` 를 사용할수 있다.
+
+`CloudWatch` `log` 의 보존(`retention`) 기간을 지정하고 싶다면 `logRetentionInDays` 로 설정할수 있다.
+
+`LogGroup` 에 대한 `DataProtectionPolicy`(데이터 보호 정책) 을 지정하고 싶다면, `logDataProtectionPolicy` 를 정의할수 있다.
+
+```yml
+functions:
+	hello:
+		handler: handler.hello
+		# log 비활성화
+		disabledLogs: true
+	goodBye:
+		handler: handler.goodBye
+		# 14 일동안 log 유지
+		logRetentionInDays: 14
+		# log 데이터 보호 정책
+		logDataProtectionPolicy:
+			Name: data-protection-policy
+```
+
+## Versioning Deployed Functions
+
+기본적으로, `framework` 는 매번 배포할때 마다 함수 `version` 을 생성한다.
+이 동작은 선택적이며, `qulifier`(한정자) 로 이전 `version` 을 호출하지 않도록 끌수도 있다
+
+이를 수행하려면, `arn:aws:lambda:...:function/myFunc:3` 으로 함수를 호출하여 `version` `3` 을 호출할수 있다.
+
+`version`은 `serverless` 에 의해 정리되지 않으며, 오래된 버전을 정리하기위한 `plugin` 이나 기타 도구를 사용해야 한다.
+
+`version`  을 `framework` 에서 정리하지 않는 이유는, 호출된 함수의 `version` 이 오래되었는지 아닌지에 대한 정보가 없기 때문이다.
+
+함수 `version` 은 참조하는 함수와 별도의 `resource` 이기 때문에 이 기능을 사용하면 총 `stack` 출력 및 `resource` 수를 증가시킨다.
+
+>[!warning] 위의 글은 번역체로, 명확하게 이해는 가지 않는다...
+
+다음은 `versionFunctions` 옵션을 `provider` `level` 에 설정하여, `versioning` 을 `off` 시킨다.
+
+```
+provider:
+	versionFunctions: false
+```
+
+## Dead Letter Queue (DLQ)
+
+`AWS` `lambda` 함수가 실패하면, 재실행한다.
+만약, 재실행역시 실패하면, `AWS` 는 실패 `request`에 대한 정보를 보내는 `SNS topick` 또는 `SQS queue` 기능이 있다.
+
+이러한 기능을 [Dead Letter Queue](https://docs.aws.amazon.com/ko_kr/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) 라 부르며, `Lambda` 실패를 추적, 진단 대응하는데 사용할수 있다.
+
+이러한 `Dead Letter Queue` 를 `SNS topic` 과 `onError` 설정 `parameter` 와 함께 `serverless` 함수에 설정할수 있다.
+
+>[!warning] `function` 당 하나의 `onError`  제공해야만 한다.
+
+### DLQ with SNS
+
+`SNS topic` 은 미리 생성되어야 하며, `function` `level`  에 `arn` 으로 제공되야 한다.
+
+```yml
+service: service
+provider:
+  name: aws
+  runtime: nodejs14.x
+functions:
+  hello:
+    handler: handler.hello
+    onError: arn:aws:sns:us-east-1:XXXXXX:test # Ref, Fn::GetAtt and Fn::ImportValue are supported as well
+```
+
+### DLQ with SQS
+
+`DLQ` 를 통해 `SQS queue` 와 `SNS topic` 둘 다 제공한다.
+하지만 `onError` 설정은 현재 오직 `SNS topic` `arn` 만 지원하며, `SQS queue` `arn` 은`IAM role` 을 업데이트 할때 발생하는 `race condition` 때문에  `onError` 설정을 지원하지 않는다.
+
+## KMS Keys
+
+`Lambda` 는 `KMS`(`AWS Key Management Service`) 로 미사용 환경 변수를 암호화한다.
+`kmsKeyArn` 설정 변수를 활성화하여, 암호화된 `KMS key` 를 정의할수 있다
+
+```yml
+service:
+	name: service-name
+
+provider:
+	name: aws
+	kmsKeyArn: arn:aws:kms:us-east-1:xxxxxx:key/some-hash
+	environment:
+		TABLE_NAME: tableName1
+
+functions:
+	hello:
+		handler: handler.hello
+		kmsKeyArn: arn:aws:kms:us-east-1:xxxxxx:key/some-hash
+		enviroment:
+			TABLE_NAME: tableName2
+	goobdye:
+		handler: handler.goodbye
+```
+
+## AWS X-Ray Tracing
+
+옵셔널한 `property` 인 `tracing` 을 설정하여 `AWS-X-Ray Tracing` 을 활성화 할수 있다.
+
+```yml
+service: myService
+provider:
+  name: aws
+  runtime: nodejs14.x
+  tracing:
+    lambda: true
+```
+
+또한 `function` `level` 에 적용하여, `provider` `level` 의 `tracing` 을 `override` 할수 있다.
+
+```
+functions:
+  hello:
+    handler: handler.hello
+    tracing: Active
+  goodbye:
+    handler: handler.goodbye
+    tracing: PassThrough
+```
+
+## Asynchronous invocation
+
+함수를 비동기적으로 호출하려는 경우 다음과 같은 추가 설정을 구성할수 있다.
+
+### destinations
+
+`destination`  은 `service` 또는 기타 `qualified` 와 함께 배포하는 다른 `lambda` 함수일수 있다
+``
+>[!info] 외부에서 관리되는 `lambda`, `EventBridge event bus`, `SQS` ,`SNS topic` 같은 ...
+
+이는 `ARN` 또는 참조를 통해 설정할수 있다.
+
+```yml
+functions:
+  asyncHello:
+    handler: handler.asyncHello
+    destinations:
+	  # 성공시 ohterFunctionInService 로 
+      onSuccess: otherFunctionInService
+	  # 실패시 arn 에 명시된 sns topic 으로
+      onFailure: arn:aws:sns:us-east-1:xxxx:some-topic-name
+  asyncGoodBye:
+    handler: handler.asyncGoodBye
+    destinations:
+	  # 실패시, 
+      onFailure:
+		# CloudFormation 내장 함수를 사용하는 경우 사용하는 arn 
+		# 이렇게 CF 를 통한 arn 으로 `target`의 실행 권한을 정확하게 보장하려면, 
+		# `type` 에 `sns`, `sqs`, `eventBus`, `function` 을 지정해야 한다.
+        type: sns
+        arn:
+          Ref: SomeTopicName
+```
+
+### Maximum Event Age and Maximum Retry Attempts 
+
+`maximumEventAge` 는 `60` 에서 `6 hour` 
+
