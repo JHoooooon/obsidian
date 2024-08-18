@@ -973,5 +973,63 @@ functions:
 
 ### Maximum Event Age and Maximum Retry Attempts 
 
-`maximumEventAge` 는 `60` 에서 `6 hour` 
+- `maximumEventAge` 는 최대 `Event` 를 처리할수 있는 최대 한계를 정의,<br>이벤트가 `labmda` 함수로 전달된 이후 설정한 값에 설정한 시간안에 이벤트를 처리하지 않으면, 이벤트를 더이상 처리되지 않는다.<br><br>`60` 에서 `6 hour` 시간 값(`seconds`) 를 허용한다
+
+- `maximumRetryAttempts` 는 최대 재실행 시도값으로 `0` 에서 `2` 까지의 값을 허용한다.
+
+```yml
+functions:
+  asyncHello:
+    handler: handler.asyncHello
+    maximumEventAge: 7200
+    maximumRetryAttempts: 1
+```
+
+## EFS Configuration
+
+`Lambda` 에서 `fileSystemConfig`  를 통해 `EFS` (`Elastic File System`) 을 사용할수 있다.
+`fileSystemConfig` 는 `arn` 과 `localMountPath` `property` 를 포함하는 객체이다.
+
+- `arn` : `EFS` 접근을 가리키는 참조 주소를 지정
+- `localMountPath`: 마운트된 `file system` 의 절대 경로를 지정
+
+```yml
+# serverless.yml
+service: service-name
+provider: aws
+functions:
+  hello:
+    handler: handler.hello
+    fileSystemConfig:
+      localMountPath: /mnt/example
+      arn: arn:aws:elasticfilesystem:us-east-1:111111111111:access-point/fsap-0d0d0d0d0d0d0d0d0
+    vpc:
+      securityGroupIds:
+        - securityGroupId1
+      subnetIds:
+        - subnetId1
+```
+
+## Ephemeral Storage (임시 스토리지)
+
+기본적으로 `Labmda` 는 `/tmp` 디렉토리에  `512 MB` 의 임시 스토리지를 할당한다.
+하지만, `emphmeralStorageSize`  를 통해 용량을 증가시킬수 있다.
+
+>[!info] 증가 값은 `MB` 이며, `512` 에서 `10240` 까지 가능하다.
+
+```yml
+functions:
+  helloEphemeral:
+    handler: handler.handler
+    ephemeralStorageSize: 1024
+```
+
+
+
+
+
+
+
+
+
 
