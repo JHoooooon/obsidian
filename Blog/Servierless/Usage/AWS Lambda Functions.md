@@ -440,9 +440,126 @@ fucntions:
 
 추가적으로,  다음의 `properties` 를 통해 `docker build` `command` 에 전달할 `arguments` 를 정의할수 있다.
 
-- `buildArgs` : `buildArgs` `property` 는 `--build-arg` `flag` 와 함께 `docker build` 명령을 전달한다.<br>이는  이후 `Dockerfile` 의 `ARG` 를 통해 참조된다. (see [Documentation](https://docs.docker.com/reference/dockerfile/#arg))
+- **`buildArgs`** : `buildArgs` `property` 는 `--build-arg` `flag` 와 함께 `docker build` 명령을 전달한다.<br>이는  이후 `Dockerfile` 의 `ARG` 를 통해 참조된다. (see [Documentation](https://docs.docker.com/reference/dockerfile/#arg))
 
-- ``
+- **`buildOptions`**:  `buildOptions` `property` 는 `docker build` 명령에 전달될 `options` 를 정의할수 있다. (see [Documentation](https://docs.docker.com/reference/cli/docker/buildx/build/#options))
+
+- **`cacheFrom`** : `cacheFrom` `property` 는 캐싱 `layer` 에서 사용할 `image` 를 지정하는데 사용한다.<br>`--cache-from` `flag` 와 함께 `docker build`  명령을 전달한다. (see [Documentation](https://docs.docker.com/reference/dockerfile/#usage))
+
+- **`platform`**: `platform` `property` 는 `architecture target` 을 지정하는데 사용된다.<br>`--platform` `flag` 와 함께 `docker build` 명령을 전달한다. (see [Documentation](https://docs.docker.com/reference/dockerfile/#from))<br><br>만약, 존재하지 않는다면 `docker` 는 기본 `computer architecture`  를 사용한다.<br>`Lambda` 는 `runtime` 설정을 명시하지 않는한, `x86` 을 일반적으로 사용한다.<br><br>`ARM` 기반으로 하는 머신 (`Apple M1 Mac`) 에서 `build` 할때 `error` 를 방지할 목적이라면,`linux/amd64` 을 사용해야 한다.<br><br>이 `flag` 에 대한 옵션은 `linux/amd64` (`x86` based Lambdas), `linux/arm64`(`arm` based Lambdas), 또는 `windows/amd64` 가 있다.
+
+`image` 에 대한 `uri` 를 정의할때, `buildArgs`, `buildOptions`, `cacheFrom`, `platform` 을 정의 할수 없다 
+
+```yml
+service: service-name
+provider:
+	name: aws
+	ecr:
+		scanOnPush: true
+		images:
+			baseImage:
+				path: ./path/to/context
+				fild: Dockerfile.dev
+				buildArgs:
+					STAGE: ${opt:stage}
+				cacheFrom:
+					- my-image:latest
+				platform: linux/amd64
+		anotherimage:
+			uri: 000000000.drk.ecr.ap-northeast-2.amazonaws.com/test-lambda-docker@sha256:6bb600b4d6e1d7cf521097177dd0c4e9ea373edb91984a505333be8ac9455d38
+```
+
+`functions` 에 설정시, `image`  `property`  를 통해 `images` 는 참조되어야 한다.
+이는 `provider.ecr.images` 에 이미 정의된 `image` 를 가리킬수 있으며, 또는 이미 존재하는 `AWS ECR` `image` 에 즉각적으로 가리킬수 있다
+
+다음은 `uri` 와 동일한 형식을 따르모, `image` 를 사용하는 경우 `handler` 및 `runtime` 속성이 모두 지원되지 않는다
+
+```yml
+service: service-name
+provider:
+	name: aws
+	ecr:
+		images:
+			baseimage:
+				path: ./path/to/context
+
+functions:
+	hello:
+		uri: 0000000000.drk.ecr.ap-northeast-2.amazonaws.com/test-lambda-docker@sha256:6bb600b4d6e1d7cf521097177dd0c4e9ea373edb91984a505333be8ac9455d38
+	world:
+		image: baseimage
+```
+
+또한 `functions[].image` 에서 `workingDirectory`, `entryPoint`, `command` `properties` 를 통해 `image` 설정을 추가할수 있다.
+
+`workingDirectory` 는 `string` 유형의 `path` 를 받는다
+`entryPoint` 와 `command` 는 `string` 의 `list` 를 정의해야 한다.
+
+```yml
+service: service-name
+provider:
+	name: aws
+	ecr:
+		images:
+			baseimage:
+				path: ./path/to/context
+
+functions:
+	hello:
+		uri: 0000000000.drk.ecr.ap-northeast-2.amazonaws.com/test-lambda-docker@sha256:6bb600b4d6e1d7cf521097177dd0c4e9ea373edb91984a505333be8ac9455d38
+		workingdirectory: /workdir
+		command:
+			- executable
+			- flag
+		entryPoint:
+			- executable
+			- flag
+	world:
+		image: baseimage
+		command:
+			- executable
+			- flag
+		entryPoint:
+			- executable
+			- flag
+```
+
+처음 배포할때 `local` 에서 `build` 한 `image` 를 사용하는 경우, `Framework` 는 자동을 `ECR` 저장소를 생성하여 이러한 `image` 를 저장한다.
+
+저장소 이름은 `serverless-<service>-<stage>` 이다.
+
+현재 사용될수 있기 때문에, `sls remove` 명령을 실행하면 생성된 `ECR` 저장소가 제거 된다.
+배포중에 `Framework` 는 필요에 따라 `ECR` 에 `Docker` 로그인을 시도한다.
+
+이는  `local` 구성에 따라 `Docker` 인증 토큰이 암호화되지 않은채로 저장될수 있으므로, 주의해야한다.
+이에 대해서 [here](https://docs.docker.com/engine/reference/commandline/login/#credentials-store) 를 확인하길 권장한다.
+
+## Architecture 설정 명령어
+
+`Lambda` 는 기본적으로 `64-bit` `x86` `Architecture` `CPUs` 를 사용한다.
+하지만, 더 나은 가격과 퍼포먼스를 위해 `arm764 Architecture` (`AWS Gravition2 processor`)를 사용할수도 있다
+
+`AWS Gravition2 processor` 로 번경하려면, `provider.archtecture`   를 다음처럼 설정한다.
+
+```yml
+provider:
+	...
+	architecture: arm64
+```
+
+`functions` `level` 에서 독립적으로 설정한다면 다음처럼 한다.
+
+```yml
+functions:
+	hello:
+		...
+		architecture: arm64
+```
+
+## Runtime Management
+
+
+
 
 
 
