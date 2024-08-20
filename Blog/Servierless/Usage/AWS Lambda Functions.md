@@ -1024,12 +1024,3 @@ functions:
     ephemeralStorageSize: 1024
 ```
 
-
-
-
-
-
-
-
-
-

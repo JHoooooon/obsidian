@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md",
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md",
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md",
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/Servierless/Usage/AWS Lambda Functions.md"
+                "file": "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md"
               }
             }
           },
@@ -160,8 +160,9 @@
   },
   "active": "0ddd7909f0c11255",
   "lastOpenFiles": [
-    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
+    "Blog/Servierless/Serverless.yaml reference/Serverless Framework yaml.md",
     "Blog/Servierless/Usage/AWS Lambda Functions.md",
+    "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway V1 REST API.md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider API Gateway v2 HTTP API.md",
     "Blog/Servierless/Usage/Events/HTTP API (API Gateway v2).md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider Deployment bucket.md",
@@ -171,7 +172,6 @@
     "Blog/Servierless/Usage/Events",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider General AWS Lambda settings.md",
     "Blog/Servierless/Serverless.yaml reference/Provider/Provider General Settings.md",
-    "Blog/Servierless/Serverless.yaml reference/Serverless Framework yaml.md",
     "Blog/Servierless/Serverless.yaml reference/Root Properties.md",
     "Blog/Servierless/Serverless.yaml reference/Provider",
     "Root Property.md",
